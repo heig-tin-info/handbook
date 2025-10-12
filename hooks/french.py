@@ -16,6 +16,7 @@ from typing import Mapping
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import Files
 from mkdocs.structure.pages import Page
+from mkdocs.utils import log
 
 RE_ADMONITION = re.compile(
     r'^(?P<pre>!!!\s*(?P<type>[\w\-]+)(?P<extra>(?: +[\w\-]+)*))(?: +"(?P<title>.*?)")? *$'
@@ -24,6 +25,72 @@ RE_IGNORE = re.compile(r"<code[^>]*>.*?</code>|<[^>]+>|&\w+;|\w://|[!?:;]\w", re
 RE_PUNCT = re.compile(r"(?<=\w) ?([!?:;])")
 
 translations: Mapping[str, str] = {}
+
+
+def ligatures(content):
+    """Detect missing French ligatures and common abbreviations in the content content."""
+    ligatures_map = {
+        "coeur": "cœur",
+        "soeur": "sœur",
+        "boeuf": "bœuf",
+        "coelacanthe": "cœlacanthe",
+        "noeud": "nœud",
+        "oeil": "œil",
+        "oeuf": "œuf",
+        "oeuvre": "œuvre",
+        "oeuvrer": "œuvrer",
+        "oedeme": "œdème",
+        "oestrogène": "œstrogène",
+        "oecuménique": "œcuménique",
+        "oeillet": "œillet",
+        "oe": "œ",
+        "foetus": "fœtus",
+        "oedipe": "œdipe",
+        "caecum": "cæcum",
+        "tænia": "tænia",
+        "vitae": "vitæ",
+        "ex aequo": "ex æquo",
+        "cænotype": "cænotype",
+        "voeu": "vœu",
+    }
+
+    abbreviations = {
+        "cie": "C^{ie}",
+    }
+
+    for non_ligature, ligature in ligatures_map.items():
+        pattern = r"\b" + re.escape(non_ligature) + r"\b"
+        matches = re.finditer(pattern, content, re.IGNORECASE)
+
+        for match in matches:
+            start = max(0, match.start() - 20)
+            end = min(len(content), match.end() + 20)
+            context = content[start:end].replace("\n", " ")
+
+            log.warning(
+                "Missing ligature: '%s' should be '%s' - Context: ...%s...",
+                non_ligature,
+                ligature,
+                context,
+            )
+
+    for abbrev, formatted in abbreviations.items():
+        pattern = r"\b" + re.escape(abbrev) + r"\b"
+        matches = re.finditer(pattern, content, re.IGNORECASE)
+
+        for match in matches:
+            start = max(0, match.start() - 20)
+            end = min(len(content), match.end() + 20)
+            context = content[start:end].replace("\n", " ")
+
+            log.warning(
+                "Missing abbreviation: '%s' should be '%s' - Context: ...%s...",
+                abbrev,
+                formatted,
+                context,
+            )
+
+    return content
 
 
 def on_config(config: MkDocsConfig) -> None:
@@ -43,6 +110,8 @@ def on_page_markdown(
     """Translate admonition titles when none are explicitly provided."""
 
     del page, config, files
+
+    markdown = ligatures(markdown)
 
     out: list[str] = []
     for line in markdown.splitlines():
@@ -79,37 +148,6 @@ def process_html(html: str) -> str:
         result += entity + part
 
     return result
-
-
-def ligatures(html):
-    map = {
-        "coeur": "cœur",
-        "soeur": "sœur",
-        "boeuf": "bœuf",
-        "coelacanthe": "cœlacanthe",
-        "noeud": "nœud",
-        "oeil": "œil",
-        "oeuf": "œuf",
-        "oeuvre": "œuvre",
-        "oeuvrer": "œuvrer",
-        "oedeme": "œdème",
-        "oestrogène": "œstrogène",
-        "oecuménique": "œcuménique",
-        "oeillet": "œillet",
-        "oe": "œ",
-        "foetus": "fœtus",
-        "oedipe": "œdipe",
-        "caecum": "cæcum",
-        "tænia": "tænia",
-        "vitae": "vitæ",
-        "ex aequo": "ex æquo",
-        "cænotype": "cænotype",
-        "voeu": "vœu",
-    }
-
-    abbreviations = {
-        "cie": "C^{ie}",
-    }
 
 
 def on_page_content(

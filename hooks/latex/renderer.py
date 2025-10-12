@@ -1,14 +1,17 @@
+"""A LaTeX renderer that converts HTML elements to LaTeX using LaTeXFormatter."""
+
 import logging
 import re
 from hashlib import sha256
 from html import unescape
 from pathlib import Path
-from typing import Any, Union
-from urllib.parse import quote, urlparse, urlunparse
+from typing import Any, Union, cast
 
 import yaml
-from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
+from bs4 import BeautifulSoup
+from bs4.element import NavigableString, PageElement, Tag
 
+from .config import BookConfig
 from .formatters import LaTeXFormatter
 from .transformers import (
     drawio2pdf,
@@ -18,54 +21,20 @@ from .transformers import (
     mermaid2pdf,
     svg2pdf,
 )
+from .utils import escape_latex_chars, is_valid_url, resolve_asset_path, safe_quote
 
 log = logging.getLogger("mkdocs")
 
 
-def resolve_asset_path(file_path, path):
-    """Resolve a relative path from a given file path."""
-    if Path(file_path).name == "index.md":
-        file_path = file_path.parent
-    path = (file_path / path).resolve()
-    if not path.exists():
-        return None
-    return path
-
-
-def safe_quote(url):
-    """Percent-encode a URL, preserving reserved characters."""
-    parsed_url = urlparse(url)
-    encoded_path = quote(parsed_url.path)
-    encoded_query = quote(parsed_url.query)
-    encoded_fragment = quote(parsed_url.fragment)
-    return urlunparse(
-        (
-            parsed_url.scheme,
-            parsed_url.netloc,
-            encoded_path,
-            parsed_url.params,
-            encoded_query,
-            encoded_fragment,
-        )
-    )
-
-
-def is_valid_url(url):
-    """Check if a URL is valid."""
-    try:
-        result = urlparse(url)
-        return all([result.scheme, result.netloc])
-    except ValueError:
-        return False
-
-
 def get_class(element, pattern: Union[str, re.Pattern]):
+    """Get the first class matching a pattern from a Tag object."""
     if isinstance(pattern, str):
         pattern = re.compile(pattern)
     return next((c for c in element.get("class", []) if pattern.match(c)), None)
 
 
 def get_depth(element: PageElement):
+    """Get the depth of an element in the HTML tree."""
     depth = 0
     while element.parent is not None:
         element = element.parent
@@ -74,6 +43,7 @@ def get_depth(element: PageElement):
 
 
 def find_all_dfs(soup: Tag, *args, **kwargs):
+    """Find all elements in a depth-first search order."""
     items = []
     for el in soup.find_all(*args, **kwargs):
         level = get_depth(el)
@@ -81,31 +51,27 @@ def find_all_dfs(soup: Tag, *args, **kwargs):
     return [item for _, item in sorted(items, key=lambda x: x[0], reverse=True)]
 
 
-def escape_latex_chars(text):
-    """Escape LaTeX special characters in a string."""
-    mapping = [
-        ("&", r"\&"),
-        ("%", r"\%"),
-        ("#", r"\#"),
-        ("$", r"\$"),
-        ("_", r"\_"),
-        ("^", r"\^"),
-        ("{", r"\{"),
-        ("}", r"\}"),
-        ("~", r"\textasciitilde{}"),
-        ("\\", r"\textbackslash{}"),
-    ]
-    return "".join([c if c not in dict(mapping) else dict(mapping)[c] for c in text])
+def normalize_class_list(class_attr) -> list[str]:
+    """Normalise l'attribut class en liste."""
+    if class_attr is None:
+        return []
+    if isinstance(class_attr, list):
+        return class_attr
+    return [class_attr]
 
 
 class LaTeXRenderer:
     """A renderer that converts HTML elements to LaTeX using LaTeXFormatter."""
 
-    def __init__(self, output_path=Path("build"), config=None):
+    def __init__(
+        self,
+        output_path: Path | str = Path("build"),
+        config: BookConfig | None = None,
+    ):
         if config is None:
-            config = {}
+            config = BookConfig()
 
-        self.config = config
+        self.config: BookConfig = config
         self.formatter = LaTeXFormatter()
         self.output_path = Path(output_path) / "assets"
         self.output_path.mkdir(parents=True, exist_ok=True)
@@ -198,7 +164,7 @@ class LaTeXRenderer:
 
         return soup
 
-    def get_safe_text(self, element: Union[PageElement, NavigableString]):
+    def get_safe_text(self, element: Tag):
         """Extract text from a PageElement object.
         This is a recursive function that will extract text from
         all children elements.
@@ -215,24 +181,22 @@ class LaTeXRenderer:
         They should be in the form of 'language-<lang>'.
         """
         prefix = "language-"
-        if "highlight" not in soup.get("class", []):
+        classes = cast(list[str], soup.get("class"))
+        if "highlight" not in classes:
             return None
         return (
             next(
-                (
-                    c[len(prefix) :]
-                    for c in soup.get("class", [])
-                    if c.startswith(prefix)
-                ),
+                (c[len(prefix) :] for c in classes if c.startswith(prefix)),
                 "text",
             )
             or "text"
         )
 
     def apply(self, element: PageElement, template, *args, **kwargs):
+        """Apply a LaTeX template to a PageElement object."""
         latex = getattr(self.formatter, template)(*args, **kwargs)
         node = NavigableString(latex)
-        node.processed = True
+        setattr(node, "processed", True)
         element.replace_with(node)
         return node
 
@@ -267,7 +231,7 @@ class LaTeXRenderer:
 
         return s
 
-    def render_navigable_string(self, soup: Tag, **kwargs):
+    def render_navigable_string(self, soup: Tag, **_: Any):
         """Replace all NavigableString to escape LaTeX special characters.
         This should not be on code blocks, only on text elements.
         """
@@ -287,14 +251,14 @@ class LaTeXRenderer:
             el.replace_with(text)
         return soup
 
-    def render_unicode(self, soup: Tag, **kwargs):
+    def render_unicode(self, soup: Tag, **_: Any):
         """Display a unicode char code."""
         for a in soup.find_all("a", class_=["ycr-unicode"]):
             code = f"U+{self.get_safe_text(a)}"
             self.apply(a, "href", code, url=safe_quote(a.get("href", "")))
         return soup
 
-    def render_regex(self, soup: Tag, **kwargs):
+    def render_regex(self, soup: Tag, **_: Any):
         """Replace all regex elements with LaTeX formatted strings.
         This is not markdown standard, YCR uses the syntax `:regex:...`
         plugin will replace with:
@@ -312,7 +276,7 @@ class LaTeXRenderer:
             self.apply(a, "regex", code, url=safe_quote(a.get("href", "")))
         return soup
 
-    def render_codeinline(self, soup: Tag, **kwargs):
+    def render_codeinline(self, soup: Tag, **_: Any):
         """Extract code from a <code> object."""
         for el in soup.find_all("code"):
             # Skip mermaid
@@ -323,14 +287,14 @@ class LaTeXRenderer:
                 code = "".join([e.get_text() for e in el.find_all("span")])
             else:
                 code = self.get_safe_text(el)
-            language = self.get_code_language(el)
+            # language = self.get_code_language(el)
 
             code = escape_latex_chars(code).replace(" ", "~")
 
             self.apply(el, "codeinlinett", code)
         return soup
 
-    def render_codeinline_old(self, soup: Tag, **kwargs):
+    def render_codeinline_old(self, soup: Tag, **_: Any):
         """Extract code from a <code> object.
         TeX doesn't like verb command inside arguments, so we cannot
         use mintinline anywhere. It limits the use, or conditionnaly replace it with
@@ -381,11 +345,14 @@ class LaTeXRenderer:
             if match := re.search(r"^%%\s*(.*?)\n", diagram):
                 caption = match.group(1)
 
-            kwargs = {}
+            render_options: dict[str, Any] = {}
             if mermaid_config := self.config.mermaid_config:
-                kwargs["config_filename"] = self.config.project_dir / mermaid_config
+                project_dir = self.config.project_dir
+                if project_dir is None:
+                    raise ValueError("Project directory must be set to render mermaid")
+                render_options["config_filename"] = project_dir / mermaid_config
 
-            filename = mermaid2pdf(diagram, self.output_path, **kwargs)
+            filename = mermaid2pdf(diagram, self.output_path, **render_options)
             if not filename:
                 raise ValueError("Mermaid diagram not rendered")
 
@@ -397,7 +364,11 @@ class LaTeXRenderer:
                 "figure_tcolorbox" if kwargs.get("tcolorbox", False) else "figure"
             )
 
-            width, height = get_pdf_page_sizes(filename)
+            size = get_pdf_page_sizes(filename)
+            if not size:
+                raise ValueError("Cannot get PDF page size")
+
+            width, _height = size
 
             # Naive scaling. Assume PDF page is 210mm x 297mm
             # With 30 + 40 mm margins, linewidth is 140 mm.
@@ -412,8 +383,10 @@ class LaTeXRenderer:
 
         return soup
 
-    def render_epigraph(self, soup: Tag, **kwargs):
+    def render_epigraph(self, soup: Tag, **_: Any) -> Tag:
+        """Extract epigraph from a <blockquote class="epigraph"> object."""
         for el in soup.find_all("blockquote", class_=["epigraph"]):
+            source = None
             if footer := el.find("footer"):
                 self.render_inlines(footer)
                 source = self.get_safe_text(footer)
@@ -423,7 +396,7 @@ class LaTeXRenderer:
             self.apply(el, "epigraph", text, source=source)
         return soup
 
-    def render_codeblock(self, soup: Tag, **kwargs):
+    def render_codeblock(self, soup: Tag, **_: Any):
         """Extract code block from a <div class="highlight"> object.
         Assumptions:
         - Filename may be in a span with class 'filename'
@@ -448,7 +421,7 @@ class LaTeXRenderer:
 
             listing = []
             highlight = []
-            spans = code.find_all("span", id=lambda x: x and x.startswith("__"))
+            spans = code.find_all("span", id=lambda x: bool(x and x.startswith("__")))
             for i, span_line in enumerate(spans):
                 if hl := span_line.find("span", class_="hll"):
                     highlight.append(i + 1)
@@ -480,6 +453,7 @@ class LaTeXRenderer:
         return soup
 
     def render_quote(self, soup: Tag, **_: Any):
+        """Render blockquotes."""
         for el in soup.find_all(["blockquote"]):
             self.render_inlines(el)
             text = self.get_safe_text(el)
@@ -487,6 +461,7 @@ class LaTeXRenderer:
         return soup
 
     def render_heading(self, soup: Tag, **kwargs):
+        """Replace all heading elements."""
         base_level = kwargs.get("base_level", 0)
         for el in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
             for a in el.find_all("a"):  # No links in headings
@@ -510,6 +485,7 @@ class LaTeXRenderer:
         return soup
 
     def render_autoref(self, soup: Tag, **_: Any):
+        """Replace all autoref elements."""
         for el in soup.find_all("autoref", attrs={"identifier": True}):
             tag = el.get("identifier")
             text = self.get_safe_text(el)
@@ -530,21 +506,24 @@ class LaTeXRenderer:
         for el in soup.find_all("span", class_=["arithmatex"]):
             text = self.get_safe_text(el)
             node = NavigableString(text)
-            node.processed = True
+            setattr(node, "processed", True)
             el.replace_with(node)
         return soup
 
     def render_math_block(self, soup: Tag, **_: Any):
+        """Replace all math block elements."""
         for math_block in soup.find_all(["div"], class_="arithmatex"):
             text = self.get_safe_text(math_block)
             node = NavigableString(f"\n{text}\n")
-            node.processed = True
+            setattr(node, "processed", True)
             math_block.replace_with(node)
         return soup
 
     def render_abbreviation(self, soup: Tag, **_: Any):
+        """Extract abbreviations and acronyms from <abbr> elements."""
         for abbr in soup.find_all("abbr"):
-            text = escape_latex_chars(abbr.get("title"))
+            title = str(abbr.get("title", ""))
+            text = escape_latex_chars(title)
             short = self.get_safe_text(abbr)
 
             # Discard any special characters not allowed in glossary references
@@ -566,7 +545,7 @@ class LaTeXRenderer:
         </span>
         """
         for img in soup.find_all("img", class_=["twemoji"]):
-            src = img.get("src")
+            src = str(img.get("src", ""))
             if not src.startswith("http"):
                 raise ValueError(f"Expected URL, got {src}")
             filename = fetch_image(src, self.output_path)
@@ -612,7 +591,8 @@ class LaTeXRenderer:
             self.apply(el, "highlight", self.get_safe_text(el))
         return soup
 
-    def render_keystrokes(self, soup: Tag, **kwargs):
+    def render_keystrokes(self, soup: Tag, **_: Any):
+        """Extract keystrokes from <span class="keys"><kbd>...</kbd></span>"""
         for span in soup.find_all("span", class_="keys"):
             keys = []
             for key in span.find_all(["kbd"]):
@@ -624,7 +604,9 @@ class LaTeXRenderer:
             self.apply(span, "keystroke", keys)
         return soup
 
-    def render_format(self, soup: Tag, **kwargs):
+    def render_format(self, soup: Tag, **_: Any):
+        """Extract text formatting from <em>, <strong>,
+        <del>, <ins>, <mark>, <sub>, <sup> elements."""
         mapper = {
             "del": "strikethrough",
             "em": "italic",
@@ -649,10 +631,11 @@ class LaTeXRenderer:
         return soup
 
     def render_footnotes(self, soup: Tag, **_: Any):
+        """Extract footnotes from <div class="footnote"> elements."""
         footnotes = {}
         for el in soup.find_all(["div"], class_="footnote"):
             for li in el.find_all("li"):
-                footnote_id = re.sub(r"^fn:(\d+)", r"\1", li.get("id", ""))
+                footnote_id = re.sub(r"^fn:(\d+)", r"\1", str(li.get("id", "")))
                 if not footnote_id:
                     raise ValueError(f"Missing id in footnote: {li}")
                 self.render_inlines(li)
@@ -660,11 +643,13 @@ class LaTeXRenderer:
             el.extract()
 
         for el in soup.find_all("sup", id=True):
-            footnote_id = re.sub(r"^fnref:(\d+)", r"\1", el.get("id", ""))
+            footnote_id = re.sub(r"^fnref:(\d+)", r"\1", str(el.get("id", "")))
             self.apply(el, "footnote", footnotes[footnote_id])
         return soup
 
     def render_list(self, soup: Tag, **_: Any):
+        """Extract lists from <ol> and <ul> elements."""
+
         def is_checkbox(item):
             if item.startswith("[ ]"):
                 return -1
@@ -699,6 +684,7 @@ class LaTeXRenderer:
         return soup
 
     def render_description_list(self, soup: Tag, **_: Any):
+        """Extract description lists from <dl> elements."""
         for dl in soup.find_all(["dl"]):
             items = []
             title = None
@@ -718,13 +704,27 @@ class LaTeXRenderer:
         current = soup
         while current is not None:
             # Check current element
-            if current.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+            if isinstance(current, Tag) and current.name in [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+            ]:
                 return int(current.name[1:])
 
             # Check previous siblings
             sibling = current.previous_sibling
             while sibling is not None:
-                if sibling.name in ["h1", "h2", "h3", "h4", "h5", "h6"]:
+                if isinstance(sibling, Tag) and sibling.name in [
+                    "h1",
+                    "h2",
+                    "h3",
+                    "h4",
+                    "h5",
+                    "h6",
+                ]:
                     return int(sibling.name[1:])
                 sibling = sibling.previous_sibling
 
@@ -734,8 +734,8 @@ class LaTeXRenderer:
         return None
 
     def render_tabbed(self, soup: Tag, **_: Any):
+        """Extract tabbed content from <div class="tabbed-set"> elements."""
         for div in soup.find_all(["div"], class_="tabbed-set"):
-            level = self.get_heading_level(div)
             # Get titles
             titles = []
             if tabbed_labels := div.find("div", class_="tabbed-labels"):
@@ -752,11 +752,12 @@ class LaTeXRenderer:
 
             # Get content
             tabbed_content = div.find("div", class_="tabbed-content")
+            if not tabbed_content:
+                raise ValueError("Missing tabbed-content")
+
             for i, tab in enumerate(
                 tabbed_content.find_all(["div"], class_="tabbed-block")
             ):
-                heading = soup.new_tag(f"h{min(level + 1, 6)}")
-                heading.string = titles[i]
                 tab.insert_before(f"\n\\textbf{{{titles[i]}}}\\par\n")
                 tab.unwrap()
 
@@ -765,6 +766,7 @@ class LaTeXRenderer:
         return soup
 
     def render_figure(self, soup: Tag, **kwargs):
+        """Extract figure from a <figure> object."""
         for figure in soup.find_all(["figure"]):
             if get_class(figure, "mermaid-figure"):
                 continue
@@ -775,10 +777,10 @@ class LaTeXRenderer:
             if not image_src:
                 raise ValueError(f"Missing src in image {image}")
             if is_valid_url(image_src):
-                filename = fetch_image(image_src, self.output_path)
+                filename = fetch_image(str(image_src), self.output_path)
                 self.assets_map[filename] = {
                     "type": "image",
-                    "source": image_src,
+                    "source": str(image_src),
                 }
             else:
                 filepath = resolve_asset_path(
@@ -792,6 +794,8 @@ class LaTeXRenderer:
                         self.assets_map[filename] = {"type": "svg", "source": filepath}
                     case ".drawio":
                         filename = drawio2pdf(filepath, self.output_path)
+                        if not filename:
+                            raise ValueError(f"Drawio diagram not rendered: {filepath}")
                         self.assets_map[filename] = {
                             "type": "drawio",
                             "source": filepath,
@@ -804,10 +808,17 @@ class LaTeXRenderer:
                         }
             caption = figure.find("figcaption")
             short_caption = image.get("alt", "")
+            if not caption:
+                raise ValueError(f"Missing caption in figure {figure}")
+
             self.render_inlines(caption)
             caption_text = self.get_safe_text(caption) if caption else short_caption
 
-            if short_caption and len(caption) > len(short_caption):
+            if (
+                short_caption
+                and caption_text
+                and len(caption_text) > len(short_caption)
+            ):
                 short_caption = None
 
             width = image.get("width", None)
@@ -831,6 +842,7 @@ class LaTeXRenderer:
         return soup
 
     def get_table_styles(self, cell):
+        """Extract table cell styles."""
         if not cell:
             return ""
         style = cell.get("style", "")
@@ -902,6 +914,7 @@ class LaTeXRenderer:
                 label=label,
                 is_large=is_large,
             )
+        return soup
 
     def process_exercise(self, soup: Tag, title, **kwargs):
         """Extract solution from exercise if found, to render later as a solution."""
@@ -928,10 +941,13 @@ class LaTeXRenderer:
             answers = []
             for el in gaps:
                 correct_value = el.get("answer")
+                if not correct_value:
+                    log.warning("Missing answer in fill-in-the-blank")
+                    continue
                 answers.append(correct_value)
                 el.replace_with(f"\\rule{{{len(correct_value)}ex}}{{0.4pt}}")
             answer = f"Réponse{'' if len(answers) == 1 else 's'}: {', '.join(answers)}"
-        if el := soup.find("p", "align--right"):
+        if el := soup.find("p", class_="align--right"):
             el.extract()
 
         # Extract solution if found
@@ -940,8 +956,8 @@ class LaTeXRenderer:
 
         solution = ""
         if solution_el := soup.find("details", class_=["solution"]):
-            if solution_el.find("summary"):
-                solution_el.find("summary").extract()
+            if s := solution_el.find("summary"):
+                s.extract()
             solution_el = self.render_after(
                 self.render_admonition, solution_el, **kwargs
             )
@@ -960,12 +976,13 @@ class LaTeXRenderer:
         return soup, title
 
     def render_admonition(self, soup: Tag, **kwargs):
+        """Extract admonitions from <div class="admonition"> elements."""
         # Admonitions with callout
         for admonition in soup.find_all(["div"], class_="admonition"):
             if not admonition.parent:
                 continue
 
-            classes = admonition.get("class", [])
+            classes = normalize_class_list(admonition.get("class"))
             filtered_classes = [
                 cls
                 for cls in classes
@@ -984,6 +1001,7 @@ class LaTeXRenderer:
             if len(filtered_classes) > 1:
                 raise ValueError(f"Multiple classes in admonition: {filtered_classes}")
             admonition_type = filtered_classes[0]
+            title = ""
             if title_node := admonition.find("p", class_="admonition-title"):
                 if label := title_node.find("span", class_="exercise-label"):
                     # label_text = self.get_safe_text(label)
@@ -1010,11 +1028,16 @@ class LaTeXRenderer:
         for admonition in soup.find_all(["details"]):
             if not admonition.parent:
                 continue
-            classes = admonition.get("class", [])
+
+            # Forcer le type avec une assertion ou un cast
+            classes = normalize_class_list(admonition.get("class"))
+
             if len(classes) > 1:
                 raise ValueError(f"Multiple classes in details: {classes}")
-            admonition_type = classes[0]
 
+            admonition_type = classes[0] if classes else None
+
+            title = ""
             if summary := admonition.find("summary"):
                 title = self.get_safe_text(summary)
                 summary.extract()
@@ -1033,11 +1056,12 @@ class LaTeXRenderer:
         return soup
 
     def render_links(self, soup: Tag, **kwargs):
+        """Replace all link elements."""
         for el in soup.find_all("a"):
             self.render_inlines(el)
             self.render_abbreviation(el)
             text = self.get_safe_text(el)
-            href = el.get("href", "")
+            href = str(el.get("href", ""))
             if href.startswith("http"):
                 if href in self.wikimap:
                     data = self.wikimap[href]
@@ -1061,7 +1085,7 @@ class LaTeXRenderer:
             elif path := resolve_asset_path(kwargs.get("file_path", Path()), href):
                 with open(path, "rb") as f:
                     content = f.read()
-                    digest = sha256().hexdigest()
+                    digest = sha256(content).hexdigest()
                 reference = f"snippet:{digest}"
                 self.snippets[reference] = {
                     "path": path,
@@ -1074,6 +1098,7 @@ class LaTeXRenderer:
         return soup
 
     def render_columns(self, soup: Tag, **kwargs):
+        """Replace all column elements."""
         for div in soup.find_all(["div"], class_="two-column-list"):
             div = self.render_after(self.render_columns, div, **kwargs)
             self.apply(div, "multicolumn", self.get_safe_text(div), columns=2)
@@ -1081,73 +1106,86 @@ class LaTeXRenderer:
         for div in soup.find_all(["div"], class_="three-column-list"):
             div = self.render_after(self.render_columns, div, **kwargs)
             self.apply(div, "multicolumn", self.get_safe_text(div), columns=3)
+        return soup
 
     def render_inlines(self, soup: Tag, **kwargs):
         """Replace all inline elements."""
 
         self.render_autoref(soup)
-        self.render_links(soup)
+        self.render_links(soup, **kwargs)
         self.render_index(soup)
-        self.render_columns(soup)
-        self.render_table(soup)
+        self.render_columns(soup, **kwargs)
+        self.render_table(soup, **kwargs)
         self.render_abbreviation(soup)
         self.render_critics(soup)
         self.render_format(soup)
-        self.render_paragraph(soup)
+        self.render_paragraph(soup, **kwargs)
         return soup
 
-    def render_index(self, soup: Tag, **kwargs):
+    def render_index(self, soup: Tag, **_: Any):
         """Render index entries"""
         for el in soup.find_all("span", class_="ycr-hashtag"):
             text = self.get_safe_text(el)
             tag = el.get("data-tag")
-            entry = el.get("data-index-entry", text if text else tag)
+            entry = str(el.get("data-index-entry", text if text else tag))
             entry = escape_latex_chars(entry)
             self.apply(el, "index", text, tag=tag, entry=entry)
         return soup
 
     def render_paragraph(self, soup: Tag, **kwargs):
+        """Render paragraphs."""
         for p in soup.find_all("p", class_=False):
-            p = self.render_inlines(p)
+            p = self.render_inlines(p, **kwargs)
             text = self.get_safe_text(p)
             p.replace_with(text + "\n")
+        return soup
 
-    def render_grid_cards(self, soup: Tag, **kwargs):
+    def render_grid_cards(self, soup: Tag, **_: Any):
+        """Grid cards are just unwrapped."""
         for div in soup.find_all(["div"], class_="grid-cards"):
             div.unwrap()
+        return soup
 
-    def render_hr(self, soup: Tag, **kwargs):
+    def render_hr(self, soup: Tag, **_: Any):
+        """Render horizontal rules."""
         for el in soup.find_all("hr"):
             el.extract()
         return soup
 
-    def render_br(self, soup: Tag, **kwargs):
+    def render_br(self, soup: Tag, **_: Any):
+        """Render line breaks."""
         for el in soup.find_all("br"):
             node = NavigableString("\\")
-            node.processed = True
+            setattr(node, "processed", True)
             el.replace_with(node)
         return soup
 
     def render_after(self, function, soup: Tag, **kwargs):
+        """Render all elements in the soup after a given function."""
         index = self.renderering_order.index(function)
         for render in self.renderering_order[index:]:
             render(soup, **kwargs)
         return soup
 
     def get_list_acronyms(self):
+        """Get the acronyms entries."""
         acronyms = [(tag, short, text) for tag, (short, text) in self.acronyms.items()]
         return self.formatter.list_acronyms(acronyms)
 
     def get_list_glossary(self):
+        """Get the glossary entries."""
         return self.formatter.list_glossary(self.glossary)
 
     def get_list_solutions(self):
+        """Get the solutions to exercises."""
         return self.formatter.exercises_solutions(self.solutions)
 
     def get_assets_map(self):
+        """Get the assets map."""
         return self.assets_map
 
     def get_snippets(self):
+        """Get code snippets."""
         tex = ""
         for key, data in self.snippets.items():
             tex += self.formatter.heading(key.name, level=1)
@@ -1190,9 +1228,10 @@ class LaTeXRenderer:
         )
 
     def render_elements(self, soup: Tag, **kwargs):
+        """Render all elements in the soup."""
         start = kwargs.get("ordered_item", 0)
 
-        for i, render in enumerate(self.renderering_order[start:]):
+        for render in self.renderering_order[start:]:
             render(soup, **kwargs)
         return soup
 
@@ -1205,6 +1244,7 @@ class LaTeXRenderer:
         numbered=True,
         drop_title=False,
     ):
+        """Main rendering function."""
         soup = BeautifulSoup(html, "html.parser")
 
         kwargs = {

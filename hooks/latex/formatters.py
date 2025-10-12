@@ -10,6 +10,8 @@ from typing import Any, Callable
 
 from jinja2 import Environment, FileSystemLoader, Template
 
+from .utils import escape_latex_chars
+
 TEMPLATE_DIR = Path(__file__).parent / "templates"
 
 
@@ -103,7 +105,7 @@ class LaTeXFormatter:
         filename: str | None = None,
         lineno: bool = False,
         highlight: Iterable[int] | None = None,
-        **kwargs: Any,
+        **_: Any,
     ) -> str:
         """Render code blocks with optional line numbers and highlights."""
 
@@ -117,17 +119,18 @@ class LaTeXFormatter:
         )
 
     def url(self, text: str, url: str) -> str:
-        # Local import to avoid circular dependency
-        from .renderer import escape_latex_chars
+        """Render a URL, escaping special LaTeX characters."""
 
         safe_url = escape_latex_chars(urllib.parse.quote(url, safe=":/?&="))
         return self.templates["url"].render(text=text, url=safe_url)
 
-    def get_glossary(self) -> str:
-        acronyms = [(tag, short, text) for tag, (short, text) in self.acronyms.items()]
-        return self.templates["glossary"].render(glossary=acronyms)
+    # def get_glossary(self) -> str:
+    #     """Render the glossary of acronyms."""
+    #     acronyms = [(tag, short, text) for tag, (short, text) in self.acronyms.items()]
+    #     return self.templates["glossary"].render(glossary=acronyms)
 
     def svg(self, svg: str | Path) -> str:
+        """Render an SVG image by converting it to PDF first."""
         from .transformers import svg2pdf
 
         pdfpath = svg2pdf(svg, self.output_path)

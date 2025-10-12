@@ -19,8 +19,6 @@ def path_representer(dumper, data):
 
 yaml.add_representer(PosixPath, path_representer)
 
-saved_nav = []
-latex_dir = Path("build")
 is_serve = False
 renderer = None
 
@@ -28,6 +26,7 @@ current_config = None
 
 
 def find_item(item: StructureItem, cb: callable):
+    """Depth-first search for an item matching the callback."""
     if cb(item):
         return item
     for child in item.children or []:
@@ -37,10 +36,12 @@ def find_item(item: StructureItem, cb: callable):
 
 
 def find_item_by_title(item: StructureItem, title: str):
+    """Find a section by its title."""
     return find_item(item, lambda item: item.title == title)
 
 
 def build_nav(section: Section, node):
+    """Build a nested list representation of the nav."""
     for child in section.children:
         if child.is_page:
             node.append(child.file.src_path)
@@ -94,6 +95,7 @@ def on_nav(nav, config, files):
 
 
 def nav_map(section: StructureItem, cb: callable, level: int = 0):
+    """Apply a callback to each nav item in depth-first order."""
     cb(section, level)
     for child in section.children or []:
         nav_map(child, cb, level + 1)
@@ -150,6 +152,7 @@ class Book:
             self._sort_by_part(section)
 
     def render_cover(self, renderer: LaTeXRenderer):
+        """Render the cover using the specified template."""
         return renderer.formatter[f"covers_{self.config.cover.name}"](self.config.cover)
 
     def _get_latex(self, elements: List[StructureItem], renderer: LaTeXRenderer):

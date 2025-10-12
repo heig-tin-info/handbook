@@ -7,7 +7,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from .transformers import to_kebab_case
+from .utils import to_kebab_case
 
 
 class CommonConfig(BaseModel):
@@ -54,7 +54,7 @@ class BookConfig(CommonConfig):
         """Populate the output folder from the book title when missing."""
 
         if self.folder is None and self.title:
-            self.folder = to_kebab_case(self.title)
+            self.folder = Path(to_kebab_case(self.title))
         return self
 
 

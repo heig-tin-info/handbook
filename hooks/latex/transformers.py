@@ -17,8 +17,9 @@ import cairosvg
 # import pillow_avif  # noqa
 import pypdf
 import requests
-import unidecode
 from PIL import Image
+
+from .utils import points_to_mm
 
 log = logging.getLogger("mkdocs")
 
@@ -26,7 +27,7 @@ pillow_supported_types = Image.registered_extensions().keys()
 
 
 def get_filename_from_content(content: Union[str, bytes], output_path: Path) -> Path:
-    """Generate a filename from content.
+    """Generate a filename from content signature.
     This renderer, store assets with files sometime
     generated from content. This function will generate
     a unique filename based on the content.
@@ -43,7 +44,7 @@ def fetch_image(url: str, output_path: Path) -> Path:
     """
     response = requests.head(url, timeout=10)
     if response.status_code != 200:
-        raise ValueError(f"Failed to fetch image: {response.status_code}")
+        raise ValueError(f"Failed to fetch image from '{url}': {response.status_code}")
 
     mime_type = response.headers["Content-Type"]
     etag = response.headers.get("ETag")
@@ -65,7 +66,7 @@ def fetch_image(url: str, output_path: Path) -> Path:
 
     # SVG case
     if extension == ".svg":
-        filename = svg2pdf(response.content, output_path)
+        filename = svg2pdf(response.content.decode(), output_path)
         return filename
     elif extension in pillow_supported_types:
         image = Image.open(BytesIO(response.content))
@@ -79,10 +80,13 @@ def fetch_image(url: str, output_path: Path) -> Path:
 
 
 def image2pdf(filename, output_path=Path()):
-    pdfpath = get_filename_from_content(filename, output_path).with_suffix(".pdf")
+    """Convert an existing image to PDF."""
+    if not filename.exists():
+        raise ValueError(f"File does not exist: {filename}")
+
+    pdfpath = get_filename_from_content(filename.name, output_path).with_suffix(".pdf")
 
     if not pdfpath.exists():
-        log.info("Converting %s to PDF...", filename)
         image = Image.open(filename)
         image.save(pdfpath, "PDF")
 
@@ -90,6 +94,7 @@ def image2pdf(filename, output_path=Path()):
 
 
 def get_docker_command(wdir: Path) -> list:
+    """Get the docker command to run a container with the current user."""
     return [
         "docker",
         "run",
@@ -108,7 +113,7 @@ def get_docker_command(wdir: Path) -> list:
 
 def mermaid2pdf(
     content: Union[str, Path], output_path: Path = Path(), **kwargs
-) -> Path:
+) -> Path | None:
     """Converts Mermaid content to PDF using the
     mermaid-cli docker image."""
 
@@ -184,7 +189,7 @@ def up_to_date(source: Path, destination: Path) -> bool:
     )
 
 
-def pdf2pdf15(filename: Path, output_path: Path) -> Path:
+def pdf2pdf15(filename: Path, output_path: Path) -> Path | None:
     """Convert a PDF to PDF 1.5 format."""
     command = [
         "gs",
@@ -205,7 +210,8 @@ def pdf2pdf15(filename: Path, output_path: Path) -> Path:
     return output_path
 
 
-def drawio2pdf(filename: Path, output_path: Path) -> Path:
+def drawio2pdf(filename: Path, output_path: Path) -> Path | None:
+    """Convert a drawio file to PDF using the drawio docker image."""
     pdfpath = get_filename_from_content(filename.read_bytes(), output_path).with_suffix(
         ".drawio.pdf"
     )
@@ -259,24 +265,10 @@ def drawio2pdf(filename: Path, output_path: Path) -> Path:
             # shutil.move(intermediate, pdfpath)
 
             # Instead of moving, we convert the file to PDF 1.5
-            log.info(f"Converting {intermediate} to PDF 1.5 -> {pdfpath}")
+            log.info("Converting %s to PDF 1.5 -> %s", intermediate, pdfpath)
             pdfpath = pdf2pdf15(intermediate, pdfpath)
             intermediate.unlink()
             log.debug("Command succeeded")
-
-    return pdfpath
-
-
-def image2pdf(filename, output_path=Path()):
-    """Convert an existing image to PDF."""
-    if not filename.exists():
-        raise ValueError(f"File does not exist: {filename}")
-
-    pdfpath = get_filename_from_content(filename.name, output_path).with_suffix(".pdf")
-
-    if not pdfpath.exists():
-        image = Image.open(filename)
-        image.save(pdfpath, "PDF")
 
     return pdfpath
 
@@ -286,7 +278,8 @@ RE_VIEWBOX = re.compile(
 )
 
 
-def add_size_to_svg(svg: str) -> tuple:
+def add_size_to_svg(svg: str) -> str:
+    """Add width and height attributes to an SVG if they are missing."""
     if isinstance(svg, bytes):
         svg = svg.decode("utf-8")
 
@@ -310,7 +303,8 @@ def add_size_to_svg(svg: str) -> tuple:
     return svg
 
 
-def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
+def svg2pdf_cairo(svg: str | Path, output_path=Path()) -> Path:
+    """Convert SVG to PDF using CairoSVG."""
     if isinstance(svg, Path):
         svg = svg.read_text()
 
@@ -326,11 +320,12 @@ def svg2pdf_cairo(svg: Union[str, Path], output_path=Path()) -> Path:
 
 
 def svg2pdf_inkscape(svg, output_path=Path()):
+    """Convert SVG to PDF using Inkscape command line."""
     log.info("Converting SVG to PDF...")
     # Create temporary svg file
     filename = Path(sha256(svg.encode()).hexdigest() + ".svg")
     svgpath = Path(os.path.join(tempfile.mkdtemp(), filename))
-    with open(svgpath, "w") as fp:
+    with open(svgpath, "w", encoding="utf-8") as fp:
         fp.write(svg)
 
     pdfpath = output_path / filename.with_suffix(".pdf")
@@ -376,7 +371,7 @@ def svg2pdf_inkscape(svg, output_path=Path()):
     log.debug("Running command: %s", " ".join(str(e) for e in command))
 
     # Recompile the svg file
-    completed_process = subprocess.run(command)
+    completed_process = subprocess.run(command, check=False)
 
     if completed_process.returncode != 0:
         log.error("Return code %s", completed_process.returncode)
@@ -389,11 +384,11 @@ def svg2pdf_inkscape(svg, output_path=Path()):
 svg2pdf = svg2pdf_cairo
 
 
-def points_to_mm(points):
-    return points * 25.4 / 72
-
-
-def get_pdf_page_sizes(pdf_path):
+def get_pdf_page_sizes(pdf_path: Path) -> Union[tuple[float, float], None]:
+    """Get the size of the first page of a PDF in mm.
+    Returns a tuple (width, height) in mm.
+    If the PDF has no pages, returns None.
+    """
     reader = pypdf.PdfReader(pdf_path)
     for page in reader.pages:
         media_box = page.mediabox
@@ -403,23 +398,3 @@ def get_pdf_page_sizes(pdf_path):
         height_mm = points_to_mm(height_pts)
         return (width_mm, height_mm)
     return None
-
-
-def to_kebab_case(name):
-    """Converts a string to kebab case
-    >>> to_kebab_case("Hello World")
-    'hello-world'
-    >>> to_kebab_case("Hello World!")
-    'hello-world'
-    >>> to_kebab_case("L'abricot")
-    'l-abricot'
-    >>> to_kebab_case("Éléphant")
-    'elephant'
-    """
-    name = unidecode.unidecode(name)
-    name = re.sub(r"[^\w\s']", "", name)
-    name = re.sub(r"[\s']+", "-", name)
-    return name.lower()
-    name = re.sub(r"[\s']+", "-", name)
-    return name.lower()
-    return name.lower()
