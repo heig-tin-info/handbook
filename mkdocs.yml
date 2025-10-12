@@ -118,6 +118,7 @@ plugins:
   - tags
   - epigraph
   - pills
+  - wikipedia
   - glightbox:
       auto_themed: true
       auto_caption: true
@@ -268,10 +269,8 @@ watch:
   - overrides
 hooks:
   - hooks/index.py # Index keywords in codes (language)
-  #- hooks/drawio.py # Embedded draw.io diagrams
   - hooks/spantable.py # Adds span table support
   - hooks/french.py # French typography
-  - hooks/wiki.py # Wiki tips on hover
   - hooks/book.py # LaTeX conversion
   - hooks/tags.py # Custom tags
   - hooks/mermaid.py # Support for captions in mermaid diagrams
@@ -282,7 +281,6 @@ extra_css:
   - css/tables.css
   - css/drawio.css
 extra_javascript:
-  - js/wiki-tips.js
   - js/feedback.js
   - js/mathjax.js
   - js/navcolor.js
@@ -290,6 +288,3 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
-  #- https://viewer.diagrams.net/js/viewer-static.min.js
-  # - js/drawio.js
-  #- js/drawio-reload.js
