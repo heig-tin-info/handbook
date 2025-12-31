@@ -7,9 +7,9 @@ BUILD_OUTPUTS=$(foreach dir,$(BUILD_DIRS),$(dir)/output-print.pdf)
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
-	RUNCMD = PYTHONBREAKPOINT=ipdb.set_trace poetry run
+	RUNCMD = PYTHONBREAKPOINT=ipdb.set_trace uv run
 else
-	RUNCMD = poetry run
+	RUNCMD = uv run
 endif
 
 all:
@@ -21,8 +21,8 @@ serve:
 servefast:
 	$(RUNCMD) mkdocs serve --dirty
 
-poetry.lock: pyproject.toml
-	poetry lock
+uv.lock: pyproject.toml
+	uv lock
 
 build:
 	$(RUNCMD) mkdocs build
@@ -57,7 +57,7 @@ ci:
 	make latex optimize
 
 update: docs/js/viewer.min.js
-	poetry update
+	uv lock --upgrade
 
 docs/js/viewer.min.js: FORCE
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js

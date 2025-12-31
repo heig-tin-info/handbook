@@ -25,30 +25,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configure Git Credentials
-        env:
-          GH_TOKEN: ${{ secrets.MKDOCS_MATERIALS_INSIDER_PAT }}
-        run: |
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
-          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
-          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
 
       - name: Install Ubuntu dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y pngquant ghostscript
 
-      - name: Install Poetry
-        uses: abatilo/actions-poetry@v4
-
-      - name: Install Python deps with Poetry
-        run: poetry install --no-interaction --no-ansi
+      - name: Install Python deps with uv
+        run: uv sync --extra dev
 
       - name: Cache MkDocs build directory
         uses: actions/cache@v4
@@ -62,7 +55,7 @@ jobs:
         env:
           MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
           GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
-        run: CI=true poetry run mkdocs gh-deploy --force
+        run: CI=true uv run mkdocs gh-deploy --force
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4

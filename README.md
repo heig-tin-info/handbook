@@ -150,14 +150,14 @@ Initialisez le dépôt avec :
 ```bash
 git clone https://github.com/heig-tin-info/handbook.git
 cd handbook
-pipx install poetry
+pipx install uv
 ```
 
 Puis pour lancer le développement :
 
 ```bash
-poetry install
-poetry run mkdocs serve
+uv sync --extra dev
+uv run mkdocs serve
 ```
 
 ## Références

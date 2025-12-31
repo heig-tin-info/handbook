@@ -82,7 +82,7 @@ La gestion d'environnement virtuel a beaucoup évolué avec les versions de Pyth
 
 - `venv` est un module de la bibliothèque standard de Python depuis la version 3.3 qui permet de créer des environnements virtuels. Il est recommandé d'utiliser `venv` pour les projets personnels.
 - `virtualenv` est un outil plus ancien disponible pour Python 2 et 3. Il n'est pas recommandé de l'utiliser.
-- `poetry` est un outil externe. Utile pour tester des projets sur différentes versions de Python; facilite la migration entre les versions.
+- `uv` est un outil externe. Utile pour gerer les dependances et les environnements; facilite la migration entre les versions.
 
 Pour créer un environnement virtuel avec `venv`, ouvrez un terminal et tapez les commandes suivantes :
 
@@ -100,44 +100,44 @@ Pour créer un environnement virtuel avec `venv`, ouvrez un terminal et tapez le
     .\venv\Scripts\Activate
     ```
 
-## Poetry
+## uv
 
-Poetry est un outil de gestion de dépendances pour Python. Il permet de gérer les dépendances de votre projet, de créer des environnements virtuels, de gérer les versions de Python, de publier des paquets sur PyPI, etc.
+uv est un outil de gestion de dependances pour Python. Il permet de gerer les dependances de votre projet, de creer des environnements virtuels, de gerer les versions de Python, de publier des paquets sur PyPI, etc.
 
-Il est une excellente alternative à `venv` et `pip` car en plus de gérer les dépandances, il peut gérer différentes versions de Python.
+Il est une excellente alternative a `venv` et `pip` car en plus de gerer les dependances, il peut gerer differentes versions de Python.
 
-Si vous voulez créer un projet Python avec Poetry, ouvrez un terminal et tapez les commandes suivantes :
+Si vous voulez creer un projet Python avec uv, ouvrez un terminal et tapez les commandes suivantes :
 
 ```bash
 mkdir myproject
 cd myproject
-poetry init
+uv init
 ```
 
-Ensuite pour ajouter des dépendances à votre projet, utilisez `poetry add` :
+Ensuite pour ajouter des dependances a votre projet, utilisez `uv add` :
 
 ```bash
-poetry add numpy matplotlib pandas
+uv add numpy matplotlib pandas
 ```
 
-Il est également possible d'ajouter des paquets de développement avec `poetry add --dev` :
+Il est egalement possible d'ajouter des paquets de developpement avec `uv add --dev` :
 
 ```bash
-poetry add --group dev black flake8
+uv add --dev black flake8
 ```
 
-Ces commandes vont créer un fichier de configuration nommé `pyproject.toml` qui contient toutes les informations sur votre projet et ses dépendances. L'avantage est qu'en mettant ce fichier sous Git, lorsque vous clonez votre projet sur une autre machine, il suffit de taper `poetry install` pour installer toutes les dépendances.
+Ces commandes vont creer un fichier de configuration nomme `pyproject.toml` qui contient toutes les informations sur votre projet et ses dependances. L'avantage est qu'en mettant ce fichier sous Git, lorsque vous clonez votre projet sur une autre machine, il suffit de taper `uv sync` pour installer toutes les dependances.
 
-Par défaut poetry ne crée pas d'enviroonement virtuel. Pour activer l'environnement virtuel, tapez la commande suivante :
+Par defaut uv cree un environnement virtuel `.venv` lors de la synchronisation. Pour activer l'environnement virtuel, tapez la commande suivante :
 
 ```bash
-poetry shell
+source .venv/bin/activate
 ```
 
-Alternativement si l'objectif est simplement d'exécuter une commande dans l'environnement virtuel, utilisez `poetry run` :
+Alternativement si l'objectif est simplement d'executer une commande dans l'environnement virtuel, utilisez `uv run` :
 
 ```bash
-poetry run python main.py
+uv run python main.py
 ```
 
 ## Pipx
