@@ -113,6 +113,37 @@ plugins:
   - tags
   - epigraph
   - pills
+  - texsmith:
+      build_dir: build
+      clean_assets: false
+      save_html: true
+      template: book
+      books:
+        - root: Cours C
+          title: L'informatique pour l'ingénieur
+          subtitle: Cours de programmation en C
+          folder: book
+          email: yves.chevallier@heig-vd.ch
+          index_is_foreword: true
+          drop_title_index: true
+          frontmatter:
+            - Préface
+          backmatter:
+            - colophon
+          copy_files:
+            docs/assets/c-logo.pdf: assets/
+            tex/*.sty: .
+            tex/*.tex: .
+        - root: Outils
+          base_level: -1
+          title: Outils de développement
+          subtitle: Aux utilisateurs de Git, GCC, Make, Python...
+          folder: tools
+          email: yves.chevallier@heig-vd.ch
+          copy_files:
+            tex/tool-hero.pdf: assets/
+            tex/*.sty: .
+            tex/*.tex: .
   - wikipedia
   - glightbox:
       auto_themed: true
@@ -181,48 +212,6 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 extra:
-  latex:
-    enabled: true
-    build_dir: build
-    mermaid_config: tex/mermaid-config.json
-    clean_assets: false
-
-    books:
-      - root: Cours C
-        cover:
-          name: circles
-          color: indigo(dye)
-          logo: c-logo.pdf
-        title: L'informatique pour l'ingénieur
-        subtitle: Cours de programmation en C
-        folder: book
-        save_html: true
-        email: yves.chevallier@heig-vd.ch
-        index_is_foreword: true
-        drop_title_index: true
-        frontmatter:
-          - Préface
-        backmatter:
-          - colophon
-        copy_files:
-          docs/assets/c-logo.pdf: assets/
-          tex/*.sty: .
-          tex/*.tex: .
-      - root: Outils
-        cover:
-          name: circles
-          color: PineGreen
-          logo: tool-hero.pdf
-        base_level: -1
-        title: Outils de développement
-        subtitle: Aux utilisateurs de Git, GCC, Make, Python...
-        folder: tools
-        save_html: true
-        email: yves.chevallier@heig-vd.ch
-        copy_files:
-          tex/tool-hero.pdf: assets/
-          tex/*.sty: .
-          tex/*.tex: .
   admonition_translations:
     tip: Astuce
     warning: Avertissement
@@ -266,7 +255,6 @@ hooks:
   - hooks/index.py # Index keywords in codes (language)
   - hooks/spantable.py # Adds span table support
   - hooks/french.py # French typography
-  - hooks/book.py # LaTeX conversion
   - hooks/tags.py # Custom tags
   - hooks/mermaid.py # Support for captions in mermaid diagrams
   - hooks/abbr.py # Abbreviations to Wiki links
