@@ -163,7 +163,32 @@ Jadis, ce mot clé était utilisé devant toutes les variables d'itérations de 
 
 ### `const`
 
-Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type `const` pourrait très bien être modifiée par erreur en jardinant la mémoire. Quand ce mot clé est appliqué à une structure, aucun des champs de la structure n'est accessible en écriture. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité. En particulier, il permet de faire du code plus sûr.
+Ce mot clé rend une déclaration non modifiable par le programme lui-même. Néanmoins il ne s'agit pas de constantes au sens strict du terme, car une variable de type `const` pourrait très bien être modifiée par erreur en *jardinant la mémoire*. Bien qu'il puisse paraître étrange de vouloir rendre « constante » une « variable », ce mot clé a une utilité.
+
+Dans le cas d'une variable rendue constante, il n'est possible de lui assigner une valeur qu'au moment de sa déclaration:
+
+```c
+const int i; // Invalide, `i` n'est pas initialisée
+const int i = 23;
+i = 42; // Invalide, `i` est une constante
+```
+
+Le C est permissif et permet de "gruger" le système de types pour modifier une variable déclarée `const`. En effet, il est possible de faire du *casting* pour retirer le qualificatif `const` d'une variable. Cependant, cela est fortement déconseillé et peut conduire à des comportements indéfinis:
+
+```c
+const int i = 23;
+int *ptr = (int *)&i; // Retire le qualificatif `const` de `i`
+*ptr = 42; // Modifie la variable `i` malgré le fait qu'elle soit déclarée `const`. Comportement indéfini.
+```
+
+Dans le cas d'un pointeur, le mot clé `const` peut être utilisé de différentes manières. Il est possible de rendre la valeur pointée constante, ou de rendre le pointeur lui-même constant, ou les deux à la fois.
+
+```c
+int i = 42;
+const int *ptr1 = &i; // La valeur pointée est constante, le pointeur lui-même ne l'est pas
+int *const ptr2 = &i; // Le pointeur lui-même est constant, la valeur pointée ne l'est pas
+const int *const ptr3 = &i; // La valeur pointée et le pointeur lui-même sont constants
+```
 
 ### `static`
 
