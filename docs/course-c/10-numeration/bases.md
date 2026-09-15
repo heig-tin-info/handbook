@@ -127,7 +127,7 @@ Aux débuts de l'informatique, la base octale fut très employée, car il suffit
 
 En C, un nombre octal s'écrit en préfixant la valeur d'un zéro. Prenez donc garde à ne pas confondre :
 
-``` { .c .annotate }
+```c {.annotate}
 int octal = 042; // (1)!
 int decimal = 42;
 
