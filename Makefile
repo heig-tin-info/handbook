@@ -18,6 +18,19 @@ all:
 serve:
 	$(RUNCMD) mkdocs serve
 
+# The Zensical chain: the generated assets first (Zensical empties the site
+# directory and caches pages, so nothing Python writes during a build
+# survives), then the site, then the index entries, then the two books.
+zensical:
+	$(RUNCMD) texsmith site assets mkdocs.yml
+	$(RUNCMD) zensical build -f mkdocs.yml
+	$(RUNCMD) texsmith site search mkdocs.yml
+	$(RUNCMD) texsmith site build mkdocs.yml
+
+serve-zensical:
+	$(RUNCMD) texsmith site assets mkdocs.yml
+	$(RUNCMD) zensical serve -f mkdocs.yml -a 127.0.0.1:8100
+
 servefast:
 	$(RUNCMD) mkdocs serve --dirty
 
@@ -72,4 +85,4 @@ mrproper: clean
 
 FORCE:
 
-.PHONY: all serve build clean update optimize latex latex-clean docker-image ci update-viewer
+.PHONY: all serve zensical serve-zensical build clean update optimize latex latex-clean docker-image ci update-viewer
