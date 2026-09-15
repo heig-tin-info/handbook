@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "There are only two kinds of programming languages: those people always bitch about and those nobody uses."
+    quote: "There are only two kinds of programming languages: those people always bitch about and those nobody uses."
     source: Bjarne Stroustrup
 ---
 # Humour d'informaticien
@@ -21,7 +21,7 @@ Hélas, le constat est souvent le même : le nouveau standard ne sera qu'un éni
 
 ![XKCD Standards](https://imgs.xkcd.com/comics/standards.png)
 
-[](){#unicode}
+[]{#unicode}
 
 ## Unicode
 

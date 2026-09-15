@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Tout problème informatique peut être résolu en introduisant un niveau d'indirection supplémentaire."
+    quote: "Tout problème informatique peut être résolu en introduisant un niveau d'indirection supplémentaire."
     source: David J. Wheeler / Butler Lampson
 ---
 
@@ -60,7 +60,7 @@ int main() {
 }
 ```
 
-[](){#sequence-code}
+[]{#sequence-code}
 
 ### Séquences de code
 
@@ -77,7 +77,7 @@ Seuls les directives du préprocesseur (qui commencent par `#`) et les commentai
 
     Ne confondez pas le point-virgule `;` (U+003B) avec le `;` (U+037E), point d'interrogation grec (*ερωτηματικό*). Certain·es farceur·ses s'amusent à le substituer dans le code de leurs camarades, ce qui provoque invariablement des erreurs de compilation.
 
-[](){#sequence-block}
+[]{#sequence-block}
 
 ### Séquence bloc
 
@@ -117,7 +117,7 @@ Il est possible de déclarer des variables locales dans un bloc ; ces variables 
 
     Notons néanmoins que les compilateurs modernes ne limitent pas le nombre d'imbrication de blocs et de structures conditionnelles.
 
-[](){#sequence-point}
+[]{#sequence-point}
 
 ### Point de séquence
 
@@ -145,7 +145,7 @@ Pour mieux saisir la notion de point de séquence, il est essentiel de comprendr
 
 Les points de séquence jouent un rôle crucial en imposant des barrières explicites dans le flux d'instructions, garantissant qu'à ces points précis, tous les effets des calculs précédents sont achevés avant de passer à l'évaluation des instructions suivantes. En d'autres termes, ils empêchent le réordonnancement des instructions au-delà d'un point donné, assurant ainsi un comportement prévisible et conforme aux attentes du programmeur.
 
-[](){#conditional-jumps}
+[]{#conditional-jumps}
 
 ## Les sauts conditionnels
 
@@ -162,7 +162,7 @@ Voici un exemple de diagrammes BPMN et NSD illustrant un embranchement binaire :
 
 Les embranchements reposent sur des séquences d'instructions, car chaque branche, qu'elle soit choisie ou non, est elle-même une séquence de commandes à exécuter selon l'évaluation de la condition.
 
-[](){#if}
+[]{#if}
 
 ### `if`
 
@@ -415,7 +415,7 @@ else
            printf("i vaut 8\n");
        ```
 
-[](){#switch}
+[]{#switch}
 
 ### `switch`
 
@@ -646,7 +646,7 @@ switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
 - Les étiquettes `case` doivent être séparées par un retour à la ligne, il n'est pas possible d'avoir plusieurs étiquettes sur une même ligne.
 - Il est possible de chaîner les étiquettes sans `break` pour exécuter plusieurs instructions.
 
-[](){#loops}
+[]{#loops}
 
 ## Les boucles
 
@@ -664,7 +664,7 @@ Elles peuvent être représentées par les diagrammes de flux suivants :
 
 On observe que, quelle que soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme poursuit son exécution.
 
-[](){#loop-while}
+[]{#loop-while}
 
 ### while
 
@@ -691,7 +691,7 @@ Séquentiellement, une boucle `while` teste la condition puis exécute la séque
     6. `#!c i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }`
     7. `#!c i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }`
 
-[](){#loop-do-while}
+[]{#loop-do-while}
 
 On utilise une boucle `while` lorsque le nombre d'itérations n'est pas connu à l'avance. Si la séquence doit être exécutée au moins une fois, on utilise une boucle `do`...`while`.
 
@@ -712,7 +712,7 @@ Contrairement à la boucle `while`, la séquence est ici exécutée **au moins u
 
 Notez ci-dessus la présence d'un `;` après le `while`. La structure `do`...`while` est un peu particulière, car elle est la seule structure de contrôle à se terminer par un point-virgule.
 
-[](){#loop-for}
+[]{#loop-for}
 
 ### for
 
@@ -893,7 +893,7 @@ int main(void)
 }
 ```
 
-[](){#jumps}
+[]{#jumps}
 
 ## Les sauts
 

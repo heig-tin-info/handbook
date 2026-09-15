@@ -1,4 +1,4 @@
-[](){#functions}
+[]{#functions}
 
 # Fonctions
 
@@ -119,7 +119,7 @@ La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont em
 
 ## Prototype
 
-[](){#function-prototype}
+[]{#function-prototype}
 
 Le [prototype](https://en.wikipedia.org/wiki/Function_prototype) d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction `printf` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier `<stdio.h>` et il est déclaré sous la forme :
 
@@ -169,7 +169,7 @@ int make_coffee(void) {
 }
 ```
 
-Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel [](){#calling_conventions} de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel []{#calling_conventions} de la fonction.
 
 ## Syntaxe
 
@@ -286,7 +286,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
 ## Exemples de fonctions
 
-[](){#fib-iterative}
+[]{#fib-iterative}
 ### Suite de Fibonacci
 
 La suite de Fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...

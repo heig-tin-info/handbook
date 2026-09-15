@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Well-typed programs don’t go wrong."
+    quote: "Well-typed programs don’t go wrong."
     source: Robin Milner
 ---
 # Types de données
@@ -66,7 +66,7 @@ int main() {
 }
 ```
 
-[](){#endianess}
+[]{#endianess}
 
 ## Boutisme
 
@@ -213,7 +213,7 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 
 ![Flux de construction d'un entier standardisé](/assets/images/c99-integers.drawio)
 
-[](){#reformed-types}
+[]{#reformed-types}
 
 ### Nouveaux types standard
 
@@ -250,7 +250,7 @@ Table: Entiers standard défini par stdint
     - [ ] 1024
     - [ ] 65536
 
-[](){#datamodel}
+[]{#datamodel}
 
 ## Modèle de donnée
 
@@ -341,7 +341,7 @@ Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a
 
 C'est pourquoi, en 1991, l'**ISO** a proposé un standard universel nommé **Unicode** qui est capable d'encoder tous les caractères de toutes les langues du monde.
 
-[](){#encodingunicode}
+[]{#encodingunicode}
 
 ### Unicode
 
@@ -353,7 +353,7 @@ Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, don
 
 ![Utiliation de l'UTF-8 dès 2001](/assets/images/unicode-trends.drawio)
 
-[Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
+[Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, []{#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
 En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. [[||wchar]] [[||unicode]] [[||utf8]] [[||Ken Thompson]]
 
@@ -678,14 +678,14 @@ passe directement à un type *int*.
     double d;
     ```
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     1. `c * sh - f / i + d;`
     2. `c * (sh – f) / i + d;`
     3. `c * sh - f - i + d;`
     4. `c + sh * f / i + d;`
 
-    ///
+    </div>
 
 !!! exercise "Expressions mixtes"
 
@@ -699,7 +699,7 @@ passe directement à un type *int*.
 
     Donnez le type et la valeur des expressions suivantes :
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     1. `x + n % p`
     2. `x + p / n`
@@ -710,7 +710,7 @@ passe directement à un type *int*.
     7. `(n + 1) / n`
     8. `(n + 1.0) / n`
 
-    ///
+    </div>
 
 ### Promotion explicite
 
@@ -845,7 +845,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     1. `x = -1.0; y = 60.;`
     2. `x = 0; y = 1.;`
@@ -854,7 +854,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     5. `x = 2.0; y = 50.0;`
     6. `x = -10.0; y = 60.0;`
 
-    ///
+    </div>
 
     ??? solution
 
@@ -868,7 +868,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         );
         ```
 
-        /// html | div[class='two-column-list']
+        <div class="two-column-list" markdown>
 
         1. `true`
         2. `true`
@@ -877,7 +877,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
         5. `true`
         6. `true`
 
-        ///
+        </div>
 
 !!! exercise "Casse-tête"
 
@@ -925,7 +925,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
     Que vaut le type et la valeur des expressions suivantes ?
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     1. `c / 2`
     2. `sh + c / 10`
@@ -939,7 +939,7 @@ qui peut, lors d'un calcul itératif induire des erreurs de calcul.
     10. `sh == i + lg`
     11. `d + f == sh + lg`
 
-    ///
+    </div>
 
 !!! exercise "Précision des flottants"
 

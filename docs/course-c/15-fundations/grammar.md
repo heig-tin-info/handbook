@@ -1,4 +1,4 @@
-[](){ #grammar }
+[]{#grammar}
 
 # La grammaire
 

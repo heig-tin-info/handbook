@@ -67,7 +67,7 @@ Les caractéristiques de la mémoire sont les suivantes:
 
 Il existe plusieurs technologies de mémoire vive. Les plus courantes sont : SDRAM, DDR, DDR2, DDR3 et DDR4. Contrairement à la SDRAM, qui est une mémoire synchrone, les mémoires DDR (*Double Data Rate*) fonctionnent de manière asynchrone. Elles peuvent lire et écrire des données sur les flancs montant et descendant du signal d'horloge, ce qui double la bande passante disponible. À chaque génération, les performances progressent grâce à une fréquence plus élevée, à une densité accrue des puces et à une réduction de la tension d'alimentation.
 
-[](){#light-speed}
+[]{#light-speed}
 ### Vitesse de la lumière
 
 ![Autoroute de l'information](/assets/images/highway.png)

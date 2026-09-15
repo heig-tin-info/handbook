@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Tout devrait être rendu aussi simple que possible, mais pas plus simple."
+    quote: "Tout devrait être rendu aussi simple que possible, mais pas plus simple."
     source: Albert Einstein
 ---
 # Syntaxe
@@ -173,7 +173,7 @@ Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et 
 
     Le Perl par exemple n'a environ que 20 mots clés, mais il est réputé pour être un langage difficile à apprendre. Le C++ dans sa version 2020 en a plus de 84.
 
-[](){#identifier}
+[]{#identifier}
 
 ## Identificateurs
 
@@ -200,7 +200,7 @@ En addition de cette grammaire, voici quelques règles :
 
     Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
 
-    /// html | div[class='three-column-list']
+    <div class="three-column-list" markdown>
 
     - [ ] `2_pi`
     - [x] `x_2`
@@ -217,13 +217,13 @@ En addition de cette grammaire, voici quelques règles :
     - [ ] `f'`
     - [x] `INT`
 
-    ///
+    </div>
 
     ??? solution
 
         Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne [regex101.com](https://regex101.com/r/cmxaic/1).
 
-        /// html | div[class='two-column-list']
+        <div class="two-column-list" markdown>
 
         1. `2_pi` **invalide**, car commence par un chiffre
         2. `x_2` **valide**
@@ -240,7 +240,7 @@ En addition de cette grammaire, voici quelques règles :
         13. `f'` **invalide** l'apostrophe n'est pas autorisée
         14. `INT` **valide**
 
-        ///
+        </div>
 
 Il faut noter que le standard C autorise depuis C11 l'utilisation de caractères Unicode dans les identificateurs, mais cette fonctionnalité est rarement implémentée par les compilateurs. Avec gcc le programme suivant est valide:
 
@@ -470,7 +470,7 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     Pour les entrées suivantes, indiquez lesquelles sont correctes.
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     - [x] `12.3`
     - [x] `12E03`
@@ -489,7 +489,7 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
     - [x] `09`
     - [x] `02`
 
-    ///
+    </div>
 
 La [[notation scientifique]], aussi appelée [[notation exponentielle]], est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
 

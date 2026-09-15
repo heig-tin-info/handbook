@@ -150,7 +150,7 @@ Pour s'y retrouver, une convention existe sur les extensions des fichiers. Rappe
 
 : Bibliothèque dynamique. Fichier objet partagé.
 
-[](){ #preprocessor-include }
+[]{#preprocessor-include}
 
 ## Inclusion (`#include`)
 
@@ -224,7 +224,7 @@ Ici, les types `bool` et `int_least32_t` ne sont pas définis dans ce fichier, c
 
 Aucune erreur ne sera générée. Cependant, `stack.h` dépend d'inclusions externes, ce qui est généralement à éviter. En incluant les fichiers locaux en premier, on s'assure de leur autonomie.
 
-[](){ #preprocessor-define }
+[]{#preprocessor-define}
 
 ## Macros (`#define`)
 
@@ -411,8 +411,8 @@ Ici, `x` est incrémenté trois fois au lieu d'une seule, ce qui peut entraîner
     - [ ] 5 - 8
     - [ ] 0
 
-[](){ #preprocessor-if }
-[](){ #preprocessor-ifdef }
+[]{#preprocessor-if}
+[]{#preprocessor-ifdef}
 
 ### _Static_assert
 
@@ -422,7 +422,7 @@ Le mot-clé `_Static_assert` est une directive de préprocesseur introduite dans
 _Static_assert(sizeof(tab) > 10, "La taille du tableau est inférieure à 10");
 ```
 
-[](){ #preprocessor-va-args }
+[]{#preprocessor-va-args}
 
 ### Varadiques
 
@@ -540,7 +540,7 @@ void display(char value) {
 }
 ```
 
-[](){ #preprocessor-undef }
+[]{#preprocessor-undef}
 
 ## Suppression (`#undef`)
 
@@ -585,7 +585,7 @@ Ou alors, vous pourriez forcer la valeur de $\pi$ à celle que vous souhaitez :
 #define M_PI 3.14159265358979323846
 ```
 
-[](){ #preprocessor-error }
+[]{#preprocessor-error}
 
 ## Erreur (`#error`)
 
@@ -669,7 +669,7 @@ L'anti-slash (`backslash`) suivi directement d'un retour à la ligne est interpr
     __FILE__, __LINE__);
 ```
 
-[](){ #preprocessor-line }
+[]{#preprocessor-line}
 
 ## Directive de ligne
 
@@ -679,7 +679,7 @@ La directive `#line` permet de modifier le numéro de ligne et le nom du fichier
 #line 42 "foo.c"
 ```
 
-[](){ #preprocessor-hash-hash }
+[]{#preprocessor-hash-hash}
 
 ## Concaténation de chaînes
 
@@ -733,7 +733,7 @@ int main() {
 
 Rappelez-vous que le langage C ne permet pas de définir des fonctions avec le même nom même si elles ont des signatures différentes et même si elles sont dans deux fichiers séparés. Un paramètre de configuration `MANGLE` permettrait de spécifier à la compilation d'une bibliothèque le préfixe à ajouter à toutes les fonctions de la bibliothèque.
 
-[](){ #preprocessor-hash }
+[]{#preprocessor-hash}
 
 ## Conversion en chaîne
 
@@ -781,7 +781,7 @@ if (x < 0) {
 #endif
 ```
 
-[](){ #preprocessor-include-guard }
+[]{#preprocessor-include-guard}
 
 ## Include guard
 
@@ -826,7 +826,7 @@ On préfèrera utiliser la directive [#pragma once](https://en.wikipedia.org/wik
 ```
 
 
-[](){ #preprocessor-pragma }
+[]{#preprocessor-pragma}
 
 ## Pragmas (`#pragma`)
 
@@ -857,7 +857,7 @@ Notons que si l'on souhaite définir un pragma au sein d'une directive préproce
 #define PRAGMA(x) _Pragma(#x)
 ```
 
-[](){ #preprocessor-exceptions }
+[]{#preprocessor-exceptions}
 ## Simulation d'exceptions
 
 Dans des langages de plus haut niveau comme le C++, le Python ou le Java, il existe un mécanisme nommé exception qui permet de gérer des erreurs plus efficacement. Au lieu de retourner une valeur d'erreur, on lève une exception qui sera attrapée plus haut dans la chaîne d'appel.

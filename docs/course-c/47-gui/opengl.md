@@ -266,7 +266,7 @@ int main() {
 
 GLUT (*OpenGL Utility Toolkit*) est une bibliothèque qui facilite la création de fenêtres OpenGL. Elle est plus ancienne que GLFW et elle est moins utilisée. GLUT est une bibliothèque portable qui permet de créer des fenêtres OpenGL sur Windows, Linux et MacOS. Elle permet également de gérer les événements de fenêtre, les événements de clavier et de souris, et les événements de redimensionnement de fenêtre. Préférez GLFW à GLUT pour vos projets OpenGL.
 
-[](){#opengl-coordinates}
+[]{#opengl-coordinates}
 
 ## Coordonnées
 

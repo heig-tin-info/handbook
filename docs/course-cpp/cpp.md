@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "C vous permet de vous tirer une balle dans le pied facilement ; C++ rend cela plus difficile, mais quand vous y arrivez, ça vous arrache toute la jambe."
+    quote: "C vous permet de vous tirer une balle dans le pied facilement ; C++ rend cela plus difficile, mais quand vous y arrivez, ça vous arrache toute la jambe."
     source: Bjarne Stroustrup
 ---
 # C++

@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "C is quirky, flawed, and an enormous success."
+    quote: "C is quirky, flawed, and an enormous success."
     source: Dennis Ritchie
 ---
 # Le langage C
@@ -11,7 +11,7 @@ Même s’il est apparu en [[1972]], le C demeure largement utilisé et enseign�
 
 En 2024, rares sont les alternatives aussi mûres et éprouvées que le C pour le développement d’applications embarquées hautes performances ou pour les noyaux de systèmes d’exploitation. Des langages plus récents comme [[Rust]] ou [[Zig]] gagnent en visibilité, mais ils ne se sont pas encore généralisés dans l’industrie.
 
-[](){ #c-history }
+[]{#c-history}
 
 ## Historique { data-search-keyword="thompson"}
 
@@ -129,13 +129,13 @@ Table: Top 10 des langages de programmation
 
 Sur le podium, [[Python]] est un langage de très haut niveau, simple à appréhender mais éloigné du matériel. [[C++]] se distingue par sa richesse orientée objet et sa puissance, au prix d’une complexité certaine. Avec la médaille d’argent, C offre un excellent compromis : il reste accessible tout en ouvrant les portes de la programmation bas niveau. C’est pour cette raison que ce cours repose sur le langage C. Ai-je réussi à vous convaincre ?
 
-[](){#structured-text-programming}
+[]{#structured-text-programming}
 
 ## Programmation texte structurée
 
 Le C, comme la plupart des langages de programmation, repose sur du texte structuré. Il est défini par un **vocabulaire**, une **grammaire** et un **alphabet**. À la différence des [langages naturels](https://fr.wikipedia.org/wiki/Langage_naturel) comme le français, un langage de programmation est un [langage formel](https://fr.wikipedia.org/wiki/Langage_formel) : sa syntaxe et son lexique ne souffrent ni exceptions ni ambiguïtés. Les **compilateurs** s’appuient sur cette grammaire épurée — par souci d’économie de mémoire et de précision — afin d’éliminer toute ambiguïté et d’accroître la productivité des personnes qui développent.
 
-[](){ #omelette }
+[]{#omelette}
 
 Pour mieux comprendre, voici un exemple sous forme de [pseudo-code](https://fr.wikipedia.org/wiki/Pseudo-code) utilisant une grammaire simple :
 
@@ -159,7 +159,7 @@ où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia
 
 Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire][grammar] du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`←`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
 
-[](){#paradigm}
+[]{#paradigm}
 
 ## Les paradigmes de programmation
 
@@ -250,7 +250,7 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le pro
 
 ![Cycle de compilation illustré](/assets/images/build-cycle.drawio)
 
-[](){#preproc-intro}
+[]{#preproc-intro}
 
 ### Préprocesseur (*pre-processing*)
 
@@ -284,7 +284,7 @@ Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous 
 
 ![Édition des liens de plusieurs objets](/assets/images/link.drawio)
 
-[](){#hello-world}
+[]{#hello-world}
 
 ## Hello World!
 

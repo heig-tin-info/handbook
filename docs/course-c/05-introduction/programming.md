@@ -1,6 +1,6 @@
 ---
 epigraph:
-  text: La programmation, c'est l'art d'organiser la complexité.
+  quote: La programmation, c'est l'art d'organiser la complexité.
   source: E. Dijkstra
 ---
 
@@ -251,7 +251,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 >Vôtre, Jacques Perret »
 
-[](){#turingmachine}
+[]{#turingmachine}
 
 ## La machine de Turing
 
@@ -341,7 +341,7 @@ On peut essayer de traduire cet algorithme dans un langage formel :
     }
     ```
 
-[](){#teletype}
+[]{#teletype}
 ## L'ordinateur d'antan
 
 ![Téléscripteur Siemens T100](/assets/images/siemens-t100.jpg)
@@ -430,8 +430,8 @@ c3
 0000000000110001110000000100100010000011110001000001100011000011
 ```
 
-[](){#coffee-maker}
-[](){#mcu}
+[]{#coffee-maker}
+[]{#mcu}
 
 ## Les systèmes à microcontrôleurs
 

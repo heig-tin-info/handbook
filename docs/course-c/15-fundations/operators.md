@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "L'un de mes jours les plus productifs a été lorsque j'ai supprimé 1 000 lignes de code. Nous n'avons pas besoin de plus d'opérateurs, nous en avons besoin de moins."
+    quote: "L'un de mes jours les plus productifs a été lorsque j'ai supprimé 1 000 lignes de code. Nous n'avons pas besoin de plus d'opérateurs, nous en avons besoin de moins."
     source: Ken Thompson
 ---
 # Opérateurs
@@ -39,7 +39,7 @@ Si l'on souhaite faire une addition, on peut écrire en C :
 c = a + b;
 ```
 
-[](){#operator-arithmetic}
+[]{#operator-arithmetic}
 
 ### Types d'opérateurs
 
@@ -439,7 +439,7 @@ Table: Opérateurs bit à bit
 | Opérateur | Description                               | Exemple                         |
 | --------- | ----------------------------------------- | ------------------------------- |
 | `&`       | [Conjonction (ET)][operator-and]          | `(0b1101 & 0b1010) == 0b1000`   |
-| `         | `                                         | [Disjonction (OU)][operator-or] | `(0b1101 | 0b1010) == 0b1111` |
+| `         \| `                                         | [Disjonction (OU)][operator-or] | `(0b1101 \| 0b1010) == 0b1111` |
 | `^`       | [XOR binaire][operator-xor]               | `(0b1101 ^ 0b1010) == 0b0111`   |
 | `~`       | [Complément à un][operator-not]           | `~0b11011010 == 0b00100101`     |
 | `<<`      | [Décalage à gauche][operator-shift-left]  | `(0b1101 << 3) == 0b1101000`    |
@@ -450,7 +450,7 @@ Table: Opérateurs bit à bit
 
     Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
 
-[](){#operator-and}
+[]{#operator-and}
 
 #### Conjonction
 
@@ -478,7 +478,7 @@ gandalf = 0;
 balrog = balrog & gandalf; // You shall not pass!
 ```
 
-[](){#operator-or}
+[]{#operator-or}
 
 #### Disjonction
 
@@ -500,7 +500,7 @@ bool teacher = true;
 student = student | teacher; // Tes devoirs tu feras...
 ```
 
-[](){#operator-xor}
+[]{#operator-xor}
 
 #### Disjonction exclusive
 
@@ -551,7 +551,7 @@ assert(b == 123);
     assert(*b == 0);
     ```
 
-[](){#operator-not}
+[]{#operator-not}
 #### Complément à un
 
 Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
@@ -569,8 +569,8 @@ Table: Complément à un
 
     En base 10, le symbole le plus grand est `9`. En binaire le symbole le plus grand est `1`. Donc pour inverser un nombre on complémente chaque bit à un.
 
-[](){#operator-shift-left}
-[](){#operator-shift-right}
+[]{#operator-shift-left}
+[]{#operator-shift-right}
 #### Décalages
 
 Les opérations de décalage permettent de déplacer les bits d'une valeur vers la gauche ou vers la droite. Les bits décalés sont perdus et remplacés par des zéros dans le cas d'une valeur non signée et par le bit de signe dans le cas d'une valeur signée.
@@ -836,7 +836,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     for (int i = 0; i < 10; i++) { }
     ```
 
-[](){#operator-ternary}
+[]{#operator-ternary}
 ### Opérateur ternaire
 
 L'opérateur ternaire aussi appelé **opérateur conditionnel** permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une `arité` de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
@@ -901,7 +901,7 @@ max = a > b ? a : b;
 
 Enfin, on notera que le résultat de l'opérateur ternaire est une *rvalue* et ne peut donc pas être modifiée.
 
-[](){#operator-cast}
+[]{#operator-cast}
 ### Opérateur de transtypage
 
 Le `transtypage` ou *cast* permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier, car son premier opérande doit être un **type** et le second une **valeur**.
@@ -919,7 +919,7 @@ double d = a / (double)(b);
 assert(c == 2.0 && d == 2.5);
 ```
 
-[](){#operator-comma}
+[]{#operator-comma}
 ### Opérateur séquentiel
 
 L'opérateur séquentiel (*comma operator*) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée, soit aux déclarations de variables, soit au boucles `for`:
@@ -936,7 +936,7 @@ Une particularité de cet opérateur est que seule la dernière valeur est retou
 assert(3 == (1, 2, 3))
 ```
 
-L'opérateur agit également comme un Point de séquence [](){#sequence_point}, c'est-à-dire que l'ordre des étapes est respecté.
+L'opérateur agit également comme un Point de séquence []{#sequence_point}, c'est-à-dire que l'ordre des étapes est respecté.
 
 !!! exercise "Opérateur séquentiel"
 
@@ -1131,7 +1131,7 @@ En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$
         D \cdot E + \overline{D} + \overline{E}
         $$
 
-[](){#rounding}
+[]{#rounding}
 ## Arrondis
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord. Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.
@@ -1189,8 +1189,8 @@ La méthode *round half to even* donne une somme arrondie (46) qui est plus proc
 
 L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.
 
-[](){#lvalue}
-[](){#rvalue}
+[]{#lvalue}
+[]{#rvalue}
 
 ## Valeurs gauches
 

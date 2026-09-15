@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Les nombres gouvernent le monde."
+    quote: "Les nombres gouvernent le monde."
     source: Pythagore
 ---
 # Nombres
@@ -203,7 +203,7 @@ Pour résumer les avantages et inconvénients du complément à un :
 1. Les opérations redeviennent presque triviales, mais il est nécessaire de soustraire 1 au résultat (c'est dommage).
 2. Le double zéro (positif et négatif) est gênant.
 
-[](){#twos_complement}
+[]{#twos_complement}
 ### Complément à deux
 
 Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles est de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.

@@ -181,7 +181,7 @@ void reverse(char *str) {
 }
 ```
 
-[](){#utf8-reverse}
+[]{#utf8-reverse}
 
 ### Implémentation UTF-8
 

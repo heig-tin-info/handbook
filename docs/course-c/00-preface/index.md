@@ -32,7 +32,7 @@ Cet ouvrage a pour objectif de rapprocher ces deux cultures en fournissant aux �
 
 ## Organisation de l'ouvrage
 
-/// html | div[class="latex-ignore"]
+<div class="latex-ignore" markdown>
 
 ### Recherche
 
@@ -76,7 +76,7 @@ Ce site utilise des cookies pour sauvegarder vos préférences de thème ainsi q
 
 Des information d'analyse de fréquentation sont également collectées pour améliorer le contenu de ce livre.
 
-///
+</div>
 
 ### Conventions d'écriture
 
@@ -84,9 +84,9 @@ Des information d'analyse de fréquentation sont également collectées pour am�
 
 Il sera souvent fait mention dans cet ouvrage la notation du type U+1F4A9, il s'agit d'une notation Unicode qui ne dépend pas d'un quelconque encodage. Parler du caractère ASCII 234 est incorrect, car cela dépend de la table d'encodage utilisée; en revanche, la notation Unicode est plus précise.
 
-/// html | div[class="latex-ignore"]
+<div class="latex-ignore" markdown>
 La notation est cliquable et vous redirigera vers le site [symbl.cc](https://www.symbl.cc/).
-///
+</div>
 
 #### Expressions régulières
 
@@ -120,7 +120,7 @@ Les conventions C s'appliquent à la manière d'exprimer les grandeurs suivantes
 
 Des encadrés sont utilisés pour mettre en avant des informations complémentaires ou des astuces. Ils sont également utilisés pour donner des informations sur des concepts avancés ou des détails techniques.
 
-/// html | div[style='display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-evenly;']
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-evenly;" markdown>
 
 !!! info inline
 
@@ -154,7 +154,7 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Quelle icône est utilisée pour les exercices ?
 
-///
+</div>
 
 ## Anglicismes
 
@@ -175,7 +175,7 @@ Table: Anglicismes
 | *software* | logiciel informatique | *software* |
 | *stream*   | flux de données       | *stream*   |
 
-[](){#anglisismes}
+[]{#anglisismes}
 
 Notons que *byte* et *octet* ne sont pas exactement synonymes. Un *byte* est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un *octet* est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour *octet*.
 

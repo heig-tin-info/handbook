@@ -59,7 +59,7 @@ YAGNI
 : [Vous n'en aurez pas besoin.][yagni] (*You ain't gonna need it.*)
 
 
-[](){#dry}
+[]{#dry}
 
 ### DRY
 
@@ -89,7 +89,7 @@ FILE *fp = argc > 1 ? fopen(argv[1], "r") : stdin;
 display(fp);
 ```
 
-[](){#kiss}
+[]{#kiss}
 
 ### KISS
 
@@ -127,7 +127,7 @@ int display(const Data *data, const size_t size) {
 }
 ```
 
-[](){#yagni}
+[]{#yagni}
 
 ### YAGNI
 
@@ -135,7 +135,7 @@ YAGNI est un anglicisme de *you ain't gonna need it* qui peut être traduit par:
 
 Ce principe combat le biais du développeur à vouloir sans cesse démarrer de nombreux chantiers sans se focaliser sur l'essentiel strictement nécessaire d'un programme et permettant de satisfaire au cahier des charges convenu avec le partenaire/client.
 
-[](){#ssot}
+[]{#ssot}
 
 ### SSOT
 
@@ -431,7 +431,7 @@ Un code *sent* si certains indicateurs sont au rouge. On appelle ces indicateurs
 
 : Quand un composant logiciel assure trop de fonctions essentielles (KISS)
 
-**Coulée de lave** [](){#lava-flow}
+**Coulée de lave** []{#lava-flow}
 
 : Lorsqu'un code immature est mis en production
 

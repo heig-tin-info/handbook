@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Les programmes doivent être écrits pour être lus par des humains, et seulement accessoirement pour être exécutés par des machines."
+    quote: "Les programmes doivent être écrits pour être lus par des humains, et seulement accessoirement pour être exécutés par des machines."
     source: Harold Abelson
 ---
 # Développement logiciel

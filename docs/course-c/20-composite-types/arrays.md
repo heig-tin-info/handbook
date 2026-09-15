@@ -454,7 +454,7 @@ Déclaration sur le tas
 
 :  La mémoire est allouée dynamiquement lors de l'exécution du programme. La mémoire est disponible jusqu'à ce que le programme libère l'espace mémoire. C'est la méthode la plus flexible mais elle n'est pas utilisable sur des architectures embarquées car l'allocation dynamique de mémoire peut être source de fragmentation de la mémoire et de risque de fuite mémoire.
 
-[](){#vla}
+[]{#vla}
 
 ## Tableau de longueur variable (VLA)
 

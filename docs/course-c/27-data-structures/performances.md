@@ -34,9 +34,9 @@ Le tableau suivant résume les performances obtenues pour les différentes struc
 
 Table: Comparaison des performances des structures récursives
 
-| Action            | Tableau    | Liste               | Buffer    | Arbre        | Hash Map  |
-| ----------------- | ---------- | ------------------- | --------- | ------------ | --------- |
-|                   | Statique   | Dynamique           | chaînée   | circulaire   | binaire   | linéaire    |
+| Action            | Tableau    | Tableau             | Liste     | Buffer       | Arbre     | Hash Map    |
+| ----------------- | ---------- | ------------------- | --------- | ------------ | --------- | ----------- |
+|                   | statique   | dynamique           | chaînée   | circulaire   | binaire   | linéaire    |
 | **Indexing**      | 1          | 1                   | n         | 1            | log n     | 1           |
 | **Unshift/Shift** | n          | n                   | 1         | 1            | log n     | n           |
 | **Push/Pop**      | 1          | 1 amorti            | 1         | 1            | log n     | 1           |

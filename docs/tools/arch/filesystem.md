@@ -266,7 +266,7 @@ Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très 
 | Afficher les ACL d'un fichier    | `$ getfacl file`                   |
 | Modifier les ACL d'un fichier    | `$ setfacl -m u:username:rwx file` |
 | Supprimer les ACL d'un fichier   | `$ setfacl -b file`                |
-| Copier les ACL d'un fichier      | `$ getfacl file1                   | setfacl --set-file=- file2` |
+| Copier les ACL d'un fichier      | `$ getfacl file1                   \| setfacl --set-file=- file2` |
 | Sauvegarder les ACL d'un fichier | `$ getfacl file > file.acl`        |
 | Restaurer les ACL d'un fichier   | `$ setfacl --restore=file.acl`     |
 

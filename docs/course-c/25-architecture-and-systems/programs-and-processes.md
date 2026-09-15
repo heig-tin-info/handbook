@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur."
+    quote: "L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur."
     source: Alfred Vaino Aho et Jeffrey David Ullman
 ---
 # Programmes et Processus
@@ -148,7 +148,7 @@ La figure suivante résume les interactions qu'un programme peut avoir sur son e
 
 ![Résumé des interactions avec un programme](/assets/images/program.drawio)
 
-[](){#signals}
+[]{#signals}
 ### Signaux
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](https://fr.wikipedia.org/wiki/Signal_(informatique)). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.

@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "To understand what recursion is, you must first understand recursion."
+    quote: "To understand what recursion is, you must first understand recursion."
     source: Internet
 ---
 

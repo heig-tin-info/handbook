@@ -46,7 +46,7 @@ Table: En-têtes standard
 | [`<wchar.h>`][libc-wchar]             | Caractères larges                           | **C95**  |
 | [`<wctype.h>`][libc-wctype]           | Tests larges                                | **C95**  |
 
-[](){#libc-assert}
+[]{#libc-assert}
 ## `<assert.h>`
 
 Même si `<assert.h>` semble modeste, il introduit des mécanismes précieux pour valider les hypothèses de votre code. La macro `assert` vérifie qu’une condition est vraie ; si ce n’est pas le cas, elle interrompt le programme et affiche un message descriptif. `static_assert` réalise une vérification similaire mais à la compilation, ce qui permet de bloquer un programme avant même qu’il soit exécuté lorsque la configuration est incohérente.
@@ -89,7 +89,7 @@ gcc -DNDEBUG -o foo main.c
 
     Définissez `NDEBUG` avant d’inclure `<assert.h>`. Une définition tardive laisserait la macro `assert` active, car l’en-tête aura déjà généré sa version instrumentée.
 
-[](){#libc-errno}
+[]{#libc-errno}
 ## `<errno.h>`
 
 L’en-tête `<errno.h>` propose un mécanisme simple pour transmettre des informations d’erreur entre une fonction et son appelant. Il fournit une variable globale `errno`, qui stocke le dernier code d’erreur défini par certaines fonctions de la bibliothèque standard ou par des extensions POSIX.
@@ -130,7 +130,7 @@ int main(void)
 }
 ```
 
-[](){#libc-math}
+[]{#libc-math}
 ## `<math.h>`
 
 La bibliothèque mathématique est l’une des plus sollicitées. Elle regroupe les fonctions d’analyse numérique de base (exponentielles, logarithmes, racines, trigonométrie) et décline la plupart d’entre elles pour `float`, `double` et `long double` via les suffixes `f` et `l`. Sur de nombreux systèmes Unix, il faut ajouter l’option `-lm` lors de l’édition de liens pour profiter de ces symboles.
@@ -171,7 +171,7 @@ Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables
 
 Le standard C99 a introduit l'en-tête [`<tgmath.h>`][libc-tgmath] qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
-[](){#libc-fenv}
+[]{#libc-fenv}
 ## `<fenv.h>`
 
 La bibliothèque `<fenv.h>` est étroitement liée aux calculs mathématique et permet de manipuler l'environnement de calcul flottant. Elle permet de contrôler les modes de calculs, les exceptions et les arrondis. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
@@ -302,7 +302,7 @@ L'arrondi bancaire minimise les biais d'arrondi lorsqu'on fait des calculs sur d
 
 Notez que la différence entre `rint` et `nearbyint` est que `nearbyint` ne génère pas d'exception en cas de dépassement de capacité (*overflow*).
 
-[](){#libc-float}
+[]{#libc-float}
 ## `<float.h>`
 
 La bibliothèque `<float.h>` contient des constantes qui définissent la précision des types flottants sur l'architecture cible. Les constantes sont définies pour les types `float`, `double` et `long double`.
@@ -317,7 +317,7 @@ Dans IEEE 754, l'exposant est de base 2, c'est ce qu'on appelle le *radix*. Il p
 
     La norme IEEE 754-2008 permet d'utiliser le radix 16, 10 ou 2. Elle défini notament la repséentation **DFP** (*Decimal Floating Point*) qui permet de représenter les nombres décimaux de manière exacte. Cependant l'implémentation physique d'une FPU en radix 10 est plus complexe et moins performante c'est pour cela que la vaste majorité des processeurs utilisent le radix 2 suffisant pour la plupart des applications.
 
-[](){#libc-complex}
+[]{#libc-complex}
 ## `<complex.h>`
 
 La bibliothèque `<complex.h>` permet de manipuler les nombres complexes. Les fonctions sont définies pour les types `float`, `double` et `long double` avec les préfixes `f`, `l` et sans préfixe respectivement.
@@ -377,7 +377,7 @@ Table: Fonctions complexes
 Certaines extensions prévue possiblement avec C23 amènerait des fonctionnalités supplémentaires telles que `cexp2`, `clog2`, `cexp10`, `clog10`, `crootn` ...
 
 
-[](){#libc-iso646}
+[]{#libc-iso646}
 ## `<iso646.h>`
 
 L'en-tête `<iso646.h>` est une extension du standard C95 qui définit des alternatives aux opérateurs logiques. Les opérateurs logiques sont définis avec des symbols (`&&`, `||`, `!`) mais pour des raisons de lisibilité, il est possible de les définir en anglais (`and`, `or`, `not`).
@@ -408,7 +408,7 @@ int foo(int a, int b, int c) {
 
 Je vous recommande personnellement de ne pas utiliser ces macros. Elles ne sont pas très utilisées et peuvent rendre le code moins lisible pour les autres développeurs.
 
-[](){#libc-limits}
+[]{#libc-limits}
 
 ## `<limits.h>`
 
@@ -437,7 +437,7 @@ Table: Limites des entiers de base
 | `LLONG_MIN`  | Valeur minimale d'un `long long`          | -9223372036854775808 |
 | `ULLONG_MAX` | Valeur maximale d'un `unsigned long long` | 18446744073709551615 |
 
-[](){#libc-locale}
+[]{#libc-locale}
 ## `<locale.h>`
 
 En jargon informatique, la *locale* est un ensemble de paramètres qui définissent les conventions culturelles d'une région. Cela inclut la langue, le format de date, le format de nombre, etc. La bibliothèque `<locale.h>` permet de manipuler ces paramètres.
@@ -541,7 +541,7 @@ Table: Catégories de locales
 | `LC_NUMERIC`  | Format numérique          |
 | `LC_TIME`     | Format de date et heure   |
 
-[](){#libc-setjmp}
+[]{#libc-setjmp}
 ## `<setjmp.h>`
 
 La bibliothèque `<setjmp.h>` permet de gérer les exceptions en C. Elle fournit deux fonctions `setjmp` et `longjmp` qui permettent de sauvegarder l'état du programme et de le restaurer à un point donné.
@@ -590,7 +590,7 @@ int main() {
 
 Lors de l'appel de `setjmp`, la fonction retourne 0. Cette valeur peut être utilisée pour tester si c'est la première fois que la fonction est appelée ou si c'est un retour de `longjmp`. Dans ce cas, la fonction retourne la valeur passée à `longjmp`.
 
-[](){#libc-signal}
+[]{#libc-signal}
 ## `<signal.h>`
 
 Les signaux sont des mécanismes spécifiques aux systèmes d'exploitations qui permettent de communiquer entre les processus (programmes) et le noyau. Un signal ne véhicule pas de données, il permet simplement de réveiller un processus pour lui indiquer qu'un événement s'est produit. Alternativement un signal peut être émis par un processus pour demander au noyau de réaliser une action.
@@ -643,7 +643,7 @@ int main() {
 }
 ```
 
-[](){#libc-stdalign}
+[]{#libc-stdalign}
 ## `<stdalign.h>`
 
 La bibliothèque `<stdalign.h>` fournit des fonctions pour manipuler l'alignement des données en mémoire. L'alignement est une notion importante en informatique car les processeurs sont plus efficaces lorsqu'ils accèdent à des données alignées. Imaginez un camion qui transporte des palettes de marchandises. La logistique est faite de manière à ce que les palettes soient facile à charger et décharger du camion avec un minimum de manutention. Imaginez maintenant que vous voulez prendre un élément d'une palette. Cela demande plus de travail parce que vous devez extraire l'élément et trouver un autre outil pour le transporter. Un ordinateur 64-bits sur une architecture x86 a beaucoup de faciliter à véhiculer des mots de 8 octets et il s'arrangera en mémoire à disposer les données de la taille d'une palette (64-bits) de façon à ce que son accès soit le plus rapide possible.
@@ -673,7 +673,7 @@ struct alignas(16) Data {
 };
 ```
 
-[](){#libc-stdarg}
+[]{#libc-stdarg}
 ## `<stdarg.h>`
 
 Ne vous êtes-vous jamais demandé quel est le prototype de `printf` ? Comment se fait-il que cette fonction puisse prendre un nombre variable d'arguments ? La réponse est la bibliothèque `<stdarg.h>` qui permet de manipuler les arguments d'une fonction variable. Observons le prototype de `printf` :
@@ -752,7 +752,7 @@ void __va_start(va_list_hack* ap, void* last, size_t last_size) {
 }
 ```
 
-[](){#libc-stdatomic}
+[]{#libc-stdatomic}
 ## `<stdatomic.h>`
 
 Cet en-tête concerne la notion d'atomicité en programmation concurrente, et il pourrait s'agir d'un cours à part entière. L'atomicité est la propriété d'une opération qui est exécutée en une seule étape sans être interrompue. En d'autres termes, une opération atomique est une opération qui est soit complètement exécutée, soit pas du tout. Lorsqu'un programme utilise des *threads* (sous-programmes exécutés en parallèle), il est possible que deux exécutions parallèles tentent de modifier la même variable en même temps. Cela peut poser de gros problèmes de corruption de données. Vous savez par exemple qu'un entier est stocké sur 4 octets. On peut néanmoins imaginer une fonction d'échange de deux variables un peu naive qui traite chaque octet séparément.
@@ -795,7 +795,7 @@ int main() {
 
 Pour de plus emples informations sur la programmation concurrente, je vous redirige sur un cours dédié à ce sujet.
 
-[](){#libc-stdbit}
+[]{#libc-stdbit}
 ## `<stdbit.h>`
 
 Cette bibliothèque a été introduite avec le standard C23 et elle permet de manipuler les bits de manière portable en fournissant des macros pour les opérations bit à bit. Les macro suivantes sont disponibles :
@@ -821,7 +821,7 @@ Bien entendu pour ces opérations, il est nécessaire de connaître la taille du
 
 Néanmoins ces fonctions sont faites pour profiter des instructions spécifiques des processeurs modernes qui permettent de réaliser ces opérations de manière plus efficace. En effet dans l'architecture X86 par exemple il existe la directive assembleur `ror` pour la rotation à droite et `rol` pour la rotation à gauche. Ces instructions sont plus rapides que la méthode naïve ci-dessus mais elles n'existent pas nécessairement dans toutes les architectures. Du reste, si on essaye de compiler cette macro avec gcc et observons l'assembler généré, on constate que le compilateur utilise bien l'instruction `ror` pour la rotation à droite. Il est donc capable de comprendre le code et de l'optimiser en conséquence.
 
-[](){#libc-stdbool}
+[]{#libc-stdbool}
 ## `<stdbool.h>`
 
 Cette bibliothèque est apparue en C99 et après 20 ans d'attente, elle introduit enfin le type booléen `bool` et les valeurs `true` et `false`. Cet en-tête est par conséquent l'un des plus simple de la bibliothèque standard, car il ne contient que trois lignes :
@@ -858,7 +858,7 @@ bool bool_array[8] = {true, false, true, true, false, false, true, true};
 assert(sizeof(bool_array) == 8);
 ```
 
-[](){#libc-stdckdint}
+[]{#libc-stdckdint}
 ## `<stdckdint.h>`
 
 Cette bibliothèque est apparue en C23 et propose des fonctions arithmétiques pour les opérations de base comme l'addition, la soustraction, et la multiplication, mais avec une **détection explicite de l'overflow**. L'abbréviation `ckd` signifie *checked*. Les fonctions introduites par cet en-tête sont :
@@ -898,7 +898,7 @@ int add(int a, int b) {
 }
 ```
 
-[](){#libc-stddef}
+[]{#libc-stddef}
 ## `<stddef.h>`
 
 La bibliothèque `<stddef.h>` fournit quelques définitions utiles tel que donné par la table suivante :
@@ -939,8 +939,8 @@ Concernant les pointeurs, s'il est parfaitement correct de tester si un pointeur
 
 : Il s'agit d'un type signé qui est utilisé pour représenter la différence entre deux pointeurs. Lorsque l'on veut calculer `ptr_p - ptr_q` on obtient un entier dont la valeur maximale dépend de la taille de la mémoire adressable.
 
-[](){#libc-inttypes}
-[](){#libc-stdint}
+[]{#libc-inttypes}
+[]{#libc-stdint}
 ## `<inttypes.h>` et `<stdint.h>`
 
 Ces deux bibliothèques répondent au besoin d'avoir des types entiers d'une taille contrôlée et surtout portable. En effet, nous avons vu que les types standards (`int`, `short`, `long`...) dépendent du modèle de données de l'architecture cible. Un `long` n'aura pas la même taille sur Linux ou Windows par exemple.
@@ -992,7 +992,7 @@ int32_t a = 42;
 printf("%" PRId32 "\n", a);
 ```
 
-[](){#libc-stdio}
+[]{#libc-stdio}
 ## `<stdio.h>`
 
 La bibliothèque `<stdio.h>` est l'une des bibliothèques les plus importantes en C. Elle fournit des fonctions pour l'entrée et les sorties, c'est-à-dire pour lire et écrire des données depuis et vers la console. Elle fournit également des fonctions pour lire et écrire des fichiers.
@@ -1076,7 +1076,7 @@ Table: Constantes et types de stdio.h
 | `FILE`         | Type opaque représentant un flux de fichier                                                             |
 | `fpos_t`       | Type utilisé pour stocker la position dans un fichier                                                   |
 
-[](){#libc-stdlib}
+[]{#libc-stdlib}
 ## `<stdlib.h>`
 
 Cette bibliothèque contient des fonctions éparses qui ne sont pas assez importantes pour être regroupées dans une bibliothèque dédiée. Contrairement aux langages plus récents (comme C++ ou Java), C n'a pas été conçu avec une philosophie de modularité stricte pour les bibliothèques. Les fonctions étaient rassemblées par utilité pratique plutôt que par sujet spécifique, et les bibliothèques étaient assez limitées en nombre pour garder le langage simple et portable. On y retrouve les catégories suivantes :
@@ -1172,7 +1172,7 @@ Table: Constantes et types de stdlib.h
 | `wchar_t`      | Type pour représenter un caractère large                                                            |
 | `mbstate_t`    | Type utilisé pour conserver l'état entre conversions de caractères multioctets et caractères larges |
 
-[](){#libc-stdnoreturn}
+[]{#libc-stdnoreturn}
 ## `<stdnoreturn.h>`
 
 Cette bibliothèque est apparue en C11 et elle introduit le type `noreturn` qui est utilisé pour indiquer qu'une fonction ne retourne jamais. Cela permet au compilateur d'optimiser le code en supprimant les instructions de retour de la fonction. En pratique, cela permet de gagner quelques cycles d'horloge. Voici un exemple d'utilisation :
@@ -1200,7 +1200,7 @@ int main(void)
 
 Avant C23, il fallait utiliser `_Noreturn`.
 
-[](){#libc-string}
+[]{#libc-string}
 ## `<string.h>`
 
 La bibliothèque `<string.h>` contient des fonctions pour manipuler les chaînes de caractères. Les fonctions sont définies pour les chaînes de caractères ASCII uniquement. On distingue deux famille de fonctions, les `mem` qui manipulent des régions mémoires et les `str` qui manipulent des chaînes de caractères.
@@ -1535,7 +1535,7 @@ if (f == NULL) {
 }
 ```
 
-[](){#libc-tgmath}
+[]{#libc-tgmath}
 ## `<tgmath.h>`
 
 La bibliothèque `<tgmath.h>` est une bibliothèque de type générique qui permet de définir des fonctions mathématiques qui acceptent des arguments de différents types. Par exemple, la fonction `sqrt` peut accepter un argument de type `float`, `double` ou `long double`.
@@ -1547,7 +1547,7 @@ Cette [généricité][generickw] est permise à l'aide du mot clé `_Generic` in
 La bibliothèque redéfini les fonctions mathématiques de la bibliothèque `<math.h>`, pour l'utiliser il suffit d'inclure l'en-tête `<tgmath.h>` à la place de `<math.h>`. Par exemple, pour calculer la racine carrée d'un nombre, on peut utiliser la fonction `sqrt` de la bibliothèque `<tgmath.h>` :
 
 
-[](){#libc-threads}
+[]{#libc-threads}
 ## `<threads.h>`
 
 La bibliothèque `<threads.h>` contient des fonctions pour créer et gérer des threads. Les threads sont aussi nommés des processus légers qui partagent le même espace mémoire. Un thread peut être vu comme un sous-programme parallèle tournant dans le même programme. Les fonctions offertes par le standard sont les suivantes :
@@ -1574,7 +1574,7 @@ Table: Fonctions sur les threads
 
 Pour plus de détails sur le fonctionnement des threads, vous pouvez consulter un cours spécialisé sur la programmation concurrente.
 
-[](){#libc-time}
+[]{#libc-time}
 ## `<time.h>`
 
 La bibliothèque `<time.h>` contient des fonctions pour lire et convertir des dates et heures. Les fonctions sont définies pour les dates et heures en secondes depuis le 1er janvier 1970.
@@ -1766,7 +1766,7 @@ Il pourrait afficher:
 Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 ```
 
-[](){#libc-uchar}
+[]{#libc-uchar}
 
 ## `<uchar.h>`
 
@@ -1804,7 +1804,7 @@ L'inconvénient majeur d'UTF-8 c'est qu'il est impossible d'éditer un caractèr
 
 Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage. Une implémentation est donnée dans la section [algorithmes][utf8-reverse].
 
-[](){#libc-wchar}
+[]{#libc-wchar}
 
 ## `<wchar.h>`
 
@@ -1839,8 +1839,8 @@ Table: Fonctions liées aux caractères larges
 | `wmemset`  | Remplit une région mémoire                     | `memset`   |
 
 
-[](){#libc-wctype}
-[](){#libc-ctype}
+[]{#libc-wctype}
+[]{#libc-ctype}
 
 ## `<(w)ctype.h>`
 

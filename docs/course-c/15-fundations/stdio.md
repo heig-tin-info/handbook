@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Le problème fondamental de la communication est celui de reproduire en un point, soit exactement, soit approximativement, un message sélectionné à un autre point."
+    quote: "Le problème fondamental de la communication est celui de reproduire en un point, soit exactement, soit approximativement, un message sélectionné à un autre point."
     source: Claude Shannon
 ---
 
@@ -29,7 +29,7 @@ Table: Fonctions d'entrées/sorties principales
 
 Ces fonctions sont très basiques et permettent d'écrire des caractères ou des chaînes de caractères sur la sortie standard.
 
-[](){#putchar}
+[]{#putchar}
 
 ### Putchar
 
@@ -67,7 +67,7 @@ int main() {
 }
 ```
 
-[](){#puts}
+[]{#puts}
 
 ### Puts
 
@@ -119,7 +119,7 @@ int main(void)
 }
 ```
 
-[](){#functionprintf}
+[]{#functionprintf}
 
 ### Printf
 
@@ -247,7 +247,7 @@ void my_printf(char format[], int a) {
 
 ## Entrées non formatées
 
-[](){#getchar}
+[]{#getchar}
 ### Getchar
 
 La fonction `getchar` est une fonction de la bibliothèque standard C qui permet de lire un caractère sur l'entrée standard. Elle est définie dans la bibliothèque `stdio.h`. Elle retourne un entier qui correspond à la valeur ASCII du caractère lu.
@@ -267,7 +267,7 @@ Notez ici l'utilisation de `EOF` qui est une constante définie dans la biblioth
 
 Lorsque vous exécutez ce programme, vous pouvez saisir des caractères au clavier. Pour terminer la saisie, vous pouvez utiliser la combinaison de touches ++Ctrl+D++ sur Linux ou ++Ctrl+Z++ sur Windows.
 
-[](){#gets}
+[]{#gets}
 ### Gets
 
 La fonction `gets` est une fonction de la bibliothèque standard C qui permet de lire une chaîne de caractères sur l'entrée standard. Elle est définie dans la bibliothèque `stdio.h`.
@@ -292,7 +292,7 @@ int main() {
 
 Les fonctions de lecture de chaînes de caractères sont plus complexes que les fonctions d'écriture. En effet, il est nécessaire de spécifier le format de la chaîne à lire.
 
-[](){#scanf}
+[]{#scanf}
 
 ### Scanf
 
@@ -969,7 +969,7 @@ int main(void)
 
     Indiquez si les constantes littérales suivantes sont valides ou invalides.
 
-    /// html | div[class='two-column-list']
+    <div class="two-column-list" markdown>
 
     1. `'a'`
     2. `'A'`
@@ -986,7 +986,7 @@ int main(void)
     13. `"\'\"\\"`
     14. `"hello \world!\n"`
 
-    ///
+    </div>
 
 !!! exercise "Chaînes de formatage"
 

@@ -1,4 +1,4 @@
-[](){#pointers}
+[]{#pointers}
 
 # Pointeurs
 

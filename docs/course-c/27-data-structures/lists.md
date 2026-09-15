@@ -1,5 +1,5 @@
 
-[](){#linkedlist}
+[]{#linkedlist}
 
 # Listes chaînées
 

@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Aucune de nous ne sait ce que nous savons tous ensemble."
+    quote: "Aucune de nous ne sait ce que nous savons tous ensemble."
     source: Euripide (Apocryphe ?)
 ---
 # Travail en équipe
@@ -348,7 +348,7 @@ En termes matériels cela peut être la proposition d'un schéma électrique, d'
 
 Une fois la solution technique validée, il est possible de passer à l'étape de développement du système. Cette étape consiste à réaliser les organes du système, à les assembler, à les tester, et à les valider. C'est à ce moment que l'on passe de la théorie à la pratique, de la spécification à la réalisation.
 
-[](){#development-models}
+[]{#development-models}
 
 ## Modèles de développement
 

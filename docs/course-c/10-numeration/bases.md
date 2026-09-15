@@ -1,6 +1,6 @@
 ---
 epigraph:
-  text: Il y a 10 types de personnes dans le monde, celles qui comprennent le binaire, et celles qui ne le comprennent pas.
+  quote: Il y a 10 types de personnes dans le monde, celles qui comprennent le binaire, et celles qui ne le comprennent pas.
   source: Mème internet
 ---
 # Bases
