@@ -31,18 +31,15 @@ dependencies = [
     "chalk-diagrams>=0.2.2,<0.3.0",
     "deepmerge>=2.0,<3.0.0",
     "inflection>=0.5.1,<0.6.0",
-    "markdown-exec>=1.11.0,<2.0.0",
     "mike>=2.1.3,<3.0.0",
     "mkdocs>=1.6.1,<2.0.0",
     "mkdocs-autorefs>=1.4.3,<2.0.0",
     "mkdocs-awesome-pages-plugin>=2.10.1,<3.0.0",
     "mkdocs-caption>=1.3.0,<2.0.0",
-    "mkdocs-charts-plugin>=0.0.13,<0.0.14",
     "mkdocs-codeinclude-plugin>=0.2.1,<0.3.0",
     "mkdocs-drawio @ git+https://github.com/yves-chevallier/mkdocs-drawio.git@testounet",
     "mkdocs-drawio-exporter>=0.10.2,<0.11.0",
     "mkdocs-enumerate-headings-plugin>=0.6.2,<0.7.0",
-    "mkdocs-epigraph>=0.5.1,<0.6.0",
     "mkdocs-extract-listings-plugin>=0.2.1,<0.3.0",
     "mkdocs-get-deps>=0.2.0,<0.3.0",
     "mkdocs-git-authors-plugin>=0.10.0,<0.11.0",
@@ -66,7 +63,9 @@ dependencies = [
     "voluptuous>=0.15.2,<0.16.0",
     "wikipedia-api>=0.8.1,<0.9.0",
     "mkdocs-wikipedia>=0.1.0,<0.2.0",
-    "mkdocs-texsmith>=0.2.1",
+    "mkdocs-texsmith>=0.7.0",
+    "texsmith>=0.7.0",
+    "zensical>=0.0.62",
 ]
 
 [project.optional-dependencies]
@@ -89,3 +88,13 @@ only-include = ["README.md"]
 [build-system]
 requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.uv]
+# mkdocs-plugin-exercises caps pymdown-extensions below 11 and Zensical needs
+# 11 or later; the cap is stale, so the two live in one environment.
+override-dependencies = ["pymdown-extensions>=11.0"]
+
+[tool.uv.sources]
+texsmith = { path = "/home/ycr/texsmith", editable = true }
+mkdocs-texsmith = { path = "/home/ycr/texsmith/packages/mkdocs_texsmith", editable = true }
+tmark-core = { path = "/home/ycr/tmark/crates/tmark-py" }
