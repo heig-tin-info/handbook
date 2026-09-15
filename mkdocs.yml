@@ -111,12 +111,10 @@ plugins:
   # - social # Not supporting external logo link
   - awesome-pages
   - tags
-  - epigraph
   - pills
   - texsmith:
       build_dir: build
       clean_assets: false
-      save_html: true
       template: book
       books:
         - root: Cours C
@@ -152,11 +150,11 @@ plugins:
       tooltips: false
       use_page_attribute: true
       edit: false
-  - markdown-exec
   - search
   - exercises
 exclude_docs: README.md
 markdown_extensions:
+  - texsmith.site.web
   - toc:
       toc_depth: 3
       permalink: "¤"
@@ -166,13 +164,6 @@ markdown_extensions:
   - tables
   - pymdownx.superfences:
       custom_fences:
-        - name: python
-          class: python
-          validator: !!python/name:markdown_exec.validator
-          format: !!python/name:markdown_exec.formatter
-        - name: vegalite
-          class: vegalite
-          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
@@ -203,6 +194,7 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.snippets:
+      base_path: [.]
       check_paths: true
       url_max_size: 2048
       url_timeout: 3
@@ -259,6 +251,7 @@ hooks:
   - hooks/mermaid.py # Support for captions in mermaid diagrams
   - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
+  - assets/texsmith/texsmith.css
   - css/french.css
   - css/extra.css
   - css/tables.css
