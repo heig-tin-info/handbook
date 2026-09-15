@@ -109,7 +109,8 @@ plugins:
         caption_prefix: ''
         position: top
   # - social # Not supporting external logo link
-  - awesome-pages
+  - awesome-pages # MkDocs reads the .pages files
+  - awesome-nav # Zensical reads the .nav.yml files
   - tags
   - pills
   - texsmith:

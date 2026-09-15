@@ -2,7 +2,8 @@ version = 1
 revision = 3
 requires-python = ">=3.10, <4.0"
 resolution-markers = [
-    "python_full_version >= '3.11'",
+    "python_full_version >= '3.13'",
+    "python_full_version >= '3.11' and python_full_version < '3.13'",
     "python_full_version < '3.11'",
 ]
 
@@ -584,6 +585,7 @@ dependencies = [
     { name = "mike" },
     { name = "mkdocs" },
     { name = "mkdocs-autorefs" },
+    { name = "mkdocs-awesome-nav" },
     { name = "mkdocs-awesome-pages-plugin" },
     { name = "mkdocs-caption" },
     { name = "mkdocs-codeinclude-plugin" },
@@ -635,6 +637,7 @@ requires-dist = [
     { name = "mike", specifier = ">=2.1.3,<3.0.0" },
     { name = "mkdocs", specifier = ">=1.6.1,<2.0.0" },
     { name = "mkdocs-autorefs", specifier = ">=1.4.3,<2.0.0" },
+    { name = "mkdocs-awesome-nav", specifier = ">=3.2.0,<4.0.0" },
     { name = "mkdocs-awesome-pages-plugin", specifier = ">=2.10.1,<3.0.0" },
     { name = "mkdocs-caption", specifier = ">=1.3.0,<2.0.0" },
     { name = "mkdocs-codeinclude-plugin", specifier = ">=0.2.1,<0.3.0" },
@@ -762,7 +765,8 @@ name = "ipython"
 version = "9.8.0"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.11'",
+    "python_full_version >= '3.13'",
+    "python_full_version >= '3.11' and python_full_version < '3.13'",
 ]
 dependencies = [
     { name = "colorama", marker = "python_full_version >= '3.11' and sys_platform == 'win32'" },
@@ -1173,6 +1177,21 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/51/fa/9124cd63d822e2bcbea1450ae68cdc3faf3655c69b455f3a7ed36ce6c628/mkdocs_autorefs-1.4.3.tar.gz", hash = "sha256:beee715b254455c4aa93b6ef3c67579c399ca092259cc41b7d9342573ff1fc75", size = 55425, upload-time = "2025-08-26T14:23:17.223Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9f/4d/7123b6fa2278000688ebd338e2a06d16870aaf9eceae6ba047ea05f92df1/mkdocs_autorefs-1.4.3-py3-none-any.whl", hash = "sha256:469d85eb3114801d08e9cc55d102b3ba65917a869b893403b8987b601cf55dc9", size = 25034, upload-time = "2025-08-26T14:23:15.906Z" },
+]
+
+[[package]]
+name = "mkdocs-awesome-nav"
+version = "3.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+    { name = "natsort" },
+    { name = "pydantic" },
+    { name = "wcmatch" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1f/96/d581c9ceae7d8c08c7456d1d2befbf3e9c7a52a6b03aebbe6dc1d46ffdac/mkdocs_awesome_nav-3.3.0.tar.gz", hash = "sha256:330edf4129995a7be8a9751edd8739d312fddf591c6cbd95ec80f12f4bfe8578", size = 9112, upload-time = "2025-12-02T20:10:46.11Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/de/98/dc154a7f0bb25827d988dc31992917606d1ca9f5349077db045bb5cd9dbc/mkdocs_awesome_nav-3.3.0-py3-none-any.whl", hash = "sha256:bf80f14bff9571df79129bbdf103b4198589ee7616f8a29720ae2e7ac2455930", size = 12891, upload-time = "2025-12-02T20:10:45.054Z" },
 ]
 
 [[package]]
@@ -1671,7 +1690,8 @@ name = "pint"
 version = "0.25.2"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.11'",
+    "python_full_version >= '3.13'",
+    "python_full_version >= '3.11' and python_full_version < '3.13'",
 ]
 dependencies = [
     { name = "flexcache", marker = "python_full_version >= '3.11'" },
