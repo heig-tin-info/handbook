@@ -1,3 +1,11 @@
+---
+# Notes on the sample next to it, not a page of the handbook. MkDocs drops
+# it through `exclude_docs: README.md`; Zensical builds every file under
+# `docs/`, and this is what keeps it out of the search.
+search:
+  exclude: true
+---
+
 # Turing Machine Simulator
 
 This is a simple Turing Machine simulator written in C. The program reads a number in binary and adds one to it.

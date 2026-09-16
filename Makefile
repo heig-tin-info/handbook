@@ -20,11 +20,12 @@ serve:
 
 # The Zensical chain: the generated assets first (Zensical empties the site
 # directory and caches pages, so nothing Python writes during a build
-# survives), then the site, then the index entries, then the two books.
+# survives), then the site, then the two books. The search index needs no
+# step of its own: a page's index entries are its tags, and the extension
+# writes them while the page renders.
 zensical:
 	$(RUNCMD) texsmith site assets mkdocs.yml
 	$(RUNCMD) zensical build -f mkdocs.yml
-	$(RUNCMD) texsmith site search mkdocs.yml
 	$(RUNCMD) texsmith site build mkdocs.yml
 
 serve-zensical:
