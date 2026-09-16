@@ -1308,3 +1308,128 @@ added: a cap would make the filter lie about what the page contains.
   declared before it in `mkdocs.yml`, so it never sees the derived tags. The
   terms reach MkDocs' search the way they always have, through the `tags` field
   of `search_index.json`.
+
+## 12. Search artefacts
+
+Branch `zensical`, TeXSmith 0.7.1.dev of `/home/ycr/texsmith` branch `zensical`,
+Zensical 0.0.62. Opening the search on `printf` showed four things that were not
+the handbook's content. Three were, one was not.
+
+### The index terms in the excerpts — dropped
+
+`texsmith site search` appended `<span class="ts-index">1972 Rust Zig</span>` to
+the `text` of the 74 `search.json` entries an index entry sits in, because that
+is the field the query reads. The search dialog builds a result's excerpt from
+that same field, and it renders it **inside a shadow root** — the results live
+under a shadow host, so the `.ts-index { display: none }` of
+`assets/texsmith/texsmith.css` never applies to them. Querying `subnormal`
+returned, under *Simple précision*:
+
+```text
+... ro, en diminuant la précision de la mantisse. nombre subnormal
+```
+
+The tail is the injection. It cannot be hidden from outside the root, and a
+hidden one would be worse: the excerpt would then be the prose window around an
+invisible match, a result with nothing in it to explain why it is there. The
+excerpt code is `rp(e, t, r = 320)` in `assets/javascripts/bundle.*.min.js` — a
+window of `[start - 80, end + 560]` around the first highlight, re-parsed with
+the tag sets `Zu` (block) and `Qu` (inline, `span` among them), so the span does
+survive with its class; it is the shadow root that puts it out of reach.
+
+What the injection bought, measured over the 268 entries the site's 17 tagged
+pages declare:
+
+| | |
+| --- | --- |
+| term present, word for word, in the text of its own section | 243 (90.7%) |
+| present down to the word (plural, elision, case) | 257 (95.9%) |
+| left over | 11, all one- or two-character tokens (`%`, `==`, `cc`, `ls`, `0x`, `if`) that are in the prose and the code anyway |
+
+Of the 25 verbatim misses, 12 are *inverted* spellings — `Hanoï, tours de`,
+`Boole, George`, `EOL, fin de ligne` — whose natural order is in the prose and
+which nobody types inverted. And a term that is in no prose at all is still
+typable, because `appendix/index-tags.md` is a page of the site: `subnormal`
+now returns *Annexes / Index → nombre subnormal → Nombres* as its only result,
+which links to the section. So the terms went, `SearchTags.inject` patches the
+lunr index and nothing else, and `make zensical` lost its `texsmith site
+search` step.
+
+### The inverted index spellings in the Filters panel — the head is the tag
+
+The facet listed `Gulliver, les voyages de`, `Hanoï, tours de`, `bit, le`,
+`Boole, George`, `EOL, fin de ligne`: index spellings, not tags. TMark's index
+entry carries no display or sort attribute (spec §Index: one to three bracket
+groups, `main=` and `registry=`), so nothing was invented; the derivation reads
+the entry instead. An index is inverted so that it files under the word that
+matters, and that head *is* the tag: `Gulliver`, `Hanoï`, `bit`, `Boole`,
+`EOL`. 14 of the 252 tags carried a comma; all 14 became their head, none
+collided with an existing tag, and the count stayed at 252. The printed index
+is untouched — it keeps the inversion.
+
+Two tags were also HTML: `&lt;complex.h&gt;` and `&lt;stdbool.h&gt;`, read
+straight out of the `data-tag` attribute. They are `<complex.h>` and
+`<stdbool.h>` now.
+
+### The YAML "leaking" into `appendix/unit/#informatique-1` — not a leak
+
+The entry's text starts with `# Version formelle … --- title: name:
+Informatique 1 tag: info1 id: 6488 domain…`, which reads like an included
+file's front matter printed as prose. It is not: `docs/appendix/unit.md` says
+*« ici présentées sous forme de données brutes au format YAML »* and shows the
+two fiches as YAML listings (```` ```yaml include="docs/assets/units/info1.yaml" ````).
+The built page has them in `<div class="language-yaml highlight"><pre><code>`,
+and `docs/assets/units/info1.yaml` genuinely starts with two comments and a
+`---`. MkDocs indexes the same block byte for byte. Nothing to fix; the excerpt
+is monospaced, which is the one hint the reader gets.
+
+A grep of the whole `search.json` found no other leak: no entry whose text
+starts with `---`, no `title:` outside a `<pre>`, no `--8<--`, no `{%` or `{{`
+that is not a gap-fill placeholder of an exercise or a C brace.
+
+### The orphan pages under `assets/` — four of the 41, not all
+
+Zensical ignores `exclude_docs` and builds every `.md` under `docs/`. Two
+different things were in there, and only one is an orphan:
+
+* `assets/summaries/summary/`, 37 entries. A revision sheet meant to be read,
+  hidden from the nav by `docs/assets/.pages` (`hide: true`). **MkDocs indexes
+  it too** (38 entries in `search/search_index.json`), and it is a good result
+  — the first hit for `printf` is *Résumé Info 1*. It stays.
+* `assets/src/grammar/`, `assets/src/turing-machine/`,
+  `assets/src/opengl/pyramid-fixed-pipeline/`, 4 entries. Developer notes next
+  to a `.c` sample, referenced by no page. MkDocs drops them through
+  `exclude_docs: README.md`; Zensical has no such option.
+
+Material's per-page front matter is what Zensical does honour — verified on a
+scratch site, `search: exclude` (scalar) does nothing and the mapping form
+works:
+
+```yaml
+---
+search:
+  exclude: true
+---
+```
+
+The three `README.md` carry it now. The page is still built (Zensical has no
+way not to build it) and still reachable by URL; it is out of the nav and out
+of the index, which is what matters.
+
+### Numbers, before and after
+
+`rm -rf .cache`, `texsmith site assets`, `zensical build -f mkdocs.yml`, one
+warning (`@Ry` in `cpu-zero.md`, known):
+
+| `search.json` | before | after |
+| --- | --- | --- |
+| entries | 1458 | 1454 |
+| entries carrying tags | 235 | 235 |
+| distinct tags | 252 | 252 |
+| entries with a `ts-index` span in `text` | 74 | **0** |
+| tags spelled as an inverted index entry | 14 | **0** |
+| tags carrying HTML entities | 2 | **0** |
+| entries under `assets/` | 41 | 37 |
+
+Screenshots of the dialog before and after are in the scratchpad
+(`shots/before-*.png`, `shots/after-*.png`).
