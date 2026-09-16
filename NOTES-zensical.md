@@ -768,6 +768,269 @@ engine, or enable shell-escape for that pass.
 | 8 | An `_` in a label reaches `\hyperref[a\_b]{…}`, which builds a csname and dies on `Missing \endcsname`. | LaTeX writer |
 | 9 | The index program is never run: `imakeidx` needs shell-escape, `tectonic` is called without it, and `\printindex` prints nothing. | build driver |
 
+#### The half of lesson 5 that stays with the core
+
+The path half is fixed TeXSmith-side: the site hands `lower_web` a loader that
+searches the page's directory, then the `--include-path` entries, then the
+snippet base paths — the order and the code `resolve_include` uses for the PDF
+(`readers/loader.py:SearchPathLoader`). The 36 converted fences go from 36
+`include-missing` to 0, and none is left carrying the attribute.
+
+The *unresolved* half is the core's. Evidence, from this repository's own
+`pymdownx.superfences`:
+
+```python
+>>> markdown.Markdown(extensions=["pymdownx.superfences"]).convert(
+...     '```c include="missing.c"\n```\n')
+'<p><code>c include="missing.c"</code></p>'
+```
+
+`include=` in an info string is not something superfences parses, so the fence
+is not a fence at all: it becomes an inline code span, the listing disappears
+and the block runs into what follows. When the include cannot be resolved,
+`lower_web` keeps the bytes and reports `include-missing` — correct for the
+diagnostic, wrong for the page. It should **drop the `include=` option from
+the lowered info string** (the fence then renders as a plain, empty `c` block)
+and keep reporting `include-missing`; a fence a reader can see is better than
+a paragraph a reader loses.
+
 The typography `french.py` did on the web — thin spaces before `;:!?`, `«…»`,
 the missing-ligature lint — has no TMark equivalent and is simply lost under
 Zensical. `babel-french` still spaces the punctuation in the PDF.
+
+## 9. Wave 3 — what the seven fixed lessons unblocked
+
+Branch `zensical`, on top of wave 2. TeXSmith 0.7.1.dev5 of `/home/ycr/texsmith`
+branch `zensical`, `mkdocs-texsmith` 0.7.1.dev4, `tmark-core` 0.1.0 of
+`/home/ycr/tmark` branch `autorefs-anchors`, Zensical 0.0.62, MkDocs 1.6.1.
+
+Wave 2 ended on nine TeXSmith lessons. Seven came back fixed — 1, 2, 3, 5, 6, 8
+and 9 — and this wave is what the handbook could do once they were. Lessons 4
+(a code span inside a `yaml table` cell) and 7 (a csname-unsafe acronym key) are
+still open, and neither blocks anything here: the operator table went to a plain
+GFM table in wave 2 and `K&R` left the abbreviation list.
+
+### What was done
+
+| # | package | result |
+| --- | --- | --- |
+| H7 | exercise numbering | **done**: 123 callouts, 25 files, `Exercice 1` … `Exercice 123` on the site, 1 … 118 in the C book |
+| (H4) | `--8<--` in a fence | **done**: the 36 fences of 15 files carry `include=`; `deprecated` 68 → 0 |
+| — | the 18 French callout titles | **reverted to untitled** |
+| — | `tools/.nav.yml`'s `- "*"` | **kept**, in the spelling that says it may match nothing |
+| — | the three hyphenated anchors | **kept hyphenated** |
+
+### H7 — the exercises are numbered again
+
+Wave 2's blocker was lesson 1: `texsmith.site.index` parsed a page's body and
+attached the front matter afterwards, so `press.declare.admonitions` never
+reached the parser and `::: exercise` lowered to literal text. TeXSmith merges
+the declarations before parsing now, **and reads them site-wide**, which is
+better than what `utils/number_exercises.py` was written against:
+
+```yaml
+plugins:
+  - texsmith:
+      declare:
+        counters:
+          ex: {name: Exercice, format: "Exercice {n}", scope: document}
+        admonitions:
+          exercise: {name: Exercice}
+```
+
+One place, both parsers — the site's and each book's — so the 25 pages carry
+nothing but the rewrite itself and the script lost the front-matter step it
+used to need, along with the warning that held it back.
+
+```md
+!!! exercise "Mot du jour"    ->  ::: exercise {title="#(ex:mot-du-jour) : Mot du jour"}
+```
+
+123 blocks, 25 files. On the site: 123 `<span class="ts-counter" data-counter="ex">`,
+numbered **1 … 123 with no gap and no repeat**, continuous in nav order — the
+`exercises` plugin restarted at 1 on every page. In the C book's `.tex`, 118
+`\begin{tscallout}[kind=exercise, title={…\label{ex:key}Exercice N : …}]`,
+numbered 1 … 118: the book is its own document and its own registry. The five
+missing ones are `darkside.md`, which no `.nav.yml` lists, so Zensical builds
+the page but no book takes it.
+
+**One source bug surfaced.** `darkside.md` had an unclosed ```` ```c ```` fence
+that had been there all along: under `!!!` the admonition ended where its
+indentation did and took the runaway fence with it, under `:::` the fence ran
+on and swallowed the exercise after it (120 was missing from the site's
+sequence, which is how it was found). Closed.
+
+**What stays lost with the `exercises` plugin**, and is not TMark's to replace:
+the multiple-choice quizzes it built from a `- [x]` list — 129 such lines in 11
+files, which render as literal `[x]` list items — and the fill-in-the-blanks it
+built from `{{word}}`, 13 markers in 3 files, reported as `var-unresolved`.
+
+### The tail of H4, this time for good
+
+Lesson 5 had two halves and both are fixed. TeXSmith hands the web lowering a
+loader that searches the page's directory, the `--include-path` entries and the
+snippet base paths, in the order `resolve_include` uses for the PDF, so
+`docs/assets/src/hello.c` — written from the project directory, as
+`pymdownx.snippets`' `base_path: .` means it — resolves; and the core drops an
+`include=` it could not resolve from the lowered info string, so the worst case
+is an empty code block instead of the lost paragraph wave 2 measured.
+
+`utils/fix_tmark_deprecations.py` grew the listing rewrite its docstring used
+to argue against. It reads fences at **any** indentation — five of the 36 sit
+inside a tabbed block or an admonition, which the ≤ 3-space fence regex of the
+other two rewrites does not see — and rewrites one only when its whole body is
+the include line. 36 listings, 15 files, idempotent.
+
+The 15 pages keep their `<pre>` count to the block (2, 3, 13, 46, 83, 22, 20,
+20, 1, 6, 17, 8, 3, 7, 5 before and after), the listings carry their code, and
+a `title="slurp.h"` in the info string still reaches the filename bar.
+`pymdownx.snippets` stays in `markdown_extensions`: `auto_append` and the
+block-level `--8<--` still go through it.
+
+### The 18 callout titles go back
+
+Wave 2 titled eighteen untitled `tip` / `warning` / `example` / `bug` callouts
+in French because the LaTeX word list was English whatever `language:` said.
+`fragments/callouts/words.py` keys the words by the document's language now, so
+`build/book/ts-callouts.sty` defines `ts@callout@word@tip` as *Astuce*,
+`@warning` as *Avertissement*, `@bug` as *Bogue* and `@example` as *Exemple*,
+and the eighteen titles carried no content the kind does not carry itself.
+Reverted. In the finished PDF: 9 *Avertissement*, 6 *Astuce*, 39 *Exemple*, 2
+*Bogue*, and the three remaining English words are prose and code, not titles.
+
+### `tools/.nav.yml`
+
+`arrange:` in a `.pages` orders the entries it names and leaves the rest where
+they are; `nav:` in a `.nav.yml` is exhaustive, so the faithful conversion ends
+on `- "*"`. `docs/tools/` holds exactly the seven directories listed above it,
+so the glob matches nothing and awesome-nav says so once per build. Dropping it
+would silently drop a page added later, so it keeps the long spelling instead:
+
+```yaml
+- glob: "*"
+  ignore_no_matches: true
+```
+
+Same nav — the "Outils" section still carries its seven children in order — one
+warning fewer.
+
+### The three anchors keep their hyphens
+
+`twos-complement`, `calling-conventions` and `sequence-point` were renamed in
+wave 2 because an `_` in a label reached `\hyperref[twos\_complement]{…}` and
+died on `Missing \endcsname`. Lesson 8 is fixed (`latex: a label name is not
+escaped as prose`), so the rename is no longer forced — and they keep the
+hyphens anyway: **all 119 `[]{#…}` anchors of the corpus are hyphenated, none
+has an underscore**, and the only in-repo links to these three are the ones
+wave 2 updated. A deep link from outside to `#twos_complement` on the published
+site would break, but these are prose anchors, never surfaced in a table of
+contents or a permalink, so consistency wins.
+
+### Verification
+
+`uv run mkdocs build` (site **and** both `.tex` bundles, exit 0):
+
+| | wave 1 | wave 2 | wave 3 |
+| --- | --- | --- | --- |
+| `WARNING` lines | 643 | 79 | **10** |
+| `ERROR` lines | 0 | 0 | **0** |
+
+| code | count | what is left |
+| --- | --- | --- |
+| `deprecated` | **0** | — |
+| `var-unresolved` | 8 | the `{{word}}` fill-in-the-blanks of three exercises |
+| `ref-unresolved` | 1 | `@Ry` in a formula of `cpu-zero.md` |
+| `asset-convert-failed` | 1 | the `pie` mermaid fence of `me-and-my-computer.md`, failing since the baseline |
+
+The nineteenth line of wave 2, awesome-nav's `'*' doesn't match any files`, is
+gone with the `.nav.yml` change.
+
+`rm -rf .cache && make zensical`, about six minutes end to end:
+
+* `texsmith site assets` — 122 draw.io diagrams, all up to date.
+* `zensical build` — **No issues found**, 8.9 s, 145 HTML pages.
+* `texsmith site search` — **74 search entries gained the index entries of
+  their page**.
+* `texsmith site build` — both PDFs, on a machine to itself:
+
+  | book | bundle | PDF | pages |
+  | --- | --- | --- | --- |
+  | *L'informatique pour l'ingénieur* | `book.tex` 16.6 KB + 87 page files | 37.8 MB | **647** |
+  | *Outils de développement* | `tools.tex` 9.2 KB + 21 page files | 4.5 MB | **65** (64 in wave 2) |
+
+**The index prints, and so do the acronyms.** Lesson 9 is fixed: the build
+driver runs the index program itself instead of leaving it to `imakeidx` and a
+shell escape `tectonic` never got. The C book's 270 `\tsindex` calls reach
+`book.idx`, `makeindex-py` turns them into a 325-line `book.ind`, and pages
+645–647 are the printed *Index* (`0b, 79`, `=, 80`, `while, 72`). Lesson 6 is
+fixed too — `pymdownx.snippets`' `auto_append` is honoured — so
+`includes/abbreviations.md` reaches both books: `makeglossaries-py` and `xindy`
+build `book.acr` and pages 641–644 are the *Acronymes* list. The tools book
+gained its own acronym page, which is its 64th → 65th page. 40 of the 44
+abbreviations reach the preamble; `UTF-8` lands under the key `UTF8`, and
+`EOF`, `FLOPS`, `SVG` and `W3C` do not appear — worth one look next wave.
+
+The cover and the imprint are unchanged: page 1 is the HEIG-VD title page, page
+3 the imprint with the Creative Commons text.
+
+Browse check, `uv run zensical serve -f mkdocs.yml -a 127.0.0.1:8123`:
+
+* `/course-c/10-numeration/bases/` — 6 `<div class="admonition exercise">`,
+  each opening on `<span class="ts-counter" data-counter="ex">Exercice 22…24…</span>`.
+* `/course-c/40-algorithms/utilities/` — 8 `<pre>`, two of them titled
+  `slurp.h` and `slurp.c`, and no `include=&quot;` anywhere in the page.
+* `/course-c/05-introduction/programming/` — every `.drawio` rewritten to its
+  `assets/drawio/**.svg` export, no `.drawio` left in a `src`.
+
+### Still open
+
+**TeXSmith / tmark owe**
+
+* Lesson 4: `lower_web` mangles a code span inside a `yaml table` cell, which
+  is why the operator-priority table is a plain GFM table with its priority
+  repeated on every row instead of the row spans `yaml table` can express.
+* Lesson 7: an acronym key that is not csname-safe emits a second
+  `\newacronym` with the unsanitised key. `K&R` left `includes/abbreviations.md`
+  because of it.
+* Four abbreviations (`EOF`, `FLOPS`, `SVG`, `W3C`) never reach `ts-glossary.sty`
+  although the other forty do; cause unknown.
+* `@Ry` in `cpu-zero.md` — a subscript in a formula the reference resolver reads
+  as a counter reference. Either the formula or the resolver.
+* The `pie` mermaid fence of `me-and-my-computer.md` — `asset-convert-failed`
+  since the baseline.
+* Nothing replaces `french.py`'s web typography: thin spaces before `;:!?`,
+  `«…»`, the missing-ligature lint. `babel-french` still does it in the PDF.
+
+**The handbook owes**
+
+* **CI still publishes with MkDocs.** `.github/workflows/ci.yml` runs
+  `mkdocs gh-deploy --force`; the Zensical chain is `make zensical` and nothing
+  runs it. Switching the workflow is the last step of the migration, and it is
+  what decides when the MkDocs-only plugins can go.
+* **`mike` is dead weight.** It is a dependency (`mike>=2.1.3`) but its plugin
+  is commented out in `mkdocs.yml` and the workflow deploys with `gh-deploy`
+  directly, so nothing versions the site today. Zensical has no `mike`: if the
+  handbook wants versioned docs, that is a question to answer before the CI
+  switch, not after — and if it does not, `mike` should simply leave
+  `pyproject.toml`.
+* **The plugins that only run under MkDocs.** Zensical has no plugin hooks, so
+  `exercises`, `wikipedia`, `caption`, `glightbox`, `drawio`, `tags`, `pills`
+  and `autorefs` are inert there. Most have been replaced; two have not:
+  `caption` numbered every plain `![alt](img)` into a `<figure>` with a
+  `Figure N` caption, and on Zensical those images are bare `<img>` (the PDF
+  numbers its figures itself, so only the web loses this); and `search` is
+  replaced by `texsmith site search` in the chain.
+* **`mkdocs-plugin-exercises` and `mkdocs-wikipedia` can go** once CI stops
+  running MkDocs — the exercises are numbered by TMark now, and the article
+  summaries are the only thing `wikipedia` still adds.
+* `pyproject.toml` still carries the `tmark-core` path override
+  (`/home/ycr/tmark/crates/tmark-py`) alongside the two editable TeXSmith
+  paths. The TeXSmith ones go when 0.7.1 is released; the `tmark-core` one waits
+  on a `tmark-core` release carrying the fixes this wave used — the site-wide
+  declarations, the unresolved-`include=` drop, the unescaped label names and
+  the localised callout words. **Never commit it.**
+* The 13 `{{word}}` fill-in-the-blanks (8 `var-unresolved` lines, one per
+  distinct marker position the writers report) and the 129 `- [x]` quiz
+  lines are dead
+  markup on both media. Either they become prose (a solution callout with the
+  answer) or something has to render them.
