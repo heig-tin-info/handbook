@@ -148,7 +148,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 32 bits    | -2'147'483'648             | +2'147'483'647             |
 | 64 bits    | -9'223'372'036'854'775'808 | +9'223'372'036'854'775'807 |
 
-En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos-complement] que nous avons déjà évoqué.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux](#twos-complement) que nous avons déjà évoqué.
 
 ### Les entiers bornés
 
@@ -286,7 +286,7 @@ Table: Taille usuelle des types de base
 | double      | normalement 64 bits                  | 8       | 8     |
 | long double | au moins 63 bits                     | 8       | 16    |
 
-Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types `long` et `long double` varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
+Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types `long` et `long double` varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards](#reformed-types) de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
 
 ## Les caractères
 

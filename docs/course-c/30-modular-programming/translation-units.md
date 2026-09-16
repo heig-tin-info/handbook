@@ -91,7 +91,7 @@ Un module logiciel peut se composer de fichiers sources, c'est-à-dire de fichie
 
 ## Compilation avec assemblage différé
 
-Lorsque nous avons compilé notre premier exemple [Hello World][hello-world], nous avons simplement invoqué `gcc` sur le fichier source `hello.c`, ce qui a produit un exécutable `a.out`. En réalité, GCC enchaîne plusieurs étapes distinctes :
+Lorsque nous avons compilé notre premier exemple [Hello World](#hello-world), nous avons simplement invoqué `gcc` sur le fichier source `hello.c`, ce qui a produit un exécutable `a.out`. En réalité, GCC enchaîne plusieurs étapes distinctes :
 
 1. **Prétraitement** : les commentaires sont retirés et les directives du préprocesseur sont remplacées par leur équivalent en C.
 2. **Compilation** : le code C d'une *translation unit* est transformé en langage machine dans un fichier objet `.o`.
@@ -166,7 +166,7 @@ printf("hello bar\n");
 
 En observant le résultat du préprocesseur, on s'aperçoit que toutes les directives ont disparu et que `#include` a été remplacé par le contenu de `foobar.def`. Le fichier est inclus deux fois ; nous verrons plus loin comment éviter ce piège.
 
-Nous avons vu au chapitre sur les [prototypes de fonctions][function-prototype] qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de connaître le nombre d'arguments attendus sans disposer immédiatement de l'implémentation. On trouve donc dans tous les fichiers d'en-tête des déclarations en amont (*forward declarations*). Dans `stdio.h`, on lira par exemple : `int printf( const char *restrict format, ... );`.
+Nous avons vu au chapitre sur les [prototypes de fonctions](#function-prototype) qu'il est possible de ne déclarer que la première ligne d'une fonction. Ce prototype permet au compilateur de connaître le nombre d'arguments attendus sans disposer immédiatement de l'implémentation. On trouve donc dans tous les fichiers d'en-tête des déclarations en amont (*forward declarations*). Dans `stdio.h`, on lira par exemple : `int printf( const char *restrict format, ... );`.
 
 ```bash
 $ cat << EOF > main.c

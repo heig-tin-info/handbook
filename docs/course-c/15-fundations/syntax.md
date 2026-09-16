@@ -81,7 +81,7 @@ Peut-être avez-vous déjà été confronté à une machine à écrire mécaniqu
 
 Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement (tiret bas #[tiret bas], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
-Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
+Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode](#unicode). Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
 1. Utiliser le caractère `e` U+0065 suivi du caractère `´` U+0301 aussi appelé *combining acute accent* pour obtenir `é`. U+0301
 2. Utiliser le caractère `é` U+00E9 directement. U+0065 U+00E9
@@ -163,7 +163,7 @@ Il n'y a donc plus que 35 mots clés à connaître pour être un bon développeu
 
 Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++. #[true] #[false]
 
-Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et ne peuvent être utilisés pour identifier des variables, des fonctions ou des étiquettes.
+Ces mots clés font partie intégrante de la [grammaire](#grammar) du langage et ne peuvent être utilisés pour identifier des variables, des fonctions ou des étiquettes.
 
 ??? info "Nombre de mots clés"
 
@@ -445,7 +445,7 @@ Les constantes littérales sont généralement identifiées avec des préfixes e
 
 Nous l'avons vu plus haut, le **type** d'une variable est important pour déterminer comment une valeur est stockée en mémoire.
 
-Comme vu dans le chapitre sur la [numération][numeration], les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur `48` peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère `0` en ASCII, mais aussi au nombre `72` s'il est exprimé en hexadécimal.
+Comme vu dans le chapitre sur la [numération](#numeration), les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur `48` peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère `0` en ASCII, mais aussi au nombre `72` s'il est exprimé en hexadécimal.
 
 On utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10). #[0x] #[0b]
 
@@ -614,7 +614,7 @@ int main() {
 
 ## Commentaires
 
-Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. #[commentaire]
+Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction](#preproc-intro), le préprocesseur C supprime les commentaires du code source avant la compilation. #[commentaire]
 
 ![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
 

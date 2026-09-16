@@ -417,7 +417,7 @@ glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 Ici on indique que le `vbo` créé sera utilisé pour stocker des `GL_ARRAY_BUFFER`, c'est-à-dire des données de sommets, et que ce `vbo` sera désormais le buffer actif pour toutes les fonctions du type `glBufferData`, `glBufferSubData`, `glMapBuffer`, etc. Et ce jusqu'à ce qu'un autre buffer soit lié ou que le buffer soit supprimé.
 
-[Plus haut][opengl-coordinates], nous avions défini les coordonnées d'un triangle en 3 dimensions. Il est maintenant temps de les envoyer à la carte graphique. Pour cela nous utilisons la fonction `glBufferData` après que le buffer ait été lié au contexte :
+[Plus haut](#opengl-coordinates), nous avions défini les coordonnées d'un triangle en 3 dimensions. Il est maintenant temps de les envoyer à la carte graphique. Pour cela nous utilisons la fonction `glBufferData` après que le buffer ait été lié au contexte :
 
 ```c
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);

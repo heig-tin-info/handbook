@@ -12,24 +12,24 @@ Les séquences
 
 : On définit comme **séquences** les instructions qui s'exécutent les unes après les autres. Elles peuvent être jalonnées explicitement par un délimiteur de fin d'instruction, implicitement par un point de séquence ou regroupées dans un bloc. On peut distinguer trois types de séquences :
 
-    - [les séquences de code][sequence-code] (`;`);
-    - [les blocs de code][sequence-block] (`{}`);
-    - [les points de séquences][sequence-point].
+    - [les séquences de code](#sequence-code) (`;`);
+    - [les blocs de code](#sequence-block) (`{}`);
+    - [les points de séquences](#sequence-point).
 
 Les sélections ou sauts
 
 : Il existe des instructions qui permettent de modifier le flux d'exécution du programme, c'est-à-dire de se diriger vers une autre partie du code. Les sauts conditionnels dépendent d'une condition, tandis que les sauts inconditionnels sont toujours exécutés. On peut distinguer les instructions de saut suivantes :
 
-    - [sauts conditionnels][conditional-jumps] (`if`, `switch`);
-    - [sauts inconditionnels][jumps] (`break`, `continue`, `goto`, `return`).
+    - [sauts conditionnels](#conditional-jumps) (`if`, `switch`);
+    - [sauts inconditionnels](#jumps) (`break`, `continue`, `goto`, `return`).
 
 Les itérations ou boucles
 
 : Une boucle est une structure de contrôle qui permet de répéter une instruction ou un bloc d'instructions tant qu'une condition est vraie. On peut distinguer les familles de boucles suivantes :
 
-    - [boucles itératives][loop-for] sur une valeur connue `for`;
-    - [boucles sur condition][loop-while] `while`;
-    - [boucles sur condition avec test à la fin][loop-do-while] `do`...`while`.
+    - [boucles itératives](#loop-for) sur une valeur connue `for`;
+    - [boucles sur condition](#loop-while) `while`;
+    - [boucles sur condition avec test à la fin](#loop-do-while) `do`...`while`.
 
 Sans structure de contrôle, un programme se comporterait toujours de la même manière et ne pourrait pas réagir aux événements extérieurs, faute de pouvoir modifier conditionnellement son flux d'exécution. L'intelligence d'un programme réside donc dans sa capacité à prendre des décisions en fonction de l'état du système et des données qu'il manipule. Les structures de contrôle définissent précisément ces décisions, à la manière d'un livre dont vous êtes la personne héroïne, où chaque choix vous conduit vers une page distincte.
 
@@ -218,7 +218,7 @@ if (b == 0) {
 printf("a / b = %d\n", a / b);
 ```
 
-En C, il n'existe pas d'instruction `if..else if` comme on peut en trouver dans d'autres langages de programmation (p. ex. Python avec `elif`). Faire suivre une sous-condition à `else` reste néanmoins possible puisque `if` est une instruction comme une autre. La [grammaire][grammar] du langage précise qu'une instruction de sélection (`selection_statement`), qui est elle-même une instruction (`statement`), peut être suivie d'une autre instruction, et donc d'une nouvelle instruction de sélection.
+En C, il n'existe pas d'instruction `if..else if` comme on peut en trouver dans d'autres langages de programmation (p. ex. Python avec `elif`). Faire suivre une sous-condition à `else` reste néanmoins possible puisque `if` est une instruction comme une autre. La [grammaire](#grammar) du langage précise qu'une instruction de sélection (`selection_statement`), qui est elle-même une instruction (`statement`), peut être suivie d'une autre instruction, et donc d'une nouvelle instruction de sélection.
 
 ```text
 selection_statement
@@ -639,7 +639,7 @@ switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
 
 #### Résumé des points clés
 
-- La structure `switch` bien qu'elle puisse toujours être remplacée par une structure `if..else if` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. [DRY][dry]).
+- La structure `switch` bien qu'elle puisse toujours être remplacée par une structure `if..else if` est généralement plus élégante et plus lisible. Elle évite par ailleurs de répéter la condition plusieurs fois (c.f. [DRY](#dry)).
 - Le compilateur est mieux à même d'optimiser un choix multiple lorsque les valeurs scalaires de la condition triées se suivent directement p. ex. `{12, 13, 14, 15}`.
 - L'ordre des cas d'un `switch` n'a pas d'importance, le compilateur peut même choisir de réordonner les cas pour optimiser l'exécution.
 - Les étiquettes `case` ne peuvent être que des constantes littérales, il n'est pas possible d'utiliser des expressions ou des variables.
@@ -866,7 +866,7 @@ _Bool true = 0;
 while (true) { /* ... */ }
 ```
 
-Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. [signals][signals]). On ajoute alors une condition de sortie à la boucle principale :
+Lorsque l'on a besoin d'une boucle infinie, il est généralement préférable de permettre au programme de se terminer correctement lorsqu'il est interrompu par le signal **SIGINT** (c. f. [signals](#signals)). On ajoute alors une condition de sortie à la boucle principale :
 
 ```c
 #include <stdlib.h>
@@ -921,7 +921,7 @@ Il s'agit de l'instruction la plus controversée en C. Cherchez sur Internet et 
 
 Néanmoins, il est important de comprendre que `goto` était, dans certains langages de programmation comme BASIC, la seule structure de contrôle disponible permettant de faire des sauts. Elle est par ailleurs le reflet du langage machine, car la plupart des processeurs ne connaissent que cette instruction souvent appelée `JUMP`. Il est par conséquent possible d'imiter le comportement de n'importe quelle structure de contrôle si l'on dispose de `if` et de `goto`.
 
-`goto` effectue un saut inconditionnel à un *label* défini en C par un [identificateur][identifier] suivi d'un `:`.
+`goto` effectue un saut inconditionnel à un *label* défini en C par un [identificateur](#identifier) suivi d'un `:`.
 
 L'un des cas de figure encore justifiés est celui d'un traitement d'erreur centralisé lorsque de multiples points de retour existent dans une fonction, ce qui évite de répéter du code :
 
@@ -983,7 +983,7 @@ while (true)
 
 ### `break`
 
-Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avons déjà évoqué son utilisation dans un `switch` (c.f. [switch][switch]).
+Le mot-clé `break` peut être utilisé dans une boucle ou dans un `switch`. Il permet d'interrompre l'exécution de la boucle ou de la structure `switch` la plus proche. Nous avons déjà évoqué son utilisation dans un `switch` (c.f. [switch](#switch)).
 
 ### `return`
 

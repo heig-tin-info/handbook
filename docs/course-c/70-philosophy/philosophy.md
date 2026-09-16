@@ -44,19 +44,19 @@ Voici les quatre principes les plus emblématiques :
 
 DRY
 
-: [Ne vous répétez pas.][dry] (*Do not repeat yourself.*)
+: [Ne vous répétez pas.](#dry) (*Do not repeat yourself.*)
 
 KISS
 
-: [Restez simple, stupide.][kiss] (*Keep it simple, stupid.*)
+: [Restez simple, stupide.](#kiss) (*Keep it simple, stupid.*)
 
 SSOT
 
-: [Une seule source de vérité.][ssot] (*Single source of truth.*)
+: [Une seule source de vérité.](#ssot) (*Single source of truth.*)
 
 YAGNI
 
-: [Vous n'en aurez pas besoin.][yagni] (*You ain't gonna need it.*)
+: [Vous n'en aurez pas besoin.](#yagni) (*You ain't gonna need it.*)
 
 
 []{#dry}

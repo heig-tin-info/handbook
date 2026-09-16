@@ -532,7 +532,7 @@ Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 
 On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^{12} = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit $3.141$.
 
-Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format. #[q format]
+Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes](#fast-sin) décrit une implémentation de calcul de sinus en utilisant ce format. #[q format]
 
 ### Addition
 

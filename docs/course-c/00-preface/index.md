@@ -158,9 +158,9 @@ Quelle icône est utilisée pour les exercices ?
 
 ## Anglicismes
 
-Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [][anglisismes] ci-dessous montre quelques termes qui seront utilisés dans cet ouvrage:
+Parler l'informatique ou de technologies sans utiliser d'anglicismes est un exercice difficile. Il est parfois moins lourd de parler de *hardware* que de *matériel informatique*. Certains termes n'ont pas de traduction en français. Par exemple, le terme *set* appliqué à un ensemble de données n'a pas de traduction crédible en français. La table [](#anglisismes) ci-dessous montre quelques termes qui seront utilisés dans cet ouvrage:
 
-Table: Anglicismes
+Table: Anglicismes {#anglisismes}
 
 | Anglais    | Français              | Préférence |
 | ---------- | --------------------- | ---------- |
@@ -174,8 +174,6 @@ Table: Anglicismes
 | *set*      | ensemble              | *set*      |
 | *software* | logiciel informatique | *software* |
 | *stream*   | flux de données       | *stream*   |
-
-[]{#anglisismes}
 
 Notons que *byte* et *octet* ne sont pas exactement synonymes. Un *byte* est un ensemble généralement admis de 8 bits mais dont la taille a pu varier selon les années, alors qu'un *octet* est un ensemble de 8 bits sans exception. En pratique, les deux termes sont souvent utilisés de manière interchangeable. En anglais il n'existe pas de mot pour *octet*.
 

@@ -191,7 +191,7 @@ Table: Correspondance binaire, octale, hexadécimale
 | `0b1111` | `0xF`       | `17`  | `15`    |
 
 
-Le fichier `albatros.txt` (rédigé avec `ed`, [rappelez-vous][ed]) contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`
+Le fichier `albatros.txt` (rédigé avec `ed`, [rappelez-vous](#ed)) contient un extrait du poème de Baudelaire. Un ingénieur en proie à un bogue lié à de l'encodage de caractère cherche à le résoudre et utilise le programme `hexdump`
 pour lister le contenu hexadécimal de son fichier. Il obtient la sortie suivante sur son terminal :
 
 ```text

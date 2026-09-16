@@ -544,7 +544,7 @@ void print_date(const Date *date) {
 
 ### Structure récursive
 
-Lorsqu'on utilise des structures de données plus complexes comme les [listes chaînées][linkedlist], on a besoin de créer une structure contenant des données ainsi qu'un pointeur sur l'élémnent suivant. On peut définir une structure récursive de la manière suivante :
+Lorsqu'on utilise des structures de données plus complexes comme les [listes chaînées](#linkedlist), on a besoin de créer une structure contenant des données ainsi qu'un pointeur sur l'élémnent suivant. On peut définir une structure récursive de la manière suivante :
 
 ```c
 typedef struct Element {
@@ -587,7 +587,7 @@ Les structures récursives sont très utilisées en informatique pour représent
 
 ## Arguments de fonctions
 
-Lors de l'introduction aux [fonctions][functions] nous avons vu que ces dernières peuvent recevoir des arguments. Ces arguments peuvent être de n'importe quel type, y compris des pointeurs et dans de nombreux cas de figure le passage par pointeur est préférable. Voici quelques cas de figure où le passage par pointeur est recommandé :
+Lors de l'introduction aux [fonctions](#functions) nous avons vu que ces dernières peuvent recevoir des arguments. Ces arguments peuvent être de n'importe quel type, y compris des pointeurs et dans de nombreux cas de figure le passage par pointeur est préférable. Voici quelques cas de figure où le passage par pointeur est recommandé :
 
 **Modification de la valeur d'une variable dans une fonction**
 

@@ -12,18 +12,18 @@ Pour faciliter la vie du programmeur, les bibliothèques standard offrent toute 
 
 Les fonctions phares sont `printf` pour le formatage de chaîne de caractères et `scanf` pour la lecture de chaînes de caractères. Ces dernières fonctions se déclinent en plusieurs variantes que nous verrons plus tard. La liste citée est non exhaustive, mais largement documentée ici: [`<stdio.h>`](http://man7.org/linux/man-pages/man3/stdio.3.html).
 
-Les fonctions que nous allons aborder dans ce chapitre sont données par la table suivante. Pour davantage de fonctions, vous pouvez vous rendre au chapitre traitant de la bibliothèque standard [stdio][libc-stdio].
+Les fonctions que nous allons aborder dans ce chapitre sont données par la table suivante. Pour davantage de fonctions, vous pouvez vous rendre au chapitre traitant de la bibliothèque standard [stdio](#libc-stdio).
 
 Table: Fonctions d'entrées/sorties principales
 
 | Fonction           | Type   | Description                                                    |
 | ------------------ | ------ | -------------------------------------------------------------- |
-| [putchar][putchar] | Sortie | Écrit un caractère sur la sortie standard                      |
-| [puts][puts]       | Sortie | Écrit une chaîne de caractères sur la sortie standard          |
-| [printf][printf]   | Sortie | Écrit une chaîne de caractères formatée sur la sortie standard |
-| [getchar][getchar] | Entrée | Lit un caractère sur l'entrée standard                         |
-| [gets][gets]       | Entrée | Lit une chaîne de caractères sur l'entrée standard             |
-| [scanf][scanf]     | Entrée | Lit une chaîne de caractères formatée sur l'entrée standard    |
+| [putchar](#putchar) | Sortie | Écrit un caractère sur la sortie standard                      |
+| [puts](#puts)       | Sortie | Écrit une chaîne de caractères sur la sortie standard          |
+| [printf](#printf)   | Sortie | Écrit une chaîne de caractères formatée sur la sortie standard |
+| [getchar](#getchar) | Entrée | Lit un caractère sur l'entrée standard                         |
+| [gets](#gets)       | Entrée | Lit une chaîne de caractères sur l'entrée standard             |
+| [scanf](#scanf)     | Entrée | Lit une chaîne de caractères formatée sur l'entrée standard    |
 
 ## Sorties non formatées
 
@@ -921,7 +921,7 @@ Considérez une accélération de 0.5 g pour le calcul de mouvement, et une vite
 
 ## Portabilité des formats
 
-Les formats de `scanf` et `printf` sont dépendants de la plateforme. Par exemple, `%d` est un entier signé, `%u` un entier non signé, `%ld` est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le [modèle de données][datamodel] de la machine, un entier long peut être de 32 bits ou de 64 bits.
+Les formats de `scanf` et `printf` sont dépendants de la plateforme. Par exemple, `%d` est un entier signé, `%u` un entier non signé, `%ld` est un entier long signé. Néanmoins ces formats ne sont pas portables, car selon le [modèle de données](#datamodel) de la machine, un entier long peut être de 32 bits ou de 64 bits.
 
 Cela n'a pas une grande importance si vous utilisez les types standards (comme `int`, `long`, `short`, `char`), mais si vous utilisez des types spécifiques comme `int32_t`, `int64_t`, `uint32_t`, `uint64_t`, vous devez utiliser les formats spécifiques de la bibliothèque `inttypes.h`. Voici la table de correspondance des formats :
 

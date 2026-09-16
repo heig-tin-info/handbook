@@ -5,7 +5,7 @@ epigraph:
 ---
 # Le langage C
 
-Le langage C compte parmi les tout premiers langages de programmation modernes. Proche de l’assembleur — ce langage de bas niveau exécuté directement par les processeurs — il autorise la conception d’applications d’une efficacité redoutable. On le retrouve aussi bien dans les montres connectées que dans les stimulateurs cardiaques (*pacemakers*) ou encore les [machines à café][mcu].
+Le langage C compte parmi les tout premiers langages de programmation modernes. Proche de l’assembleur — ce langage de bas niveau exécuté directement par les processeurs — il autorise la conception d’applications d’une efficacité redoutable. On le retrouve aussi bien dans les montres connectées que dans les stimulateurs cardiaques (*pacemakers*) ou encore les [machines à café](#mcu).
 
 Même s’il est apparu en 1972 #[1972], le C demeure largement utilisé et enseigné. Sa sobriété et sa rigueur en font un formidable outil pour assimiler les fondements de la programmation structurée.
 
@@ -158,7 +158,7 @@ POUR CHAQUE 〜 DANS 〜:
 
 où les `〜` sont des marques substitutives ([placeholder](https://fr.wikipedia.org/wiki/Marque_substitutive)) qui seront remplacées par le développeur par ce qui convient.
 
-Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire][grammar] du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`←`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
+Les grammaires des langages de programmation sont souvent formalisées à l'aide d'un métalangage, c'est-à-dire un langage qui permet de décrire un langage. On l'appelle la [grammaire](#grammar) du langage C. C'est un peu le Bescherelle du C. On observe dans ce formalisme une syntaxe rigoureuse, l'utilisation de termes en majuscules, la séparation de mots par des virgules, la présence de parenthèses et de flèches (`←`). Cette syntaxe diffère d'un langage à l'autre, mais selon le paradigme du langage de grandes similarités peuvent exister.
 
 []{#paradigm}
 
@@ -196,7 +196,7 @@ D'autres langages, comme C++, ajoutent des paradigmes supplémentaires au C :
 
 Des langages de plus haut niveau, tels que Python ou C#, proposent encore d’autres paradigmes, comme la [programmation réflective](https://fr.wikipedia.org/wiki/R%C3%A9flexion_(informatique)) ou la [programmation événementielle](https://fr.wikipedia.org/wiki/Programmation_%C3%A9v%C3%A9nementielle).
 
-Retenons que le langage C est à la fois **impératif** et **procédural**. Il repose sur des séquences d’instructions exécutées dans un ordre déterminé et regroupables au sein de procédures. En reprenant notre exemple d’[omelette][omelette], si nous souhaitions cette fois préparer une pâte à crêpes, nous pourrions écrire :
+Retenons que le langage C est à la fois **impératif** et **procédural**. Il repose sur des séquences d’instructions exécutées dans un ordre déterminé et regroupables au sein de procédures. En reprenant notre exemple d’[omelette](#omelette), si nous souhaitions cette fois préparer une pâte à crêpes, nous pourrions écrire :
 
 ```text
 POUR REALISER un œuf:
@@ -226,7 +226,7 @@ Dans cet exemple, les séquences d'instructions ont été regroupées en procéd
 
 ## Cycle de développement
 
-Savoir écrire un programme en C n'est qu'une facette de la programmation. Il est important de comprendre que la programmation est un processus itératif qui nécessite de suivre un cycle de développement logiciel. Ce cycle de développement comprend des étapes menant de l'étude à l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le [Cycle en V](https://fr.wikipedia.org/wiki/Cycle_en_V) ou le [modèle en cascade](https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade) que nous verrons plus en détail plus tard ([Modèles de développement][development-models]). Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
+Savoir écrire un programme en C n'est qu'une facette de la programmation. Il est important de comprendre que la programmation est un processus itératif qui nécessite de suivre un cycle de développement logiciel. Ce cycle de développement comprend des étapes menant de l'étude à l'analyse d'un problème jusqu'à la réalisation d'un programme informatique exécutable. Dans l'industrie, il existe de nombreux modèles comme le [Cycle en V](https://fr.wikipedia.org/wiki/Cycle_en_V) ou le [modèle en cascade](https://fr.wikipedia.org/wiki/Mod%C3%A8le_en_cascade) que nous verrons plus en détail plus tard ([Modèles de développement](#development-models)). Quel que soit le modèle utilisé, il comprendra les étapes suivantes :
 
 1. **Étude** et analyse du problème
 2. Écriture d'un **cahier des charges** (spécifications)
@@ -238,11 +238,11 @@ Savoir écrire un programme en C n'est qu'une facette de la programmation. Il es
 8. **Vérification** que le cahier des charges est respecté
 9. **Livraison** du programme
 
-Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et d’éviter une [coulée de lave][lava-flow].
+Mis à part la dernière étape où il n'y a pas de retour en arrière possible, les autres étapes sont **itératives**. Il est très rare d'écrire un programme juste du premier coup. Durant tout le cycle de développement logiciel, des itérations successives sont faites pour permettre d'optimiser le programme, de résoudre des bogues, d'affiner les spécifications, d'écrire davantage de tests pour renforcer l'assurance d'un bon fonctionnement du programme et d’éviter une [coulée de lave](#lava-flow).
 
 ## Cycle de compilation
 
-Le langage C à une particularité que d'autres langages n'ont pas, il comporte une double [grammaire][grammar]. Le processus de compilation s'effectue donc en deux étapes.
+Le langage C à une particularité que d'autres langages n'ont pas, il comporte une double [grammaire](#grammar). Le processus de compilation s'effectue donc en deux étapes.
 
 1. Le préprocesseur qui enlève les commentaires du développeur et regroupe en un fichier les différentes parties du programme.
 2. La compilation à proprement parler du code source en un fichier binaire.
@@ -255,7 +255,7 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le pro
 
 ### Préprocesseur (*pre-processing*)
 
-La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise le remplacement des directives du préprocesseur [de définitions][preprocessor-define] par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur `gcc` il est possible de demander uniquement cette étape avec l'option `-E`. Cette étape est illustrée dans la figure suivante.
+La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise le remplacement des directives du préprocesseur [de définitions](#preprocessor-define) par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur `gcc` il est possible de demander uniquement cette étape avec l'option `-E`. Cette étape est illustrée dans la figure suivante.
 
 ![Processus de préprocessing](/assets/images/preprocessing.drawio)
 

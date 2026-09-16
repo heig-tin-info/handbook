@@ -14,37 +14,37 @@ Table: En-têtes standard
 
 | En-tête                               | Description                                 | Standard |
 | ------------------------------------- | ------------------------------------------- | -------- |
-| [`<assert.h>`][libc-assert]           | Validation des prérequis                    | C89      |
-| [`<complex.h>`][libc-complex]         | Nombres complexes                           | **C99**  |
-| [`<ctype.h>`][libc-ctype]             | Tests                                       | C89      |
-| [`<errno.h>`][libc-errno]             | Gestion des erreurs                         | C89      |
-| [`<fenv.h>`][libc-fenv]               | Environnement de calcul flottant            | **C99**  |
-| [`<float.h>`][libc-float]             | Constantes de précision des types flottants | C89      |
-| [`<inttypes.h>`][libc-inttypes]       | Types entiers formatés                      | **C99**  |
-| [`<iso646.h>`][libc-iso646]           | Alternative aux opérateurs (and, or)        | **C95**  |
-| [`<limits.h>`][libc-limits]           | Limites des types entiers                   | C89      |
-| [`<locale.h>`][libc-locale]           | Gestion des locales                         | C89      |
-| [`<math.h>`][libc-math]               | Fonctions mathématiques                     | C89      |
-| [`<setjmp.h>`][libc-setjmp]           | Gestion des sauts                           | C89      |
-| [`<signal.h>`][libc-signal]           | Gestion des signaux                         | C89      |
-| [`<stdalign.h>`][libc-stdalign]       | Alignement des types                        | **C11**  |
-| [`<stdarg.h>`][libc-stdarg]           | Arguments variables                         | C89      |
-| [`<stdatomic.h>`][libc-stdatomic]     | Opérations atomiques                        | **C11**  |
-| [`<stdbit.h>`][libc-stdbit]           | Macros pour les bits                        | **C23**  |
-| [`<stdbool.h>`][libc-stdbool]         | Type booléen                                | **C99**  |
-| [`<stdckdint.h>`][libc-stdckdint]     | Macros de tests pour les entiers            | **C23**  |
-| [`<stddef.h>`][libc-stddef]           | Macros standard                             | C89      |
-| [`<stdint.h>`][libc-stdint]           | Types entiers standard                      | **C99**  |
-| [`<stdio.h>`][libc-stdio]             | Entrées/sorties standard                    | C89      |
-| [`<stdlib.h>`][libc-stdlib]           | Allocation dynamique                        | C89      |
-| [`<stdnoreturn.h>`][libc-stdnoreturn] | Fonctions sans retour                       | **C11**  |
-| [`<string.h>`][libc-string]           | Manipulation des chaînes de caractères      | C89      |
-| [`<tgmath.h>`][libc-tgmath]           | Fonctions mathématiques génériques          | **C99**  |
-| [`<threads.h>`][libc-threads]         | Gestion des threads                         | **C11**  |
-| [`<time.h>`][libc-time]               | Date et heure                               | C89      |
-| [`<uchar.h>`][libc-uchar]             | Caractères Unicode                          | **C11**  |
-| [`<wchar.h>`][libc-wchar]             | Caractères larges                           | **C95**  |
-| [`<wctype.h>`][libc-wctype]           | Tests larges                                | **C95**  |
+| [`<assert.h>`](#libc-assert)           | Validation des prérequis                    | C89      |
+| [`<complex.h>`](#libc-complex)         | Nombres complexes                           | **C99**  |
+| [`<ctype.h>`](#libc-ctype)             | Tests                                       | C89      |
+| [`<errno.h>`](#libc-errno)             | Gestion des erreurs                         | C89      |
+| [`<fenv.h>`](#libc-fenv)               | Environnement de calcul flottant            | **C99**  |
+| [`<float.h>`](#libc-float)             | Constantes de précision des types flottants | C89      |
+| [`<inttypes.h>`](#libc-inttypes)       | Types entiers formatés                      | **C99**  |
+| [`<iso646.h>`](#libc-iso646)           | Alternative aux opérateurs (and, or)        | **C95**  |
+| [`<limits.h>`](#libc-limits)           | Limites des types entiers                   | C89      |
+| [`<locale.h>`](#libc-locale)           | Gestion des locales                         | C89      |
+| [`<math.h>`](#libc-math)               | Fonctions mathématiques                     | C89      |
+| [`<setjmp.h>`](#libc-setjmp)           | Gestion des sauts                           | C89      |
+| [`<signal.h>`](#libc-signal)           | Gestion des signaux                         | C89      |
+| [`<stdalign.h>`](#libc-stdalign)       | Alignement des types                        | **C11**  |
+| [`<stdarg.h>`](#libc-stdarg)           | Arguments variables                         | C89      |
+| [`<stdatomic.h>`](#libc-stdatomic)     | Opérations atomiques                        | **C11**  |
+| [`<stdbit.h>`](#libc-stdbit)           | Macros pour les bits                        | **C23**  |
+| [`<stdbool.h>`](#libc-stdbool)         | Type booléen                                | **C99**  |
+| [`<stdckdint.h>`](#libc-stdckdint)     | Macros de tests pour les entiers            | **C23**  |
+| [`<stddef.h>`](#libc-stddef)           | Macros standard                             | C89      |
+| [`<stdint.h>`](#libc-stdint)           | Types entiers standard                      | **C99**  |
+| [`<stdio.h>`](#libc-stdio)             | Entrées/sorties standard                    | C89      |
+| [`<stdlib.h>`](#libc-stdlib)           | Allocation dynamique                        | C89      |
+| [`<stdnoreturn.h>`](#libc-stdnoreturn) | Fonctions sans retour                       | **C11**  |
+| [`<string.h>`](#libc-string)           | Manipulation des chaînes de caractères      | C89      |
+| [`<tgmath.h>`](#libc-tgmath)           | Fonctions mathématiques génériques          | **C99**  |
+| [`<threads.h>`](#libc-threads)         | Gestion des threads                         | **C11**  |
+| [`<time.h>`](#libc-time)               | Date et heure                               | C89      |
+| [`<uchar.h>`](#libc-uchar)             | Caractères Unicode                          | **C11**  |
+| [`<wchar.h>`](#libc-wchar)             | Caractères larges                           | **C95**  |
+| [`<wctype.h>`](#libc-wctype)           | Tests larges                                | **C95**  |
 
 []{#libc-assert}
 ## `<assert.h>`
@@ -169,7 +169,7 @@ Notons par exemple que la fonction `hypot` peut très bien être émulée facile
 
 Souvent, les processeurs sont équipés de coprocesseurs arithmétiques capables de calculer certaines fonctions plus rapidement.
 
-Le standard C99 a introduit l'en-tête [`<tgmath.h>`][libc-tgmath] qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
+Le standard C99 a introduit l'en-tête [`<tgmath.h>`](#libc-tgmath) qui donne accès à des fonctions génériques. Par exemple, `sin` peut être utilisé pour des `float`, `double` et `long double` sans avoir à choisir le nom de la fonction (`sinf`, `sin`, `sinl`), en outre les types complexes sont également supportés comme `csin` pour les complexes.
 
 []{#libc-fenv}
 ## `<fenv.h>`
@@ -266,7 +266,7 @@ int main() {
 
 Il est aussi possible contrôler la manière dont les résultats des opérations en virgule flottante sont arrondis. Par défaut, les opérations en virgule flottante arrondissent au plus proche, mais vous pouvez modifier ce comportement pour arrondir vers zéro, vers l'infini, ou vers moins l'infini.
 
-Nous avions vu [précédemment][rounding] que l'arrondi d'un nombre est compliqué. La norme IEEE 754 définit plusieurs modes d'arrondis. La fonction `fesetround` permet de définir le mode d'arrondi. Les modes possibles sont donnés par la table suivante :
+Nous avions vu [précédemment](#rounding) que l'arrondi d'un nombre est compliqué. La norme IEEE 754 définit plusieurs modes d'arrondis. La fonction `fesetround` permet de définir le mode d'arrondi. Les modes possibles sont donnés par la table suivante :
 
 Table: Modes d'arrondis
 
@@ -546,9 +546,9 @@ Table: Catégories de locales
 
 La bibliothèque `<setjmp.h>` permet de gérer les exceptions en C. Elle fournit deux fonctions `setjmp` et `longjmp` qui permettent de sauvegarder l'état du programme et de le restaurer à un point donné.
 
-En pratique il est très rare d'utiliser ces fonctions, elles sont aussi dangereuses que les `goto` et peuvent rendre le code difficile à lire et à maintenir. Néanmoins dans des cas très spécifiques, elles peuvent s'avérer très utiles, notament pour simuler des exceptions avec des directives [préprocesseur][preprocessor-exceptions].
+En pratique il est très rare d'utiliser ces fonctions, elles sont aussi dangereuses que les `goto` et peuvent rendre le code difficile à lire et à maintenir. Néanmoins dans des cas très spécifiques, elles peuvent s'avérer très utiles, notament pour simuler des exceptions avec des directives [préprocesseur](#preprocessor-exceptions).
 
-Nous avons vu que le compilateur utilise [la pile][stack-plumbing] pour stocker les variables locales et le contexte d'appel des fonctions. Dans chaque *frame* de la pile, on trouve l'adresse de retour permettant de continuer l'exécution d'une fonction dans la fonction appelante une fois la fonction courrante terminée. Ceci permet de communiquer hiérarchiquement entre les fonctions. Il n'est pas possible par exemple de remonter à la fonction `main` depuis une fonction `baz` appelée par `bar` appelée par `foo`, appelée par `main`.
+Nous avons vu que le compilateur utilise [la pile](#stack-plumbing) pour stocker les variables locales et le contexte d'appel des fonctions. Dans chaque *frame* de la pile, on trouve l'adresse de retour permettant de continuer l'exécution d'une fonction dans la fonction appelante une fois la fonction courrante terminée. Ceci permet de communiquer hiérarchiquement entre les fonctions. Il n'est pas possible par exemple de remonter à la fonction `main` depuis une fonction `baz` appelée par `bar` appelée par `foo`, appelée par `main`.
 
 Ce n'est pas possible... sauf si on triche un peu. La fonction `setjmp` permet de sauvegarder l'état du programme à un point donné. C'est-à-dire que si on sauve le contexte de `main` dans un espace mémoire séparé avant la chaîne d'appel de fonctions enfants, on pourrait manipuler le stack pour revenir à `main` depuis `baz`. C'est très exactement ce que fait `setjmp`.
 
@@ -1542,7 +1542,7 @@ La bibliothèque `<tgmath.h>` est une bibliothèque de type générique qui perm
 
 Il est courant de ne pas utiliser la bonne fonction mathématique pour un type donné. Par exemple, on peut appeler `sqrt` avec un argument de type `float` alors que la fonction `sqrtf` est plus adaptée peut entraîner une perte de performance, l'inverse peut entraîner une perte de précision. La bibliothèque `<tgmath.h>` permet de résoudre ce problème en définissant des fonctions mathématiques génériques qui acceptent des arguments de différents types.
 
-Cette [généricité][generickw] est permise à l'aide du mot clé `_Generic` introduit en C11.
+Cette [généricité](#generickw) est permise à l'aide du mot clé `_Generic` introduit en C11.
 
 La bibliothèque redéfini les fonctions mathématiques de la bibliothèque `<math.h>`, pour l'utiliser il suffit d'inclure l'en-tête `<tgmath.h>` à la place de `<math.h>`. Par exemple, pour calculer la racine carrée d'un nombre, on peut utiliser la fonction `sqrt` de la bibliothèque `<tgmath.h>` :
 
@@ -1772,7 +1772,7 @@ Aujourd'hui, c'est vendredi, 17 septembre 2024, et il est 14:05:45.
 
 Apparue avec la norme C11, cette bibliothèque contient des fonctions pour gérer les caractères Unicode. Elle contient des fonctions pour convertir des caractères en minuscules ou majuscules, pour tester si un caractère est un chiffre, une lettre, etc.
 
-Un caractère multi-octets (*multibyte*) est un caractère qui nécessite plus d'un octet pour être stocké. Nous avons que la norme [Unicode][unicode] définit un jeu de caractères universel qui peut être représenté en binaire avec des caractères de 8-bit (UTF-8). Cela permet de stocker théoriquement jusqu'à 4 294 967 295 caractères différents.
+Un caractère multi-octets (*multibyte*) est un caractère qui nécessite plus d'un octet pour être stocké. Nous avons que la norme [Unicode](#unicode) définit un jeu de caractères universel qui peut être représenté en binaire avec des caractères de 8-bit (UTF-8). Cela permet de stocker théoriquement jusqu'à 4 294 967 295 caractères différents.
 
 Le C étant un langage ancien, il a été conçu à une époque où seul la table ASCII existait. Néanmoins, certaines langues comme le chinois nécessitaient plus de 256 caractères. Pour cela, le C a introduit le concept de caractères larges (*wide characters*) qui étaient initialement stockés sur 16-bits (`short`). Néanmoins, avec l'arrivée de l'Unicode, il n'est pas rare de trouver des caractères qui nécessitent 32-bits. Or, les *wide-chars* historiques du C ne sont que sur 16-bits (sous Windows) et 32-bits (sous Unix). Pour palier à ce problème de portabilité, la norme C11 a introduit la bibliothèque `<uchar.h>` qui permet de gérer les caractères Unicode convenablement.
 
@@ -1802,7 +1802,7 @@ Le standard C nomme `mb` (`multibyte`) pour se référer à UTF-8.
 
 L'inconvénient majeur d'UTF-8 c'est qu'il est impossible d'éditer un caractère à un endroit précis sans devoir possiblement décaler tous les caractères suivants. Remplacer un `e` (stocké sur 1 byte) par un émoji (stocké sur 4 bytes), nécessite de décaler tout le texte de 3 bytes. Suivant la taille de la chaîne cela peut être fastidieux. C'est pourquoi l'UTF-32 est souvent utilisé pour les traitements internes. On perd de la place mémoire car un texte en UTF-32 est jusqu'à 4 fois plus gros qu'en UTF-8, mais on gagne en temps de traitement car aucun déclage n'est nécessaire. En outre, le processeur étant plus à l'aise avec les données alignées sur 32-bits, les traitements sont plus rapides.
 
-Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage. Une implémentation est donnée dans la section [algorithmes][utf8-reverse].
+Prenons l'exemple d'un algorithme qui inverse une chaîne de caractères UTF-8 et affiche le résultat. Sans cette bibliothèque, il n'est pas trivial de le faire car les caractères unicode peuvent être stockés sur plusieurs bytes. Ici on commence par convertir la chaîne UTF-8 en UTF-32 pour avoir une chaîne simple à traiter, on inverse ensuite la chaîne UTF-32, puis on la reconvertit en UTF-8 pour l'affichage. Une implémentation est donnée dans la section [algorithmes](#utf8-reverse).
 
 []{#libc-wchar}
 

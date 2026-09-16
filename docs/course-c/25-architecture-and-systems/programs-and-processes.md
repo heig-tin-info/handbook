@@ -103,7 +103,7 @@ $ hexdump -s0x680 -n256 a.out
 0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000
 ```
 
-Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. [endianess][endianess]), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
+Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. [endianess](#endianess)), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension `.jpg` sera un fichier image du [Join Photographic Experts Group](https://fr.wikipedia.org/wiki/JPEG) et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension `.exe` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
@@ -241,7 +241,7 @@ Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://fr.wikipedia.org/wiki
 
 ## Fonction main
 
-Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://fr.wikipedia.org/wiki/BIOS_(informatique)) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World][hello-world] n'est pas la première, mais est appelé.
+Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://fr.wikipedia.org/wiki/BIOS_(informatique)) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](#hello-world) n'est pas la première, mais est appelé.
 
 ### Qui appelle main ?
 

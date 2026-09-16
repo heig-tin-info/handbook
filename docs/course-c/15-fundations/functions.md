@@ -190,7 +190,7 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
 
 `<function-name>`
 
-: Il s'agit d'un [identificateur][identifier] qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
+: Il s'agit d'un [identificateur](#identifier) qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
 
 `<parameter-type> <parameter-name>`
 

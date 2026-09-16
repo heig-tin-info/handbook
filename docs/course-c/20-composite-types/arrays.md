@@ -80,7 +80,7 @@ assert (length == 5);
     }
     ```
 
-Nous le verrons plus tard en abordant les [pointeurs][pointers], mais un tableau **n'est pas** un pointeur : c'est un type distinct dont la taille est connue du compilateur. En revanche, dans la plupart des expressions, un tableau « se transforme » implicitement en pointeur vers son premier élément. Cette conversion explique la confusion fréquente entre les deux notions. Retenez surtout que, lorsqu'un tableau est passé à une fonction comme ci-dessous, ce n'est pas tout son contenu qui est copié sur la pile mais seulement l'adresse du premier élément.
+Nous le verrons plus tard en abordant les [pointeurs](#pointers), mais un tableau **n'est pas** un pointeur : c'est un type distinct dont la taille est connue du compilateur. En revanche, dans la plupart des expressions, un tableau « se transforme » implicitement en pointeur vers son premier élément. Cette conversion explique la confusion fréquente entre les deux notions. Retenez surtout que, lorsqu'un tableau est passé à une fonction comme ci-dessous, ce n'est pas tout son contenu qui est copié sur la pile mais seulement l'adresse du premier élément.
 
 Une preuve est que le contenu du tableau peut être modifié à distance :
 
@@ -119,7 +119,7 @@ Pour résumer, un tableau permet de regrouper dans un même conteneur une liste 
     int array[size];
     ```
 
-    En pratique, cet exemple va compiler mais en utilisant une fonctionnalité nommée [VLA][vla] (*Variable Length Array*) qui n'est pas recommandée. Les tableaux de taille variable sont une source de bugs potentiels et ne sont pas supportés par tous les compilateurs.
+    En pratique, cet exemple va compiler mais en utilisant une fonctionnalité nommée [VLA](#vla) (*Variable Length Array*) qui n'est pas recommandée. Les tableaux de taille variable sont une source de bugs potentiels et ne sont pas supportés par tous les compilateurs.
 
 !!! bug "Limites"
 

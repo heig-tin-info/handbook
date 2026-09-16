@@ -10,7 +10,7 @@ La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une 
 
 La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en sous-problèmes plus petits de même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre ; on la définit ainsi : `n! = n × (n - 1)!`.
 
-Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci][fib-iterative] jusqu'à `n` :
+Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci](#fib-iterative) jusqu'à `n` :
 
 ```c
 int fib(int n)
