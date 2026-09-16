@@ -128,9 +128,7 @@ plugins:
           press:
             # The HEIG-VD cover and the imprint page of the printed book;
             # `heiglogo.sty` reaches the bundle through `copy_files` below.
-            preamble: |
-              \usepackage{heiglogo}
-              \usepackage{handbook}
+            preamble: \usepackage{heiglogo}
             titlepage: tex/titlepage.tex
             imprint: tex/imprint.tex
           frontmatter:
