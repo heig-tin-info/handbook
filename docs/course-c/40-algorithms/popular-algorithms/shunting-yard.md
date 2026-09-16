@@ -62,27 +62,32 @@ On observe que si on dispose de fonctions pour ajouter/supprimer des éléments 
 
 === "main.c"
 
-    ```c include="docs/assets/src/shunting-yard/main.c"
+    ```c
+    --8<-- "docs/assets/src/shunting-yard/main.c"
     ```
 
 === "queue.h"
 
-    ```c include="docs/assets/src/shunting-yard/queue.h"
+    ```c
+    --8<-- "docs/assets/src/shunting-yard/queue.h"
     ```
 
 === "stack.h"
 
-    ```c include="docs/assets/src/shunting-yard/stack.h"
+    ```c
+    --8<-- "docs/assets/src/shunting-yard/stack.h"
     ```
 
 === "queue.c"
 
-    ```c include="docs/assets/src/shunting-yard/queue.c"
+    ```c
+    --8<-- "docs/assets/src/shunting-yard/queue.c"
     ```
 
 === "stack.c"
 
-    ```c include="docs/assets/src/shunting-yard/stack.c"
+    ```c
+    --8<-- "docs/assets/src/shunting-yard/stack.c"
     ```
 
 !!! info "Notation polonaise inverse"

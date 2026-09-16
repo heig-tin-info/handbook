@@ -6,7 +6,8 @@ Les fiches d'unités sont les documents de référence pour les cours d'info1 et
 
 ## Informatique 1
 
-```yaml include="docs/assets/units/info1.yaml"
+```yaml
+--8<-- "docs/assets/units/info1.yaml"
 ```
 
 ### Panification du semestre d'hiver
@@ -40,7 +41,8 @@ Les fiches d'unités sont les documents de référence pour les cours d'info1 et
 
 ## Informatique 2
 
-```yaml include="docs/assets/units/info2.yaml"
+```yaml
+--8<-- "docs/assets/units/info2.yaml"
 ```
 
 ### Panification du semestre de printemps

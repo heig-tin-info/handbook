@@ -1007,7 +1007,8 @@ char (*(*foo[3])())[5]
 
 Pour l'exemple, voici une implémentation très rudimentaire de `cdecl`. Elle n'est pas complète mais elle donne le principe de fonctionnement :
 
-```c include="docs/assets/src/cdecl.c"
+```c
+--8<-- "docs/assets/src/cdecl.c"
 ```
 
 Les améliorations sur ce code seraient :

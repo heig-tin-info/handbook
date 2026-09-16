@@ -101,7 +101,8 @@ Comme on ne sait pas à priori combien de caractères on aura, et que ces caract
 
 Voici un exemple possible d'implémentation :
 
-```c include="docs/assets/src/iota.c"
+```c
+--8<-- "docs/assets/src/iota.c"
 ```
 
 Cette implémentation pourrait être utilisée de la façon suivante :
@@ -865,7 +866,8 @@ Dans cet exemple je capture les nombres de 0 à 9 `0-9` (10), les caractères ma
 
         Une solution possible serait :
 
-        ```c include="docs/assets/src/linear.c"
+        ```c
+        --8<-- "docs/assets/src/linear.c"
         ```
 
 !!! exercise "Loi d'Ohm"

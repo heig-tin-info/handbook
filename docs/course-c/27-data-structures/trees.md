@@ -153,10 +153,12 @@ Un tas binaire #[tas binaire] stocke des éléments en conservant un ordre parti
 
 !!! example "Implémentation en C"
 
-    ```c title="min-heap.h" include="docs/assets/src/min-heap/min-heap.h"
+    ```c title="min-heap.h"
+    --8<-- "docs/assets/src/min-heap/min-heap.h"
     ```
 
-    ```c title="min-heap.c" include="docs/assets/src/min-heap/min-heap.c"
+    ```c title="min-heap.c"
+    --8<-- "docs/assets/src/min-heap/min-heap.c"
     ```
 
 Le tas binaire s'appuie sur un tableau dynamique pour stocker les éléments. Chaque nœud voit son enfant gauche à l'indice `2 * k + 1` et son enfant droit à l'indice `2 * k + 2`. Le parent d'un élément se trouve à l'indice `(k - 1) / 2`, quel que soit l'indice `k`.
@@ -429,7 +431,8 @@ Discutons de plusieurs implémentations possibles d'un nœud d'un trie :
 
 Exemple d'implémentation:
 
-```c include="docs/assets/src/trie/trie.c"
+```c
+--8<-- "docs/assets/src/trie/trie.c"
 ```
 
 !!! exercise "Regroupement ?"

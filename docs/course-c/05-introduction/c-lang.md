@@ -291,7 +291,8 @@ Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous 
 
 Il est traditionnellement coutume depuis la publication en 1978 #[1978] du livre [The C Programming Language](https://fr.wikipedia.org/wiki/C_(langage)) de reprendre l'exemple de Brian Kernighan #[Brian Kernighan] comme premier programme.
 
-```c title="hello.c" include="docs/assets/src/hello.c"
+```c title="hello.c"
+--8<-- "docs/assets/src/hello.c"
 ```
 
 Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard #[bibliothèque standard] d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. #[hello, world]

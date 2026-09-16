@@ -10,5 +10,6 @@ La performance de l'algorithme dépend de la fonction de hachage. Si la fonction
 
 Ici la fonction de hachage est très simple, on utilise un nombre premier.
 
-```c title="rabin-karp.c" include="docs/assets/src/rabin-karp.c"
+```c title="rabin-karp.c"
+--8<-- "docs/assets/src/rabin-karp.c"
 ```

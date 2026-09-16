@@ -38,12 +38,14 @@ Le serveur va écouter les connexions entrantes et le client va se connecter au 
 
 Voici le serveur :
 
-```c include="docs/assets/src/network/ping-pong/server.c"
+```c
+--8<-- "docs/assets/src/network/ping-pong/server.c"
 ```
 
 et voici le client :
 
-```c include="docs/assets/src/network/ping-pong/client.c"
+```c
+--8<-- "docs/assets/src/network/ping-pong/client.c"
 ```
 
 Un descripteur de fichier `server_fd` est créé pour le serveur. Il s'agit d'un vrai *file descriptor* selon le principe de Unix :*everything is a file*. Le socket est créé sur la famille IPv4 en mode TCP (*SOCK_STREAM*). Si le socket ne peut pas être créé, la valeur `-1` est retournée et le programme se termine.
@@ -66,12 +68,14 @@ Pour un exemple portable, nous allons utiliser la bibliothèque libuv. Cette bib
 
 Nécessairement l'exemple donné est un peu plus complexe que l'exemple précédent. Il est cependant plus robuste et portable. Voici le serveur :
 
-```c include="docs/assets/src/network/ping-pong/server-uv.c"
+```c
+--8<-- "docs/assets/src/network/ping-pong/server-uv.c"
 ```
 
 Et voici le client
 
-```c include="docs/assets/src/network/ping-pong/client-uv.c"
+```c
+--8<-- "docs/assets/src/network/ping-pong/client-uv.c"
 ```
 
 ## Erreurs courantes

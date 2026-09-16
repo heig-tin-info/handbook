@@ -20,12 +20,20 @@ Both rewrites are textual, skip fenced code blocks, and are idempotent::
     python utils/fix_tmark_deprecations.py            # rewrite docs/**/*.md
     python utils/fix_tmark_deprecations.py --check    # report, change nothing
 
-Snippets
-    ``--8<-- "file"`` as the whole body of a fence is ``pymdownx.snippets``'.
-    TMark reads ``include="file"`` on the info string, and now splices it on
-    the web too — it did not when this script was first written, which is why
-    the corpus kept the old spelling — so a listing reads the same on both
-    media.
+The third deprecation of this corpus, ``--8<-- "file"`` inside a fence, is
+deliberately left alone. The web lowering does splice ``include="file"`` now
+— that part of the original reason is stale — but it does not resolve the
+path the way the snippet extension does: the corpus writes the path from the
+project directory (``docs/assets/src/hello.c``), which is what
+``pymdownx.snippets``' ``base_path: .`` means and what ``--8<--`` gets, and
+the site pre-pass reports ``include-missing`` for every one of them and
+leaves the fence **raw**, so the listing turns into literal ```` ```c
+include="…" ```` text and swallows the paragraph after it. Measured on the
+whole corpus: 36 fences, 36 `include-missing`, 15 pages broken. The book
+pass resolves them, so the conversion is a site-only regression.
+
+Convert them once the site pipeline resolves an include against the snippet
+base paths.
 """
 
 from __future__ import annotations
@@ -36,12 +44,6 @@ import re
 import sys
 
 FENCE = re.compile(r"^\s{0,3}(`{3,}|~{3,})")
-SNIPPET = re.compile(
-    r'^(?P<indent>[ \t]*)(?P<fence>`{3,}|~{3,})(?P<info>[^\n]*)\n'
-    r'(?P=indent)-{2,}8<-{2,}[ \t]+"(?P<path>[^"\n]+)"[ \t]*\n'
-    r'(?P=indent)(?P=fence)[ \t]*$',
-    re.M,
-)
 ANCHOR = re.compile(r"\[\]\(\)\{\s*(#[^\s{}]+)\s*\}")
 HTML_OPEN = re.compile(r"^(\s*)/// html \| (\w+)\[(.*)\]\s*$")
 HTML_CLOSE = re.compile(r"^(\s*)///\s*$")
@@ -57,22 +59,8 @@ def _attributes(spec: str) -> str:
     return " ".join(parts)
 
 
-def _snippets(text: str) -> tuple[str, int]:
-    """``--8<-- "f"`` alone in a fence becomes ``include="f"`` on its info string."""
-
-    def replace(match: re.Match[str]) -> str:
-        info = match.group("info").rstrip()
-        if "include=" in info:
-            return match.group(0)
-        indent, fence = match.group("indent"), match.group("fence")
-        return f'{indent}{fence}{info} include="{match.group("path")}"\n{indent}{fence}'
-
-    return SNIPPET.subn(replace, text)
-
-
-def convert(text: str) -> tuple[str, int, int, int]:
-    """Return *text* rewritten, with the anchor, container and snippet counts."""
-    text, snippets = _snippets(text)
+def convert(text: str) -> tuple[str, int, int]:
+    """Return *text* rewritten, with the anchor and container counts."""
     lines = text.split("\n")
     fence: str | None = None
     open_blocks: list[str] = []
@@ -106,7 +94,7 @@ def convert(text: str) -> tuple[str, int, int, int]:
         if count:
             lines[index] = rewritten
             anchors += count
-    return "\n".join(lines), anchors, containers, snippets
+    return "\n".join(lines), anchors, containers
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -121,24 +109,22 @@ def main(argv: list[str] | None = None) -> int:
     paths = args.paths or sorted(args.docs.rglob("*.md"))
     total_anchors = 0
     total_containers = 0
-    total_snippets = 0
     total_files = 0
     for path in paths:
         text = path.read_text(encoding="utf-8")
-        converted, anchors, containers, snippets = convert(text)
-        if not anchors and not containers and not snippets:
+        converted, anchors, containers = convert(text)
+        if not anchors and not containers:
             continue
         total_anchors += anchors
         total_containers += containers
-        total_snippets += snippets
         total_files += 1
-        print(f"{path}: {anchors} anchors, {containers} containers, {snippets} snippets")
+        print(f"{path}: {anchors} anchors, {containers} containers")
         if not args.check:
             path.write_text(converted, encoding="utf-8")
     verb = "would change" if args.check else "changed"
     print(
-        f"{verb} {total_anchors} anchors, {total_containers} containers and "
-        f"{total_snippets} snippets in {total_files} files"
+        f"{verb} {total_anchors} anchors and {total_containers} containers "
+        f"in {total_files} files"
     )
     return 0
 
