@@ -125,6 +125,12 @@ plugins:
           email: yves.chevallier@heig-vd.ch
           index_is_foreword: true
           drop_title_index: true
+          press:
+            # The HEIG-VD cover and the imprint page of the printed book;
+            # `heiglogo.sty` reaches the bundle through `copy_files` below.
+            preamble: \usepackage{heiglogo}
+            titlepage: tex/titlepage.tex
+            imprint: tex/imprint.tex
           frontmatter:
             - Préface
           backmatter:
