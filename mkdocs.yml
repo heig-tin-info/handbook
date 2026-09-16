@@ -205,14 +205,6 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 extra:
-  admonition_translations:
-    tip: Astuce
-    warning: Avertissement
-    example: Exemple
-    cite: Citation
-    bug: Bogue
-    exercise: Exercice
-
   consent:
     title: Cookie consent
     description: >-
@@ -245,9 +237,6 @@ watch:
   - includes
   - overrides
 hooks:
-  - hooks/spantable.py # Adds span table support
-  - hooks/french.py # French typography
-  - hooks/mermaid.py # Support for captions in mermaid diagrams
   - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
   - assets/texsmith/texsmith.css

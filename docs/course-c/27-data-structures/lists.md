@@ -219,7 +219,7 @@ size_t compute_length(Element* head)
 }
 ```
 
-!!! tip
+!!! tip "Astuce"
 
     Une bonne idée pour se simplifier la vie est simplement d'éviter la création de boucles.
 

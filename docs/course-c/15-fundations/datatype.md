@@ -517,7 +517,7 @@ On utilise le caractère nul `\0` pour plusieurs raisons:
 2. Dans un test il vaut `false`.
 3. Il n'est pas imprimable.
 
-!!! warning
+!!! warning "Avertissement"
 
     Ne pas confondre le caractère nul `\0` avec le caractère `0`. Le premier est un caractère de fin de chaîne, le second est un caractère numérique qui vaut `0x30`. Le caractère nul est la valeur `0` selon la table ASCII.
 

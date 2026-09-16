@@ -59,7 +59,7 @@ $$
 
 Les entiers constituent les premiers types de données manipulés par les ordinateurs. Stockés en mémoire sous forme de bits, ils offrent une plage de valeurs dépendant de la taille réservée. Un entier de 8 bits peut, par exemple, représenter $2^8 = 256$ valeurs différentes, de 0 à 255. Un entier de 16 bits en représente $2^{16} = 65 536$, de 0 à 65 535. Chaque bit supplémentaire double la plage disponible.
 
-!!! example
+!!! example "Exemple"
 
     Le nombre 142 peut s'écrire sur 8 bits en binaire, avec une notation positionnelle (où les bits sont alignés par poids décroissants) on peut écrire :
 

@@ -34,7 +34,6 @@ Il faut attendre 1989 #[1989] pour que le langage C soit normalisé par l’ANSI
 Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :
 
 ```mermaid
-%% Influences des langages de programmation
 flowchart LR
     COBOL --> PLI["PL/I"]
     FORTRAN --> ALGOL
@@ -49,6 +48,8 @@ flowchart LR
     PLI --> C("C")
     B --> C
 ```
+
+Figure: Influences des langages de programmation
 
 Cinquante ans plus tard, le C demeure l'un des langages les plus prisés par les ingénieures et ingénieurs. Sa capacité à mêler une vision de haut niveau à des manipulations de bas niveau en fait un allié précieux pour les applications embarquées sur microcontrôleurs ou pour optimiser du code critique, comme dans les noyaux de systèmes d'exploitation tels que le noyau #[noyau] Linux #[Linux] (Kernel #[Kernel]) ou Windows.
 

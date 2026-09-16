@@ -117,7 +117,7 @@ L'addition de deux bits $A$ et $B$ est donnée par la table suivante où `C` est
 
 Table: Addition binaire
 
-|   A   | B  @rb | A + B @rb | C @bb |
+|   A   | B | A + B | C |
 | :---: | :----: | :-------: | :---: |
 |   0   |   0    |     0     |   0   |
 |   0   |   1    |     1     |   0   |
@@ -326,7 +326,7 @@ if (a == b) {
 }
 ```
 
-!!! tip
+!!! tip "Astuce"
 
     Programmer c'est être minimaliste, dès lors il serait possible de simplifier l'écriture ci-dessus de la façon suivante :
 
@@ -586,7 +586,7 @@ assert(b == 0x0000'0000);
 assert(-8 >> 1 == -4) // 0b1111'1000 >> 1 == 0b1111'1100
 ```
 
-!!! warning
+!!! warning "Avertissement"
 
     Le standard ne définit pas le comportement des décalages pour des valeurs de décalage négatives (`a >> -2`). Néanmoins il n'y aura pas d'erreur de compilation, le comportement est simplement indéfini et le résultat dépend donc du compilateur utlisé.
 
@@ -658,7 +658,7 @@ Le résultat d'une opération logique est toujours un `booléen` (valeur 0 ou 1)
 
 La priorité des opérateurs logiques est plus faible que celle des opérateurs de comparaison et plus forte que celle des opérateurs d'affectation. Ainsi l'expression `a == b && c == d` est équivalente à `(a == b) && (c == d)`. Les parenthèses sont facultatives, mais permettent de clarifier l'expression.
 
-!!! warning
+!!! warning "Avertissement"
 
     La priorité de l'opérateur `&&` est plus forte que celle de l'opérateur `||`. Ainsi l'expression `a || b && c` est équivalente à `a || (b && c)`. C'est un piège classique en programmation, pour l'éviter il est recommandé d'utiliser des parenthèses.
 
@@ -754,7 +754,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     y = x;
     ```
 
-!!! tip
+!!! tip "Astuce"
 
     Pour résoudre les ambiguïtés, on procède par étape. Par exemple l'expression suivante n'est pas très claire :
 
@@ -797,7 +797,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     - Favoriser la précédence explicite en utilisant des parenthèses
     - Séparez vos opérations par des espaces pour plus de lisibilité: `#!c k = i-- - -j`
 
-!!! tip
+!!! tip "Astuce"
 
     Il est généralement préférable d'utiliser la pré-incrémentation ou la pré-décrémentation car elles sont plus efficaces. En effet, la post-incrémentation ou la post-décrémentation nécessitent de stocker la valeur actuelle de la variable pour la retourner après l'incrémentation ou la décrémentation.
 
@@ -869,7 +869,7 @@ On remarque dans cet exemple une répétition `max =`. Une façon plus élégant
 max = a > b ? a : b;
 ```
 
-!!! warning
+!!! warning "Avertissement"
 
     Ne pas utiliser l'opérateur ternaire si vous ne modifiez pas une valeur. L'opérateur ternaire est un opérateur de **sélection** et non de **modification**.
 
@@ -992,38 +992,45 @@ La table suivante indique les règles à suivre pour les précédences des opér
 
 Table: Priorité des opérateurs
 
-| Priorité | Opérateur                 | Description @flex                                      | Associativité         |
-| -------- | ------------------------- | ------------------------------------------------------ | --------------------- |
-| 1 @span  | `++`, `--`                | Postfix incréments/décréments                          | Gauche à Droite @span |
-|          | `()`                      | Appel de fonction                                      |                       |
-|          | `[]`                      | Indexage des tableaux                                  |                       |
-|          | `.`                       | Élément d'une structure                                |                       |
-|          | `->`                      | Élément d'une structure                                |                       |
-| 2 @span  | `++`, `--`                | Préfixe incréments/décréments                          | Droite à Gauche @span |
-|          | `+`, `-`                  | Signe                                                  |                       |
-|          | `!`, `~`                  | NON logique et NON binaire                             |                       |
-|          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                       |
-|          | `*`                       | Indirection, déréférencement                           |                       |
-|          | `&`                       | Adresse de...                                          |                       |
-|          | `sizeof`                  | Taille de...                                           |                       |
-| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod                          | Gauche à Droite @span |
-| 4        | `+`, `-`                  | Addition, soustraction                                 |                       |
-| 5        | `<<`, `>>`                | Décalages binaires                                     |                       |
-| 6 @span  | `<`, `<=`                 | Comparaison plus petit que                             |                       |
-|          | `>`, `>=`                 | Comparaison plus grand que                             |                       |
-| 7        | `==`, `!=`                | Égalité, non égalité                                   |                       |
-| 8        | `&`                       | ET binaire                                             |                       |
-| 9        | `^`                       | OU exclusif binaire                                    |                       |
-| 10       | <code>&#124;</code>       | OU inclusif binaire                                    |                       |
-| 11       | `&&`                      | ET logique                                             |                       |
-| 12       | <code>&#124;&#124;</code> | OU logique                                             |                       |
-| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche @span |
-| 14 @span | `=`                       | Assignation simple                                     |                       |
-|          | `+=`, `-=`                | Assignation par somme/diff                             |                       |
-|          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo                |                       |
-|          | `<<=`, `>>=`              | Assignation par décalage binaire                       |                       |
-| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite       |
+| Priorité | Opérateur                 | Description                                            | Associativité   |
+| -------- | ------------------------- | ------------------------------------------------------ | --------------- |
+| 1        | `++`, `--`                | Postfix incréments/décréments                          | Gauche à Droite |
+| 1        | `()`                      | Appel de fonction                                      | Gauche à Droite |
+| 1        | `[]`                      | Indexage des tableaux                                  | Gauche à Droite |
+| 1        | `.`                       | Élément d'une structure                                | Gauche à Droite |
+| 1        | `->`                      | Élément d'une structure                                | Gauche à Droite |
+| 2        | `++`, `--`                | Préfixe incréments/décréments                          | Droite à Gauche |
+| 2        | `+`, `-`                  | Signe                                                  | Droite à Gauche |
+| 2        | `!`, `~`                  | NON logique et NON binaire                             | Droite à Gauche |
+| 2        | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    | Droite à Gauche |
+| 2        | `*`                       | Indirection, déréférencement                           | Droite à Gauche |
+| 2        | `&`                       | Adresse de...                                          | Droite à Gauche |
+| 2        | `sizeof`                  | Taille de...                                           | Droite à Gauche |
+| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod                          | Gauche à Droite |
+| 4        | `+`, `-`                  | Addition, soustraction                                 | Gauche à Droite |
+| 5        | `<<`, `>>`                | Décalages binaires                                     | Gauche à Droite |
+| 6        | `<`, `<=`                 | Comparaison plus petit que                             | Gauche à Droite |
+| 6        | `>`, `>=`                 | Comparaison plus grand que                             | Gauche à Droite |
+| 7        | `==`, `!=`                | Égalité, non égalité                                   | Gauche à Droite |
+| 8        | `&`                       | ET binaire                                             | Gauche à Droite |
+| 9        | `^`                       | OU exclusif binaire                                    | Gauche à Droite |
+| 10       | <code>&#124;</code>       | OU inclusif binaire                                    | Gauche à Droite |
+| 11       | `&&`                      | ET logique                                             | Gauche à Droite |
+| 12       | <code>&#124;&#124;</code> | OU logique                                             | Gauche à Droite |
+| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche |
+| 14       | `=`                       | Assignation simple                                     | Droite à Gauche |
+| 14       | `+=`, `-=`                | Assignation par somme/diff                             | Droite à Gauche |
+| 14       | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo                | Droite à Gauche |
+| 14       | `<<=`, `>>=`              | Assignation par décalage binaire                       | Droite à Gauche |
+| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite |
 
+```yaml table-config
+columns:
+  - {align: center}
+  - {align: left}
+  - {align: justify, width: X}
+  - {align: left}
+```
 
 Considérons l'exemple suivant :
 

@@ -48,7 +48,7 @@ int main() {
 }
 ```
 
-!!! warning
+!!! warning "Avertissement"
 
     Attention à utiliser des apostrophes simples `'` pour les caractères. Si vous utilisez des guillemets doubles `"` vous obtiendrez une erreur de compilation.
 
@@ -284,7 +284,7 @@ int main() {
 }
 ```
 
-!!! warning
+!!! warning "Avertissement"
 
     La fonction `gets` est déconseillée. Il est préférable d'utiliser la fonction `fgets` qui permet de spécifier la taille maximale de la chaîne à lire.
 

@@ -9,7 +9,6 @@ Voici un exemple d'arbre : il représente une structure de documents stockés su
 Ce type d'arbre est appelé **arbre n-aire dirigé** : chaque nœud peut avoir plusieurs enfants et les arêtes suivent un sens unique de la racine vers les feuilles. Les flèches indiquent ainsi la direction de la hiérarchie.
 
 ```mermaid
-%% Arbre n-aire dirigé
 graph LR
     C(C:)
 
@@ -55,6 +54,8 @@ graph LR
     Downloads_Alice --> App(App.exe)
 ```
 
+Figure: Arbre n-aire dirigé
+
 ## Arbre binaire
 
 Un arbre binaire #[arbre binaire] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
@@ -66,7 +67,6 @@ Le langage C étant très bas niveau, il ne propose pas de structure d'arbre bin
 Voici un exemple d'arbre binaire. Chaque nœud possède deux enfants, sauf les feuilles qui n'en ont aucun. Le nœud `40`, par exemple, ne dispose que d'un enfant à droite.
 
 ```mermaid
-%% Arbre binaire
 graph TD
     classDef ghost display: none;
 
@@ -97,12 +97,13 @@ graph TD
     linkStyle 8 display: none;
 ```
 
+Figure: Arbre binaire
+
 Un arbre peut être **équilibré** ou **déséquilibré**. Il est dit équilibré lorsque la hauteur de ses sous-arbres gauche et droit diffère d'au plus une unité. Cette propriété garantit des opérations de recherche, d'insertion et de suppression plus efficaces.
 
 Voici l'exemple d'un arbre déséquilibré :
 
 ```mermaid
-%% Arbre binaire déséquilibré
 graph LR
     classDef ghost display: none;
 
@@ -127,6 +128,8 @@ graph LR
     10 --> 23((23))
     23 --> 35((35))
 ```
+
+Figure: Arbre binaire déséquilibré
 
 ### Heap
 

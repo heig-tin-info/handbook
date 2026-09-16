@@ -65,7 +65,6 @@ Je passe rapidement sur d’autres éditeurs qui ont connu leur heure de gloire 
 Pour être plus factuel, l’enquête annuelle 2023 de [Stack Overflow](https://survey.stackoverflow.co/2023/#overview) donne une idée assez fidèle de la popularité des éditeurs et environnements de développement intégrés les plus utilisés par les personnes qui programment :
 
 ```mermaid
-%% Utilisation des éditeurs de code
 pie
     "Visual Studio Code" : 73.3
     "Visual Studio" : 28.4
@@ -76,6 +75,8 @@ pie
     "Eclipse": 9.9
     "Nano": 8.98
 ```
+
+Figure: Utilisation des éditeurs de code
 
 ### Fonctionnalités attendues
 

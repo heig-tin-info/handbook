@@ -48,7 +48,6 @@ Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins, cet a
 Cette chaîne d'appels indique combien de fois `fib` est invoquée et à quel niveau de la pile. Par exemple, `fib(4)` est appelé dans `fib(5)` :
 
 ```mermaid
-%% Arbre d'appel de Fibonacci
 graph TD
 
 5(("fib(5)")) --> 41(("fib(4)"))
@@ -68,6 +67,8 @@ graph TD
 
 23 --> 15(("fib(1)"))
 ```
+
+Figure: Arbre d'appel de Fibonacci
 
 Au final, `fib(1)` est appelé cinq fois, `fib(2)` trois fois, `fib(3)` deux fois et `fib(4)` comme `fib(5)` une seule fois. Il faut donc douze appels à la fonction `fib` pour calculer `fib(5)`.
 
@@ -161,7 +162,7 @@ used stack: 6144 kiB
 Segmentation fault (stack overflow)
 ```
 
-!!! warning
+!!! warning "Avertissement"
     Avant d'implémenter une fonction récursive, il est important de vérifier que la profondeur de la récursivité ne dépasse pas la taille du stack.
 
     Limitez l'utilisation du stack en utilisant soit des variables globales, soit des variables statiques, soit des allocations dynamiques.

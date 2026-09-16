@@ -126,7 +126,7 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Fait historique où information complémentaire pour ceux qui voudraient en savoir plus.
 
-!!! warning inline
+!!! warning inline "Avertissement"
 
     Point important à faire attention qui source d'erreur fréquente.
 
@@ -134,7 +134,7 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Note importante qui comporte des risques à considérer.
 
-!!! example inline
+!!! example inline "Exemple"
 
     Exemple pratique pour illustrer un concept.
 
@@ -142,11 +142,11 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Corollaire à retenir.
 
-!!! tip inline
+!!! tip inline "Astuce"
 
     Truc ou Astuce pour faciliter la compréhension.
 
-!!! bug inline
+!!! bug inline "Bogue"
 
     Limitations ou bugs possibles d'une méthode proposée.
 
