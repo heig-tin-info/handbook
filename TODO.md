@@ -35,10 +35,12 @@ What the move to Zensical + TeXSmith leaves open is here; `NOTES-zensical.md`
 - [ ] Nothing in CI runs `make zensical`: `.github/workflows/ci.yml` still publishes with `uv run mkdocs gh-deploy --force`. Add a non-blocking `make zensical` job first, then switch the publish step — that switch is what decides when the MkDocs-only plugins can go.
 - [ ] Decide what replaces `mike` before the CI switch, not after: Zensical has no versioning equivalent, `mike>=2.1.3` is still a dependency with its plugin commented out in `mkdocs.yml`, and nothing versions the site today. Either `mike` leaves `pyproject.toml`, or the versioning is done by another mechanism.
 - [ ] Replace the `tmark-core` path override committed on this branch (`tmark-core = { path = "/home/ycr/tmark/crates/tmark-py" }` in `pyproject.toml`, with its `uv.lock`) by a released `tmark-core` carrying the core fixes this migration used: the site-wide declarations, the unresolved `include=` drop, the unescaped label names, the localised callout words, the front-matter epigraph. The two editable TeXSmith paths go the same way when 0.7.1 is released.
+- [ ] Drop `mkdocs-autorefs`: it was the only thing resolving `[text][id]`, the corpus is written `[text](#id)` now, and TMark's lowering points a cross-page reference at the page holding the label on both generators. (`mkdocs.yml`, `pyproject.toml`)
 - [ ] Drop `mkdocs-plugin-exercises` and `mkdocs-wikipedia` once CI stops running MkDocs: TMark numbers the exercises now, and the article summaries are the only thing `wikipedia` still adds. (`pyproject.toml`, `mkdocs.yml`)
 
 ### Zensical upstream
 
+- [ ] Zensical's anchor check reads the source, not the lowered page: the 47 cross-page `[text](#id)` references of the corpus are each reported `anchor does not exist` although the built link is correct (`../datatype/#unicode`), because TMark splices the sibling's page into the link after that check has run. Ask upstream for a check that runs on what is rendered, or for a way to declare the site's anchors. (`zensical build`, TeXSmith hook order)
 - [ ] Zensical ignores `exclude_docs`, so the include sources under `docs/` are built as orphan pages, reachable by URL though listed nowhere; their `search: {exclude: true}` front matter keeps them out of the index only. Ask upstream for `exclude_docs`, or move those sources out of `docs/`.
 - [ ] `tags_allowed` is the knob if the 252 tags of the Filters facet ever prove too many: it restricts the facet to a declared list and warns on anything else. (`mkdocs.yml`)
 
