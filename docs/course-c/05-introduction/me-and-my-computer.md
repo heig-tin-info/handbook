@@ -185,7 +185,7 @@ On notera que l'ensemble des outils nécessaires à créer un logiciel exécutab
 ## Exercices de révision
 
 ::: exercise {title="#(ex:norme) : Norme"}
-{{posix}} est la norme respectée par la plupart systèmes d'exploitation modernes sauf Windows? Elle unifie les systèmes d'exploitation en définissant une interface standardisée pour les programmes.
+Quelle norme, respectée par la plupart des systèmes d'exploitation modernes sauf Windows, les unifie en définissant une interface standardisée pour les programmes ?
 
 ??? solution
 

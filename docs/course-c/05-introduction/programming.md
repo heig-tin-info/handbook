@@ -550,5 +550,14 @@ Qu'est-ce que la machine de Turing ?
 :::
 
 ::: exercise {title="#(ex:machine-a-cafe) : Machine à café"}
-Une machine à café est équipée d'un {{microcontrôleur}}, qui est l'organe de contrôle de la machine. Ce dernier comporte des {{entrées}} comme les boutons de commande ou les capteurs ainsi que des {{sorties}} comme les LEDs et les actionneurs. Une {{mémoire}} permet de stocker les paramètres de configuration de la machine ainsi que son programme.
+Complétez la description d'une machine à café en nommant les quatre éléments manquants :
+
+1. Quel composant est l'organe de contrôle de la machine ?
+2. Comment nomme-t-on, pour ce composant, les boutons de commande et les capteurs ?
+3. Et les LEDs et les actionneurs ?
+4. Qu'est-ce qui stocke les paramètres de configuration de la machine ainsi que son programme ?
+
+??? solution
+
+    Une machine à café est équipée d'un **microcontrôleur**, qui est l'organe de contrôle de la machine. Ce dernier comporte des **entrées** comme les boutons de commande ou les capteurs ainsi que des **sorties** comme les LEDs et les actionneurs. Une **mémoire** permet de stocker les paramètres de configuration de la machine ainsi que son programme.
 :::

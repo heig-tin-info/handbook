@@ -130,10 +130,19 @@ bool is_negative(int32_t n) {
 ::: exercise {title="#(ex:nature-de-ces-nombres) : Nature de ces nombres ?"}
 Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?
 
-1. `0b01100000` est {{pair}} et de signe {{positif}}
-2. `0b00001001` est {{impair}} et de signe {{positif}}
-3. `0b10000000` est {{pair}} et de signe {{négatif}}
-4. `0b11011011` est {{impair}} et de signe {{négatif}}
+1. `0b01100000`
+2. `0b00001001`
+3. `0b10000000`
+4. `0b11011011`
+
+??? solution
+
+    Le bit de poids faible donne la parité, le bit de poids fort le signe :
+
+    1. `0b01100000` est pair et de signe positif.
+    2. `0b00001001` est impair et de signe positif.
+    3. `0b10000000` est pair et de signe négatif.
+    4. `0b11011011` est impair et de signe négatif.
 :::
 
 ## Codification de l'information
