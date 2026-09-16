@@ -216,21 +216,21 @@ int memoize_get(int input) {
 }
 ```
 
-!!! exercise "La plus petite différence"
+::: exercise {title="#(ex:la-plus-petite-difference) : La plus petite différence"}
+Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
 
-    Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
+Exemple :
 
-    Exemple :
+```c
+int a[] = {5, 3, 14, 11, 2};
+int b[] = {24, 128, 236, 20, 8};
 
-    ```c
-    int a[] = {5, 3, 14, 11, 2};
-    int b[] = {24, 128, 236, 20, 8};
+int diff = 3 // pair 11, 8
+```
 
-    int diff = 3 // pair 11, 8
-    ```
-
-    1. Proposer une implémentation
-    2. Quelle est la complexité de votre algorithme ?
+1. Proposer une implémentation
+2. Quelle est la complexité de votre algorithme ?
+:::
 
 ## Programmation dynamique
 

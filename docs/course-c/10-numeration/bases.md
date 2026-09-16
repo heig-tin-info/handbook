@@ -20,13 +20,13 @@ j4b12
 
 En effet, au-delà de l'ordre des symboles (de gauche à droite), la base employée conditionne l'interprétation du nombre. Elle fixe le nombre de symboles distincts autorisés pour chaque position et, ce faisant, gouverne la structure entière de l'écriture. Une base dix (décimale) mobilise ainsi dix symboles (0-9), tandis qu'une base deux (binaire) n'en retient que deux (0 et 1). Faute de cette clé de lecture, les nombres restent opaques et dénués de signification.
 
-!!! exercise "Symboles binaires"
+::: exercise {title="#(ex:symboles-binaires) : Symboles binaires"}
+Dans la notation binaire, composée des chiffres 1 et 0, combien de symboles existent et combien de positions y a-t-il dans le nombre `11001` ?
 
-    Dans la notation binaire, composée des chiffres 1 et 0, combien de symboles existent et combien de positions y a-t-il dans le nombre `11001` ?
+??? solution
 
-    ??? solution
-
-        Le nombre `11001` comporte 5 positions et propose deux symboles possibles par position : `1` et `0`. La quantité d'information véhiculée est donc de 5 bits.
+    Le nombre `11001` comporte 5 positions et propose deux symboles possibles par position : `1` et `0`. La quantité d'information véhiculée est donc de 5 bits.
+:::
 
 ## Système décimal
 
@@ -48,15 +48,15 @@ $$
 
 Comme évoqué au chapitre précédent, la base dix n'est pas utilisée dans les ordinateurs, car elle imposerait la manipulation de dix états distincts, difficilement compatibles avec des systèmes logiques binaires. Le stockage d'un bit en mémoire repose d'ailleurs le plus souvent sur des transistors adoptant deux états stables.
 
-!!! exercise "Deux mains"
+::: exercise {title="#(ex:deux-mains) : Deux mains"}
+Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour symboliser un chiffre. Chaque doigt peut être levé ou baissé, mais un seul est autorisé à être levé à la fois. Quelle est la base utilisée ?
 
-    Un dessin représentant deux mains humaines (composées chacune de cinq doigts) est utilisé pour symboliser un chiffre. Chaque doigt peut être levé ou baissé, mais un seul est autorisé à être levé à la fois. Quelle est la base utilisée ?
+??? solution
 
-    ??? solution
+    Deux mains de cinq doigts totalisent 10 doigts. Il existe donc dix possibilités, la base est décimale : 10.
 
-        Deux mains de cinq doigts totalisent 10 doigts. Il existe donc dix possibilités, la base est décimale : 10.
-
-        Si plusieurs doigts pouvaient être levés simultanément, il faudrait réduire le système à l'unité de base « le doigt », lequel peut prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et deux symboles par doigt, on obtient alors un nombre binaire.
+    Si plusieurs doigts pouvaient être levés simultanément, il faudrait réduire le système à l'unité de base « le doigt », lequel peut prendre deux états : levé ou baissé. Avec dix doigts (dix positions) et deux symboles par doigt, on obtient alors un nombre binaire.
+:::
 
 ## Système binaire
 
@@ -93,17 +93,17 @@ $$
 
 Avec un seul `bit`, il est donc possible d'exprimer deux valeurs distinctes.
 
-!!! exercise "Base 2"
+::: exercise {title="#(ex:base-2) : Base 2"}
+Combien de valeurs décimales peuvent être représentées avec 10-bits ?
 
-    Combien de valeurs décimales peuvent être représentées avec 10-bits ?
+??? solution
 
-    ??? solution
+    Avec une base binaire égale à 2 et 10 bits, le total représentable est :
 
-        Avec une base binaire égale à 2 et 10 bits, le total représentable est :
+    $$2^{10} = 1024$$
 
-        $$2^{10} = 1024$$
-
-        On peut donc représenter les nombres de 0 à 1023.
+    On peut donc représenter les nombres de 0 à 1023.
+:::
 
 ## Système octal
 
@@ -234,38 +234,38 @@ Ce fichier est donc encodé en UTF-8 quant au bogue de notre ami ingénieur, il 
 
 Par cet exercice, on observe néanmoins l'élégance de l'encodage hexadécimal qui permet de visualiser facilement, par groupe de 8 bits, le contenu du fichier, ce qui aurait été beaucoup moins évident en binaire.
 
-!!! exercise "Les chiffres hexadécimaux"
+::: exercise {title="#(ex:les-chiffres-hexadecimaux) : Les chiffres hexadécimaux"}
+Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :
 
-    Calculez la valeur décimale des nombres suivants et donnez le détail du calcul :
+```text
+0xaaaa
+0b1100101
+0x1010
+129
+0216
+```
+
+??? solution
 
     ```text
-    0xaaaa
-    0b1100101
-    0x1010
-    129
-    0216
+    0xaaaa    ≡ 43690
+    0b1100101 ≡   101
+    0x1010    ≡  4112
+    129       ≡   129 (n'est-ce pas ?)
+    0216      ≡   142
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:albatros) : Albatros"}
+Tentez de récupérer vous même le poème l'[Albatros](/assets/src/albatros.txt) de Baudelaire et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
 
-        ```text
-        0xaaaa    ≡ 43690
-        0b1100101 ≡   101
-        0x1010    ≡  4112
-        129       ≡   129 (n'est-ce pas ?)
-        0216      ≡   142
-        ```
+```bash
+$ wget https://.../albatros.txt
+$ hexdump -C albatros.txt
+```
 
-!!! exercise "Albatros"
-
-    Tentez de récupérer vous même le poème l'[Albatros](/assets/src/albatros.txt) de Baudelaire et d'afficher le même résultat que ci-dessus depuis un terminal de commande Linux.
-
-    ```bash
-    $ wget https://.../albatros.txt
-    $ hexdump -C albatros.txt
-    ```
-
-    Si vous n'avez pas les outils `wget` ou `hexdump`, tentez de les installer ia la commande `apt-get install wget hexdump` sous Ubuntu.
+Si vous n'avez pas les outils `wget` ou `hexdump`, tentez de les installer ia la commande `apt-get install wget hexdump` sous Ubuntu.
+:::
 
 ## Conversions de bases
 
@@ -326,42 +326,42 @@ n = 209
 209 == 0b11010001
 ```
 
-!!! exercise "La numération Shadock"
+::: exercise {title="#(ex:la-numeration-shadock) : La numération Shadock"}
+![Les Shadocks](../../assets/images/shadocks.drawio)
 
-    ![Les Shadocks](../../assets/images/shadocks.drawio)
+Les Shadocks #[Shadocks, les] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
 
-    Les Shadocks #[Shadocks, les] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
+Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
 
-    Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
+??? solution
 
-    ??? solution
+    Le système Shadock est une numération quaternaire, comparable au code génétique fondé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks ceux du système indo-arabe, plus familiers :
 
-        Le système Shadock est une numération quaternaire, comparable au code génétique fondé sur quatre bases nucléiques. Assignons donc aux symboles Shadocks ceux du système indo-arabe, plus familiers :
+    ```text
+    0 ○ (GA)
+    1 − (BU)
+    2 ⨼ (ZO)
+    3 ◿ (MEU)
+    ```
 
-        ```text
-        0 ○ (GA)
-        1 − (BU)
-        2 ⨼ (ZO)
-        3 ◿ (MEU)
-        ```
+    Le nombre d'entrée `−⨼O◿O` peut ainsi s'exprimer :
 
-        Le nombre d'entrée `−⨼O◿O` peut ainsi s'exprimer :
+    ```text
+    −⨼○◿○ ≡ 12030₄
+    ```
 
-        ```text
-        −⨼○◿○ ≡ 12030₄
-        ```
+    En appliquant la méthode décrite dans ce cours, on obtient :
 
-        En appliquant la méthode décrite dans ce cours, on obtient :
+    $$
+        1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
+    $$
 
-        $$
-            1 \cdot 4^4 + 2 \cdot 4^3 + 0 \cdot 4^2 + 3 \cdot 4^1 + 0 \cdot 4^0 = 396_{10}
-        $$
+    Notons que depuis un terminal Python vous pouvez simplement utiliser:
 
-        Notons que depuis un terminal Python vous pouvez simplement utiliser:
-
-        ```python
-        int("12030", 4)
-        ```
+    ```python
+    int("12030", 4)
+    ```
+:::
 
 ## Autres bases
 

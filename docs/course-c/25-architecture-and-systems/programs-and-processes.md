@@ -385,12 +385,12 @@ int main(void) {
 }
 ```
 
-!!! exercise "La fortune, la vache qui dit et le chat drôle"
+::: exercise {title="#(ex:la-fortune-la-vache-qui-dit-et-le-chat-drole) : La fortune, la vache qui dit et le chat drôle"}
+En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
 
-    En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
+```bash
+$ fortune | cowsay | lolcat
+```
 
-    ```bash
-    $ fortune | cowsay | lolcat
-    ```
-
-    Quelle est sa structure et que fait-elle ?
+Quelle est sa structure et que fait-elle ?
+:::

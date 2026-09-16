@@ -388,94 +388,94 @@ Le développement en C suit un cycle rigoureux, comportant plusieurs étapes que
 
 ## Exercices de Révision
 
-!!! exercise
+::: exercise {title="#(ex:course-c-05-introduction-c-lang-1)"}
+Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante `ULLONG_MAX`. Que vaut-elle ?
 
-    Ouvrez le standard [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf) et cherchez la valeur maximale possible de la constante `ULLONG_MAX`. Que vaut-elle ?
+??? solution
 
-    ??? solution
+    Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
+:::
 
-        Au paragraphe §5.2.4.2.1-1 on peut lire que `ULLONG_MAX` est encodé sur 64-bits et donc que sa valeur est $2^{64}-1$ donc `18'446'744'073'709'551'615`.
+::: exercise {title="#(ex:hello-world) : Hello World"}
+Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme `hello.c` qui affiche `Hello, World!` à l'écran.
 
-!!! exercise "Hello World"
+Exécutez le programme et vérifiez que le message s'affiche bien.
+:::
 
-    Pouvez-vous écrire, puis compiler votre premier programme en C ? Rédiger le programme `hello.c` qui affiche `Hello, World!` à l'écran.
+::: exercise {title="#(ex:auteurs) : Auteurs"}
+Qui a inventé le C ?
 
-    Exécutez le programme et vérifiez que le message s'affiche bien.
+- [x] Ken Thompson
+- [ ] Brian Kernighan
+- [ ] Bjarne Stroustrup
+- [ ] Linus Torvalds
+- [x] Dennis Ritchie
+- [ ] Guido van Rossum
+:::
 
-!!! exercise "Auteurs"
+::: exercise {title="#(ex:standard-international) : Standard International"}
+Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?
 
-    Qui a inventé le C ?
+- [ ] C89
+- [ ] C99
+- [ ] C11
+- [x] C17
+- [ ] C23
 
-    - [x] Ken Thompson
-    - [ ] Brian Kernighan
-    - [ ] Bjarne Stroustrup
-    - [ ] Linus Torvalds
-    - [x] Dennis Ritchie
-    - [ ] Guido van Rossum
+??? solution
 
-!!! exercise "Standard International"
+    Le standard industriel, malgré que nous soyons en 2024 est toujours
+    **ISO/IEC 9899:2017**, car peu de changements majeurs ont été apportés
+    au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
+    que d'adopter un standard plus récent qui n'apporte que peu de changements.
+:::
 
-    Quel est le standard C à utiliser dans l'industrie en 2024 et pourquoi ?
+::: exercise {title="#(ex:paradigmes) : Paradigmes"}
+Quels est le paradigme de programmation supportés par C ?
 
-    - [ ] C89
-    - [ ] C99
-    - [ ] C11
-    - [x] C17
-    - [ ] C23
+- [ ] Fonctionnel
+- [ ] Orienté objet
+- [ ] Réflectif
+- [x] Impératif
+- [ ] Déclaratif
 
-    ??? solution
+??? solution
 
-        Le standard industriel, malgré que nous soyons en 2024 est toujours
-        **ISO/IEC 9899:2017**, car peu de changements majeurs ont été apportés
-        au langage depuis et les entreprises préfèrent migrer sur C++ plutôt
-        que d'adopter un standard plus récent qui n'apporte que peu de changements.
+    C supporte les paradigmes impératifs, structurés et procédural.
+:::
 
-!!! exercise "Paradigmes"
+::: exercise {title="#(ex:langage-imperatif) : Langage impératif"}
+Pourriez-vous définir ce qu'est la programmation impérative ?
 
-    Quels est le paradigme de programmation supportés par C ?
+??? solution
 
-    - [ ] Fonctionnel
-    - [ ] Orienté objet
-    - [ ] Réflectif
-    - [x] Impératif
-    - [ ] Déclaratif
+    La programmation impérative consiste en des séquences de commandes ordonnées.
+    C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
+:::
 
-    ??? solution
+::: exercise {title="#(ex:coulee-de-lave) : Coulée de lave"}
+Qu'est-ce qu'une coulée de lave en informatique ?
 
-        C supporte les paradigmes impératifs, structurés et procédural.
+??? solution
 
-!!! exercise "Langage impératif"
+    Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
+    il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
+    s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
+    facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
 
-    Pourriez-vous définir ce qu'est la programmation impérative ?
+    Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
+:::
 
-    ??? solution
+::: exercise {title="#(ex:cat) : Cat"}
+Qu'est-ce que `cat`?
 
-        La programmation impérative consiste en des séquences de commandes ordonnées.
-        C'est-à-dire que les séquences sont exécutées dans un ordre définis les unes à la suite d’autres.
+- [ ] Un programme de chat
+- [ ] Un programme de compilation
+- [x] Un programme d'affichage de fichiers
+- [ ] Un programme de copie de fichiers
+- [ ] Un programme de recherche de fichiers
 
-!!! exercise "Coulée de lave"
+??? solution
 
-    Qu'est-ce qu'une coulée de lave en informatique ?
-
-    ??? solution
-
-        Lorsqu'un code immature est mis en production, l'industriel qui le publie risque un retour de flamme dû aux bogues et mécontentement des clients. Afin d'éviter une *coulée de lave*
-        il est important qu'un programme soit testé et soumis à une équipe de *beta-testing* qui
-        s'assure qu'outre le respect des spécifications initiales, le programme soit utilisable
-        facilement par le public cible. Il s'agit aussi d'étudier l'ergonomie du programme.
-
-        Un programme peut respecter le cahier des charges, être convenablement testé, fonctionner parfaitement, mais être difficile à l'utilisation, car certaines fonctionnalités sont peu ou pas documentées. La surcharge du service de support par des clients perdus peut également être assimilée à une coulée de lave.
-
-!!! exercise "Cat"
-
-    Qu'est-ce que `cat`?
-
-    - [ ] Un programme de chat
-    - [ ] Un programme de compilation
-    - [x] Un programme d'affichage de fichiers
-    - [ ] Un programme de copie de fichiers
-    - [ ] Un programme de recherche de fichiers
-
-    ??? solution
-
-        `cat` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier `hello.c` est bel et bien celui attendu.
+    `cat` est un programme normalisé POSIX prenant en entrée un fichier et l'affichant à l'écran. Il est utilisé notamment dans cet ouvrage pour montrer que le contenu du fichier `hello.c` est bel et bien celui attendu.
+:::

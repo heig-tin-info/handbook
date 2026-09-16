@@ -440,19 +440,19 @@ On peut encore noter quelques valeurs particulières :
 
 La double précision est similaire à la simple précision, mais avec une mantisse à **52 bits** et **11 bits** d'exposants. Le nombre est donc représentable sur **64 bits**. La valeur maximale est de $1.7976931348623157 \times 10^{308}$ et la valeur minimale de $2.2250738585072014 \times 10^{-308}$. La résolution en nombre de chiffres significatifs est de 15 à 16 chiffres contre 6 à 7 pour la simple précision. Cette notation est donc très pertinente pour les calculs scientifiques, mais elle requiert aussi plus de mémoire.
 
-!!! exercise "Expressions arithmétiques flottantes"
+::: exercise {title="#(ex:expressions-arithmetiques-flottantes) : Expressions arithmétiques flottantes"}
+Donnez la valeur des expressions ci-dessous :
 
-    Donnez la valeur des expressions ci-dessous :
-
-    ```text
-    25. + 10. + 7. – 3.
-    5. / 2.
-    24. + 5. / 2.
-    25. / 5. / 2.
-    25. / (5. / 2.)
-    2. * 13. % 7.
-    1.3E30 + 1.
-    ```
+```text
+25. + 10. + 7. – 3.
+5. / 2.
+24. + 5. / 2.
+25. / 5. / 2.
+25. / (5. / 2.)
+2. * 13. % 7.
+1.3E30 + 1.
+```
+:::
 
 ### Quadruple précision
 

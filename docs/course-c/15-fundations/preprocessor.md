@@ -396,20 +396,20 @@ Ici, `x` est incrémenté trois fois au lieu d'une seule, ce qui peut entraîner
 2. **Encapsuler les macros à plusieurs instructions dans une boucle vide** pour éviter des erreurs dans les structures de contrôle comme `if-else`.
 3. **Éviter les post/pré-incréments dans les macros**, car ils peuvent provoquer des réévaluations imprévues et des erreurs difficiles à détecter.
 
-!!! exercise "Macro compromise ?"
+::: exercise {title="#(ex:macro-compromise) : Macro compromise ?"}
+Que retourne la fonction `foo` lors de son exécution avec le code suivant ?
 
-    Que retourne la fonction `foo` lors de son exécution avec le code suivant ?
+```c
+#define ABS(x) x >= 0 ? x: -x
+int foo(void) { return ABS(5 - 8); }
+```
 
-    ```c
-    #define ABS(x) x >= 0 ? x: -x
-    int foo(void) { return ABS(5 - 8); }
-    ```
-
-    - [ ] 3
-    - [ ] -3
-    - [x] -13
-    - [ ] 5 - 8
-    - [ ] 0
+- [ ] 3
+- [ ] -3
+- [x] -13
+- [ ] 5 - 8
+- [ ] 0
+:::
 
 []{#preprocessor-if}
 []{#preprocessor-ifdef}

@@ -184,58 +184,58 @@ On notera que l'ensemble des outils nécessaires à créer un logiciel exécutab
 
 ## Exercices de révision
 
-!!! exercise "Norme"
+::: exercise {title="#(ex:norme) : Norme"}
+{{posix}} est la norme respectée par la plupart systèmes d'exploitation modernes sauf Windows? Elle unifie les systèmes d'exploitation en définissant une interface standardisée pour les programmes.
 
-    {{posix}} est la norme respectée par la plupart systèmes d'exploitation modernes sauf Windows? Elle unifie les systèmes d'exploitation en définissant une interface standardisée pour les programmes.
+??? solution
 
-    ??? solution
+    La norme POSIX (*Portable Operating System Interface*) est une norme qui définit une interface standardisée pour les systèmes d'exploitation. Elle est respectée en grande partie par Unix, Linux, Solaris, BSD, macOS, Android, QNX, Cygwin, Haiku, VxWorks, RTEMS, etc.
 
-        La norme POSIX (*Portable Operating System Interface*) est une norme qui définit une interface standardisée pour les systèmes d'exploitation. Elle est respectée en grande partie par Unix, Linux, Solaris, BSD, macOS, Android, QNX, Cygwin, Haiku, VxWorks, RTEMS, etc.
+    Hélas, Windows ne respecte pas cette norme ce qui le positionne en marge des autres systèmes d'exploitation.
+:::
 
-        Hélas, Windows ne respecte pas cette norme ce qui le positionne en marge des autres systèmes d'exploitation.
+::: exercise {title="#(ex:eclipse) : Eclipse"}
+Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
 
-!!! exercise "Eclipse"
+??? solution
 
-    Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
+    [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+:::
 
-    ??? solution
+::: exercise {title="#(ex:stack-overflow) : Stack Overflow"}
+Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
-        [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+??? solution
 
-!!! exercise "Stack Overflow"
+    Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
-    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
+    Seriez-vous capable de répondre à une question posée?
+:::
 
-    ??? solution
+::: exercise {title="#(ex:quel-systeme-d-exploitation) : Quel système d'exploitation ?"}
+Quel système d'exploitation doit-on utiliser pour exécuter un programme écrit en C ?
 
-        Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
+- [ ] Windows
+- [ ] Linux
+- [ ] macOS
+- [x] N'imorte lequel
+:::
 
-        Seriez-vous capable de répondre à une question posée?
+::: exercise {title="#(ex:copilot) : Copilot"}
+Qu'est-ce que Copilot ?
 
-!!! exercise "Quel système d'exploitation ?"
+- [x] Une intelligence artificielle
+- [ ] Un éditeur de code
+- [ ] Un compilateur
+- [ ] Un IDE
+:::
 
-    Quel système d'exploitation doit-on utiliser pour exécuter un programme écrit en C ?
+::: exercise {title="#(ex:posix-sous-windows) : POSIX sous Windows ?"}
+Si je souhaite pouvoir développer des programmes en C sous Windows compatibles avec la norme POSIX, que dois-je faire ?
 
-    - [ ] Windows
-    - [ ] Linux
-    - [ ] macOS
-    - [x] N'imorte lequel
-
-!!! exercise "Copilot"
-
-    Qu'est-ce que Copilot ?
-
-    - [x] Une intelligence artificielle
-    - [ ] Un éditeur de code
-    - [ ] Un compilateur
-    - [ ] Un IDE
-
-!!! exercise "POSIX sous Windows ?"
-
-    Si je souhaite pouvoir développer des programmes en C sous Windows compatibles avec la norme POSIX, que dois-je faire ?
-
-    - [ ] Rien, Windows est compatible POSIX
-    - [x] Installer un sous-système Linux comme WSL2
-    - [ ] Installer un compilateur GCC
-    - [ ] Installer un IDE
-    - [ ] Changer de système d'exploitation
+- [ ] Rien, Windows est compatible POSIX
+- [x] Installer un sous-système Linux comme WSL2
+- [ ] Installer un compilateur GCC
+- [ ] Installer un IDE
+- [ ] Changer de système d'exploitation
+:::

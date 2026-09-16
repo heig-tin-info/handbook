@@ -334,170 +334,168 @@ Cette syntaxe est toujours valide dans les versions plus récentes du langage, m
 
 ## Exercices de révision
 
-!!! exercise "Dans la moyenne"
+::: exercise {title="#(ex:dans-la-moyenne) : Dans la moyenne"}
+Écrire une fonction `mean` qui reçoit 3 paramètres réels et qui retourne la moyenne.
 
-    Écrire une fonction `mean` qui reçoit 3 paramètres réels et qui retourne la moyenne.
-
-    ??? solution
-
-        ```c
-        double mean(double a, double b, double c) {
-            return (a + b + c) / 3.;
-        }
-        ```
-
-!!! exercise "Le plus petit"
-
-    Écrire une fonction `min` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
-
-    ??? solution
-
-        ```c
-        double min(double a, double b, double c) {
-            double min_value = a;
-            if (b < min_value)
-                min_value = b;
-            if (c < min_value)
-                min_value = c;
-            return min_value;
-        }
-        ```
-
-        Une manière plus compacte, mais moins lisible serait :
-
-        ```c
-        double min(double a, double b, double c) {
-            return (a = (a < b ? a : b)) < c ? a : c;
-        }
-        ```
-
-!!! exercise "Algorithme de retour de monnaie"
-
-    On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
-
-    Dans le code du programme, les trois variables suivantes seront utilisées :
+??? solution
 
     ```c
-    // Available coins in the parking ticket machine
-    unsigned int ncoin_10, ncoin_20;
+    double mean(double a, double b, double c) {
+        return (a + b + c) / 3.;
+    }
+    ```
+:::
 
-    // How much money the user inserted into the machine (in cents)
-    unsigned int amount_payed;
+::: exercise {title="#(ex:le-plus-petit) : Le plus petit"}
+Écrire une fonction `min` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
+
+??? solution
+
+    ```c
+    double min(double a, double b, double c) {
+        double min_value = a;
+        if (b < min_value)
+            min_value = b;
+        if (c < min_value)
+            min_value = c;
+        return min_value;
+    }
     ```
 
-    Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
+    Une manière plus compacte, mais moins lisible serait :
 
-    ```bash
-    $ echo "10 10 20 20 20" | ./ptm 30 1
-    ticket
-    20
-    10
+    ```c
+    double min(double a, double b, double c) {
+        return (a = (a < b ? a : b)) < c ? a : c;
+    }
     ```
+:::
 
-    Le programme reçoit sur `stdin` les pièces introduites dans la machine. Les deux arguments passés au programme `ptm` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. `stdout` contient les valeurs rendues à l'utilisateur. La valeur `ticket` correspond au ticket distribué.
+::: exercise {title="#(ex:algorithme-de-retour-de-monnaie) : Algorithme de retour de monnaie"}
+On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
 
-    Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
+Dans le code du programme, les trois variables suivantes seront utilisées :
 
-    ??? solution
+```c
+// Available coins in the parking ticket machine
+unsigned int ncoin_10, ncoin_20;
 
-        Voici une solution partielle :
+// How much money the user inserted into the machine (in cents)
+unsigned int amount_payed;
+```
 
-        ```c
-        #define TICKET_PRICE 50
+Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
 
-        void give_coin(unsigned int value) { printf("%d\n", value); }
-        void give_ticket(void) { printf("ticket\n"); }
+```bash
+$ echo "10 10 20 20 20" | ./ptm 30 1
+ticket
+20
+10
+```
 
-        bool no_ticket = amount_payed < TICKET_PRICE;
+Le programme reçoit sur `stdin` les pièces introduites dans la machine. Les deux arguments passés au programme `ptm` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. `stdout` contient les valeurs rendues à l'utilisateur. La valeur `ticket` correspond au ticket distribué.
 
-        int amount_to_return = amount_payed - TICKET_PRICE;
-        do {
-            while (amount_to_return > 0) {
-                if (amount_to_return >= 20 && ncoin_20 > 0) {
-                    give_coin(20);
-                    amount_to_return -= 20;
-                    ncoin_20--;
-                } else if (amount_to_return >= 10 && ncoin_10 > 0) {
-                    give_coin(10);
-                    amount_to_return -= 10;
-                    ncoin_10--;
-                } else {
-                    no_ticket = true;
-                    break;
-                }
+Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
+
+??? solution
+
+    Voici une solution partielle :
+
+    ```c
+    #define TICKET_PRICE 50
+
+    void give_coin(unsigned int value) { printf("%d\n", value); }
+    void give_ticket(void) { printf("ticket\n"); }
+
+    bool no_ticket = amount_payed < TICKET_PRICE;
+
+    int amount_to_return = amount_payed - TICKET_PRICE;
+    do {
+        while (amount_to_return > 0) {
+            if (amount_to_return >= 20 && ncoin_20 > 0) {
+                give_coin(20);
+                amount_to_return -= 20;
+                ncoin_20--;
+            } else if (amount_to_return >= 10 && ncoin_10 > 0) {
+                give_coin(10);
+                amount_to_return -= 10;
+                ncoin_10--;
+            } else {
+                no_ticket = true;
+                break;
             }
-        } while (amount_to_return > 0);
-
-        if (!no_ticket) {
-            give_ticket();
         }
-        ```
+    } while (amount_to_return > 0);
 
-
-!!! exercise "La fonction f"
-
-    Considérons le programme suivant :
-
-    ```c
-    int f(float x) {
-        int i;
-        if (x > 0.0)
-            i = (int)(x + 0.5);
-        else
-            i = (int)(x - 0.5);
-        return i;
+    if (!no_ticket) {
+        give_ticket();
     }
     ```
+:::
 
-    Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
+::: exercise {title="#(ex:la-fonction-f) : La fonction f"}
+Considérons le programme suivant :
 
-    ```c
-    f(1.2)
-    f(-1.2)
-    f(1.6)
-    f(-1.6)
-    ```
+```c
+int f(float x) {
+    int i;
+    if (x > 0.0)
+        i = (int)(x + 0.5);
+    else
+        i = (int)(x - 0.5);
+    return i;
+}
+```
 
-    Quel est votre conclusion sur cette fonction ?
+Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
 
+```c
+f(1.2)
+f(-1.2)
+f(1.6)
+f(-1.6)
+```
 
-!!! exercise "Mauvaise somme"
+Quel est votre conclusion sur cette fonction ?
+:::
 
-    Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
+::: exercise {title="#(ex:mauvaise-somme) : Mauvaise somme"}
+Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
 
-    ```c
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <math.h>
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-    long get_integer()
+long get_integer()
+{
+    bool ok;
+    long result;
+    do
     {
-        bool ok;
-        long result;
-        do
-        {
-            printf("Enter a integer value: ");
-            fflush(stdin); // Empty input buffer
-            ok = (bool)scanf("%ld", &result);
-            if (!ok)
-                printf("Incorrect value.\n");
-        }
-        while (!ok);
-        return result;
+        printf("Enter a integer value: ");
+        fflush(stdin); // Empty input buffer
+        ok = (bool)scanf("%ld", &result);
+        if (!ok)
+            printf("Incorrect value.\n");
     }
+    while (!ok);
+    return result;
+}
 
-    int main(void)
-    {
-        long a = get_integer;
-        long b = get_integer;
+int main(void)
+{
+    long a = get_integer;
+    long b = get_integer;
 
-        printf("%d\n", a + b);
-    }
-    ```
+    printf("%d\n", a + b);
+}
+```
 
-    Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
+Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
 
-    ```bash
-    $ ./sum
-    8527952
-    ```
+```bash
+$ ./sum
+8527952
+```
+:::

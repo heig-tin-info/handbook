@@ -786,19 +786,19 @@ Vous pouvez jouer avec cet exemple sur le site [godbolt](https://godbolt.org).
 
     Néanmoins sans l'option `-Wpointer-arith` aucune erreur n'est générée. C'est pourquoi il est recommandé de toujours compiler avec les options `-Wall -Wextra -pedantic` pour obtenir un code plus robuste.
 
-!!! exercise "Void*"
+::: exercise {title="#(ex:void) : Void*"}
+Que pensez-vous que `sizeof(void*)` devrait retourner sur une architecture 64-bits ?
 
-    Que pensez-vous que `sizeof(void*)` devrait retourner sur une architecture 64-bits ?
+- [ ] 1
+- [ ] 2
+- [ ] 4
+- [x] 8
+- [ ] 0
 
-    - [ ] 1
-    - [ ] 2
-    - [ ] 4
-    - [x] 8
-    - [ ] 0
+??? solution
 
-    ??? solution
-
-        Un pointeur reste un pointeur, c'est une variable qui contient une adresse mémoire. Sur une architecture 64-bits, un pointeur est codé sur 8 bytes. `sizeof(void*)` retourne donc 8.
+    Un pointeur reste un pointeur, c'est une variable qui contient une adresse mémoire. Sur une architecture 64-bits, un pointeur est codé sur 8 bytes. `sizeof(void*)` retourne donc 8.
+:::
 
 ## Pointeurs de fonctions
 
@@ -1133,39 +1133,39 @@ Nous verrons certains de ces cas d'utilisation dans des sections ultérieures.
 
 ## Exercices de révision
 
-!!! exercise "Esperluettes cascadées"
+::: exercise {title="#(ex:esperluettes-cascadees) : Esperluettes cascadées"}
+Quel est le type de :
 
-    Quel est le type de :
+```c
+*&*&*&*&*&*&(int)x;
+```
+:::
 
-    ```c
-    *&*&*&*&*&*&(int)x;
+::: exercise {title="#(ex:passage-par-adresse) : Passage par adresse"}
+Donnez les valeurs affichées par ce programme pour les variables `a` à `e`.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int test(int a, int * b, int * c, int * d) {
+    a = *b;
+    *b = *b + 5;
+    *c = a + 2;
+    d = c;
+    return *d;
+}
+
+int main(void) {
+    int a = 0, b = 100, c = 200, d = 300, e = 400;
+    e = test(a, &b, &c, &d);
+    printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
+}
+```
+
+??? solution
+
+    ```text
+    a:0, b:105, c:102, d:300, e:102
     ```
-
-!!! exercise "Passage par adresse"
-
-    Donnez les valeurs affichées par ce programme pour les variables `a` à `e`.
-
-    ```c
-    #include <stdio.h>
-    #include <stdlib.h>
-
-    int test(int a, int * b, int * c, int * d) {
-        a = *b;
-        *b = *b + 5;
-        *c = a + 2;
-        d = c;
-        return *d;
-    }
-
-    int main(void) {
-        int a = 0, b = 100, c = 200, d = 300, e = 400;
-        e = test(a, &b, &c, &d);
-        printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
-    }
-    ```
-
-    ??? solution
-
-        ```text
-        a:0, b:105, c:102, d:300, e:102
-        ```
+:::

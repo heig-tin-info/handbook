@@ -196,51 +196,51 @@ En addition de cette grammaire, voici quelques règles :
 
     `#!re /^[a-zA-Z_][a-zA-Z0-9_]*$/`
 
-!!! exercise "Validité des identificateurs"
+::: exercise {title="#(ex:validite-des-identificateurs) : Validité des identificateurs"}
+Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
 
-    Pour chacune des suites de caractères ci-dessous, indiquez s'il s'agit d'un identificateur valide et utilisable en C. Justifier votre réponse.
+<div class="three-column-list" markdown>
 
-    <div class="three-column-list" markdown>
+- [ ] `2_pi`
+- [x] `x_2`
+- [x] `x___3`
+- [ ] `x 2`
+- [x] `positionRobot`
+- [x] `piece_presente`
+- [x] `_commande_vanne`
+- [ ] `-courant_sortie`
+- [x] `_alarme_`
+- [ ] `panne#2`
+- [ ] `int`
+- [ ] `défaillance`
+- [ ] `f'`
+- [x] `INT`
 
-    - [ ] `2_pi`
-    - [x] `x_2`
-    - [x] `x___3`
-    - [ ] `x 2`
-    - [x] `positionRobot`
-    - [x] `piece_presente`
-    - [x] `_commande_vanne`
-    - [ ] `-courant_sortie`
-    - [x] `_alarme_`
-    - [ ] `panne#2`
-    - [ ] `int`
-    - [ ] `défaillance`
-    - [ ] `f'`
-    - [x] `INT`
+</div>
+
+??? solution
+
+    Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne [regex101.com](https://regex101.com/r/cmxaic/1).
+
+    <div class="two-column-list" markdown>
+
+    1. `2_pi` **invalide**, car commence par un chiffre
+    2. `x_2` **valide**
+    3. `x___3` **valide**
+    4. `x 2` **invalide**, car comporte un espace
+    5. `positionRobot` **valide**, notation *camelCase*
+    6. `piece_presente` **valide**, notation *snake_case*
+    7. `_commande_vanne` **valide**
+    8. `-courant_sortie` **invalide**, un identificateur ne peut pas commencer par le signe `-`
+    9. `_alarme_` **valide**
+    10. `panne#2` **invalide**, le caractère `#` n'est pas autorisé
+    11. `int` **invalide**, `int` est un mot réservé du langage
+    12. `défaillance` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
+    13. `f'` **invalide** l'apostrophe n'est pas autorisée
+    14. `INT` **valide**
 
     </div>
-
-    ??? solution
-
-        Une excellente approche serait d'utiliser directement l'expression régulière fournie et d'utiliser l'outil en ligne [regex101.com](https://regex101.com/r/cmxaic/1).
-
-        <div class="two-column-list" markdown>
-
-        1. `2_pi` **invalide**, car commence par un chiffre
-        2. `x_2` **valide**
-        3. `x___3` **valide**
-        4. `x 2` **invalide**, car comporte un espace
-        5. `positionRobot` **valide**, notation *camelCase*
-        6. `piece_presente` **valide**, notation *snake_case*
-        7. `_commande_vanne` **valide**
-        8. `-courant_sortie` **invalide**, un identificateur ne peut pas commencer par le signe `-`
-        9. `_alarme_` **valide**
-        10. `panne#2` **invalide**, le caractère `#` n'est pas autorisé
-        11. `int` **invalide**, `int` est un mot réservé du langage
-        12. `défaillance` **invalide**, uniquement les caractères imprimable ASCII sont autorisés
-        13. `f'` **invalide** l'apostrophe n'est pas autorisée
-        14. `INT` **valide**
-
-        </div>
+:::
 
 Il faut noter que le standard C autorise depuis C11 l'utilisation de caractères Unicode dans les identificateurs, mais cette fonctionnalité est rarement implémentée par les compilateurs. Avec gcc le programme suivant est valide:
 
@@ -317,38 +317,38 @@ Il n'est pas nécessaire d'associer une valeur initiale à une variable, une dé
 int i, j, k;
 ```
 
-!!! exercise "Affectation de variables"
+::: exercise {title="#(ex:affectation-de-variables) : Affectation de variables"}
+Considérons les déclarations suivantes :
 
-    Considérons les déclarations suivantes :
+```c
+int a, b, c;
+float x;
+```
 
-    ```c
-    int a, b, c;
-    float x;
-    ```
+Notez après chaque affectation, le contenu des différentes variables :
 
-    Notez après chaque affectation, le contenu des différentes variables :
+| Ligne | Instruction    | `a` | `b` | `c` | `x` |
+| ----- | -------------- | --- | --- | --- | --- |
+| 1     | `a = 5;`       |     |     |     |     |
+| 2     | `b = c;`       |     |     |     |     |
+| 3     | `c = a;`       |     |     |     |     |
+| 4     | `a = a + 1;`   |     |     |     |     |
+| 5     | `x = a - ++c;` |     |     |     |     |
+| 6     | `b = c = x;`   |     |     |     |     |
+| 7     | `x + 2. = 7.;` |     |     |     |     |
+
+??? solution
 
     | Ligne | Instruction    | `a` | `b` | `c` | `x` |
     | ----- | -------------- | --- | --- | --- | --- |
-    | 1     | `a = 5;`       |     |     |     |     |
-    | 2     | `b = c;`       |     |     |     |     |
-    | 3     | `c = a;`       |     |     |     |     |
-    | 4     | `a = a + 1;`   |     |     |     |     |
-    | 5     | `x = a - ++c;` |     |     |     |     |
-    | 6     | `b = c = x;`   |     |     |     |     |
-    | 7     | `x + 2. = 7.;` |     |     |     |     |
-
-    ??? solution
-
-        | Ligne | Instruction    | `a` | `b` | `c` | `x` |
-        | ----- | -------------- | --- | --- | --- | --- |
-        | 1     | `a = 5;`       | 5   | ?   | ?   | ?   |
-        | 2     | `b = c;`       | 5   | ?   | ?   | ?   |
-        | 3     | `c = a;`       | 5   | ?   | 5   | ?   |
-        | 4     | `a = a + 1;`   | 6   | ?   | 5   | ?   |
-        | 5     | `x = a - ++c;` | 6   | ?   | 6   | 12  |
-        | 6     | `b = c = x;`   | 6   | 12  | 12  | 12  |
-        | 7     | `x + 2. = 7.;` | -   | -   | -   | -   |
+    | 1     | `a = 5;`       | 5   | ?   | ?   | ?   |
+    | 2     | `b = c;`       | 5   | ?   | ?   | ?   |
+    | 3     | `c = a;`       | 5   | ?   | 5   | ?   |
+    | 4     | `a = a + 1;`   | 6   | ?   | 5   | ?   |
+    | 5     | `x = a - ++c;` | 6   | ?   | 6   | 12  |
+    | 6     | `b = c = x;`   | 6   | 12  | 12  | 12  |
+    | 7     | `x + 2. = 7.;` | -   | -   | -   | -   |
+:::
 
 ### Convention de nommage
 
@@ -466,30 +466,30 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     Vous pouvez essayer de les tester sur [regex101.com](https://regex101.com/).
 
-!!! exercise "Constances littérales"
+::: exercise {title="#(ex:constances-litterales) : Constances littérales"}
+Pour les entrées suivantes, indiquez lesquelles sont correctes.
 
-    Pour les entrées suivantes, indiquez lesquelles sont correctes.
+<div class="two-column-list" markdown>
 
-    <div class="two-column-list" markdown>
+- [x] `12.3`
+- [x] `12E03`
+- [x] `12u`
+- [ ] `12.0u`
+- [ ] `1L`
+- [ ] `1.0L`
+- [x] `.9`
+- [x] `9.`
+- [ ] `.`
+- [x] `0x33`
+- [ ] `0xefg`
+- [x] `0xef`
+- [x] `0xeF`
+- [ ] `0x0.2`
+- [x] `09`
+- [x] `02`
 
-    - [x] `12.3`
-    - [x] `12E03`
-    - [x] `12u`
-    - [ ] `12.0u`
-    - [ ] `1L`
-    - [ ] `1.0L`
-    - [x] `.9`
-    - [x] `9.`
-    - [ ] `.`
-    - [x] `0x33`
-    - [ ] `0xefg`
-    - [x] `0xef`
-    - [x] `0xeF`
-    - [ ] `0x0.2`
-    - [x] `09`
-    - [x] `02`
-
-    </div>
+</div>
+:::
 
 La notation scientifique #[notation scientifique], aussi appelée notation exponentielle #[notation exponentielle], est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
 
@@ -527,69 +527,69 @@ Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gau
 a = b = c = 42;
 ```
 
-!!! exercise "Affectations simples"
+::: exercise {title="#(ex:affectations-simples) : Affectations simples"}
+Donnez les valeurs de `x`, `n`, `p` après l'exécution des instructions ci-dessous :
 
-    Donnez les valeurs de `x`, `n`, `p` après l'exécution des instructions ci-dessous :
+```c
+float x;
+int n, p;
 
-    ```c
-    float x;
-    int n, p;
+p = 2;
+x = 15 / p;
+n = x + 0.5;
+```
 
-    p = 2;
-    x = 15 / p;
-    n = x + 0.5;
+??? solution
+
+    ```text
+    p ≡ 2
+    x ≡ 7
+    n ≡ 7
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:trop-d-egalites) : Trop d'égalités"}
+On considère les déclarations suivantes :
 
-        ```text
-        p ≡ 2
-        x ≡ 7
-        n ≡ 7
-        ```
+```c
+int i, j, k;
+```
 
-!!! exercise "Trop d'égalités"
+Donnez les valeurs des variables `i`, `j` et `k` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
 
-    On considère les déclarations suivantes :
+```c
+/* 1 */ i = (k = 2) + (j = 3);
+/* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
+/* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
+```
 
-    ```c
-    int i, j, k;
-    ```
+??? solution
 
-    Donnez les valeurs des variables `i`, `j` et `k` après l'exécution de chacune des expressions ci-dessous. Qu'en pensez-vous ?
+    Selon la table de priorité des opérateurs, on note :
 
-    ```c
-    /* 1 */ i = (k = 2) + (j = 3);
-    /* 2 */ i = (k = 2) + (j = 2) + j * 3 + k * 4;
-    /* 3 */ i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1);
-    ```
+    - `()` priorité 1 associativité à droite
+    - `*` priorité 3 associativité à gauche
+    - `+` priorité 4 associativité à droite
+    - `=` priorité 14 associativité à gauche
 
-    ??? solution
+    En revanche rien n'est dit sur les `point de séquences <https://en.wikipedia.org/wiki/Sequence_point>`__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.
 
-        Selon la table de priorité des opérateurs, on note :
+    Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
 
-        - `()` priorité 1 associativité à droite
-        - `*` priorité 3 associativité à gauche
-        - `+` priorité 4 associativité à droite
-        - `=` priorité 14 associativité à gauche
+    1. `i = (k = 2) + (j = 3)`
 
-        En revanche rien n'est dit sur les `point de séquences <https://en.wikipedia.org/wiki/Sequence_point>`__. L'opérateur d'affectation n'est pas un point de séquence, autrement dit le standard C99 (Annexe C) ne définit pas l'ordre dans lequel les assignations sont effectuées.
+        - `i = 5`
+        - `j = 3`
+        - `k = 2`
 
-        Ainsi, seul le premier point possède une solution, les deux autres sont indéterminés
+    2. `i = (k = 2) + (j = 2) + j * 3 + k * 4`
 
-        1. `i = (k = 2) + (j = 3)`
+        - Résultat indéterminé
 
-            - `i = 5`
-            - `j = 3`
-            - `k = 2`
+    3. `i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)`
 
-        2. `i = (k = 2) + (j = 2) + j * 3 + k * 4`
-
-            - Résultat indéterminé
-
-        3. `i = (i = 3) + (k = 2) + (j = i + 1) + (k = j + 2) + (j = k - 1)`
-
-            - Résultat indéterminé
+        - Résultat indéterminé
+:::
 
 ## Espaces de noms
 
@@ -758,24 +758,24 @@ Voici un exemple de ce qu'il ne faut pas faire :
 
 Le format des commentaires est par essence libre au développeur, mais il est généralement souhaité que : Les commentaires soient concis et précis et qu'ils soient écrits en anglais.
 
-!!! exercise "Verbosité"
+::: exercise {title="#(ex:verbosite) : Verbosité"}
+Comment récririez-vous ce programme?
 
-    Comment récririez-vous ce programme?
+```c
+for (register unsigned int the_element_index = 0;
+    the_element_index < number_of_elements; the_element_index += 1)
+    array_of_elements[the_element_index] =  the_element_index;
+```
+
+??? solution
+
+    Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :
 
     ```c
-    for (register unsigned int the_element_index = 0;
-        the_element_index < number_of_elements; the_element_index += 1)
-        array_of_elements[the_element_index] =  the_element_index;
+    for (size_t i; i < nelems; i++)
+        elem[i] = i;
     ```
 
-    ??? solution
-
-        Une règle de programmation: le nom identifieurs doit être proportionnel à leur contexte. Plus le contexte de la variable est réduit, plus le nom peut être court. Le même programme pourrait être écrit comme suit :
-
-        ```c
-        for (size_t i; i < nelems; i++)
-            elem[i] = i;
-        ```
-
-        Un consensus assez bien établi est qu'une variable commençant par `n` peut signifier
-        *number of*.
+    Un consensus assez bien établi est qu'une variable commençant par `n` peut signifier
+    *number of*.
+:::

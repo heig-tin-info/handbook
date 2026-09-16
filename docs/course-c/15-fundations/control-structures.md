@@ -347,73 +347,73 @@ else
 }
 ```
 
-!!! exercise "Et si?"
+::: exercise {title="#(ex:et-si) : Et si?"}
+Comment se comporte l'exemple suivant :
 
-    Comment se comporte l'exemple suivant :
+```c
+if (!(i < 8) && !(i > 8))
+    printf("i is %d\n", i);
+```
+:::
 
-    ```c
-    if (!(i < 8) && !(i > 8))
-        printf("i is %d\n", i);
-    ```
+::: exercise {title="#(ex:d-autres-si) : D'autres si ?"}
+Compte tenu de la déclaration `int i = 8;`, indiquez pour chaque expression si elle affiche ou non `i vaut 8` :
 
-!!! exercise "D'autres si ?"
+1. &#32;
+   ```c
+   if (!(i < 8) && !(i > 8)) then
+       printf("i vaut 8\n");
+   ```
 
-    Compte tenu de la déclaration `int i = 8;`, indiquez pour chaque expression si elle affiche ou non `i vaut 8` :
+2. &#32;
+   ```c
+   if (!(i < 8) && !(i > 8))
+       printf("i vaut 8");
+       printf("\n");
+   ```
 
-    1. &#32;
-       ```c
-       if (!(i < 8) && !(i > 8)) then
-           printf("i vaut 8\n");
-       ```
+3. &#32;
+   ```c
+   if !(i < 8) && !(i > 8)
+       printf("i vaut 8\n");
+   ```
+4. &#32;
+   ```c
+   if (!(i < 8) && !(i > 8))
+       printf("i vaut 8\n");
+   ```
 
-    2. &#32;
-       ```c
-       if (!(i < 8) && !(i > 8))
-           printf("i vaut 8");
-           printf("\n");
-       ```
+5. &#32;
+   ```c
+   if (i = 8) printf("i vaut 8\n");
+   ```
 
-    3. &#32;
-       ```c
-       if !(i < 8) && !(i > 8)
-           printf("i vaut 8\n");
-       ```
-    4. &#32;
-       ```c
-       if (!(i < 8) && !(i > 8))
-           printf("i vaut 8\n");
-       ```
+6. &#32;
+   ```c
+   if (i & (1 << 3)) printf("i vaut 8\n");
+   ```
 
-    5. &#32;
-       ```c
-       if (i = 8) printf("i vaut 8\n");
-       ```
+7. &#32;
+   ```c
+   if (i ^ 8) printf("i vaut 8\n");
+   ```
 
-    6. &#32;
-       ```c
-       if (i & (1 << 3)) printf("i vaut 8\n");
-       ```
+8. &#32;
+   ```c
+   if (i - 8) printf("i vaut 8\n");
+   ```
 
-    7. &#32;
-       ```c
-       if (i ^ 8) printf("i vaut 8\n");
-       ```
+9. &#32;
+   ```c
+   if (i == 1 << 3) printf("i vaut 8\n");
+   ```
 
-    8. &#32;
-       ```c
-       if (i - 8) printf("i vaut 8\n");
-       ```
-
-    9. &#32;
-       ```c
-       if (i == 1 << 3) printf("i vaut 8\n");
-       ```
-
-    10. &#32;
-       ```c
-       if (!((i < 8) || (i > 8)))
-           printf("i vaut 8\n");
-       ```
+10. &#32;
+   ```c
+   if (!((i < 8) || (i > 8)))
+       printf("i vaut 8\n");
+   ```
+:::
 
 []{#switch}
 
@@ -679,17 +679,17 @@ while (get_weight() < 420 /* newtons */) {
 
 Séquentiellement, une boucle `while` teste la condition puis exécute la séquence associée.
 
-!!! exercise "Tant que..."
+::: exercise {title="#(ex:tant-que) : Tant que..."}
+Comment se comportent ces programmes ?
 
-    Comment se comportent ces programmes ?
-
-    1. `#!c size_t i=0; while(i<11) { i+=2; printf("%i\n",i); }`
-    2. `#!c i = 11; while(i--){ printf("%i\n",i--); }`
-    3. `#!c i = 12; while(i--){ printf("%i\n",--i); }`
-    4. `#!c i = 1; while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}`
-    5. `#!c i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }`
-    6. `#!c i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }`
-    7. `#!c i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }`
+1. `#!c size_t i=0; while(i<11) { i+=2; printf("%i\n",i); }`
+2. `#!c i = 11; while(i--){ printf("%i\n",i--); }`
+3. `#!c i = 12; while(i--){ printf("%i\n",--i); }`
+4. `#!c i = 1; while ( i <= 5 ){ printf ( "%i\n", 2 * i++ );}`
+5. `#!c i = 1; while ( i != 9 ) { printf ( "%i\n", i = i + 2 ); }`
+6. `#!c i = 1; while ( i < 9 ) { printf ( "%i\n", i += 2 ); break; }`
+7. `#!c i = 0; while ( i < 10 ) { continue; printf ( "%i\n", i += 2 ); }`
+:::
 
 []{#loop-do-while}
 
@@ -752,41 +752,41 @@ for (; get_weight() < 420 ;) {
 }
 ```
 
-!!! exercise "Pour quelques tours"
+::: exercise {title="#(ex:pour-quelques-tours) : Pour quelques tours"}
+Comment ces expressions se comportent-elles ?
 
-    Comment ces expressions se comportent-elles ?
+```c
+int i, k;
+```
 
-    ```c
-    int i, k;
-    ```
+1. `#!c for (i = 'a'; i < 'd'; printf("%i\n", ++i));`
+2. `#!c for (i = 'a'; i < 'd'; printf("%c\n", ++i));`
+3. `#!c for (i = 'a'; i++ < 'd'; printf("%c\n", i));`
+4. `#!c for (i = 'a'; i <= 'a' + 25; printf("%c\n", i++));`
+5. `#!c for (i = 1 / 3; i; printf("%i\n", i++));`
+6. `#!c for (i = 0; i != 1; printf("%i\n", i += 1 / 3));`
+7. `#!c for (i = 12, k = 1; k++ < 5; printf("%i\n", i--));`
+8. `#!c for (i = 12, k = 1; k++ < 5; k++, printf("%i\n", i--));`
+:::
 
-    1. `#!c for (i = 'a'; i < 'd'; printf("%i\n", ++i));`
-    2. `#!c for (i = 'a'; i < 'd'; printf("%c\n", ++i));`
-    3. `#!c for (i = 'a'; i++ < 'd'; printf("%c\n", i));`
-    4. `#!c for (i = 'a'; i <= 'a' + 25; printf("%c\n", i++));`
-    5. `#!c for (i = 1 / 3; i; printf("%i\n", i++));`
-    6. `#!c for (i = 0; i != 1; printf("%i\n", i += 1 / 3));`
-    7. `#!c for (i = 12, k = 1; k++ < 5; printf("%i\n", i--));`
-    8. `#!c for (i = 12, k = 1; k++ < 5; k++, printf("%i\n", i--));`
+::: exercise {title="#(ex:erreur) : Erreur"}
+Identifiez les deux erreurs dans le code suivant :
 
-!!! exercise "Erreur"
+```c
+for (size_t = 100; i >= 0; --i)
+    printf("%d\n", i);
+```
+:::
 
-    Identifiez les deux erreurs dans le code suivant :
+::: exercise {title="#(ex:de-un-a-cent) : De un à cent"}
+Écrivez un programme affichant les entiers de 1 à 100 en employant :
 
-    ```c
-    for (size_t = 100; i >= 0; --i)
-        printf("%d\n", i);
-    ```
+1. Une boucle `for`
+2. Une boucle `while`
+3. Une boucle `do..while`
 
-!!! exercise "De un à cent"
-
-    Écrivez un programme affichant les entiers de 1 à 100 en employant :
-
-    1. Une boucle `for`
-    2. Une boucle `while`
-    3. Une boucle `do..while`
-
-    Quelle est la structure de contrôle la plus adaptée à cette situation ?
+Quelle est la structure de contrôle la plus adaptée à cette situation ?
+:::
 
 L'opérateur `,` est un opérateur de séquence qui permet de séparer des expressions. Il est souvent utilisé dans les boucles `for` pour exécuter plusieurs instructions dans les différentes parties de la boucle, par exemple pour définir simultanément deux variables `i` et `j` dans la partie d'initialisation. Voici par exemple comment afficher les lettres de l'alphabet en alternance `z-a y-b x-c`... :
 
@@ -816,18 +816,18 @@ z-a y-b x-c w-d v-e u-f t-g s-h r-i q-j p-k o-l n-m
 
     En pratique, on utilisera simplement un `int` pour les variables d'induction. Pour une grande portabilité, on pourra retenir `int_fast32_t` ou `int_fast64_t`, qui garantissent une taille de variable optimale.
 
-!!! exercise "Opérateur virgule dans une boucle"
+::: exercise {title="#(ex:operateur-virgule-dans-une-boucle) : Opérateur virgule dans une boucle"}
+Expliquez quelle est la fonctionnalité globale du programme ci-dessous :
 
-    Expliquez quelle est la fonctionnalité globale du programme ci-dessous :
+```c
+int main(void) {
+    for(size_t i = 0, j = 0; i * i < 1000; i++, j++, j %= 26, printf("\n"))
+        printf("%c", 'a' + (char)j);
+}
+```
 
-    ```c
-    int main(void) {
-        for(size_t i = 0, j = 0; i * i < 1000; i++, j++, j %= 26, printf("\n"))
-            printf("%c", 'a' + (char)j);
-    }
-    ```
-
-    Proposer une meilleure implémentation de ce programme.
+Proposer une meilleure implémentation de ce programme.
+:::
 
 ### Boucles infinies
 
@@ -1008,148 +1008,148 @@ void unlock(int password)
 
 ## Exercices de révision
 
-!!! exercise "Faute d'erreur"
+::: exercise {title="#(ex:faute-d-erreur) : Faute d'erreur"}
+Considérons les déclarations suivantes :
 
-    Considérons les déclarations suivantes :
+```c
+long i = 0;
+double x = 100.0;
+```
 
+Indiquer la nature de l'erreur dans les expressions suivantes :
+
+1.
     ```c
-    long i = 0;
-    double x = 100.0;
+    do
+        x = x / 2.0;
+        i++;
+    while (x > 1.0);
     ```
+2.
+    ```c
+    if (x = 0)
+        printf("0 est interdit !\n");
+    ```
+3.
+    ```c
+    switch(x) {
+        case 100 :
+            printf("Bravo.\n");
+            break;
+        default :
+            printf("Pas encore.\n");
 
-    Indiquer la nature de l'erreur dans les expressions suivantes :
+    }
+    ```
+4.
+    ```c
+    for (i = 0 ; i < 10 ; i++);
+        printf("%d\n", i);
+    ```
+5.
+    ```c
+    while i < 100 {
+        printf("%d", ++i);
+    }
+    ```
+:::
 
-    1.
+::: exercise {title="#(ex:cas-appropries) : Cas appropriés"}
+Parmi les cas suivants, quelle structure de contrôle utiliser ?
+
+1. Test qu'une variable est dans un intervalle donné.
+2. Actions suivant un choix multiple de l'utilisateur
+3. Rechercher un caractère particulier dans une chaîne de caractère
+4. Itérer toutes les valeurs paires sur un intervalle donné
+5. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à `STOP`
+
+??? solution
+
+    1. Le cas est circonscrit à un intervalle de valeur donnée, le `if` est approprié :
+
         ```c
-        do
-            x = x / 2.0;
-            i++;
-        while (x > 1.0);
+        if (i > min && i < max) { /* ... */ }
         ```
-    2.
+
+    2. Dans ce cas un `switch` semble le plus approprié
+
         ```c
-        if (x = 0)
-            printf("0 est interdit !\n");
-        ```
-    3.
-        ```c
-        switch(x) {
-            case 100 :
-                printf("Bravo.\n");
-                break;
-            default :
-                printf("Pas encore.\n");
-
-        }
-        ```
-    4.
-        ```c
-        for (i = 0 ; i < 10 ; i++);
-            printf("%d\n", i);
-        ```
-    5.
-        ```c
-        while i < 100 {
-            printf("%d", ++i);
-        }
-        ```
-
-!!! exercise "Cas appropriés"
-
-    Parmi les cas suivants, quelle structure de contrôle utiliser ?
-
-    1. Test qu'une variable est dans un intervalle donné.
-    2. Actions suivant un choix multiple de l'utilisateur
-    3. Rechercher un caractère particulier dans une chaîne de caractère
-    4. Itérer toutes les valeurs paires sur un intervalle donné
-    5. Demander la ligne suivante du télégramme à l'utilisateur jusqu'à `STOP`
-
-    ??? solution
-
-        1. Le cas est circonscrit à un intervalle de valeur donnée, le `if` est approprié :
-
-            ```c
-            if (i > min && i < max) { /* ... */ }
-            ```
-
-        2. Dans ce cas un `switch` semble le plus approprié
-
-            ```c
-            switch(choice) {
-                case 0 :
-                    /* ... */
-                    break;
-                case 1 :
-                    /* ... */
-            }
-            ```
-
-        3. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
-
-            ```c
-            size_t pos;
-            while (pos < strlen(str) && str[pos] != c) {
-                pos++;
-            }
-            if (pos == strlen(str)) {
-                // Not found
-            } else {
-                // Found `c` in `str` at position `pos`
-            }
-            ```
-
-        4. La boucle `for` semble ici la plus adaptée
-
-            ```c
-            for (size_t i = 100; i < 200; i += 2) {
+        switch(choice) {
+            case 0 :
                 /* ... */
-            }
-            ```
+                break;
+            case 1 :
+                /* ... */
+        }
+        ```
 
-        5. Il est nécessaire ici d'assurer au moins un tour de boucle :
+    3. À reformuler *tant que le caractère n'est pas trouvé ou que la fin de la chaîne n'est pas atteinte*. On se retrouve donc avec une boucle à deux conditions de sorties.
 
-            ```c
-            const size_t max_line_length = 64;
-            char format[32];
-            snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
-            unsigned int line = 0;
-            char buffer[max_lines][max_line_length];
-            do {
-                printf("%d. ", line);
-            } while (
-                scanf(format, buffer[line]) == 1 &&
-                strcmp(buffer[line], "STOP") &&
-                ++line < max_lines
-            );
-            ```
+        ```c
+        size_t pos;
+        while (pos < strlen(str) && str[pos] != c) {
+            pos++;
+        }
+        if (pos == strlen(str)) {
+            // Not found
+        } else {
+            // Found `c` in `str` at position `pos`
+        }
+        ```
 
-!!! exercise "Comptons sur les caractères"
+    4. La boucle `for` semble ici la plus adaptée
 
-    Un texte est passé à un programme par `stdin`. Comptez le nombre de caractères transmis.
+        ```c
+        for (size_t i = 100; i < 200; i += 2) {
+            /* ... */
+        }
+        ```
 
-    ```console
-    $ echo "hello world" | count-this
-    11
-    ```
+    5. Il est nécessaire ici d'assurer au moins un tour de boucle :
 
-!!! exercise "Esperluette conditionnelle"
+        ```c
+        const size_t max_line_length = 64;
+        char format[32];
+        snprintf(format, sizeof(format), "%%%zus", max_line_length - 1);
+        unsigned int line = 0;
+        char buffer[max_lines][max_line_length];
+        do {
+            printf("%d. ", line);
+        } while (
+            scanf(format, buffer[line]) == 1 &&
+            strcmp(buffer[line], "STOP") &&
+            ++line < max_lines
+        );
+        ```
+:::
 
-    Quel est le problème avec cette ligne de code ?
+::: exercise {title="#(ex:comptons-sur-les-caracteres) : Comptons sur les caractères"}
+Un texte est passé à un programme par `stdin`. Comptez le nombre de caractères transmis.
+
+```console
+$ echo "hello world" | count-this
+11
+```
+:::
+
+::: exercise {title="#(ex:esperluette-conditionnelle) : Esperluette conditionnelle"}
+Quel est le problème avec cette ligne de code ?
+
+```c
+if (x&mask==bits)
+```
+
+??? solution
+
+    La priorité de l'opérateur unitaire `&` est plus élevée que `==` ce qui se traduit par :
 
     ```c
-    if (x&mask==bits)
+    if (x & (mask == bits))
     ```
 
-    ??? solution
+    Le développeur voulait probablement appliquer le masque à `x` puis le comparer au motif `bits`. La bonne réponse devrait alors être :
 
-        La priorité de l'opérateur unitaire `&` est plus élevée que `==` ce qui se traduit par :
-
-        ```c
-        if (x & (mask == bits))
-        ```
-
-        Le développeur voulait probablement appliquer le masque à `x` puis le comparer au motif `bits`. La bonne réponse devrait alors être :
-
-        ```c
-        if ((x & mask) == bits)
-        ```
+    ```c
+    if ((x & mask) == bits)
+    ```
+:::

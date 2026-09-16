@@ -236,19 +236,19 @@ Table: Entiers standard défini par stdint
 
 À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Les types rapides, moins utilisés, vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple, si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
-!!! exercise "Débordement"
+::: exercise {title="#(ex:debordement) : Débordement"}
+Quel sera le contenu de `j` après l'exécution de l'instruction suivante :
 
-    Quel sera le contenu de `j` après l'exécution de l'instruction suivante :
+```c
+uint16_t j = 1024 * 64;
+```
 
-    ```c
-    uint16_t j = 1024 * 64;
-    ```
-
-    - [ ] 0
-    - [x] 1
-    - [ ] 64
-    - [ ] 1024
-    - [ ] 65536
+- [ ] 0
+- [x] 1
+- [ ] 64
+- [ ] 1024
+- [ ] 65536
+:::
 
 []{#datamodel}
 
@@ -666,51 +666,51 @@ Table: Promotion numérique
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
 
-!!! exercise "Promotion numérique"
+::: exercise {title="#(ex:promotion-numerique) : Promotion numérique"}
+Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
 
-    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
+```c
+char c;
+short sh;
+int i;
+float f;
+double d;
+```
 
-    ```c
-    char c;
-    short sh;
-    int i;
-    float f;
-    double d;
-    ```
+<div class="two-column-list" markdown>
 
-    <div class="two-column-list" markdown>
+1. `c * sh - f / i + d;`
+2. `c * (sh – f) / i + d;`
+3. `c * sh - f - i + d;`
+4. `c + sh * f / i + d;`
 
-    1. `c * sh - f / i + d;`
-    2. `c * (sh – f) / i + d;`
-    3. `c * sh - f - i + d;`
-    4. `c + sh * f / i + d;`
+</div>
+:::
 
-    </div>
+::: exercise {title="#(ex:expressions-mixtes) : Expressions mixtes"}
+Soit les instructions suivantes :
 
-!!! exercise "Expressions mixtes"
+```c
+int n = 10;
+int p = 7;
+float x = 2.5;
+```
 
-    Soit les instructions suivantes :
+Donnez le type et la valeur des expressions suivantes :
 
-    ```c
-    int n = 10;
-    int p = 7;
-    float x = 2.5;
-    ```
+<div class="two-column-list" markdown>
 
-    Donnez le type et la valeur des expressions suivantes :
+1. `x + n % p`
+2. `x + p / n`
+3. `(x + p) / n`
+4. `.5 * n`
+5. `.5 * (float)n`
+6. `(int).5 * n`
+7. `(n + 1) / n`
+8. `(n + 1.0) / n`
 
-    <div class="two-column-list" markdown>
-
-    1. `x + n % p`
-    2. `x + p / n`
-    3. `(x + p) / n`
-    4. `.5 * n`
-    5. `.5 * (float)n`
-    6. `(int).5 * n`
-    7. `(n + 1) / n`
-    8. `(n + 1.0) / n`
-
-    </div>
+</div>
+:::
 
 ### Promotion explicite
 
@@ -771,353 +771,353 @@ float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
-!!! exercise "Conversion de types"
+::: exercise {title="#(ex:conversion-de-types) : Conversion de types"}
+On considère les déclarations suivantes :
 
-    On considère les déclarations suivantes :
+```c
+float x;
+short i;
+unsigned short j;
+long k;
+unsigned long l;
+```
 
-    ```c
-    float x;
-    short i;
-    unsigned short j;
-    long k;
-    unsigned long l;
-    ```
+Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
 
-    Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
+```c
+x = 1e6;
+i = x;
+j = -20;
+k = x;
+l = k;
+k = -20;
+l = k;
+```
+
+??? solution
 
     ```c
     x = 1e6;
-    i = x;
-    j = -20;
+    i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+    j = -20;  // Incorrect, valeur signée dans un conteneur non signé
     k = x;
     l = k;
     k = -20;
-    l = k;
+    l = k;    // Incorrect, valeur signée dans un conteneur non signé
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:un-casting-explicite) : Un casting explicite"}
+Que valent les valeurs de `p`, `x` et `n`:
 
-        ```c
-        x = 1e6;
-        i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
-        j = -20;  // Incorrect, valeur signée dans un conteneur non signé
-        k = x;
-        l = k;
-        k = -20;
-        l = k;    // Incorrect, valeur signée dans un conteneur non signé
-        ```
+```c
+float x;
+int n, p;
 
-!!! exercise "Un casting explicite"
+p = 2;
+x = (float)15 / p;
+n = x + 1.1;
+```
 
-    Que valent les valeurs de `p`, `x` et `n`:
+??? solution
+
+    ```text
+    p ≡ 2
+    x = 7.5
+    n = 8
+    ```
+:::
+
+::: exercise {title="#(ex:operateurs-de-relation-et-operateurs-logiques) : Opérateurs de relation et opérateurs logiques"}
+Soit les déclarations suivantes :
+
+```c
+float x, y;
+bool condition;
+```
+
+Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
+
+```c
+condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+```
+
+Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
+
+<div class="two-column-list" markdown>
+
+1. `x = -1.0; y = 60.;`
+2. `x = 0; y = 1.;`
+3. `x = 19.0; y = 1.0;`
+4. `x = 0.0; y = 50.0;`
+5. `x = 2.0; y = 50.0;`
+6. `x = -10.0; y = 60.0;`
+
+</div>
+
+??? solution
 
     ```c
-    float x;
-    int n, p;
-
-    p = 2;
-    x = (float)15 / p;
-    n = x + 1.1;
+    condition = (
+        (x >= 0) && (x <= 20) && (y > x))
+        ||
+        ((y == 50) && (x == 2))
+        ||
+        (y == 60)
+    );
     ```
-
-    ??? solution
-
-        ```text
-        p ≡ 2
-        x = 7.5
-        n = 8
-        ```
-
-!!! exercise "Opérateurs de relation et opérateurs logiques"
-
-    Soit les déclarations suivantes :
-
-    ```c
-    float x, y;
-    bool condition;
-    ```
-
-    Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
-
-    ```c
-    condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
-    ```
-
-    Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
 
     <div class="two-column-list" markdown>
 
-    1. `x = -1.0; y = 60.;`
-    2. `x = 0; y = 1.;`
-    3. `x = 19.0; y = 1.0;`
-    4. `x = 0.0; y = 50.0;`
-    5. `x = 2.0; y = 50.0;`
-    6. `x = -10.0; y = 60.0;`
+    1. `true`
+    2. `true`
+    3. `false`
+    4. `true`
+    5. `true`
+    6. `true`
 
     </div>
+:::
 
-    ??? solution
+::: exercise {title="#(ex:casse-tete) : Casse-tête"}
+Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
 
-        ```c
-        condition = (
-            (x >= 0) && (x <= 20) && (y > x))
-            ||
-            ((y == 50) && (x == 2))
-            ||
-            (y == 60)
-        );
-        ```
+Pour chaque exemple, donner la valeur des variables après exécution du code.
 
-        <div class="two-column-list" markdown>
+1. &#32;
 
-        1. `true`
-        2. `true`
-        3. `false`
-        4. `true`
-        5. `true`
-        6. `true`
+    ```c
+    unsigned short i = 32767;
+    i++;
+    ```
 
-        </div>
+1. &#32;
 
-!!! exercise "Casse-tête"
+    ```c
+    short i = 32767;
+    i++;
+    ```
 
-    Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
+1. &#32;
 
-    Pour chaque exemple, donner la valeur des variables après exécution du code.
-
-    1. &#32;
-
-        ```c
-        unsigned short i = 32767;
-        i++;
-        ```
-
-    1. &#32;
-
-        ```c
-        short i = 32767;
-        i++;
-        ```
-
-    1. &#32;
-
-        ```c
-        short i = 0;
-        i = i--;
-        i = --i;
-        i = i--;
-        ```
+    ```c
+    short i = 0;
+    i = i--;
+    i = --i;
+    i = i--;
+    ```
+:::
 
 ## Exercices de révision
 
-!!! exercise "Évaluation d'expressions"
+::: exercise {title="#(ex:evaluation-d-expressions) : Évaluation d'expressions"}
+Considérons les déclarations suivantes :
 
-    Considérons les déclarations suivantes :
+```c
+char c = 3;
+short s = 7;
+int i = 3;
+long l = 4;
+float f = 3.3;
+double d = 7.7;
+```
+
+Que vaut le type et la valeur des expressions suivantes ?
+
+<div class="two-column-list" markdown>
+
+1. `c / 2`
+2. `sh + c / 10`
+3. `lg + i / 2.0`
+4. `d + f`
+5. `(int)d + f`
+6. `(int)d + lg`
+7. `c << 2`
+8. `sh & 0xF0`
+9. `sh && 0xF0`
+10. `sh == i + lg`
+11. `d + f == sh + lg`
+
+</div>
+:::
+
+::: exercise {title="#(ex:precision-des-flottants) : Précision des flottants"}
+Que vaut `x`?
+
+```c
+float x = 10000000. + 0.1;
+```
+
+??? solution
+
+    Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
 
     ```c
-    char c = 3;
-    short s = 7;
-    int i = 3;
-    long l = 4;
-    float f = 3.3;
-    double d = 7.7;
+    #include <stdio.h>
+
+    int main(void) {
+        float x = 10000000. + 0.1;
+        printf("%f\n", x);
+    }
     ```
 
-    Que vaut le type et la valeur des expressions suivantes ?
+    ```bash
+    $ ./a.out
+    10000000.000000
+    ```
+:::
 
-    <div class="two-column-list" markdown>
+::: exercise {title="#(ex:type-de-donnee-idoine) : Type de donnée idoine"}
+Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
 
-    1. `c / 2`
-    2. `sh + c / 10`
-    3. `lg + i / 2.0`
-    4. `d + f`
-    5. `(int)d + f`
-    6. `(int)d + lg`
-    7. `c << 2`
-    8. `sh & 0xF0`
-    9. `sh && 0xF0`
-    10. `sh == i + lg`
-    11. `d + f == sh + lg`
+1. Gestion d'un parking: nombre de voitures présente
+2. Station météo
+    a. Température moyenne de la journée
+    b. Nombre de valeurs utilisées pour la moyenne
+3. Montant disponible sur un compte en banque
+4. Programme de calcul de d'énergie produite dans une centrale nucléaire
+5. Programme de conversion décimal, hexadécimal, binaire
+6. Produit scalaire de deux vecteurs plans
+7. Nombre d'impulsions reçues par un capteur de position incrémental
+:::
 
-    </div>
+::: exercise {title="#(ex:construction-d-expressions) : Construction d'expressions"}
+On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
+à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
+nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
+secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
 
-!!! exercise "Précision des flottants"
+Donnez une expression arithmétique permettant, en fonction d’un angle donné,
+d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
+l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
+les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
 
-    Que vaut `x`?
+Écrivez un programme demandant l’angle et affichant le numéro de secteur
+correspondant.
+:::
+
+::: exercise {title="#(ex:somme-des-entiers) : Somme des entiers"}
+Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
+
+$$
+\sum_{k=1}^n k = \frac{n(n+1)}{2}
+$$
+
+சீனிவாச இராமானுஜன், un grand mathématicien ([Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan)) à démontré que ce la somme à l'infini donne :
+
+$$
+\sum_{k=1}^{\inf} k = -\frac{1}{12}
+$$
+
+Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur `n` à laquelle s'arrêter.
+
+Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme `time`:
+
+```console
+$ time ./a.out 1000000000
+500000000500000000
+
+real    0m0.180s
+user    0m0.172s
+sys     0m0.016s
+```
+
+À partir de quelle valeur, le temps de calcul devient significativement palpable ?
+
+??? solution
 
     ```c
-    float x = 10000000. + 0.1;
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(int argc, char *argv[]) {
+        long long n = atoi(argv[1]);
+        long long sum = 0;
+        for(size_t i = 0; i < n; i++, sum += i);
+        printf("%lld\n", sum);
+    }
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:systeme-de-vision-industriel) : Système de vision industriel"}
+La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
-        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
+```c
+uint32_t inspected_parts, bad_parts;
+float percentage_good_parts;
+```
+
+À un moment du programme, on peut lire :
+
+```c
+percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+```
+
+Sachant que `inspected_parts = 2000` et `bad_parts = 200`:
+
+1. Quel résultat le développeur s'attend-il à obtenir ?
+2. Qu'obtient-il en pratique ?
+3. Pourquoi ?
+4. Corrigez les éventuelles erreurs.
+
+??? solution
+
+    1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
+    2. En pratique, il obtient un entier, c'est-à-dire toujours 0.
+    3. La promotion implicite des entiers peut être découpée comme suit :
 
         ```c
-        #include <stdio.h>
-
-        int main(void) {
-            float x = 10000000. + 0.1;
-            printf("%f\n", x);
-        }
+        (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+        (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+        (float)percentage_good_parts = (uint32_t)percentage;
         ```
 
-        ```bash
-        $ ./a.out
-        10000000.000000
-        ```
+    La division est donc appliquée à des entiers et non des flottants.
 
-!!! exercise "Type de donnée idoine"
-
-    Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
-
-    1. Gestion d'un parking: nombre de voitures présente
-    2. Station météo
-        a. Température moyenne de la journée
-        b. Nombre de valeurs utilisées pour la moyenne
-    3. Montant disponible sur un compte en banque
-    4. Programme de calcul de d'énergie produite dans une centrale nucléaire
-    5. Programme de conversion décimal, hexadécimal, binaire
-    6. Produit scalaire de deux vecteurs plans
-    7. Nombre d'impulsions reçues par un capteur de position incrémental
-
-!!! exercise "Construction d'expressions"
-
-    On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
-    à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
-    nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
-    secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
-
-    Donnez une expression arithmétique permettant, en fonction d’un angle donné,
-    d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
-    l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
-    les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
-
-    Écrivez un programme demandant l’angle et affichant le numéro de secteur
-    correspondant.
-
-!!! exercise "Somme des entiers"
-
-    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
-
-    $$
-    \sum_{k=1}^n k = \frac{n(n+1)}{2}
-    $$
-
-    சீனிவாச இராமானுஜன், un grand mathématicien ([Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan)) à démontré que ce la somme à l'infini donne :
-
-    $$
-    \sum_{k=1}^{\inf} k = -\frac{1}{12}
-    $$
-
-    Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur `n` à laquelle s'arrêter.
-
-    Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme `time`:
-
-    ```console
-    $ time ./a.out 1000000000
-    500000000500000000
-
-    real    0m0.180s
-    user    0m0.172s
-    sys     0m0.016s
-    ```
-
-    À partir de quelle valeur, le temps de calcul devient significativement palpable ?
-
-    ??? solution
+    4. Une possible correction consiste à forcer le type d'un des membres de la division :
 
         ```c
-        #include <stdio.h>
-        #include <stdlib.h>
-
-        int main(int argc, char *argv[]) {
-            long long n = atoi(argv[1]);
-            long long sum = 0;
-            for(size_t i = 0; i < n; i++, sum += i);
-            printf("%lld\n", sum);
-        }
+        percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
         ```
+:::
 
-!!! exercise "Système de vision industriel"
+::: exercise {title="#(ex:missile-patriot) : Missile Patriot"}
+Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 
-    La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
+Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
 
-    ```c
-    uint32_t inspected_parts, bad_parts;
-    float percentage_good_parts;
-    ```
+Le stockage de la valeur 0.1 est donné par :
 
-    À un moment du programme, on peut lire :
+$$
+0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
+$$
 
-    ```c
-    percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
-    ```
+Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
 
-    Sachant que `inspected_parts = 2000` et `bad_parts = 200`:
+$$
+100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
+$$
 
-    1. Quel résultat le développeur s'attend-il à obtenir ?
-    2. Qu'obtient-il en pratique ?
-    3. Pourquoi ?
-    4. Corrigez les éventuelles erreurs.
+En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
 
-    ??? solution
+Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
+:::
 
-        1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
-        2. En pratique, il obtient un entier, c'est-à-dire toujours 0.
-        3. La promotion implicite des entiers peut être découpée comme suit :
+::: exercise {title="#(ex:expressions-arithmetiques-entieres) : Expressions arithmétiques entières"}
+Donnez la valeur des expressions ci-dessous :
 
-            ```c
-            (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
-            (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
-            (float)percentage_good_parts = (uint32_t)percentage;
-            ```
-
-        La division est donc appliquée à des entiers et non des flottants.
-
-        4. Une possible correction consiste à forcer le type d'un des membres de la division :
-
-            ```c
-            percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
-            ```
-
-!!! exercise "Missile Patriot"
-
-    Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
-
-    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
-
-    Le stockage de la valeur 0.1 est donné par :
-
-    $$
-    0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
-    $$
-
-    Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
-
-    $$
-    100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
-    $$
-
-    En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
-
-    Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
-
-!!! exercise "Expressions arithmétiques entières"
-
-    Donnez la valeur des expressions ci-dessous :
-
-    ```text
-    25 + 10 + 7 - 3
-    5 / 2
-    24 + 5 / 2
-    (24 + 5) / 2
-    25 / 5 / 2
-    25 / (5 / 2)
-    72 % 5 - 5
-    72 / 5 - 5
-    8 % 3
-    -8 % 3
-    8 % -3
-    -8 % -3
-    ```
+```text
+25 + 10 + 7 - 3
+5 / 2
+24 + 5 / 2
+(24 + 5) / 2
+25 / 5 / 2
+25 / (5 / 2)
+72 % 5 - 5
+72 / 5 - 5
+8 % 3
+-8 % 3
+8 % -3
+-8 % -3
+```
+:::

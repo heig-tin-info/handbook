@@ -129,26 +129,26 @@ Il existe différents indicateurs de Landau :
 
 : Big Theta est utilisée pour décrire un comportement asymptotique précis, souvent interprété comme le cas moyen.
 
-!!! exercise "Quelle Complexité ?"
-
-    Quelle est la complexité en temps de cet algorithme ?
-    ```c
-    void foo(int a[], int n) {
-        int sum = 0, product = 1;
-        for (int i = 0; i < n; i++) {
-            sum += a[i];
-        }
-        for (int i = 0; i < n; i++) {
-            product *= a[i];
-        }
-        printf("Sum: %d, Product: %d\n", sum, product);
+::: exercise {title="#(ex:quelle-complexite) : Quelle Complexité ?"}
+Quelle est la complexité en temps de cet algorithme ?
+```c
+void foo(int a[], int n) {
+    int sum = 0, product = 1;
+    for (int i = 0; i < n; i++) {
+        sum += a[i];
     }
-    ```
+    for (int i = 0; i < n; i++) {
+        product *= a[i];
+    }
+    printf("Sum: %d, Product: %d\n", sum, product);
+}
+```
 
-    - [ ] $O(2n)$
-    - [x] $O(n)$
-    - [ ] $O(n^2)$
-    - [ ] $O(n \log(n))$
+- [ ] $O(2n)$
+- [x] $O(n)$
+- [ ] $O(n^2)$
+- [ ] $O(n \log(n))$
+:::
 
 !!! example "Identifier les valeurs paires et impaires"
 
@@ -265,25 +265,25 @@ for (size_t i = 0; i < sizeof(array) / sizeof(array[0]); i++)
 }
 ```
 
-!!! exercise "Triangle évanescent"
+::: exercise {title="#(ex:triangle-evanescent) : Triangle évanescent"}
+Quel serait l'algorithme permettant d'afficher :
 
-    Quel serait l'algorithme permettant d'afficher :
+```c
+*****
+****
+***
+**
+*
+```
 
-    ```c
-    *****
-    ****
-    ***
-    **
-    *
-    ```
+et dont la taille peut varier ?
+:::
 
-    et dont la taille peut varier ?
+::: exercise {title="#(ex:l-entier-manquant) : L'entier manquant"}
+On vous donne un gros fichier de 3'000'000'000 entiers positifs 32 bits : il vous faut générer un entier absent de la liste. Problème, vous n'avez que 500 Mio de mémoire de travail. Quel algorithme proposez-vous ?
 
-!!! exercise "L'entier manquant"
-
-    On vous donne un gros fichier de 3'000'000'000 entiers positifs 32 bits : il vous faut générer un entier absent de la liste. Problème, vous n'avez que 500 Mio de mémoire de travail. Quel algorithme proposez-vous ?
-
-    Une fois le travail terminé, votre responsable revient vous voir pour annoncer que le cahier des charges a été modifié. Le client n'a finalement que 10 Mio disponibles. Pensez-vous pouvoir résoudre le problème quand même ?
+Une fois le travail terminé, votre responsable revient vous voir pour annoncer que le cahier des charges a été modifié. Le client n'a finalement que 10 Mio disponibles. Pensez-vous pouvoir résoudre le problème quand même ?
+:::
 
 ## Diagrammes visuels
 
@@ -351,69 +351,69 @@ La classification des problèmes en P, NP, et NP-complet est une pierre angulair
 
 ## Exercices de révision
 
-!!! exercise "Intégrateur de Kahan"
+::: exercise {title="#(ex:integrateur-de-kahan) : Intégrateur de Kahan"}
+L'intégrateur de Kahan ([Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)) est une solution élégante pour pallier à la limite de résolution des types de données.
 
-    L'intégrateur de Kahan ([Kahan summation algorithm](https://en.wikipedia.org/wiki/Kahan_summation_algorithm)) est une solution élégante pour pallier à la limite de résolution des types de données.
+L'algorithme pseudo-code peut être exprimé comme :
 
-    L'algorithme pseudo-code peut être exprimé comme :
+```text
+function kahan_sum(input)
+    var sum = 0.0
+    var c = 0.0
+    for i = 1 to input.length do
+        var y = input[i] - c
+        var t = sum + y
+        c = (t - sum) - y
+        sum = t
+    next i
+    return sum
+```
 
-    ```text
-    function kahan_sum(input)
-        var sum = 0.0
-        var c = 0.0
-        for i = 1 to input.length do
-            var y = input[i] - c
-            var t = sum + y
-            c = (t - sum) - y
-            sum = t
-        next i
-        return sum
+1. Implémenter cet algorithme en C compte tenu du prototype :
+
+    ```c
+    float kahan_sum(float value, float sum, float c);
     ```
 
-    1. Implémenter cet algorithme en C compte tenu du prototype :
+2. Expliquer comment fonctionne cet algorithme.
+3. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
+:::
 
-        ```c
-        float kahan_sum(float value, float sum, float c);
-        ```
+::: exercise {title="#(ex:robot-aspirateur-affame) : Robot aspirateur affamé"}
+Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
 
-    2. Expliquer comment fonctionne cet algorithme.
-    3. Donner un exemple montrant l'avantage de cet algorithme sur une simple somme.
+Le robot dispose de plusieurs fonctionnalités :
 
-!!! exercise "Robot aspirateur affamé"
+- Avancer
+- Tourner à droite de 90°
+- Détection de sa position absolue p. ex. `P5`
 
-    Un robot aspirateur souhaite se rassasier et cherche le frigo, le problème c'est qu'il ne sait pas où il est. Elle serait la stratégie de recherche du robot pour se rendre à la cuisine ?
+Élaborer un algorithme de recherche.
 
-    Le robot dispose de plusieurs fonctionnalités :
-
-    - Avancer
-    - Tourner à droite de 90°
-    - Détection de sa position absolue p. ex. `P5`
-
-    Élaborer un algorithme de recherche.
-
-    ```text
-        │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
-    ──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-    1 ┃                     x ┃       ┃               ┃               ┃
-    ──┃             F1: Frigo ┃       ┃               ┃               ┃
-    2 ┃       ┃               ┃       ┃               ┃               ┃
-    ──┃       ┃               ┃       ┃               ┃               ┃
-    3 ┃       ┃               ┃       ┃               ┃               ┃
-    ──┃       ┃               ┃       ┃               ┃               ┃
-    4 ┃       ┃               ┃       ┃               ┃               ┃
-    ──┃       ┃               ┃       ┃               ┃               ┃
-    5 ┃       ┃               ┃       ┃               ┃      <--o     ┃
-    ──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
-    6 ┃       ┃               ┃       ┃               ┃               ┃
-    ──┃       ┃               ┃       ┃               ┃               ┃
-    7 ┃                       ┃       ┃               ┃               ┃
-    ──┃                       ┃       ┃               ┃               ┃
-    8 ┃       ┃               ┃       ┃               ┃               ┃
-    ──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
-    9 ┃                                                       ┃       ┃
-    ──┃                                                       ┃       ┃
-    10┃                                                               ┃
-    ──┃                                                               ┃
-    11┃                                                       ┃       ┃
-    ──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
-    ```
+```text
+    │ A │ B │ C │ D │ E │ F │ G │ H │ I │ J │ K │ L │ M │ O │ P │ Q │
+──┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+1 ┃                     x ┃       ┃               ┃               ┃
+──┃             F1: Frigo ┃       ┃               ┃               ┃
+2 ┃       ┃               ┃       ┃               ┃               ┃
+──┃       ┃               ┃       ┃               ┃               ┃
+3 ┃       ┃               ┃       ┃               ┃               ┃
+──┃       ┃               ┃       ┃               ┃               ┃
+4 ┃       ┃               ┃       ┃               ┃               ┃
+──┃       ┃               ┃       ┃               ┃               ┃
+5 ┃       ┃               ┃       ┃               ┃      <--o     ┃
+──┃       ┣━━━━━━━   ━━━━━┫       ┃               ┃     P5: Robot ┃
+6 ┃       ┃               ┃       ┃               ┃               ┃
+──┃       ┃               ┃       ┃               ┃               ┃
+7 ┃                       ┃       ┃               ┃               ┃
+──┃                       ┃       ┃               ┃               ┃
+8 ┃       ┃               ┃       ┃               ┃               ┃
+──┣━━━━━━━┻━━━━━━━    ━━━━┛   ━━━━┛   ━━━━━━━━━━━━┛   ━━━━┳━━━━━━━┫
+9 ┃                                                       ┃       ┃
+──┃                                                       ┃       ┃
+10┃                                                               ┃
+──┃                                                               ┃
+11┃                                                       ┃       ┃
+──┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━┛
+```
+:::

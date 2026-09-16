@@ -150,9 +150,9 @@ Des encadrés sont utilisés pour mettre en avant des informations complémentai
 
     Limitations ou bugs possibles d'une méthode proposée.
 
-!!! exercise inline "Quelle icône ?"
-
-    Quelle icône est utilisée pour les exercices ?
+::: exercise {title="#(ex:quelle-icone) : Quelle icône ?" .inline}
+Quelle icône est utilisée pour les exercices ?
+:::
 
 </div>
 

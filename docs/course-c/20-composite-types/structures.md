@@ -596,32 +596,32 @@ void main() {
 }
 ```
 
-!!! exercise "Mendeleïev"
+::: exercise {title="#(ex:mendeleiev) : Mendeleïev"}
+Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :
 
-    Chaque élément du tableau périodique des éléments comporte les propriétés suivantes :
+- Un nom jusqu'à 20 lettres
+- Un symbole jusqu'à 2 lettres
+- Un numéro atomique de 1 à 118 (2019)
+- Le type de l'élément
 
-    - Un nom jusqu'à 20 lettres
-    - Un symbole jusqu'à 2 lettres
-    - Un numéro atomique de 1 à 118 (2019)
-    - Le type de l'élément
+    - Métaux (Alcalin, Alcalino-terreux, Lanthanides, Actinides, Métaux de transition, Métaux pauvres)
+    - Métalloïdes
+    - Non-métaux (Autres, Halogène, Gaz noble)
 
-        - Métaux (Alcalin, Alcalino-terreux, Lanthanides, Actinides, Métaux de transition, Métaux pauvres)
-        - Métalloïdes
-        - Non-métaux (Autres, Halogène, Gaz noble)
+- La période: un entier de 1 à 7
+- Le groupe: un entier de 1 à 18
 
-    - La période: un entier de 1 à 7
-    - Le groupe: un entier de 1 à 18
+Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme :
 
-    Déclarer une structure de données permettant de stocker tous les éléments chimiques de telle façon qu'ils puissent être accédés comme :
+```c
+assert(strcmp(table.element[6].name, "Helium") == 0);
+assert(strcmp(table.element[54].type, "Gaz noble") == 0);
+assert(table.element[11].period == 3);
 
-    ```c
-    assert(strcmp(table.element[6].name, "Helium") == 0);
-    assert(strcmp(table.element[54].type, "Gaz noble") == 0);
-    assert(table.element[11].period == 3);
-
-    Element *el = table.element[92];
-    assert(el->atomic_weight == 92);
-    ```
+Element *el = table.element[92];
+assert(el->atomic_weight == 92);
+```
+:::
 
 ## Création de types
 

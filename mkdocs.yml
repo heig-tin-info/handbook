@@ -117,6 +117,15 @@ plugins:
       build_dir: build
       clean_assets: false
       template: book
+      # Site-wide declarations, merged under every page's own `press.declare`
+      # and handed to both parsers. `ex` numbers the exercise callouts across
+      # the whole corpus — `mkdocs-plugin-exercises` numbered them per page —
+      # and `exercise` is the callout kind `::: exercise` opens.
+      declare:
+        counters:
+          ex: {name: Exercice, format: "Exercice {n}", scope: document}
+        admonitions:
+          exercise: {name: Exercice}
       books:
         - root: Cours C
           title: L'informatique pour l'ingénieur

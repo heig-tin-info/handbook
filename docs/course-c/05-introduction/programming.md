@@ -66,13 +66,13 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 | Est-ce que $b$ est nul ? oui !                              | 6   | 0   | 0          |
 | Le PGCD de 42 et 30 est 6                                   | 6   | 0   | 0          |
 
-!!! exercise "Algorithme d'Euclide"
+::: exercise {title="#(ex:algorithme-d-euclide) : Algorithme d'Euclide"}
+Appliquer l'algorithme d'Euclide aux entrées $a$ et $b$ suivantes.
 
-    Appliquer l'algorithme d'Euclide aux entrées $a$ et $b$ suivantes.
+Que vaut $a, b$ et $r$ à la fin de l'algorithme, et quel est le plus grand diviseur commun ?
 
-    Que vaut $a, b$ et $r$ à la fin de l'algorithme, et quel est le plus grand diviseur commun ?
-
-    $$a = 1260, b = 630$$
+$$a = 1260, b = 630$$
+:::
 
 ### Tri à bulles
 
@@ -531,24 +531,24 @@ Aujourd'hui, les superordinateurs sont capables de réaliser des milliards de mi
 
 ## Exercices de révision
 
-!!! exercise "Ordinateur"
+::: exercise {title="#(ex:ordinateur) : Ordinateur"}
+Quelle est l'étymologie du mot *ordinateur* ?
 
-    Quelle est l'étymologie du mot *ordinateur* ?
+- [ ] calculateur
+- [ ] ordonnateur
+- [ ] systémateur
+- [x] ordiner
+:::
 
-    - [ ] calculateur
-    - [ ] ordonnateur
-    - [ ] systémateur
-    - [x] ordiner
+::: exercise {title="#(ex:machine-de-turing) : Machine de Turing"}
+Qu'est-ce que la machine de Turing ?
 
-!!! exercise "Machine de Turing"
+- [ ] Une bombe réalisée pour casser le code de la machine Enigma.
+- [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
+- [ ] Le premier ordinateur électronique.
+- [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.
+:::
 
-    Qu'est-ce que la machine de Turing ?
-
-    - [ ] Une bombe réalisée pour casser le code de la machine Enigma.
-    - [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
-    - [ ] Le premier ordinateur électronique.
-    - [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.
-
-!!! exercise "Machine à café"
-
-    Une machine à café est équipée d'un {{microcontrôleur}}, qui est l'organe de contrôle de la machine. Ce dernier comporte des {{entrées}} comme les boutons de commande ou les capteurs ainsi que des {{sorties}} comme les LEDs et les actionneurs. Une {{mémoire}} permet de stocker les paramètres de configuration de la machine ainsi que son programme.
+::: exercise {title="#(ex:machine-a-cafe) : Machine à café"}
+Une machine à café est équipée d'un {{microcontrôleur}}, qui est l'organe de contrôle de la machine. Ce dernier comporte des {{entrées}} comme les boutons de commande ou les capteurs ainsi que des {{sorties}} comme les LEDs et les actionneurs. Une {{mémoire}} permet de stocker les paramètres de configuration de la machine ainsi que son programme.
+:::

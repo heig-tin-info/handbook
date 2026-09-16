@@ -541,259 +541,259 @@ memcpy(b, a, 5);
 
 ## Exercices
 
-!!! exercise "Assignation"
+::: exercise {title="#(ex:assignation) : Assignation"}
+Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
 
-    Écrire un programme qui lit la taille d'un tableau de cinquante entiers de 8 bytes et assigne à chaque élément la valeur de son indice.
+??? solution
 
-    ??? solution
+    ```c
+    int64_t a[50];
+    for (size_t i = 0; i < sizeof(a) / sizeof(a[0]); i++) {
+        a[i] = i;
+    }
+    ```
+:::
 
-        ```c
-        int64_t a[50];
-        for (size_t i = 0; i < sizeof(a) / sizeof(a[0]); i++) {
-            a[i] = i;
+::: exercise {title="#(ex:premiere-position) : Première position"}
+Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
+
+Traitez les cas particuliers.
+
+```c
+int index_of(int *array, size_t size, int search);
+```
+
+??? solution
+
+    ```c
+    int index_of(int *array, size_t size, int search) {
+        int i = 0;
+        while (i < size && array[i++] != search);
+        return i == size ? -1 : i;
+    }
+    ```
+:::
+
+::: exercise {title="#(ex:declarations-de-tableaux) : Déclarations de tableaux"}
+Considérant les déclarations suivantes :
+
+```c
+#define LIMIT 10
+const int twelve = 12;
+int i = 3;
+```
+
+Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
+
+```c
+int t(3);
+int k, t[3], l;
+int i[3], l = 2;
+int t[LIMITE];
+int t[i];
+int t[douze];
+int t[LIMITE + 3];
+float t[3, /* five */ 5];
+float t[3]        [5];
+```
+:::
+
+::: exercise {title="#(ex:comparaisons) : Comparaisons"}
+Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
+
+`0`
+    La somme des deux tableaux est égale.
+
+`-1`
+    La somme du tableau de gauche est plus petite que le tableau de droite
+
+`1`
+    La somme du tableau de droite est plus grande que le tableau de gauche
+
+Le prototype de la fonction à écrire est :
+
+```c
+int comp(char a[], char b[], size_t length);
+```
+
+??? solution
+
+    ```c
+    int comp(char a[], char b[], size_t length) {
+        int sum_a = 0, sum_b = 0;
+
+        for (size_t i = 0; i < length; i++) {
+            sum_a += a[i];
+            sum_b += b[i];
         }
-        ```
 
-!!! exercise "Première position"
+        return sum_b - sum_a;
+    }
+    ```
+:::
 
-    Soit un tableau d'entiers, écrire une fonction retournant la position de la première occurrence d'une valeur dans le tableau.
+::: exercise {title="#(ex:le-plus-grand-et-le-plus-petit) : Le plus grand et le plus petit"}
+Dans le canton de Genève, il existe une tradition ancestrale: l'[Escalade](https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)). En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
 
-    Traitez les cas particuliers.
+Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
+
+Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
+
+```c
+1931
+1986
+1996
+1981
+1979
+1999
+2004
+1978
+1964
+```
+
+Votre programme sera exécuté comme suit :
+
+```bash
+$ cat years.txt | marmite
+2004
+1931
+```
+:::
+
+::: exercise {title="#(ex:l-index-magique) : L'index magique"}
+Un indice magique d'un tableau `A[0..n-1]` est défini tel que la valeur `A[i] == i`. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
+
+Exemple :
+
+```text
+  0   1   2   3   4   5   6   7   8   9   10
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+                              ^
+```
+
+??? solution
+
+    Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
 
     ```c
-    int index_of(int *array, size_t size, int search);
+    int magic_index(const int array[], size_t size) {
+        size_t i = 0;
+
+        while (i < size && array[i] != (int)i) i++;
+
+        return i == size ? -1 : (int)i;
+    }
     ```
 
-    ??? solution
+    La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
 
-        ```c
-        int index_of(int *array, size_t size, int search) {
-            int i = 0;
-            while (i < size && array[i++] != search);
-            return i == size ? -1 : i;
-        }
-        ```
-
-!!! exercise "Déclarations de tableaux"
-
-    Considérant les déclarations suivantes :
-
-    ```c
-    #define LIMIT 10
-    const int twelve = 12;
-    int i = 3;
-    ```
-
-    Indiquez si les déclarations suivantes (qui n'ont aucun lien entre elles), sont correctes ou non.
-
-    ```c
-    int t(3);
-    int k, t[3], l;
-    int i[3], l = 2;
-    int t[LIMITE];
-    int t[i];
-    int t[douze];
-    int t[LIMITE + 3];
-    float t[3, /* five */ 5];
-    float t[3]        [5];
-    ```
-
-!!! exercise "Comparaisons"
-
-    Soit deux tableaux `char u[]` et `char v[]`, écrire une fonction comparant leur contenu et retournant :
-
-    `0`
-        La somme des deux tableaux est égale.
-
-    `-1`
-        La somme du tableau de gauche est plus petite que le tableau de droite
-
-    `1`
-        La somme du tableau de droite est plus grande que le tableau de gauche
-
-    Le prototype de la fonction à écrire est :
-
-    ```c
-    int comp(char a[], char b[], size_t length);
-    ```
-
-    ??? solution
-
-        ```c
-        int comp(char a[], char b[], size_t length) {
-            int sum_a = 0, sum_b = 0;
-
-            for (size_t i = 0; i < length; i++) {
-                sum_a += a[i];
-                sum_b += b[i];
-            }
-
-            return sum_b - sum_a;
-        }
-        ```
-
-!!! exercise "Le plus grand et le plus petit"
-
-    Dans le canton de Genève, il existe une tradition ancestrale: l'[Escalade](https://fr.wikipedia.org/wiki/Escalade_(Gen%C3%A8ve)). En commémoration de la victoire de la république protestante sur les troupes du duc de Savoie suite à l'attaque lancée contre Genève dans la nuit du 11 au 12 décembre 1602 (selon le calendrier julien), une traditionnelle marmite en chocolat est brisée par l'ainé et le cadet après la récitation de la phrase rituelle "Ainsi périrent les ennemis de la République !".
-
-    Pour gagner du temps et puisque l'assemblée est grande, il vous est demandé d'écrire un programme pour identifier le doyen et le benjamin de l'assistance.
-
-    Un fichier contenant les années de naissance de chacun vous est donné, il ressemble à ceci :
-
-    ```c
-    1931
-    1986
-    1996
-    1981
-    1979
-    1999
-    2004
-    1978
-    1964
-    ```
-
-    Votre programme sera exécuté comme suit :
-
-    ```bash
-    $ cat years.txt | marmite
-    2004
-    1931
-    ```
-
-!!! exercise "L'index magique"
-
-    Un indice magique d'un tableau `A[0..n-1]` est défini tel que la valeur `A[i] == i`. Étant donné que le tableau est trié avec des entiers distincts (sans répétition), écrire une méthode pour trouver un indice magique s'il existe.
-
-    Exemple :
+    Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
 
     ```text
-      0   1   2   3   4   5   6   7   8   9   10
+        0   1   2   3   4   5   6   7   8   9   10
     ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
     │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
     └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                  ^
+                                    ^
     ```
 
-    ??? solution
+    La première valeur magique est `7`. Est-ce qu'une approche dichotomique est possible ?
 
-        Une solution triviale consiste à itérer tous les éléments jusqu'à trouver l'indice magique :
+    Prenons le milieu du tableau `A[5] = 4`. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
 
-        ```c
-        int magic_index(const int array[], size_t size) {
-            size_t i = 0;
+    ```text
+        0   1   2   3   4
+    ┌───┬───┬───┬───┬───┐
+    │ -1│ 0 │ 1 │ 2 │ 3 │
+    └───┴───┴───┴───┴───┘
+    ```
 
-            while (i < size && array[i] != (int)i) i++;
+    On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est `A[mid] < mid` où `mid` est la valeur médiane.
 
-            return i == size ? -1 : (int)i;
-        }
-        ```
-
-        La complexité de cet algorithme est :math:`O(n)` or, la donnée du problème indique que le tableau est trié. Cela veut dire que probablement, cette information n'est pas donnée par hasard.
-
-        Pour mieux se représenter le problème, prenons l'exemple d'un tableau :
-
-        ```text
-            0   1   2   3   4   5   6   7   8   9   10
-        ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
-        │-90│-33│ -5│ 1 │ 2 │ 4 │ 5 │ 7 │ 10│ 12│ 14│
-        └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
-                                        ^
-        ```
-
-        La première valeur magique est `7`. Est-ce qu'une approche dichotomique est possible ?
-
-        Prenons le milieu du tableau `A[5] = 4`. Est-ce qu'une valeur magique peut se trouver à gauche du tableau ? Dans le cas le plus favorable qui serait :
-
-        ```text
-            0   1   2   3   4
-        ┌───┬───┬───┬───┬───┐
-        │ -1│ 0 │ 1 │ 2 │ 3 │
-        └───┴───┴───┴───┴───┘
-        ```
-
-        On voit qu'il est impossible que la valeur se trouve à gauche, car les valeurs dans le tableau sont distinctes et il n'y a pas de répétitions. La règle que l'on peut poser est `A[mid] < mid` où `mid` est la valeur médiane.
-
-        Il est possible de répéter cette approche de façon dichotomique :
-
-        ```c
-        static int _magic_index(const int array[], int start, int end) {
-            if (end < start) return -1;
-            int mid = start + (end - start) / 2;
-            if (array[mid] == mid) {
-                return mid;
-            } else if (array[mid] > mid) {
-                return _magic_index(array, start, mid - 1);
-            } else {
-                return _magic_index(array, mid + 1, end);
-            }
-        }
-
-        int magic_index(const int array[], size_t size) {
-            if (size == 0) return -1;
-            return _magic_index(array, 0, (int)size - 1);
-        }
-        ```
-
-!!! exercise "Détectives privés"
-
-    Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
-
-
-    | Mois      | Bosley | Sabrina | Jill   | Kelly  |
-    | --------- | ------ | ------- | ------ | ------ |
-    | Janvier   | 414.38 | 222.72  | 99.17  | 153.81 |
-    | Février   | 403.41 | 390.61  | 174.39 | 18.11  |
-    | Mars      | 227.55 | 73.86   | 291.08 | 416.55 |
-    | Avril     | 220.20 | 342.25  | 139.45 | 86.98  |
-    | Mai       | 13.46  | 172.66  | 252.33 | 265.32 |
-    | Juin      | 259.37 | 378.72  | 173.02 | 208.43 |
-    | Juillet   | 327.06 | 16.53   | 391.05 | 266.84 |
-    | Août      | 50.82  | 3.37    | 201.71 | 170.84 |
-    | Septembre | 450.78 | 9.33    | 111.63 | 337.07 |
-    | Octobre   | 434.45 | 77.80   | 459.46 | 479.17 |
-    | Novembre  | 420.13 | 474.69  | 343.64 | 273.28 |
-    | Décembre  | 147.76 | 250.73  | 201.47 | 9.75   |
-
-    Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
+    Il est possible de répéter cette approche de façon dichotomique :
 
     ```c
-    double accounts[][] = {
-        {414.38, 222.72,  99.17, 153.81, 0},
-        {403.41, 390.61, 174.39, 18.11,  0},
-        {227.55,  73.86, 291.08, 416.55, 0},
-        {220.20, 342.25, 139.45, 86.98,  0},
-        {13.46 , 172.66, 252.33, 265.32, 0},
-        {259.37, 378.72, 173.02, 208.43, 0},
-        {327.06,  16.53, 391.05, 266.84, 0},
-        {50.82 ,   3.37, 201.71, 170.84, 0},
-        {450.78,   9.33, 111.63, 337.07, 0},
-        {434.45,  77.80, 459.46, 479.17, 0},
-        {420.13, 474.69, 343.64, 273.28, 0},
-        {147.76, 250.73, 201.47, 9.75,   0},
-        {  0,      0,      0,    0,      0}
-    };
+    static int _magic_index(const int array[], int start, int end) {
+        if (end < start) return -1;
+        int mid = start + (end - start) / 2;
+        if (array[mid] == mid) {
+            return mid;
+        } else if (array[mid] > mid) {
+            return _magic_index(array, start, mid - 1);
+        } else {
+            return _magic_index(array, mid + 1, end);
+        }
+    }
+
+    int magic_index(const int array[], size_t size) {
+        if (size == 0) return -1;
+        return _magic_index(array, 0, (int)size - 1);
+    }
     ```
+:::
 
-    Et laquelle complète les valeurs manquantes.
+::: exercise {title="#(ex:detectives-prives) : Détectives privés"}
+Voici les dépenses de service annuelles d'un célèbre bureau de détectives privés :
 
-!!! exercise "Pot de peinture"
 
-    À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
+| Mois      | Bosley | Sabrina | Jill   | Kelly  |
+| --------- | ------ | ------- | ------ | ------ |
+| Janvier   | 414.38 | 222.72  | 99.17  | 153.81 |
+| Février   | 403.41 | 390.61  | 174.39 | 18.11  |
+| Mars      | 227.55 | 73.86   | 291.08 | 416.55 |
+| Avril     | 220.20 | 342.25  | 139.45 | 86.98  |
+| Mai       | 13.46  | 172.66  | 252.33 | 265.32 |
+| Juin      | 259.37 | 378.72  | 173.02 | 208.43 |
+| Juillet   | 327.06 | 16.53   | 391.05 | 266.84 |
+| Août      | 50.82  | 3.37    | 201.71 | 170.84 |
+| Septembre | 450.78 | 9.33    | 111.63 | 337.07 |
+| Octobre   | 434.45 | 77.80   | 459.46 | 479.17 |
+| Novembre  | 420.13 | 474.69  | 343.64 | 273.28 |
+| Décembre  | 147.76 | 250.73  | 201.47 | 9.75   |
 
-    L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
+Afin de laisser plus de temps aux détectives à résoudre des affaires, vous êtes mandaté pour écrire une fonction qui reçoit en paramètre le tableau de réels ci-dessus formaté comme suit :
 
-    ```c
-    #include <stdbool.h>
+```c
+double accounts[][] = {
+    {414.38, 222.72,  99.17, 153.81, 0},
+    {403.41, 390.61, 174.39, 18.11,  0},
+    {227.55,  73.86, 291.08, 416.55, 0},
+    {220.20, 342.25, 139.45, 86.98,  0},
+    {13.46 , 172.66, 252.33, 265.32, 0},
+    {259.37, 378.72, 173.02, 208.43, 0},
+    {327.06,  16.53, 391.05, 266.84, 0},
+    {50.82 ,   3.37, 201.71, 170.84, 0},
+    {450.78,   9.33, 111.63, 337.07, 0},
+    {434.45,  77.80, 459.46, 479.17, 0},
+    {420.13, 474.69, 343.64, 273.28, 0},
+    {147.76, 250.73, 201.47, 9.75,   0},
+    {  0,      0,      0,    0,      0}
+};
+```
 
-    typedef enum { BLACK, RED, PURPLE, BLUE, GREEN, YELLOW, WHITE } Color;
+Et laquelle complète les valeurs manquantes.
+:::
 
-    #if 0 // Image declaration example
-    Color image[100][100];
-    #endif
+::: exercise {title="#(ex:pot-de-peinture) : Pot de peinture"}
+À l'instar de l'outil *pot de peinture* des éditeurs d'image, il vous est demandé d'implémenter une fonctionnalité similaire.
 
-    bool paint(size_t rows, size_t cols, Color image[rows][cols], Color fill_color);
-    ```
+L'image est représentée par un tableau bidimensionnel contenant des couleurs indexées :
 
-    !!! hint
+```c
+#include <stdbool.h>
 
-        Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
+typedef enum { BLACK, RED, PURPLE, BLUE, GREEN, YELLOW, WHITE } Color;
+
+#if 0 // Image declaration example
+Color image[100][100];
+#endif
+
+bool paint(size_t rows, size_t cols, Color image[rows][cols], Color fill_color);
+```
+
+!!! hint
+
+    Deux approches intéressantes sont possibles: **DFS** (Depth-First-Search) ou **BFS** (Breadth-First-Search), toutes deux récursives.
+:::

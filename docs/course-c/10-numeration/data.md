@@ -41,13 +41,13 @@ Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez pa
 
 Pour représenter l'état de Wikipédia, il suffirait donc d'avoir $10'225'593'776'312$ pommes et bien entendu, l'armoire idoine.
 
-!!! exercise "Pile ou face"
+::: exercise {title="#(ex:pile-ou-face) : Pile ou face"}
+Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?
 
-    Lors d'un tir à pile ou face de l'engagement d'un match de football, l'arbitre lance une pièce de monnaie qu'il rattrape et dépose sur l'envers de sa main. Lorsqu'il annonce le résultat de ce tir, quelle quantité d'information transmet-il ?
+??? solution
 
-    ??? solution
-
-        Il transmet un seul bit d'information : équipe A (pile, `1`) ou équipe B (face, `0`). Il faut toutefois préciser préalablement à quoi correspondent ces deux valeurs.
+    Il transmet un seul bit d'information : équipe A (pile, `1`) ou équipe B (face, `0`). Il faut toutefois préciser préalablement à quoi correspondent ces deux valeurs.
+:::
 
 !!! info "Entropie"
 
@@ -127,14 +127,14 @@ bool is_negative(int32_t n) {
 }
 ```
 
-!!! exercise "Nature de ces nombres ?"
+::: exercise {title="#(ex:nature-de-ces-nombres) : Nature de ces nombres ?"}
+Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?
 
-    Pour les nombres suivants stockés sur 8-bit, pouvez-vous dire s'ils sont pairs ou impairs, positifs ou négatifs ?
-
-    1. `0b01100000` est {{pair}} et de signe {{positif}}
-    2. `0b00001001` est {{impair}} et de signe {{positif}}
-    3. `0b10000000` est {{pair}} et de signe {{négatif}}
-    4. `0b11011011` est {{impair}} et de signe {{négatif}}
+1. `0b01100000` est {{pair}} et de signe {{positif}}
+2. `0b00001001` est {{impair}} et de signe {{positif}}
+3. `0b10000000` est {{pair}} et de signe {{négatif}}
+4. `0b11011011` est {{impair}} et de signe {{négatif}}
+:::
 
 ## Codification de l'information
 

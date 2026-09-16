@@ -1876,52 +1876,52 @@ Table: Fonctions de conversion de casse
 
 ## Exercices de révision
 
-!!! exercise "Arc-cosinus"
+::: exercise {title="#(ex:arc-cosinus) : Arc-cosinus"}
+La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
 
-    La fonction Arc-Cosinus `acos` est-elle définie par le standard et dans quel fichier d'en-tête est-elle déclarée? Un fichier d'en-tête se termine avec l'extension `.h`.
+??? solution
 
-    ??? solution
+    En cherchant `man acos header` dans Google, on trouve que la fonction `acos` est définie dans le header `<math.h>`.
 
-        En cherchant `man acos header` dans Google, on trouve que la fonction `acos` est définie dans le header `<math.h>`.
+    Une autre solution est d'utiliser sous Linux la commande `apropos`:
 
-        Une autre solution est d'utiliser sous Linux la commande `apropos`:
+    ```bash
+    $ apropos acos
+    acos (3)     - arc cosine function
+    acosf (3)    - arc cosine function
+    acosh (3)    - inverse hyperbolic cosine function
+    acoshf (3)   - inverse hyperbolic cosine function
+    acoshl (3)   - inverse hyperbolic cosine function
+    acosl (3)    - arc cosine function
+    cacos (3)    - complex arc cosine
+    cacosf (3)   - complex arc cosine
+    cacosh (3)   - complex arc hyperbolic cosine
+    cacoshf (3)  - complex arc hyperbolic cosine
+    cacoshl (3)  - complex arc hyperbolic cosine
+    cacosl (3)   - complex arc cosine
+    ```
 
-        ```bash
-        $ apropos acos
-        acos (3)     - arc cosine function
-        acosf (3)    - arc cosine function
-        acosh (3)    - inverse hyperbolic cosine function
-        acoshf (3)   - inverse hyperbolic cosine function
-        acoshl (3)   - inverse hyperbolic cosine function
-        acosl (3)    - arc cosine function
-        cacos (3)    - complex arc cosine
-        cacosf (3)   - complex arc cosine
-        cacosh (3)   - complex arc hyperbolic cosine
-        cacoshf (3)  - complex arc hyperbolic cosine
-        cacoshl (3)  - complex arc hyperbolic cosine
-        cacosl (3)   - complex arc cosine
-        ```
+    Le premier résultat permet ensuite de voir :
 
-        Le premier résultat permet ensuite de voir :
+    ```bash
+    $ man acos | head -10
+    ACOS(3)    Linux Programmer's Manual         ACOS(3)
 
-        ```bash
-        $ man acos | head -10
-        ACOS(3)    Linux Programmer's Manual         ACOS(3)
+    NAME
+        acos, acosf, acosl - arc cosine function
 
-        NAME
-            acos, acosf, acosl - arc cosine function
+    SYNOPSIS
+        #include <math.h>
 
-        SYNOPSIS
-            #include <math.h>
+        double acos(double x);
+        float acosf(float x);
+    ```
 
-            double acos(double x);
-            float acosf(float x);
-        ```
+    La réponse est donc `<math.h>`.
 
-        La réponse est donc `<math.h>`.
+    Sous Windows avec Visual Studio, il suffit d'écrire `acos` dans un fichier source et d'appuyer sur `F1`. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est `<math.h>`.
+:::
 
-        Sous Windows avec Visual Studio, il suffit d'écrire `acos` dans un fichier source et d'appuyer sur `F1`. L'IDE redirige l'utilisateur sur l'aide Microsoft [acos-acosf-acosl](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/acos-acosf-acosl) qui indique que le header source est `<math.h>`.
-
-!!! exercise "Date"
-
-    Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?
+::: exercise {title="#(ex:date) : Date"}
+Lors du formatage d'une date, on y peut y lire `%w`, par quoi sera remplacé ce *token* ?
+:::

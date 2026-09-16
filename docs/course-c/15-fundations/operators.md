@@ -142,59 +142,59 @@ Table: Addition binaire
 
     L'intérêt de cette méthode c'est qu'il s'agisse d'une addition ou d'une soustraction, c'est la même opération calculée par l'unité arithmétique et logique.
 
-!!! exercise "Additions binaires"
+::: exercise {title="#(ex:additions-binaires) : Additions binaires"}
+Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
 
-    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
+Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
 
-    Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
+1. $1 + 51$
+2. $51 - 7$
+3. $204 + 51$
+4. $204 + 204$ (sur 8-bits)
+
+??? solution
+
+    Voici la solution du calcul en binaire :
 
     1. $1 + 51$
+
+        ```text
+                ¹¹
+                 1₂
+        +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+        ----------
+            110100₂
+        ```
+
     2. $51 - 7$
+
+        ```text
+          …¹¹¹  ¹¹
+          …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
+        + …111111001₂  (complément à deux, 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+          -----------
+          …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+        ```
+
     3. $204 + 51$
+
+        ```text
+            11001100₂
+        +     110011₂
+          -----------
+          …011111111₂  (2⁸ - 1 ≡ 255)
+        ```
+
     4. $204 + 204$ (sur 8-bits)
 
-    ??? solution
-
-        Voici la solution du calcul en binaire :
-
-        1. $1 + 51$
-
-            ```text
-                    ¹¹
-                     1₂
-            +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
-            ----------
-                110100₂
-            ```
-
-        2. $51 - 7$
-
-            ```text
-              …¹¹¹  ¹¹
-              …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
-            + …111111001₂  (complément à deux, 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
-              -----------
-              …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
-            ```
-
-        3. $204 + 51$
-
-            ```text
-                11001100₂
-            +     110011₂
-              -----------
-              …011111111₂  (2⁸ - 1 ≡ 255)
-            ```
-
-        4. $204 + 204$ (sur 8-bits)
-
-            ```text
-                ¹|¹  ¹¹
-                 |11001100₂
-             +   |11001100₂
-              ---+--------
-                1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
-            ```
+        ```text
+            ¹|¹  ¹¹
+             |11001100₂
+         +   |11001100₂
+          ---+--------
+            1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+        ```
+:::
 
 #### Modulo
 
@@ -701,21 +701,21 @@ Table: Opérateurs d'affectation
 
 Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit modifiable ([lvalue][lvalue]). Ainsi l'expression `3 += 2` est incorrecte, car `3` est une constante et ne peut être modifiée.
 
-!!! exercise "R-value"
+::: exercise {title="#(ex:r-value) : R-value"}
+Est-ce que l'expression suivante est valide ?
 
-    Est-ce que l'expression suivante est valide ?
+```c
+int a, b, c = 42;
+a + b = c;
+```
 
-    ```c
-    int a, b, c = 42;
-    a + b = c;
-    ```
+- [ ] Oui car la destination est une *lvalue*
+- [x] Non car la destination est une *rvalue*
 
-    - [ ] Oui car la destination est une *lvalue*
-    - [x] Non car la destination est une *rvalue*
+??? solution
 
-    ??? solution
-
-        L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
+    L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
+:::
 
 ### Opérateurs d'incrémentation
 
@@ -938,14 +938,14 @@ assert(3 == (1, 2, 3))
 
 L'opérateur agit également comme un [point de séquence][sequence-point], c'est-à-dire que l'ordre des étapes est respecté.
 
-!!! exercise "Opérateur séquentiel"
+::: exercise {title="#(ex:operateur-sequentiel) : Opérateur séquentiel"}
+Que sera-t-il affiché à l'écran ?
 
-    Que sera-t-il affiché à l'écran ?
-
-    ```c
-    int i = 0;
-    printf("%d", (++i, i++, ++i));
-    ```
+```c
+int i = 0;
+printf("%d", (++i, i++, ++i));
+```
+:::
 
 ### Opérateur sizeof
 
@@ -1122,21 +1122,21 @@ assert(~a & ~b == ~(a | b));
 
 En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$.
 
-!!! exercise "De Morgan"
+::: exercise {title="#(ex:de-morgan) : De Morgan"}
+Utiliser les relations de De Morgan pour simplifier l'expression suivante
 
-    Utiliser les relations de De Morgan pour simplifier l'expression suivante
+$$
+D \cdot E + \overline{D} + \overline{E}
+$$
+
+??? solution
+
+    Si l'on applique De Morgan ($\overline{XY} = \overline{X} + \overline{Y}$):
 
     $$
     D \cdot E + \overline{D} + \overline{E}
     $$
-
-    ??? solution
-
-        Si l'on applique De Morgan ($\overline{XY} = \overline{X} + \overline{Y}$):
-
-        $$
-        D \cdot E + \overline{D} + \overline{E}
-        $$
+:::
 
 []{#rounding}
 ## Arrondis
@@ -1250,117 +1250,115 @@ if (a % 2) {
 
 ## Exercices de révision
 
-!!! exercise "Parenthèses superflues"
+::: exercise {title="#(ex:parentheses-superflues) : Parenthèses superflues"}
+Dans les expressions suivantes, lesquelles contiennent des parenthèses superflues qui peuvent être retirées sans changer le sens de l'expression ?
 
-    Dans les expressions suivantes, lesquelles contiennent des parenthèses superflues qui peuvent être retirées sans changer le sens de l'expression ?
+- [ ] `a = (b + c) * d`
+- [x] `a = b + (c * d)`
+- [x] `(a < b) && (c > d)`
+- [ ] `a = (b + c) / (d + e)`
+- [ ] `(a && b) || (c && d)`
+- [x] `(a || b) && (c || d)`
+- [ ] `a = (b + c) % (d + e)`
+:::
 
-    - [ ] `a = (b + c) * d`
-    - [x] `a = b + (c * d)`
-    - [x] `(a < b) && (c > d)`
-    - [ ] `a = (b + c) / (d + e)`
-    - [ ] `(a && b) || (c && d)`
-    - [x] `(a || b) && (c || d)`
-    - [ ] `a = (b + c) % (d + e)`
+::: exercise {title="#(ex:quelle-priorite) : Quelle priorité"}
+Quel est l'opérateur qui a la priorité la plus basse ?
 
-!!! exercise "Quelle priorité"
+- [ ] `+`
+- [ ] `*`
+- [x] <code>&#124;&#124;</code>
+- [] `&&`
+:::
 
-    Quel est l'opérateur qui a la priorité la plus basse ?
+::: exercise {title="#(ex:masque-binaire) : Masque binaire"}
+Soit les déclarations suivantes :
 
-    - [ ] `+`
-    - [ ] `*`
-    - [x] <code>&#124;&#124;</code>
-    - [] `&&`
+```c
+char m, n = 2, d = 0x55, e = 0xAA;
+```
 
-!!! exercise "Masque binaire"
+Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable `m` après exécution de chacune des instructions suivantes :
 
-    Soit les déclarations suivantes :
+1. `m = 1 << n;`
+2. `m = ~1 << n;`
+3. `m = ~(1 << n);`
+4. `m = d | (1 << n);`
+5. `m = e | (1 << n);`
+6. `m = d ^ (1 << n);`
+7. `m = e ^ (1 << n);`
+8. `m = d & ~(1 << n);`
+9. `m = e & ~(1 << n);`
+:::
+
+::: exercise {title="#(ex:registre-systeme) : Registre système"}
+Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
+
+- mettre à 1 le bit numéro `n`, `n` étant un entier entre 0 et 15;
+- mettre à 0 le bit numéro `n`, `n` étant un entier entre 0 et 15;
+- inverser le bit numéro `n`, `n` étant un entier entre 0 et 15;
+
+Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle `r0` la variable désignant le registre en mémoire et `n` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
+:::
+
+::: exercise {title="#(ex:recherche-d-expressions) : Recherche d'expressions"}
+Considérant les déclarations suivantes :
+
+```c
+float a, b;
+int m, n;
+```
+
+Traduire en C les expressions mathématiques ci-dessous; pour chacune, proposer plusieurs écritures différentes lorsque c'est possible. Le symbole $\leftarrow$ signifie *assignation*
+
+1. $n \leftarrow 8 \cdot n$
+2. $a \leftarrow a + 2$
+3. $n \leftarrow \left\{\begin{array}{lr}m & : m > 0\\ 0 & : \text{sinon}\end{array}\right.$
+4. $a \leftarrow n$
+5. $n \leftarrow \left\{\begin{array}{lr}0 & : m~\text{pair}\\ 1 & : m~\text{impair}\end{array}\right.$
+6. $n \leftarrow \left\{\begin{array}{lr}1 & : m~\text{pair}\\ 0 & : m~\text{impair}\end{array}\right.$
+7. $m \leftarrow 2\cdot m + 2\cdot n$
+8. $n \leftarrow n + 1$
+9. $a \leftarrow \left\{\begin{array}{lr}-a & : b < 0\\ a & : \text{sinon}\end{array}\right.$
+10. $n \leftarrow \text{la valeur des 4 bits de poids faible de}~n$
+:::
+
+::: exercise {title="#(ex:nombres-narcissiques) : Nombres narcissiques"}
+Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique) est
+un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
+chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
+
+$$
+n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
+$$
+
+Par exemple :
+
+- `9` est un nombre narcissique, car $9 = 9^1 = 9$
+- `153` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
+- `10` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
+
+Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
+
+```bash
+$ ./armstrong 153
+1
+
+$ ./armstrong 154
+0
+```
+:::
+
+::: exercise {title="#(ex:swap-sans-valeur-intermediaire) : Swap sans valeur intermédiaire"}
+Soit deux variables entières `a` et `b`, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR `^`.
+
+Testez votre solution...
+
+??? solution
 
     ```c
-    char m, n = 2, d = 0x55, e = 0xAA;
+    a ^= b;
+    b ^= a;
+    a ^= b;
     ```
-
-    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable `m` après exécution de chacune des instructions suivantes :
-
-    1. `m = 1 << n;`
-    2. `m = ~1 << n;`
-    3. `m = ~(1 << n);`
-    4. `m = d | (1 << n);`
-    5. `m = e | (1 << n);`
-    6. `m = d ^ (1 << n);`
-    7. `m = e ^ (1 << n);`
-    8. `m = d & ~(1 << n);`
-    9. `m = e & ~(1 << n);`
-
-
-!!! exercise "Registre système"
-
-    Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
-
-    - mettre à 1 le bit numéro `n`, `n` étant un entier entre 0 et 15;
-    - mettre à 0 le bit numéro `n`, `n` étant un entier entre 0 et 15;
-    - inverser le bit numéro `n`, `n` étant un entier entre 0 et 15;
-
-    Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle `r0` la variable désignant le registre en mémoire et `n` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
-
-!!! exercise "Recherche d'expressions"
-
-    Considérant les déclarations suivantes :
-
-    ```c
-    float a, b;
-    int m, n;
-    ```
-
-    Traduire en C les expressions mathématiques ci-dessous; pour chacune, proposer plusieurs écritures différentes lorsque c'est possible. Le symbole $\leftarrow$ signifie *assignation*
-
-    1. $n \leftarrow 8 \cdot n$
-    2. $a \leftarrow a + 2$
-    3. $n \leftarrow \left\{\begin{array}{lr}m & : m > 0\\ 0 & : \text{sinon}\end{array}\right.$
-    4. $a \leftarrow n$
-    5. $n \leftarrow \left\{\begin{array}{lr}0 & : m~\text{pair}\\ 1 & : m~\text{impair}\end{array}\right.$
-    6. $n \leftarrow \left\{\begin{array}{lr}1 & : m~\text{pair}\\ 0 & : m~\text{impair}\end{array}\right.$
-    7. $m \leftarrow 2\cdot m + 2\cdot n$
-    8. $n \leftarrow n + 1$
-    9. $a \leftarrow \left\{\begin{array}{lr}-a & : b < 0\\ a & : \text{sinon}\end{array}\right.$
-    10. $n \leftarrow \text{la valeur des 4 bits de poids faible de}~n$
-
-
-!!! exercise "Nombres narcissiques"
-
-    Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique) est
-    un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
-    chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
-
-    $$
-    n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
-    $$
-
-    Par exemple :
-
-    - `9` est un nombre narcissique, car $9 = 9^1 = 9$
-    - `153` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
-    - `10` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
-
-    Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
-
-    ```bash
-    $ ./armstrong 153
-    1
-
-    $ ./armstrong 154
-    0
-    ```
-
-!!! exercise "Swap sans valeur intermédiaire"
-
-    Soit deux variables entières `a` et `b`, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR `^`.
-
-    Testez votre solution...
-
-    ??? solution
-
-        ```c
-        a ^= b;
-        b ^= a;
-        a ^= b;
-        ```
+:::

@@ -381,16 +381,16 @@ typedef struct Node {
 } Node;
 ```
 
-!!! exercise "Implémentation"
+::: exercise {title="#(ex:implementation) : Implémentation"}
+Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
+Comment allez-vous implémenter le trie ?
 
-    Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
-    Comment allez-vous implémenter le trie ?
-
-    - [ ] Comme une liste chaînée, chaque nœud est alloué dynamiquement sur le *heap*.
-    - [ ] Un tableau statique sur la pile ou chaque élément est un nœud.
-    - [ ] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient un tableau de pointeurs sur ses enfants.
-    - [x] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
-    - [ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le *heap*.
+- [ ] Comme une liste chaînée, chaque nœud est alloué dynamiquement sur le *heap*.
+- [ ] Un tableau statique sur la pile ou chaque élément est un nœud.
+- [ ] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient un tableau de pointeurs sur ses enfants.
+- [x] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
+- [ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le *heap*.
+:::
 
 Discutons de plusieurs implémentations possibles d'un nœud d'un trie :
 
@@ -432,17 +432,17 @@ Exemple d'implémentation:
 ```c include="docs/assets/src/trie/trie.c"
 ```
 
-!!! exercise "Regroupement ?"
+::: exercise {title="#(ex:regroupement) : Regroupement ?"}
+Demandons-nous s'il ne serait pas préférable de regrouper les nœuds communs ensemble comme le montre la figure suivante :
 
-    Demandons-nous s'il ne serait pas préférable de regrouper les nœuds communs ensemble comme le montre la figure suivante :
+![Trie: arbre avec nœuds communs](/assets/images/trie-not.drawio)
 
-    ![Trie: arbre avec nœuds communs](/assets/images/trie-not.drawio)
+D'après vous est-ce une bonne idée ? Pourquoi ?
 
-    D'après vous est-ce une bonne idée ? Pourquoi ?
+??? solution
 
-    ??? solution
-
-        Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un *radix trie*.
+    Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un *radix trie*.
+:::
 
 ## Radix Trie
 
