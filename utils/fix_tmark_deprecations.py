@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rewrite the two Python-Markdown spellings TMark reports as deprecated.
+"""Rewrite the three Python-Markdown spellings TMark reports as deprecated.
 
 Anchors
     ``[](){#id}`` is Python-Markdown's: an empty link the ``attr_list``
@@ -15,25 +15,29 @@ Containers
     ``<div class="x" markdown>`` … ``</div>``: ``md_in_html`` renders it on
     the site, and TMark keeps the body and drops the two tags in the PDF.
 
-Both rewrites are textual, skip fenced code blocks, and are idempotent::
+Listings
+    A fence whose whole body is ``--8<-- "file"`` is ``pymdownx.snippets``
+    splicing a file into a code block. TMark reports ``deprecated:
+    `--8<-- "file" in a fence` is deprecated, write `include="file"``` and
+    wants the path in the info string, which both media read: the site
+    pre-pass resolves it against the page's directory, the ``--include-path``
+    entries and the snippet base paths, and the book pass resolves it the
+    same way. Wave 2 tried this conversion and put it back, because the site
+    resolved the path from the wrong root and an unresolved include left the
+    fence raw enough to swallow the paragraph after it. Both halves are
+    fixed: TeXSmith searches the snippet base paths, and the core drops an
+    ``include=`` it could not resolve from the lowered info string, so the
+    worst case is an empty code block instead of a lost paragraph.
+
+    Block-level ``--8<--`` outside a fence is left to ``pymdownx.snippets``,
+    which the site still needs for ``auto_append``.
+
+All three rewrites are textual and idempotent. The anchor and container ones
+skip fenced code blocks; the listing one reads a fence, but rewrites it only
+when its entire body is the include line::
 
     python utils/fix_tmark_deprecations.py            # rewrite docs/**/*.md
     python utils/fix_tmark_deprecations.py --check    # report, change nothing
-
-The third deprecation of this corpus, ``--8<-- "file"`` inside a fence, is
-deliberately left alone. The web lowering does splice ``include="file"`` now
-— that part of the original reason is stale — but it does not resolve the
-path the way the snippet extension does: the corpus writes the path from the
-project directory (``docs/assets/src/hello.c``), which is what
-``pymdownx.snippets``' ``base_path: .`` means and what ``--8<--`` gets, and
-the site pre-pass reports ``include-missing`` for every one of them and
-leaves the fence **raw**, so the listing turns into literal ```` ```c
-include="…" ```` text and swallows the paragraph after it. Measured on the
-whole corpus: 36 fences, 36 `include-missing`, 15 pages broken. The book
-pass resolves them, so the conversion is a site-only regression.
-
-Convert them once the site pipeline resolves an include against the snippet
-base paths.
 """
 
 from __future__ import annotations
@@ -48,6 +52,8 @@ ANCHOR = re.compile(r"\[\]\(\)\{\s*(#[^\s{}]+)\s*\}")
 HTML_OPEN = re.compile(r"^(\s*)/// html \| (\w+)\[(.*)\]\s*$")
 HTML_CLOSE = re.compile(r"^(\s*)///\s*$")
 ATTRIBUTE = re.compile(r"""(\w+)=('([^']*)'|"([^"]*)")""")
+SNIPPET = re.compile(r'^\s*--8<--\s+"(?P<path>[^"]+)"\s*$')
+ANY_FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
 
 
 def _attributes(spec: str) -> str:
@@ -59,22 +65,44 @@ def _attributes(spec: str) -> str:
     return " ".join(parts)
 
 
-def convert(text: str) -> tuple[str, int, int]:
-    """Return *text* rewritten, with the anchor and container counts."""
+def convert(text: str) -> tuple[str, int, int, int]:
+    """Return *text* rewritten, with the anchor, container and listing counts."""
     lines = text.split("\n")
+    out: list[str] = []
     fence: str | None = None
     open_blocks: list[str] = []
     anchors = 0
     containers = 0
-    for index, line in enumerate(lines):
-        match = FENCE.match(line)
-        if match:
+    listings = 0
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        marker = ANY_FENCE.match(line)
+        if marker:
+            ticks = marker.group(1)[0] * 3
             if fence is None:
-                fence = match.group(1)[0] * 3
+                listing = _listing(lines, index, ticks)
+                if listing is not None:
+                    path, closing = listing
+                    out.append(f'{line.rstrip()} include="{path}"')
+                    out.append(lines[closing])
+                    listings += 1
+                    index = closing + 1
+                    continue
+                # Only a fence Python-Markdown itself would open — three
+                # spaces of indentation at most — hides the two other
+                # rewrites from this pass; a deeper one is a fence inside an
+                # admonition, and its body holds nothing they read.
+                if FENCE.match(line):
+                    fence = ticks
             elif line.strip().startswith(fence):
                 fence = None
+            out.append(line)
+            index += 1
             continue
         if fence is not None:
+            out.append(line)
+            index += 1
             continue
 
         opening = HTML_OPEN.match(line)
@@ -82,19 +110,31 @@ def convert(text: str) -> tuple[str, int, int]:
             indent, tag, spec = opening.groups()
             attributes = _attributes(spec)
             head = f"<{tag} {attributes}".rstrip()
-            lines[index] = f"{indent}{head} markdown>"
+            out.append(f"{indent}{head} markdown>")
             open_blocks.append(f"{indent}</{tag}>")
             containers += 1
+            index += 1
             continue
         if open_blocks and HTML_CLOSE.match(line):
-            lines[index] = open_blocks.pop()
+            out.append(open_blocks.pop())
+            index += 1
             continue
 
         rewritten, count = ANCHOR.subn(r"[]{\1}", line)
-        if count:
-            lines[index] = rewritten
-            anchors += count
-    return "\n".join(lines), anchors, containers
+        anchors += count
+        out.append(rewritten)
+        index += 1
+    return "\n".join(out), anchors, containers, listings
+
+
+def _listing(lines: list[str], index: int, ticks: str) -> tuple[str, int] | None:
+    """The include path and closing index of a fence made of one ``--8<--``."""
+    if index + 2 >= len(lines):
+        return None
+    snippet = SNIPPET.match(lines[index + 1])
+    if snippet is None or not lines[index + 2].strip().startswith(ticks):
+        return None
+    return snippet.group("path"), index + 2
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -109,22 +149,24 @@ def main(argv: list[str] | None = None) -> int:
     paths = args.paths or sorted(args.docs.rglob("*.md"))
     total_anchors = 0
     total_containers = 0
+    total_listings = 0
     total_files = 0
     for path in paths:
         text = path.read_text(encoding="utf-8")
-        converted, anchors, containers = convert(text)
-        if not anchors and not containers:
+        converted, anchors, containers, listings = convert(text)
+        if not anchors and not containers and not listings:
             continue
         total_anchors += anchors
         total_containers += containers
+        total_listings += listings
         total_files += 1
-        print(f"{path}: {anchors} anchors, {containers} containers")
+        print(f"{path}: {anchors} anchors, {containers} containers, {listings} listings")
         if not args.check:
             path.write_text(converted, encoding="utf-8")
     verb = "would change" if args.check else "changed"
     print(
-        f"{verb} {total_anchors} anchors and {total_containers} containers "
-        f"in {total_files} files"
+        f"{verb} {total_anchors} anchors, {total_containers} containers and "
+        f"{total_listings} listings in {total_files} files"
     )
     return 0
 

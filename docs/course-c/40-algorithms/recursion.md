@@ -113,14 +113,12 @@ Ce problème se prête parfaitement à une résolution récursive. Pour déplace
 
 === "Algorithme Récursif"
 
-    ```c
-    --8<-- "docs/assets/src/hanoi.c"
+    ```c include="docs/assets/src/hanoi.c"
     ```
 
 === "Algorithme Itératif"
 
-    ```c
-    --8<-- "docs/assets/src/hanoi-iterative.c"
+    ```c include="docs/assets/src/hanoi-iterative.c"
     ```
 
 L'exécution produit le résultat suivant :
@@ -145,8 +143,7 @@ Par ailleurs, une fonction récursive qui utilise de nombreuses variables locale
 
 Considérons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1 Mio de caractères :
 
-```c
---8<-- "docs/assets/src/stack-overflow.c"
+```c include="docs/assets/src/stack-overflow.c"
 ```
 
 À l'exécution, on obtient :
@@ -283,8 +280,7 @@ $$\binom{64}{8} = \frac{64!}{8!(64-8)!} = 4'426'165'368$$
 
 Néanmoins ce problème qui est connu admet 92 solutions. C'est un problème de recherche exhaustive. On peut le résoudre en utilisant une approche de backtracking.
 
-```c
---8<-- "docs/assets/src/eight-queens.c"
+```c include="docs/assets/src/eight-queens.c"
 ```
 
 On commence par définir un échiquier de `N`x`N` cases sous la forme d'une tableau bidimensionnel `bool board[N][N]`. Chaque case de l'échiquier peut contenir une dame (`true`) ou être vide (`false`).

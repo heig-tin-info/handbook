@@ -40,8 +40,7 @@ On y retrouve donc :
 
 Supposons que l'on souhaite calculer des orbites pour un satellite d'observation de Jupiter. Pour apprivoiser cette *library*, on écrit :
 
-```c
---8<-- "docs/assets/src/gmp.c"
+```c include="docs/assets/src/gmp.c"
 ```
 
 Première tentative de compilation :
@@ -159,14 +158,12 @@ Une *static library* est une archive d'objets compilés pour une architecture do
 
 Pour illustrer la création d'une bibliothèque statique, reprenons le [chiffrement de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage). On écrit d'abord un fichier source `caesar.c` :
 
-```c title="caesar.c"
---8<-- "docs/assets/src/caesar.c"
+```c title="caesar.c" include="docs/assets/src/caesar.c"
 ```
 
 et le fichier d'en-tête correspondant :
 
-```c title="caesar.h"
---8<-- "docs/assets/src/caesar.h"
+```c title="caesar.h" include="docs/assets/src/caesar.h"
 ```
 
 La création de la bibliothèque se déroule en deux étapes : génération de l'objet, puis archivage :
@@ -178,8 +175,7 @@ $ ar rcs caesar.a caesar.o
 
 On peut ensuite écrire un programme utilisateur :
 
-```c title="encrypt.c"
---8<-- "docs/assets/src/encrypt.c"
+```c title="encrypt.c" include="docs/assets/src/encrypt.c"
 ```
 
 La compilation se fait en précisant où trouver les en-têtes (`-I.`) et la bibliothèque (`-L.`) :
