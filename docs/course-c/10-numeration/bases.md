@@ -40,6 +40,8 @@ Il s'agit ici d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
+Figure: 1506 en écriture hiéroglyphique {#fig:hieroglyph}
+
 Notre système de représentation des nombres décimaux est la numération indo-arabe #[indo-arabe]. Elle emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf ; tout nombre peut ainsi se décomposer en puissances successives :
 
 $$
@@ -328,6 +330,8 @@ n = 209
 
 ::: exercise {title="#(ex:la-numeration-shadock) : La numération Shadock"}
 ![Les Shadocks](../../assets/images/shadocks.drawio)
+
+Figure: Les Shadocks {#fig:shadocks}
 
 Les Shadocks #[Shadocks, les] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
 

@@ -40,12 +40,16 @@ Une extension de SDL nommée GFX est également disponible. Elle ajoute des fonc
 
 ![Intersections de cercles](/assets/images/circles.png)
 
+Figure: Intersections de cercles {#fig:circles}
+
 
 ## Polygones
 
 Voici un exemple d'un programme de dessin de polygones en utilisant SDL.
 
 ![Programme de dessin de polygones](/assets/images/polygons.png)
+
+Figure: Programme de dessin de polygones {#fig:polygons}
 
 ```c include="docs/assets/src/sdl/bezier/light.c"
 ```

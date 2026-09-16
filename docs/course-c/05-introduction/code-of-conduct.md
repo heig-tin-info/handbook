@@ -28,6 +28,8 @@ En 1750 #[1750] av. J.-C., le roi Hammurabi de Babylone #[Hammurabi de Babylone]
 
 ![Code d'Hammurabi (1750 av. J.-C.)](/assets/images/hammurabi.png)
 
+Figure: Code d'Hammurabi (1750 av. J.-C.) {#fig:hammurabi}
+
 Ce qu’il faut retenir de cette analogie avec le développement logiciel, c’est que, tout comme les conventions sociales, les règles et les consensus en informatique changent avec le temps. Les bonnes pratiques d’aujourd’hui seront probablement différentes demain.
 
 Hélas, l’inertie des institutions, des entreprises et des individus conduit à la perpétuation d’habitudes et à l’établissement de dogmes sans que l’on s’en aperçoive. Il est donc indispensable de faire preuve d’ouverture d’esprit, de remise en question et de curiosité pour s’adapter à un monde en perpétuelle évolution.
@@ -37,6 +39,8 @@ En d’autres termes, ce que je vous transmets aujourd’hui n’est pas une vé
 ## L'Anglais
 
 ![La langue, une barrière](/assets/images/english.png)
+
+Figure: La langue, une barrière {#fig:english}
 
 En programmation, quel que soit le langage utilisé, l’anglais est omniprésent. Les mots-clés des langages sont majoritairement issus de l’anglais, et bon nombre d’outils de développement sont exclusivement disponibles dans cette langue. Pourquoi cela ? Tout comme un article de journal local n’intéressera que peu de lectrices et lecteurs à l’autre bout du globe, un code informatique doit pouvoir être réutilisé pour réduire les coûts de développement et s’affranchir des barrières linguistiques.
 
@@ -55,6 +59,8 @@ Un autre point mérite d’être souligné : la consultation quasi constante d�
 ## Apprendre à pêcher
 
 ![Un père et son fils pêchant](/assets/images/fisherman.png)
+
+Figure: Un père et son fils pêchant {#fig:fisherman}
 
 Un jeune homme part en mer avec son père et lui demande : « Papa, j’ai faim, comment ramènes-tu du poisson ? » Le père, fier, lance sa ligne et lui rapporte un beau poisson. Plus tard, alors que le jeune homme revient d’une balade sur l’estran, il demande : « Papa, j’ai faim, me ramènerais-tu du poisson ? » Le père sort de son étui sa plus belle canne, l’équipe d’un hameçon et, d’un geste précis, ramène encore une belle prise. Pendant longtemps, le fils mange ainsi à sa faim grâce à la patience de son père.
 

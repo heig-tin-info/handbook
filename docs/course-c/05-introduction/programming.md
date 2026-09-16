@@ -22,6 +22,8 @@ Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algor
 
 ![L'un des premiers ordinateurs: l'Eniac](/assets/images/eniac.jpg)
 
+Figure: L'un des premiers ordinateurs: l'Eniac {#fig:eniac}
+
 ## Algorithmique
 
 L'**algorithmique**, et non l'*algorithmie* (terme fautif en français), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception](#algorithmsanddesign), dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs ; elle est omniprésente dans notre quotidien et se manifeste dans des contextes aussi variés que :
@@ -39,6 +41,8 @@ Ainsi, l'algorithmique constitue l'essence même de la pensée organisée. Elle 
 Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux comme représenté sur cette figure:
 
 ![Algorithme de calcul du PGCD d'Euclide](/assets/images/pgcd.drawio)
+
+Figure: Algorithme de calcul du PGCD d'Euclide {#fig:pgcd}
 
 Les informaticiens et ingénieurs apprécient particulièrement l'usage des diagrammes pour synthétiser et clarifier leurs idées complexes. Le diagramme de flux, en tant qu'outil de communication visuelle, permet de représenter un **processus** de manière structurée et accessible. Dans ce type de diagramme, les formes géométriques symbolisent des étapes du processus, tandis que les flèches en indiquent le déroulement. Par convention, les formes ovales marquent le début et la fin du processus, les rectangles désignent les opérations de traitement, et les losanges représentent les décisions à prendre. Une forme de décision pose une question et offre deux chemins possibles, chacun correspondant à une réponse spécifique. Comme nous le verrons plus tard, tout processus de traitement d'information comporte nécessairement une entrée et une sortie, illustrant ainsi la dynamique intrinsèque de l'algorithme.
 
@@ -84,6 +88,8 @@ Voici un diagramme de flux représentant l'algorithme du tri à bulles :
 
 ![Algorithme de tri à bulles.](/assets/images/bubblesort.drawio)
 
+Figure: Algorithme de tri à bulles. {#fig:bubblesort}
+
 Soit un tableau de $N = 5$ valeurs à trier donné ci-dessous, le cycle se répète jusqu'à ce que le tableau soit complètement trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
 
 $$T = {5, 3, 8, 4, 2}$$
@@ -91,6 +97,8 @@ $$T = {5, 3, 8, 4, 2}$$
 Les différentes étapes du tri à bulles sont illustrées ci-dessous :
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
+
+Figure: Étape par étape du tri à bulles. {#fig:bubblesort-steps}
 
 Pour les cycles $3$ et $4$, nous ne montrons pas les étapes sans échange. Au cinquième cycle, aucun échange n'est nécessaire : l'algorithme se termine.
 
@@ -108,6 +116,8 @@ Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wiki
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.](/assets/images/loom.png)
 
+Figure: Mécanisme Jacquard au Musée des arts et métiers de Paris. {#fig:loom}
+
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles font office de programme pour la machine, et leur format (largeur, dimensions des trous, etc.) reste spécifique à chaque modèle. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
 
 !!! info "La révolte des canuts"
@@ -119,6 +129,8 @@ La [programmation](https://fr.wikipedia.org/wiki/Programmation_informatique) dé
 Les *informaticiens-tisserands* responsables de la création des cartes perforées auraient pu se demander comment simplifier leur travail en concevant un langage formel pour décrire des motifs complexes dont les composants de base se répètent d'un ouvrage à l'autre. Prenons par exemple un ouvrier spécialisé en [héraldique](https://fr.wikipedia.org/wiki/H%C3%A9raldique) et chargé de créer des motifs de blasons élaborés.
 
 ![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
+
+Figure: Armoiries des ducs de Mayenne {#fig:armoiries}
 
 Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de Mayenne #[Mayenne, Duc de] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
 
@@ -191,11 +203,15 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
     ![Interface de scratch](/assets/images/scratch.png)
 
+    Figure: Interface de scratch {#fig:scratch}
+
 ??? info "LabView"
 
     [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. #[LabView, programme]
 
     ![Interface de LabView](/assets/images/labview.webp)
+
+    Figure: Interface de LabView {#fig:labview}
 
     Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.
 
@@ -225,6 +241,8 @@ Un calculateur #[calculateur] du latin *calculare*: calculer avec des cailloux, 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
 ![Os d'Ishango](/assets/images/ishango.drawio)
+
+Figure: Os d'Ishango {#fig:ishango}
 
 Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
@@ -265,11 +283,15 @@ Prenons l'exemple d'un programme visant à ajouter `1` à un nombre `n` en binai
 
 ![Algorithme d'addition binaire](/assets/images/turing-add.drawio)
 
+Figure: Algorithme d'addition binaire {#fig:turing-add}
+
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
 Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre `101` (5) et à la fin on obtient le nombre `110` (6). L'algorithme a bien fonctionné.
 
 ![Exécution de l'algorithme sur une bande](/assets/images/turing-animation.drawio)
+
+Figure: Exécution de l'algorithme sur une bande {#fig:turing-animation}
 
 On peut essayer de traduire cet algorithme dans un langage formel :
 
@@ -345,6 +367,8 @@ On peut essayer de traduire cet algorithme dans un langage formel :
 ## L'ordinateur d'antan
 
 ![Téléscripteur Siemens T100](/assets/images/siemens-t100.jpg)
+
+Figure: Téléscripteur Siemens T100 {#fig:siemens-t100}
 
 Le [téléscripteur](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) Siemens T100 est un exemple d'ordinateur des années 1960. Il était utilisé pour la transmission de messages télégraphiques. Il était composé d'un clavier et d'une imprimante. Il était capable de lire et d'écrire des messages sur une bande de papier. Il était programmé en utilisant des cartes perforées.
 
@@ -441,15 +465,21 @@ Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus so
 
 ![Machine à café Citiz de Nespresso](/assets/images/citiz-cherry-red.png)
 
+Figure: Machine à café Citiz de Nespresso {#fig:citiz-cherry-red}
+
 Prenons l'exemple de cette machine à café. C'est une machine qui coûte environ 100 CHF. Elle est équipée d'un microcontrôleur à 30 centimes qui contrôle le chauffage, la pompe à eau et les leds. Le microcontrôleur est programmé pour lire les boutons de commande, contrôler les actionneurs et afficher des messages à l'utilisateur.
 
 ![Schéma bloc de la machine à café Citiz](/assets/images/citiz-diagram.drawio)
+
+Figure: Schéma bloc de la machine à café Citiz {#fig:citiz-diagram}
 
 Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température, vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
 
 ## Historique
 
 ![Historique](/assets/images/history.drawio)
+
+Figure: Historique {#fig:history}
 
 Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
 

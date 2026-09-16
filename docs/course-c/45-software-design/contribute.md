@@ -279,6 +279,8 @@ Gimp est un logiciel de retouche d'image très populaire. C'est la version libre
 
 ![Gimp](/assets/images/gimp.png)
 
+Figure: Gimp {#fig:gimp}
+
 En cherchant sous Google "gimp source code", on tombe sur le site officiel:
 
 <https://www.gimp.org/source/>

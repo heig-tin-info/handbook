@@ -35,9 +35,15 @@ L'interface du terminal était également rudimentaire (pas d'onglets, pas de s�
 
 ![Interface de cmd.exe dans Windows Terminal](/assets/images/cmd.png)
 
+Figure: Interface de cmd.exe dans Windows Terminal {#fig:cmd}
+
 ![Interface de PowerShell dans Windows Terminal](/assets/images/powershell.png)
 
+Figure: Interface de PowerShell dans Windows Terminal {#fig:powershell}
+
 ![Interface de Ubuntu dans Windows Terminal](/assets/images/bash.png)
+
+Figure: Interface de Ubuntu dans Windows Terminal {#fig:bash}
 
 ## Variables d'environnement
 

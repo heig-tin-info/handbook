@@ -13,6 +13,8 @@ $$
 
 ![Ensemble des nombres](/assets/images/ensembles.drawio)
 
+Figure: Ensemble des nombres {#fig:ensembles}
+
 Les principaux ensembles de nombres sont les suivants :
 
 - $\mathbb{N}$ : ensemble des entiers naturels #[entiers naturels] (0, 1, 2, 3, ...)
@@ -44,6 +46,8 @@ Archimède #[Archimède] disait : Δός μοι πᾶ στῶ καὶ τὰν γ
 Dans le jeu Minecraft #[Minecraft], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un univers pseudo-aléatoire. Cette graine #[graine] est un nombre fini qui sert de base à l'algorithme de génération. Si vous utilisez la même graine, vous obtenez le même monde #[monde]. La graine -5584399987456711267 permet par exemple d'obtenir de splendides cerisiers en fleurs rappelant la saison du sakura #[sakura] à Kyoto #[Kyoto]. Pour que cela fonctionne, il faut toutefois le code source de Minecraft : lui aussi n'est qu'une succession de 0 et de 1, donc un nombre fini.
 
 ![Monde correspondant à la graine -5584399987456711267](/assets/images/minecraft.png)
+
+Figure: Monde correspondant à la graine -5584399987456711267 {#fig:minecraft}
 
 Lorsque vous jouez, vos actions génèrent de l'information qui influence le monde ; la quantité d'information croît avec l'entropie que vous injectez dans le système. C'est pourquoi plus vous jouez, plus la sauvegarde de votre monde grossit, tout en demeurant représentable par un nombre fini : une succession de 0 et de 1.
 
@@ -227,6 +231,8 @@ Oui, et alors, en quoi cela change le [Schmilblick](https://fr.wikipedia.org/wik
 On peut également les représenter sous forme d'un cercle comme illustré sur la figure suivante :
 
 ![Cercle des nombres](/assets/images/complement-circle.drawio)
+
+Figure: Cercle des nombres {#fig:complement-circle}
 
 Avec le bit de signe, on observe deux ruptures dans la continuité de la représentation. Un saut de `3,0` et un autre `-3,0`. Avec le complément à un, on n'observe toujours deux sauts `0,0` et `-3,-3`. Avec le complément à deux, on n'observe plus qu'un seul saut `3, -4`, et la continuité est assurée de `-1` à `0`. Par ailleurs, le zéro n'a plus de double représentation.
 

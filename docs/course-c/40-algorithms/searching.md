@@ -202,9 +202,13 @@ Le K-D Tree est une structure de données arborescente qui permet de stocker des
 
 ![Représentation du K-D Tree](/assets/images/kd-tree.drawio)
 
+Figure: Représentation du K-D Tree {#fig:kd-tree}
+
 Lors de l'insertion de chaque point, le plan est divisé en deux parties égales (gauche/droite) ou (haut/bas) selon la parité du niveau de l'arbre. Au niveau stockage, on utilise un arbre binaire:
 
 ![Arbre binaire du K-D Tree](/assets/images/kd-tree-nodes.drawio)
+
+Figure: Arbre binaire du K-D Tree {#fig:kd-tree-nodes}
 
 On sait qu'un arbre binaire peut être représenté sous forme d'une liste, la représentation ci-dessus peut-être ainsi représentée avec avec :
 
@@ -252,6 +256,8 @@ Lors de la remontée, on compare également la distance entre le plan de sépara
 Prenons un exemple concret. Sur la figure suivante, on prend le point P $(3.2, 2.3)$ comme point cible comme présenté sur la figure suivante :
 
 ![Recherche d'une zone dans un K-D Tree](/assets/images/kd-tree-search.drawio)
+
+Figure: Recherche d'une zone dans un K-D Tree {#fig:kd-tree-search}
 
 Pour trouver le voisin le plus proche voici les opérations :
 

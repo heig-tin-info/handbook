@@ -1,6 +1,6 @@
 # Préprocesseur
 
-Figure: Illustration du mécanisme de pré-processing avant la compilation
+Figure: Illustration du mécanisme de pré-processing avant la compilation {#fig:preprocessing-fun}
 
 ![Mécanisme de pré-processing avant compilation](/assets/images/preprocessing-fun.drawio)
 

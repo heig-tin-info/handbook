@@ -109,6 +109,8 @@ Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) sont un
 
 ![Tours de Hanoï](/assets/images/hanoi.drawio)
 
+Figure: Tours de Hanoï {#fig:hanoi}
+
 Ce problème se prête parfaitement à une résolution récursive. Pour déplacer `n` disques de la tige `A` vers la tige `C`, il suffit de transférer `n - 1` disques de `A` vers `B`, de déplacer le disque restant de `A` vers `C`, puis de déplacer les `n - 1` disques de `B` vers `C`.
 
 === "Algorithme Récursif"
@@ -273,6 +275,8 @@ Par exemple, le problème des huit dames consiste à placer huit dames sur un é
 Le problème des huit dames est un problème classique de placement de huit dames sur un échiquier de 8x8 cases de manière à ce qu'aucune dame ne puisse attaquer une autre dame. Une dame peut attaquer une autre dame si elles se trouvent sur la même ligne, la même colonne ou la même diagonale.
 
 ![Les huit dames](/assets/images/eight-queens.drawio)
+
+Figure: Les huit dames {#fig:eight-queens}
 
 La solution naïve est de tester toutes les combinaisons possibles de placement des huit dames et de vérifier si elles sont valides. Cependant, cette approche est inefficace car le nombre de combinaisons possibles est très élevé. Si nous considérons simplement toutes les manières de placer 8 dames sur un échiquier 8x8 sans tenir compte des contraintes d'attaque (c'est-à-dire sans tenir compte des lignes, colonnes ou diagonales), le nombre de configurations possibles est donné par le nombre de combinaisons de 64 cases (l'échiquier) prises 8 à la fois soit :
 

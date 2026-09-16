@@ -20,6 +20,8 @@ Dans cet exemple, le dernier élément `6` sera arbitrairement choisi comme pivo
 
 ![Représentation du tableau à trier avec son pivot.](/assets/images/quicksort.drawio)
 
+Figure: Représentation du tableau à trier avec son pivot. {#fig:quicksort}
+
 L'étape de paritionnement utilise l'algorithme suivant :
 
 ```c
@@ -48,6 +50,8 @@ Voici comment `partition(a, 0, 10, 10)` modifie le tableau (voir [code source](.
 On constate que la valeur `6` choisie comme pivot est maintenant à sa bonne place. L'algorithme est donc appelé récursivement pour les éléments `0` à `4` et \`\` 6\`\`  à `a`.
 
 ![Tri rapide après le premier partitionnement.](/assets/images/quicksort-2.drawio)
+
+Figure: Tri rapide après le premier partitionnement. {#fig:quicksort-2}
 
 Voici une autre représentation (voir [code source](../../../assets/src/quicksort.c)) :
 

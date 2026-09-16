@@ -228,6 +228,8 @@ Les différentes complexités peuvent être résumées sur la figure suivante :
 
 ![Différentes complexités d'algorithmes](/assets/images/complexity.drawio)
 
+Figure: Différentes complexités d'algorithmes {#fig:complexity}
+
 Un algorithme en $O(n^2)$ doit éveiller chez la développeuse ou le développeur le désir de vérifier s'il n'existe pas moyen de réduire cette complexité. Bien souvent, on s'aperçoit qu'une solution peut être optimisée, et s'intéresser à la complexité constitue un excellent point d'entrée.
 
 Attention toutefois à ne pas mal évaluer la complexité d'un algorithme. Voyons par exemple les deux algorithmes suivants :

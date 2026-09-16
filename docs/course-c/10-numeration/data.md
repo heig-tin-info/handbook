@@ -165,6 +165,8 @@ La pérennité de l'information représente un défi tout aussi crucial que sa t
 
 ![Arctic World Archive](/assets/images/arctic-world-archive.png)
 
+Figure: Arctic World Archive {#fig:arctic-world-archive}
+
 Consciente de ces limitations, l'humanité a entrepris de consolider ses connaissances en les stockant dans des endroits spécialement conçus pour résister à l'épreuve du temps. Un des projets les plus ambitieux en la matière est l'Arctic World Archive (AWA), situé dans l'archipel de Svalbard, en Norvège, à proximité du **Global Seed Vault**. L'Arctic World Archive, ouvert en 2017, est une installation sécurisée dans une ancienne mine de charbon, enfouie sous des centaines de mètres de pergélisol. Ce projet vise à préserver les données numériques pour des siècles, voire des millénaires, en utilisant une technologie de stockage sur **PiqlFilm**, un film photosensible spécialement conçu pour garantir la durabilité des informations sans nécessiter d'électricité ou de maintenance continue.
 
 Des institutions du monde entier, telles que les Archives nationales du Brésil, l'Agence spatiale européenne (ESA) et même GitHub, y ont déjà déposé des données importantes. GitHub, par exemple, y a archivé 21 téraoctets de données provenant de l'ensemble des dépôts publics actifs de la plateforme, garantissant ainsi la pérennité de précieuses ressources en code source pour les générations futures (voir [GitHub Archive Program](https://archiveprogram.github.com/)). Ainsi, Svalbard, avec l'Arctic World Archive, s'affirme comme un bastion de la conservation des connaissances numériques, soulignant l'importance de préserver les données dans un monde où la technologie évolue rapidement, mais où la fiabilité des supports de stockage demeure un enjeu majeur.

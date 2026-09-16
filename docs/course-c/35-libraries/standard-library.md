@@ -1282,6 +1282,8 @@ Pour vous en convaincre, vous pouvez vous aider de la figure suivante.
 
 ![memcpy](/assets/images/memcpy.drawio)
 
+Figure: memcpy {#fig:memcpy}
+
 En réalité, le fonctionnement de `memcpy` n'est pas si simple. En effet, le compilateur peut optimiser le code et utiliser des instructions SIMD pour copier les données. Cela va également dépendre du niveau d'optimisation du compilateur. En exécutant le même code avec `memcpy`, je n'obtiens pas le même résultat, en observant le code assembleur généré pour `memcpy`, on observe que les premiers 4 octets sont copiés en une seule instruction, le cinquième octet est copié en une instruction séparée. Ce qui donne comme résultat `12343`.
 
 ```text

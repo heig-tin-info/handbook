@@ -2,6 +2,8 @@
 
 ![Bibliothèque du Trinity College de Dublin](/assets/images/library.jpg)
 
+Figure: Bibliothèque du Trinity College de Dublin {#fig:library}
+
 Une bibliothèque logicielle est un ensemble de fichiers proposant des fonctionnalités prêtes à l'emploi. L'appel à `printf` en est un exemple emblématique : la fonction est déclarée dans l'en-tête `<stdio.h>` et son implémentation est fournie par la bibliothèque standard `libc`.
 
 Dans la pratique, l'anglicisme *library* est très courant, car il est bref et universel dans le milieu informatique. Il ne faut toutefois pas le confondre avec l'anglais *bookstore*, qui correspond à notre « librairie ». Les bibliothèques logicielles se composent le plus souvent d'un ou plusieurs fichiers binaires compilés pour une architecture donnée et d'en-têtes (*headers*) décrivant les fonctions disponibles.
@@ -125,6 +127,8 @@ La bibliothèque [ncurses](https://fr.wikipedia.org/wiki/Ncurses), évolution de
 Figure : Exemple d'interface graphique écrite avec `ncurses`. Ici, la configuration du noyau Linux.
 
 ![Exemple avec ncurses](/assets/images/linux-menuconfig.png)
+
+Figure: Exemple avec ncurses {#fig:linux-menuconfig}
 
 Un programme minimal peut ressembler à ceci :
 

@@ -447,6 +447,8 @@ static const char* conjonctions[] = {
 
 ![Pointeur sur une chaîne de caractère](/assets/images/ptrstr.drawio)
 
+Figure: Pointeur sur une chaîne de caractère {#fig:ptrstr}
+
 Dans ce cas, les chaînes `"mais"`, `"ou"`... sont des constantes littérales de type `const char*`. Elles sont stockées dans un segment de mémoire en lecture seule. Le tableau `conjonctions` est donc un tableau de pointeurs sur des chaînes de caractères.
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
@@ -944,6 +946,8 @@ Ensuite...
 Cet algorithme peut être représenté par le diagramme suivant :
 
 ![Diagramme de la règle gauche-droite](/assets/images/left-right.drawio)
+
+Figure: Diagramme de la règle gauche-droite {#fig:left-right}
 
 Voici quelques exemples :
 

@@ -67,6 +67,8 @@ Voici en pratique comment ces caractères peuvent être utilisés :
 
 ![Distinction de différents caractères non imprimables](/assets/images/crlf.drawio)
 
+Figure: Distinction de différents caractères non imprimables {#fig:crlf}
+
 La ponctuation utilise les 29 symboles graphiques suivants :
 
 ```text
@@ -78,6 +80,8 @@ La ponctuation utilise les 29 symboles graphiques suivants :
 Peut-être avez-vous déjà été confronté à une machine à écrire mécanique. Elles disposent d'un levier sur la gauche du chariot qui dispose de deux fonctionnalités. D'une part il permet de faire revenir le chariot au début de la ligne, mais également de faire avancer le papier d'une ligne par une rotation du cylindre. C'est ce levier de retour chariot qui a donné son nom au caractère de retour à la ligne `CR` pour *Carriage Return*. Quant au caractère de nouvelle ligne `LF` pour *Line Feed*, il est associé à la rotation du rouleau qui entraîne la feuille de papier.
 
 ![Machine à écrire Hermès 3000 hébraïque](/assets/images/hermes-3000.webp){width=50%}
+
+Figure: Machine à écrire Hermès 3000 hébraïque {#fig:hermes-3000}
 
 Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement (tiret bas #[tiret bas], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
@@ -181,6 +185,8 @@ Un identificateur est une séquence de caractères représentant une entité du 
 
 ![Grammaire d'un identificateur C](/assets/images/identifier.drawio)
 
+Figure: Grammaire d'un identificateur C {#fig:identifier}
+
 La notation `#!re /[a-z]/` signifie que l'on peut utiliser n'importe quelle lettre minuscule de l'alphabet latin, `#!re /[A-Z]/` pour les lettres majuscules, `#!re /[0-9]/` pour les chiffres et `_` pour le caractère souligné.
 
 En addition de cette grammaire, voici quelques règles :
@@ -274,6 +280,8 @@ On voit que sans connaître le **type** de la variable, il est impossible de sav
 
 ![La plage de Donnant](/assets/images/donnant.png)
 
+Figure: La plage de Donnant {#fig:donnant}
+
 En pratique l'adresse sera plutôt de la forme `0x7fffbf7f1b4c`, la valeur serait plutôt `0100001101001111010010010100111000000000` et le type serait une chaîne de caractères `char[]`.
 
 !!! info "Variables initialisées"
@@ -353,6 +361,8 @@ Notez après chaque affectation, le contenu des différentes variables :
 ### Convention de nommage
 
 ![Différentes casses illustrées](/assets/images/kebab.png)
+
+Figure: Différentes casses illustrées {#fig:kebab}
 
 Il existe autant de conventions de nommage qu'il y a de développeurs, mais un consensus majoritaire, que l'on retrouve dans d'autres langages de programmation dit que :
 
@@ -617,6 +627,8 @@ int main() {
 Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction](#preproc-intro), le préprocesseur C supprime les commentaires du code source avant la compilation. #[commentaire]
 
 ![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
+
+Figure: Les carafes dans la Vivonne {#fig:vivonne}
 
 Il existe deux manières d'écrire un commentaire en C, les commentaires de lignes apparus avec le C++ et C99, ainsi que les commentaires de blocs. Les commentaires de blocs sont plus anciens et sont compatibles avec les versions antérieures du langage.
 

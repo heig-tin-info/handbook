@@ -160,6 +160,8 @@ Voici un exemple de diagrammes BPMN et NSD illustrant un embranchement binaire :
 
 ![Diagrammes BPMN](/assets/images/branching-diagram.drawio)
 
+Figure: Diagrammes BPMN {#fig:branching-diagram}
+
 Les embranchements reposent sur des séquences d'instructions, car chaque branche, qu'elle soit choisie ou non, est elle-même une séquence de commandes à exécuter selon l'évaluation de la condition.
 
 []{#if}
@@ -423,6 +425,8 @@ L'instruction `switch` n'est pas fondamentale et certains langages de programmat
 
 ![Switch Case BPMN](/assets/images/switch-case.drawio)
 
+Figure: Switch Case BPMN {#fig:switch-case}
+
 ```c
 if (defcon == 1)
     printf("Guerre nucléaire imminente");
@@ -652,6 +656,8 @@ switch (n % 8) {  // Détermine le point d'entrée initial dans la boucle
 
 ![Bien choisir sa structure de contrôle](/assets/images/road-runner.drawio)
 
+Figure: Bien choisir sa structure de contrôle {#fig:road-runner}
+
 Une boucle est une structure itérative permettant de répéter l'exécution d'une séquence. En C, il existe trois types de boucles :
 
 1. `#!c for`
@@ -661,6 +667,8 @@ Une boucle est une structure itérative permettant de répéter l'exécution d'u
 Elles peuvent être représentées par les diagrammes de flux suivants :
 
 ![Aperçu des trois structures de boucles](/assets/images/for.drawio)
+
+Figure: Aperçu des trois structures de boucles {#fig:for}
 
 On observe que, quelle que soit la structure de boucle, une **condition de maintien** est nécessaire. Cette condition est évaluée avant ou après l'exécution de la séquence. Si la condition est fausse, la séquence est interrompue et le programme poursuit son exécution.
 

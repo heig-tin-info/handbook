@@ -21,6 +21,8 @@ Hélas, le constat est souvent le même : le nouveau standard ne sera qu'un éni
 
 ![XKCD Standards](https://imgs.xkcd.com/comics/standards.png)
 
+Figure: XKCD Standards {#fig:standards}
+
 []{#unicode}
 
 ## Unicode
@@ -31,11 +33,15 @@ Les emoji ont été initialement ajoutés pour être compatibles avec les encoda
 
 ![XKCD Unicode](https://imgs.xkcd.com/comics/the_history_of_unicode.png)
 
+Figure: XKCD Unicode {#fig:the-history-of-unicode}
+
 ## Vrais programmeurs
 
 Un rappel à aux guerres d'éditeurs de texte, en particulier Vim et Emacs... De toute manière Vim à gagné la guerre, non ?
 
 ![XKCD Real Programmers](https://imgs.xkcd.com/comics/real_programmers.png)
+
+Figure: XKCD Real Programmers {#fig:real-programmers}
 
 ## Compilation
 
@@ -43,11 +49,15 @@ Compiler un programme est une tâche qui peut prendre du temps. Parfois, il est 
 
 ![XKCD Compiling](https://imgs.xkcd.com/comics/compiling.png){ width=60% }
 
+Figure: XKCD Compiling {#fig:compiling}
+
 ## Le code des autres
 
 Le code des autres est souvent difficile à comprendre. Parfois, il est même difficile de comprendre son propre code. C'est pourquoi il est important de commenter son code, de le documenter, de le tester, de le relire, de le refactoriser, etc.
 
 ![Le bon code](/assets/images/Le-code-des-autres-650.jpg)
+
+Figure: Le bon code {#fig:le-code-des-autres-650}
 
 ## La faute à personne
 
@@ -55,8 +65,12 @@ La collaboration au sein d'une équipe de développement est cruciale pour le su
 
 ![La faute à personne](/assets/images/Communication-de-Chantier-650-final.jpg)
 
+Figure: La faute à personne {#fig:communication-de-chantier-650-final}
+
 ## Commentaire de commit
 
 La tentation est grande de miniser le temps passé à rédiger des commentaires de commit. Pourtant, ces messages sont essentiels pour comprendre l'évolution du code, pour suivre les modifications apportées, pour identifier les erreurs, etc. Un bon commentaire de commit est clair, concis, informatif et utile. Il permet de retracer l'historique du code, de faciliter la collaboration entre les développeurs, de documenter les changements, etc.
 
 ![Commentaire de commit](/assets/images/Commentaires-de-Commit-600-final.jpg)
+
+Figure: Commentaire de commit {#fig:commentaires-de-commit-600-final}

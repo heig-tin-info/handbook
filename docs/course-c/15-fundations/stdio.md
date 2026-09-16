@@ -176,6 +176,8 @@ La construction d'un marqueur est loin d'être simple, mais heureusement on n'a 
 
 ![Formatage d'un marqueur](/assets/images/formats.drawio)
 
+Figure: Formatage d'un marqueur {#fig:formats}
+
 Voici quelques exemples :
 
 Table: Exemple de formatage avec printf

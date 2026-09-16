@@ -103,6 +103,8 @@ La figure suivante résume ces étapes. Les pointillés indiquent à quel niveau
 
 ![Étapes intermédiaires de compilation avec GCC](/assets/images/gcc.drawio)
 
+Figure: Étapes intermédiaires de compilation avec GCC {#fig:gcc}
+
 
 Ces étapes existent quel que soit le compilateur ou le système d'exploitation. On les retrouve par exemple dans Microsoft Visual Studio, même si les commandes et les extensions de fichiers diffèrent lorsqu'elles ne suivent pas les conventions POSIX (et GNU).
 

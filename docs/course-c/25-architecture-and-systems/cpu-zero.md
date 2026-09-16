@@ -66,6 +66,8 @@ Sur la figure suivante, on propose une architecture minimale d'un processeur ave
 
 ![Architecture minimale](/assets/images/cpu-zero.drawio)
 
+Figure: Architecture minimale {#fig:cpu-zero}
+
 Notre ALU (*Arithmetic Logic Unit*) serait implémenté en logique combinatoire, c'est-à-dire que les opérations sont effectuées en un seul cycle d'horloge. L'ALU est composée de deux entrées `A` et `B` et d'une sortie `C`. Les opérations possibles sont:
 
 Table : Opérations de l'ALU

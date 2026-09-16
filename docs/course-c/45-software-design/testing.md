@@ -2,6 +2,8 @@
 
 ![Bogue de l'an 2000](/assets/images/y2k-bug.jpg)
 
+Figure: Bogue de l'an 2000 {#fig:y2k-bug}
+
 Surveiller et assurer la qualité d'un code est primordial dans toute institution et quel que soit le produit. Dans l'industrie automobile par exemple, un bogue qui serait découvert plusieurs années après la commercialisation d'un modèle d'automobile aurait des conséquences catastrophiques.
 
 Voici quelques exemples célèbres de ratés logiciels :

@@ -60,6 +60,8 @@ Puisque nous évoquons Vim, mentionnons aussi son rival historique : Emacs. Inve
 
 ![Guerre d'éditeurs](/assets/images/vim-vs-emacs.png)
 
+Figure: Guerre d'éditeurs {#fig:vim-vs-emacs}
+
 Je passe rapidement sur d’autres éditeurs qui ont connu leur heure de gloire mais paraissent aujourd’hui dépassés : TextPad, UltraEdit, Sublime Text, Atom, Notepad++… L’Usain Bolt — ou le Michael Phelps — des éditeurs actuels, c’est Visual Studio Code, l’outil phare de Microsoft qui a conquis les doigts agiles des développeuses et développeurs du monde entier. Gratuit, open source et disponible sur tous les systèmes d’exploitation, il s’enrichit d’innombrables extensions (notamment l’extension Vim utilisée par plus de 6,7 millions de personnes et l’extension Emacs par 55 000 personnes). Rapide, puissant et bien intégré aux outils que nous utiliserons, il reste l’éditeur que je vous recommande… jusqu’à la prochaine révolution.
 
 Pour être plus factuel, l’enquête annuelle 2023 de [Stack Overflow](https://survey.stackoverflow.co/2023/#overview) donne une idée assez fidèle de la popularité des éditeurs et environnements de développement intégrés les plus utilisés par les personnes qui programment :
@@ -174,7 +176,7 @@ Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En
 
 La figure suivante illustre les relations entre les différents outils que nous avons évoqués jusqu'à présent.
 
-Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
+Figure: Représentation graphique des notions de compilateur, IDE, toolchain... {#fig:toolchain}
 
 ![Notions de compilateur, IDE, toolchain...](/assets/images/toolchain.drawio)
 

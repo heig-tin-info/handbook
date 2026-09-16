@@ -17,7 +17,7 @@ Un **processus** est l'état d'un programme en cours d'exécution. Lorsqu'un pro
 
 Quelque soit le langage de programmation utilisé, sur un ordinateur le processeur adopte un flot d'exécution séquentiel. Les instructions sont exécutées les unes après les autres.
 
-Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
+Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées {#fig:vintage-programmer}
 
 ![Programmeuse à côté de cartes perforées](/assets/images/vintage-programmer.jpg){width="60%"}
 
@@ -146,6 +146,8 @@ Ainsi qu'à des sorties :
 La figure suivante résume les interactions qu'un programme peut avoir sur son environnement. Les appels système ([syscall](https://fr.wikipedia.org/wiki/Appel_syst%C3%A8me)) sont des ordres transmis directement au système d'exploitation. Ils permettent par exemple de lire des fichiers, d'écrire à l'écran, de mettre le programme en pause ou de terminer le programme.
 
 ![Résumé des interactions avec un programme](/assets/images/program.drawio)
+
+Figure: Résumé des interactions avec un programme {#fig:program}
 
 []{#signals}
 ### Signaux
@@ -343,6 +345,8 @@ Dans cet exemple ci-dessus, le programme `echo` prend en argument la chaîne de 
 La commande suivante `cat` lis le contenu du fichier dont le nom est passé en argument et écrit le contenu sur la sortie standard.
 
 ![Rot13](/assets/images/rot13.drawio)
+
+Figure: Rot13 {#fig:rot13}
 
 Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostic et les erreurs.
 

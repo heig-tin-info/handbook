@@ -10,6 +10,8 @@ Depuis le début de l'ère informatique, les processeurs se perfectionnent sans 
 
 ![Puce de processeur](/assets/images/die-finger.png)
 
+Figure: Puce de processeur {#fig:die-finger}
+
 ## Architecture de bus
 
 Comme évoqué, le processeur dialogue essentiellement avec la mémoire. Celle-ci peut être reliée au processeur selon plusieurs schémas : on parle alors d'architecture de bus. Les deux modèles historiques sont l'architecture de von Neumann et l'architecture Harvard, qui se différencient principalement par leur gestion de la mémoire et des bus de données.
@@ -17,6 +19,8 @@ Comme évoqué, le processeur dialogue essentiellement avec la mémoire. Celle-c
 Chaque modèle présente ses forces et ses limites, et ils sont employés dans des contextes variés en fonction des contraintes du système.
 
 ![Comparaison Harvard et Von Neumann](/assets/images/von-neumann-harvard.drawio)
+
+Figure: Comparaison Harvard et Von Neumann {#fig:von-neumann-harvard}
 
 Dans le modèle de John von Neumann (a), instructions et données partagent une mémoire unifiée, et le processeur utilise le même bus pour y accéder. L'architecture reste ainsi simple et flexible, mais elle peut créer des goulets d'étranglement lorsque instructions et données sont demandées simultanément.
 
@@ -29,6 +33,8 @@ Les processeurs modernes (x86-64, ARM, etc.) adoptent une approche hybride qui m
 Un processeur moderne prend la forme d'une puce de silicium (*die*) d'environ 1 à 2 cm². Elle renferme plusieurs milliards de transistors organisés en blocs fonctionnels spécialisés afin d'assurer toutes les opérations nécessaires.
 
 ![Diagramme d'un processeur](/assets/images/cpu-diagram.drawio)
+
+Figure: Diagramme d'un processeur {#fig:cpu-diagram}
 
 La figure ci-dessus représente un diagramme simplifié d'un processeur. Celui-ci comporte huit cœurs (ou *cores*), qui constituent ses unités de calcul principales. Historiquement, les processeurs n'offraient qu'un seul cœur, mais la montée en puissance des applications et la difficulté à augmenter encore la fréquence d'horloge ont poussé les fabricants vers le multicœur. Chaque cœur dispose d'une mémoire ultra-rapide appelée **cache L2**, comparable à une mémoire de travail à court terme qui permet, par exemple, de retenir un numéro de téléphone le temps de le composer. Au centre, une **mémoire cache L3** partagée facilite l'accès aux données communes à plusieurs processus. En haut à gauche, deux contrôleurs de mémoire relient la puce aux barrettes de RAM.
 
@@ -56,6 +62,8 @@ La mémoire cache est un élément clé de la performance d'un processeur. Elle 
 Voici sur la figure suivante un exemple de hiérarchie de mémoire cache pour un processeur moderne. Plus l'accès est rapide, plus la mémoire est petite et plus elle est proche du processeur.
 
 ![Hiérarchie des mémoires cache](/assets/images/cache-hierarchy.drawio)
+
+Figure: Hiérarchie des mémoires cache {#fig:cache-hierarchy}
 
 Quand on vise la performance, même sans maîtriser chaque détail de l'architecture interne, il faut garder en tête le rôle central de la mémoire cache. Un programme apparemment soigné mais ignorant les contraintes de cache peut se révéler des dizaines de fois plus lent qu'une version pensée pour respecter ces limites. Que faut-il retenir ?
 
@@ -146,6 +154,8 @@ Pour délivrer davantage d'instructions par seconde, les processeurs modernes s'
 
 ![Aperçu d'un pipeline](/assets/images/pipeline.drawio)
 
+Figure: Aperçu d'un pipeline {#fig:pipeline}
+
 Cette organisation se compare volontiers à une cuisine professionnelle : pendant qu'une personne prend la commande suivante, la cheffe ou le chef décode la précédente, un·e commis prépare les ingrédients et un autre dresse l'assiette. Si tout se déroule sans accroc, un plat sort à chaque « cycle ». Au moindre imprévu — commande annulée, ingrédient manquant — la chaîne doit être purgée et relancée : c'est le *pipeline stall*.
 
 Dans un processeur, ce type d'interruption survient notamment lors d'un embranchement (`if`, `while`, `for`). Tant que la condition n'est pas évaluée, il ignore quelle suite d'instructions préparer. Les architectures récentes s'équipent donc d'un **prédicteur de branchement** : elles parient sur le chemin le plus probable, chargent les instructions correspondantes et ne paient le coût d'un stall qu'en cas d'erreur. Les microcontrôleurs plus modestes, dépourvus de prédicteur, doivent attendre le résultat et accumulent davantage de bulles dans leur pipeline.
@@ -156,9 +166,13 @@ Le cœur du processeur est un monstre de technologies. Il est composé de plusie
 
 ![Die shot d'un cœur de processeur de 2009](/assets/images/die.drawio)
 
+Figure: Die shot d'un cœur de processeur de 2009 {#fig:die}
+
 L'objectif ici n'est pas d'entrer dans le détail de chaque unité, mais d'avoir un aperçu général du fonctionnement. La figure suivante représente la structure interne d'un processeur moderne.
 
 ![Diagramme d'un cœur de processeur](/assets/images/cpu-core-diagram2.drawio)
+
+Figure: Diagramme d'un cœur de processeur {#fig:cpu-core-diagram2}
 
 On voit le cache L3 partagé par tous les cœurs, en dehors de ce dernier. Le cache L2 est propre à chaque cœur et communique par un bus à 256 bits avec le cache L1. Le cache L1 est divisé en deux parties, une pour les instructions et une pour les données.
 
@@ -356,6 +370,8 @@ L'idée des anneaux de protection repose sur la séparation des niveaux de privi
 
 ![Anneaux de protection](/assets/images/protection-rings.drawio)
 
+Figure: Anneaux de protection {#fig:protection-rings}
+
 Le ring 0 correspond au noyau (kernel) du système d'exploitation, qui a accès à toutes les ressources matérielles de l'ordinateur. Il peut exécuter n'importe quelle instruction, accéder à la mémoire directement, et gérer le matériel sans restriction. On parle souvent de mode superviseur ou mode noyau pour désigner les opérations effectuées dans cet anneau. C’est le niveau le plus privilégié.
 
 Les niveaux intermédiaires 1 et 2 peuvent être utilisés par certains systèmes pour les pilotes ou des services du système qui ont besoin d'un accès contrôlé aux ressources, mais ne nécessitent pas le même niveau de privilège que le noyau. Toutefois, la plupart des systèmes d'exploitation modernes ne les utilisent pas directement.
@@ -395,6 +411,8 @@ L'*Arithmetic Logic Unit* (ALU) est l'une des principales composantes d'un proce
 Le *barrel shifter* est un circuit logique qui permet de décaler un nombre binaire vers la gauche ou vers la droite. Il est utilisé dans les processeurs pour effectuer des opérations de décalage et de rotation sur les données. Sur un processeur 32 bits, le *barrel shifter* peut effectuer des décalages de 1 à 31 bits en une seule opération, ce qui le rend très efficace pour les opérations de manipulation de bits.
 
 ![Barrel Shifter](/assets/images/barrel-shifter.drawio)
+
+Figure: Barrel Shifter {#fig:barrel-shifter}
 
 Rappelons qu'un décalage des bits vers la gauche correspond à une multiplication par 2, tandis qu'un décalage vers la droite correspond à une division par 2. Les puissances de 2 sont donc très efficaces car elles correspondent à des décalages de bits pouvant être effectués très rapidement par le *barrel shifter*.
 
@@ -662,6 +680,8 @@ Les processeurs modernes comptent entre 8 et 24 cœurs, et malgré leur prix com
 À la lecture de ce chapitre vous êtes certainement encore plus perdu qu'au début, tentons ici de démystifier ce qui se trouve réellement sur une puce de silicium. Pour cela, nous sommes contraints de remonter dans le temps, en 1971, pour étudier le premier microprocesseur commercialisé, l'Intel 4004. Il est d'une part très simple avec ses 2500 transistors, réalisé dans un process de 10 µm ce qui permet de le voir avec un microscope optique et enfin son design a été publié par Intel, ce qui permet de le reproduire et de s'intéresser à son schéma interne.
 
 ![Schéma bloc de l'Intel 4004](/assets/images/intel-4004-block-diagram.drawio)
+
+Figure: Schéma bloc de l'Intel 4004 {#fig:intel-4004-block-diagram}
 
 ## Travaux intéressants
 

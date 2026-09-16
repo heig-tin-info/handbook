@@ -6,6 +6,8 @@ L'objectif est de stocker des chaînes de caractères correspondant à des noms 
 
 ![Tableau de hachage simple](/assets/images/hash-linear.drawio)
 
+Figure: Tableau de hachage simple {#fig:hash-linear}
+
 Si l'on cherche l'indice correspondant à `Ada`, il convient de pouvoir calculer la valeur de l'indice correspondant à partir de la valeur de la chaîne de caractères. Pour calculer cet indice aussi appelé *hash*, il existe une infinité de méthodes. Dans cet exemple, considérons une méthode simple. Chaque lettre est identifiée par sa valeur ASCII et la somme de toutes les valeurs ASCII est calculée. Le modulo 10 est ensuite calculé sur cette somme pour obtenir une valeur entre 0 et 9. Ainsi nous avons les calculs suivants :
 
 ```console
@@ -142,6 +144,8 @@ Certains algorithmes permettent de redimensionner dynamiquement la table de hach
 Le chaînage ou *chaining* est une autre méthode pour mieux gérer les collisions. La table de hachage est couplée à une liste chaînée.
 
 ![Chaînage d'une table de hachage](/assets/images/hash-table.drawio)
+
+Figure: Chaînage d'une table de hachage {#fig:hash-table}
 
 ## Adressage ouvert
 

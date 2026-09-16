@@ -30,6 +30,8 @@ Considérons les dix premiers éléments de la séquence de nombres [A130826](ht
 
 ![Construction d'une liste chaînée à l'aide d'un tableau](/assets/images/static-linked-list.drawio)
 
+Figure: Construction d'une liste chaînée à l'aide d'un tableau {#fig:static-linked-list}
+
 La figure ci-dessus montre que les éléments n'ont plus besoin de se suivre en mémoire, car il suffit de consulter l'indice stocké pour retrouver l'élément suivant :
 
 ```c
@@ -104,6 +106,8 @@ Il reste indispensable d'identifier le dernier élément de la liste grâce à u
 
 ![Liste chaînée simple](/assets/images/list.drawio)
 
+Figure: Liste chaînée simple {#fig:list}
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -174,12 +178,16 @@ Attention, la technique précédente ne fonctionne pas dans tous les cas, spéci
 
 ![Boucle dans une liste chaînée](/assets/images/loop.drawio)
 
+Figure: Boucle dans une liste chaînée {#fig:loop}
+
 La liste se terminant par une boucle, il n'y aura jamais d'élément de fin et le nombre d'éléments
 calculé sera infini. Or, cette liste a un nombre fixe d'éléments. Comment donc les compter ?
 
 Il existe un algorithme nommé détection de cycle de Robert W. Floyd aussi appelé *algorithme du lièvre et de la tortue*. Il consiste à avoir deux pointeurs qui parcourent la liste chaînée. L'un avance deux fois plus vite que le second.
 
 ![Algorithme de détection de cycle de Robert W. Floyd](/assets/images/floyd.drawio)
+
+Figure: Algorithme de détection de cycle de Robert W. Floyd {#fig:floyd}
 
 ```c
 size_t compute_length(Element* head)
@@ -268,6 +276,8 @@ La liste doublement chaînée n'est qu'une extension de la liste chaînée simpl
 
 ![Liste chaînée simple](/assets/images/list-double.drawio)
 
+Figure: Liste chaînée simple {#fig:list-double}
+
 ## Liste chaînée XOR
 
 L'inconvénient d'une liste doublement chaînée est le surcoût nécessaire au stockage d'un élément. Chaque élément contient en effet deux pointeurs sur l'élément précédent (*prev*) et suivant (*next*).
@@ -299,6 +309,8 @@ L'avantage principal étant le gain de place en mémoire.
 Une liste chaînée déroulée rassemble les avantages d'un tableau et d'une liste chaînée. Elle permet d'accroître les performances en réduisant l'overhead de réservation mémoire avec `malloc`.
 
 ![Liste chaînée déroulée](/assets/images/unrolled-linked-list.drawio)
+
+Figure: Liste chaînée déroulée {#fig:unrolled-linked-list}
 
 ```c
 typedef struct Node {

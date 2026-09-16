@@ -28,15 +28,21 @@ Un **chipset**
 
 ![Architecture d'un ordinateur](/assets/images/pc-architecture.drawio)
 
+Figure: Architecture d'un ordinateur {#fig:pc-architecture}
+
 ## La RAM
 
 La mémoire vive #[mémoire vive] est une mémoire de stockage temporaire ; on la qualifie parfois de mémoire non permanente. Le plus souvent, une barrette de mémoire est amovible et vient s'insérer directement sur la carte mère. Avec l'évolution de la technologie, ces modules sont carénés et munis d'un dissipateur thermique.
 
 ![2 x 16 GB DDR5 DIMM Corsair Vengeance](/assets/images/sdram-corsair-vengeance.avif){ width=50% }
 
+Figure: 2 x 16 GB DDR5 DIMM Corsair Vengeance {#fig:sdram-corsair-vengeance}
+
 Sous le capot, on peut voir les puces de mémoire:
 
 ![Crucial DDR4 16 GB](/assets/images/sdram.webp){ width=50% }
+
+Figure: Crucial DDR4 16 GB {#fig:sdram}
 
 Cette barrette offre 16 Gibioctets de capacité, soit $16 \times 2^30 = 17\,179\,869\,184$ octets. Chaque octet étant composé de $8$ bits, on obtient $17\,179\,869\,184 \times 8 = 137\,438\,953\,472$ bits. Comme nous observons $4$ puces de mémoire, chacune d'elles contient donc $4$ Gibioctets.
 
@@ -72,6 +78,8 @@ Il existe plusieurs technologies de mémoire vive. Les plus courantes sont : SDR
 
 ![Autoroute de l'information](/assets/images/highway.png)
 
+Figure: Autoroute de l'information {#fig:highway}
+
 La vitesse de la lumière est de 299 792 458 m/s, valeur fixée par la définition du mètre. Il s'agit de la vitesse maximale atteignable dans l'univers. Pour donner un ordre de grandeur, un signal électrique se propage dans un câble à environ deux tiers de cette vitesse. Parcourir un mètre lui demande donc près de 5 ns.
 
 Plus haut, nous avons vu que le bus de données de la mémoire est souvent large de 64 bits. On peut le comparer à une autoroute à 64 voies présentant toutefois quelques contraintes :
@@ -86,6 +94,8 @@ Sur la figure suivante, on voit le routage d'un circuit électronique. En rose, 
 
 ![Routage d'une mémoire](/assets/images/sdram-layout.png)
 
+Figure: Routage d'une mémoire {#fig:sdram-layout}
+
 Vous me direz, oui, mais 540 millions de km/h c'est super rapide et sur ce circuit les lignes ne font pas plus de 10 cm ce qui représente 600 ps pour parcourir la distance. Oui, mais voilà, on communique sur cette autoroute à 2000 MT/s (mégatransferts par seconde). Cela signifie que 2'000'000 de véhicules entrent sur chaque voie de l'autoroute chaque seconde. N'est-ce pas incroyable?
 
 Malgré ces performances, la mémoire reste un goulot d'étranglement pour les processeurs. En effet, les processeurs sont de plus en plus rapides et les mémoires ne suivent pas le rythme. Un processeur qui calcule à 4 GHz peut exécuter 4 milliards d'instructions par seconde. Si chaque instruction nécessite un accès mémoire et que cet accès prend 100 cycles d'horloge, alors le processeur ne pourra exécuter que 40 millions d'instructions par seconde. Cela signifie que le processeur ne sera utilisé qu'à 1% de sa capacité.
@@ -94,15 +104,21 @@ Malgré ces performances, la mémoire reste un goulot d'étranglement pour les p
 
 ![Disque dur](/assets/images/hdd.jpg)
 
+Figure: Disque dur {#fig:hdd}
+
 Le disque dur est un dispositif de stockage de masse #[stockage de masse]. Il se compose de plusieurs plateaux métalliques qui tournent à grande vitesse. Un bras mécanique se déplace au-dessus des surfaces magnétiques pour lire ou écrire les données. Comparés à la mémoire vive, les disques durs demeurent lents, mais ils sont privilégiés pour conserver les données de manière durable.
 
 De nos jours, ils sont progressivement supplantés par des disques SSD (*Solid State Drive*) plus rapides et plus fiables. Les SSD reposent sur de la mémoire flash et ne contiennent aucune pièce mobile. Contrairement à la mémoire vive, il s'agit d'une mémoire non volatile : les données restent disponibles même lorsque l'alimentation est coupée.
 
 ![SSD de 2 TiB](/assets/images/ssd-990pro.avif){ width=50% }
 
+Figure: SSD de 2 TiB {#fig:ssd-990pro}
+
 On pourrait se demander pourquoi les SSD, capables de stocker beaucoup plus de données dans un volume identique, restent plus lents que la mémoire vive. La réponse tient à leur organisation interne en blocs, appelés *pages* et *clusters*. Pour lire ou écrire une donnée, il faut manipuler tout le bloc. Autrement dit, pour accéder à un seul octet, il est nécessaire de transférer 4'096 octets : c'est la notion de *page size*.
 
 ![Évolution du prix des HDD et SSD](/assets/images/ssd-hdd-price.drawio)
+
+Figure: Évolution du prix des HDD et SSD {#fig:ssd-hdd-price}
 
 La communication entre le processeur et un disque SSD ou HDD passe par un protocole série appelé *SATA* (*Serial ATA*). Il autorise un débit maximal de 6 Gbit/s. Transférer un octet nécessite donc 8 bits, soit 8 ns. Cela paraît rapide, mais lire un bloc de 4'096 octets impose d'acheminer 32'768 bits, donc 32'768 × 8 ns = 262'144 ns, c'est-à-dire 262 µs. On se retrouve alors avec un temps d'accès 262'144 fois plus élevé que celui de la mémoire vive.
 
@@ -111,6 +127,8 @@ Pour interfacer le processeur avec le disque, on recourt à un contrôleur dédi
 ## La carte mère
 
 ![Carte mère](/assets/images/motherboard.webp){ width=50% }
+
+Figure: Carte mère {#fig:motherboard}
 
 La carte mère constitue l'épine dorsale de l'ordinateur. Elle relie tous les composants entre eux grâce à un circuit imprimé sur lequel sont soudés les éléments actifs et une multitude de connecteurs.
 
@@ -128,6 +146,8 @@ Le processeur fait figure de cerveau de l'ordinateur : il exécute les instructi
 
 ![Processeur Intel i7](/assets/images/cpu-i7.png)
 
+Figure: Processeur Intel i7 {#fig:cpu-i7}
+
 Sur les 1 700 broches, on distingue plusieurs familles :
 
 - Les broches d'alimentation représentent 40 à 60 % de l'ensemble et fournissent au processeur une tension d'environ 1,2 V.
@@ -143,3 +163,5 @@ Si l'on consulte le SDM (*Software Developer Manual*) d'Intel, un document de 5 
 ## Chipset
 
 ![Chipset](/assets/images/chipset-cpu.drawio)
+
+Figure: Chipset {#fig:chipset-cpu}

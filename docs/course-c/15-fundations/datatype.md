@@ -72,6 +72,8 @@ int main() {
 
 ![Boutisme par J. J. Grandville (1838)](/assets/images/endian.jpg){width=70%}
 
+Figure: Boutisme par J. J. Grandville (1838) {#fig:endian}
+
 La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. #[endianess] #[Gulliver, les voyages de] #[boutisme]
 
 En informatique, cette question, loin d’être triviale, persiste dans le monde des microprocesseurs. Certains fonctionnent en **big endian**, où les octets sont stockés en mémoire du plus significatif au moins significatif, tandis que d'autres adoptent le format **little endian**, inversant cet ordre. Imaginons qu’une donnée soit enregistrée en mémoire ainsi :
@@ -165,6 +167,8 @@ La construction d'un type entier C peut être résumée par la figure suivante :
 
 ![Entiers standardisés](/assets/images/ansi-integers.drawio)
 
+Figure: Entiers standardisés {#fig:ansi-integers}
+
 Le préfixe `signed` est implicite, mais il est possible de l'utiliser pour plus de clarté. En pratique il sera rarement utilisé. De même, lorsque `short`, `long` ou `long long` est utilsé, le suffixe `int` est implicite.
 
 Les types suivants sont donc des synonymes:
@@ -212,6 +216,8 @@ Table: Table des types entiers en C
 Avec l'avènement de **C99**, une meilleure cohésion des types a été proposée dans le fichier d'en-tête `stdint.h`. Cette bibliothèque standard offre les types suivants :
 
 ![Flux de construction d'un entier standardisé](/assets/images/c99-integers.drawio)
+
+Figure: Flux de construction d'un entier standardisé {#fig:c99-integers}
 
 []{#reformed-types}
 
@@ -310,9 +316,13 @@ La première table ASCII #[ASCII] définissant 128 caractères est donnée par l
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
+Figure: Table ASCII ASA X3.4 établie en 1963 {#fig:ascii-1963}
+
 En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules et minuscules. Cette réforme est donnée par la figure suivante. Il s'agit de la table ASCII standard actuelle.
 
 ![Table ANSI INCITS 4-1986 (standard actuel)](/assets/images/ascii.drawio)
+
+Figure: Table ANSI INCITS 4-1986 (standard actuel) {#fig:ascii}
 
 !!! info "Majuscules et Minuscules"
 
@@ -335,6 +345,8 @@ Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue 
 
 ![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](/assets/images/latin1.drawio)
 
+Figure: Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas) {#fig:latin1}
+
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
 Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a proposé un standard nommé [Windows-1252](https://fr.wikipedia.org/wiki/Windows-1252) s'inspirant de [ISO-8859-1](https://fr.wikipedia.org/wiki/ISO/CEI_8859-1). En voulant rassembler en proposant un standard plus général, Microsoft n'a contribué qu'à proposer un standard supplémentaire venant s'inscrire dans une liste déjà trop longue. Et l'histoire n'est pas terminée...
@@ -349,7 +361,7 @@ Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les C
 
 Un fabuleux consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) et son encodage **UTF-8** (*Unicode Transformation Format*). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
-Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel
+Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel {#fig:unicode-trends}
 
 ![Utiliation de l'UTF-8 dès 2001](/assets/images/unicode-trends.drawio)
 
@@ -361,7 +373,7 @@ Ce nouveau standard devait résoudre de nombreux problème techniques. Le premie
 
 Unicode définit plusieurs encodages dont les plus courants sont **UTF-8**, **UTF-16** et **UTF-32**. Le plus utilisé, et de loin est **UTF-8** qui est un encodage à **longueur variable**. Le premier octet, s'il ne s'agit pas d'un caractère ASCII (0xxxxxxx), indique le nombre d'octets utilisés pour encoder le caractère. Par exemple, si le premier octet commence par `110xxxxx`, cela signifie que le caractère est encodé sur 2 octets. Si le premier octet commence par `1110xxxx`, cela signifie que le caractère est encodé sur 3 octets. Si le premier octet commence par `11110xxx`, cela signifie que le caractère est encodé sur 4 octets. Les bits `x` sont utilisés pour coder la valeur du caractère.
 
-Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon le premier octet
+Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon le premier octet {#fig:unicode-table}
 
 ![Nombre d'octets en UTF-8](/assets/images/unicode-table.drawio)
 

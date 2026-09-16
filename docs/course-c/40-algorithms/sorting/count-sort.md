@@ -10,6 +10,8 @@ Ici, les données d'entrées seront générées entre 0 et 51 ; chaque valeur re
 
 ![cards](/assets/images/playing-cards.svg){ width=100% }
 
+Figure: cards {#fig:playing-cards}
+
 Cette série de valeurs dispose de plusieurs propriétés intéressantes :
 
 1. La valeur d'une carte est identifiée par `n % 13`.

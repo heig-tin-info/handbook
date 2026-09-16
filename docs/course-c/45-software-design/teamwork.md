@@ -193,6 +193,8 @@ Le diagramme suivant montre la représentation de ces cas d'utilisation.
 
 ![Diagramme de cas d'utilisation](/assets/images/use-case-diagram.drawio)
 
+Figure: Diagramme de cas d'utilisation {#fig:use-case-diagram}
+
 À partir de ce diagramme, on peut déduire les besoins fonctionnels du système. Par exemple, le cas d'utilisation "Règlage de la mouture" implique que le système doit être capable d'offir une interface utilisateur permettant de régler la mouture du café. Le cas d'utilisation "Maintenance" implique que le système doit être capable de détecter les pannes et de les signaler à l'utilisateur.
 
 Il se peut que des utilisateurs ou des actions inutiles ait été ajoutées ou qu'il en manque. Ce n'est pas un problème à ce stade de l'exercice car le processus de réflexion est itératifs. On peut revenir plus tard sur le diagramme pour l'ajuster et consolider les hypothèses initiales.
@@ -219,6 +221,8 @@ En pratique une bonne analyse est l'analyse **FAST** pour **Function Analysis Sy
 Un diagramme FAST est bidimensionnel. Horizontalement sont représentés des fonctions du systèmes. En se dirigeant à droite, on répond à la question "Comment", en se dirigeant à gauche on répond à la question "Pourquoi". Verticalement on peut représenter le "Quand" ou l'ordre de priorité des fonctions.
 
 ![Diagramme FAST](/assets/images/fast-diagram.drawio)
+
+Figure: Diagramme FAST {#fig:fast-diagram}
 
 Une fonction s'écrit sous la forme d'un verbe à l'infinitif suivi d'un complément d'objet. Par exemple "Préparer du café" ou "Détecter une panne".
 
@@ -361,6 +365,8 @@ Le modèle en cascade est un modèle linéaire qui divise le projet en plusieurs
 Le modèle en cascade suivant résume le cycle de développement d'un programme. Il s'agit d'un modèle simple, mais qu'il faut garder à l'esprit que ce soit pour le développement d'un produit logiciel que durant les travaux pratiques liés à ce cours.
 
 ![Modèle en cascade](/assets/images/waterfall.drawio)
+
+Figure: Modèle en cascade {#fig:waterfall}
 
 ### Modèle en V
 

@@ -31,6 +31,8 @@ Dans un ordinateur, ou sur un microcontrôleur, c'est l'unité de calcul arithm�
 
 ![ALU](/assets/images/alu.drawio)
 
+Figure: ALU {#fig:alu}
+
 L'unité de calcul arithmétique (**ALU**) représentée est composée de deux entrées `A` et `B`, d'une sortie `C` et d'un mode opératoire `O`. Sur de petites architectures matérielles, l'ALU peut être limité aux opérations d'addition `+`, d'inversion bit à bit `~`, de décalage vers la gauche `<<` et vers la droite `>>` et de l'opération bit à bit logique `&` pour la conjonction ainsi que `|` pour la disjonction.
 
 Si l'on souhaite faire une addition, on peut écrire en C :

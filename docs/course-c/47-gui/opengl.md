@@ -60,6 +60,8 @@ Dans notre exemple, imagions que notre pyramide est celle de Kheops, de Khéphre
 
 ![Pyramide depuis le Caire](/assets/images/caire.png)
 
+Figure: Pyramide depuis le Caire {#fig:caire}
+
 (donner un exemple concret avec les données de la caméra, de la lumière et une texture de brique, une transformation de perspective de la lentille de la caméra, let normales des faces pour le calcul de l'éclairage. Donner un exemple en GLSL du vertex shader pour la pyramide.)
 
 ### Tessellation
@@ -642,6 +644,8 @@ gcc -o triangle triangle.c -lglfw -lGLEW -lGL -lm
 ```
 
 ![Triangle Blanc](/assets/images/triangle1.png)
+
+Figure: Triangle Blanc {#fig:triangle1}
 
 ## Matrices
 

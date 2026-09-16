@@ -134,6 +134,8 @@ Alternativement, vous pouvez utiliser l'environnement officiel de développement
 
 ![GUI avec GTK](/assets/images/gui.png)
 
+Figure: GUI avec GTK {#fig:gui}
+
 ## Rendu logiciel ou matériel
 
 Les premiers ordinateurs personnels, comme le [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple ou l'Amiga d'Atari, utilisaient un rendu graphique purement logiciel. Cela signifie que le processeur central (CPU) était responsable de dessiner les pixels à l'écran, en calculant les couleurs, les textures, les ombres, et autres effets visuels. Historiquement avant les systèmes d'exploitation multitâches, pour afficher un pixel à l'écran, il suffisait ou presque d'écrire une valeur dans la mémoire vidéo.
@@ -201,6 +203,8 @@ int main(int argc, char** argv) {
 ```
 
 ![Théière en 3D](/assets/images/teapot.png)
+
+Figure: Théière en 3D {#fig:teapot}
 
 La bibliothèque Cairo est un exemple de bibliothèque de rendu 2D qui peut fonctionner en mode logiciel ou matériel. Cairo est utilisé par GTK pour le rendu graphique de ses composants. Il est également utilisé par d'autres applications comme Inkscape, Firefox, et WebKit. Voici l'exemple d'un programme qui trace une ligne noir sous la souris :
 
@@ -277,6 +281,8 @@ x.c -lgtk-3 -lgdk-3 -lz -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -latk-1.0
 
 ![Hello tracé avec la souris](/assets/images/framebuffer.png)
 
+Figure: Hello tracé avec la souris {#fig:framebuffer}
+
 
 ## Bibliothèques graphiques de haut niveau
 
@@ -337,6 +343,8 @@ Lorsque différentes fenêtres sont nécessaires, le programme peut créer des c
 Voici un exemple simple d'utilisation d'Allegro pour créer une fenêtre graphique avec un cercle rouge qui rebondit sur les bords de la fenêtre :
 
 ![Balle qui rebondit](/assets/images/bouncing-ball.gif)
+
+Figure: Balle qui rebondit {#fig:bouncing-ball}
 
 ```c
 #include <allegro5/allegro.h>

@@ -24,6 +24,8 @@ La figure suivante montre comment il serait possible de hiérarchiser les élém
 
 ![Exemple d'arbre syntaxique (AST)](/assets/images/parsing.drawio)
 
+Figure: Exemple d'arbre syntaxique (AST) {#fig:parsing}
+
 La grammaire formelle du langage C est très complexe et comporte de nombreuses règles. Elle est définie par le standard du langage C, qui est un document officiel publié par l'ANSI (American National Standards Institute) et l'ISO (International Organization for Standardization).
 
 Une grammaire formelle est souvent écrite en utilisant une notation appelée "Backus-Naur Form" (BNF). Cette notation est très précise et permet de décrire de manière formelle la syntaxe d'un langage de programmation. Pour le C voici un extrait de la grammaire utilisée par le compilateur :

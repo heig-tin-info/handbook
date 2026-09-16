@@ -29,6 +29,8 @@ L’évolution du C se poursuit dans les années 1980, lorsque [Bjarne Stroustru
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
+Figure: Les pères fondateurs du C {#fig:thompson-kernighan-ritchie}
+
 Il faut attendre 1989 #[1989] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Le C s’impose alors comme un standard international et renforce sa position dominante dans l’informatique.
 
 Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :
@@ -251,6 +253,8 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le pro
 
 ![Cycle de compilation illustré](/assets/images/build-cycle.drawio)
 
+Figure: Cycle de compilation illustré {#fig:build-cycle}
+
 []{#preproc-intro}
 
 ### Préprocesseur (*pre-processing*)
@@ -258,6 +262,8 @@ Vient ensuite la phase d'édition des liens ou *linkage* lors de laquelle le pro
 La phase de *preprocessing* permet de générer un fichier intermédiaire en langage C dans lequel toutes les instructions nécessaires à la phase suivante sont présentes. Le *preprocessing* réalise le remplacement des directives du préprocesseur [de définitions](#preprocessor-define) par leurs valeurs résultantes. Ce préprocesseur permet d'inclure des fichiers externes, de définir des valeurs constantes ou de conditionner l'exécution de certaines parties du code par exemple avec des options de configuration. Avec le compilateur `gcc` il est possible de demander uniquement cette étape avec l'option `-E`. Cette étape est illustrée dans la figure suivante.
 
 ![Processus de préprocessing](/assets/images/preprocessing.drawio)
+
+Figure: Processus de préprocessing {#fig:preprocessing}
 
 Lorsque vous écrivez votre programme, vous le faites en utilisant des fichiers sources avec l'extension `.c`. Néanmoins, dans votre programme, vous vous basez sur de nombreuses bibliothèques logicielles qui donnent accès à des fonctions prédéfinies. Ces bibliothèques sont incluses dans votre programme à l'aide de la directive `#include`. Lors de la compilation, le préprocesseur va remplacer ces directives par le contenu des fichiers d'en-tête correspondants. Par exemple, la directive `#include <stdio.h>` sera remplacée par le contenu du fichier `stdio.h` qui contient les déclarations des fonctions de la bibliothèque standard d'entrées sorties. Cette procédure prend donc en entrée un fichier source et un ou plusieurs fichiers d'en-tête et le transforme en un fichier source unique.
 
@@ -269,9 +275,13 @@ La phase de compilation consiste en une analyse syntaxique du fichier à compile
 
 ![Assemblage d'un programme C pré-processé en assembleur](/assets/images/assembly.drawio)
 
+Figure: Assemblage d'un programme C pré-processé en assembleur {#fig:assembly}
+
 Une fois généré le fichier assembleur, il doit encore est transformé en langage machine, c'est-à-dire en un fichier binaire. Cette étape est réalisée par un programme appelé *as* qui prend en entrée le fichier assembleur et génère un fichier binaire comme le montre la figure suivante.
 
 ![Traduction d'un programme C pré-processé en objet binaire](/assets/images/build.drawio)
+
+Figure: Traduction d'un programme C pré-processé en objet binaire {#fig:build}
 
 ### Édition de liens (*link*)
 
@@ -284,6 +294,8 @@ Imaginez un livre dont vous êtes le héros. Plusieurs auteurs différents peuve
 Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous les chapitres seront réunis. L'édition de liens est un peu comme l'assemblage de tous les chapitres pour former un livre complet, elle s'occupe de remplacer les marques substitutives par les bons numéros de pages. Cette étape est illustrée dans la figure suivante.
 
 ![Édition des liens de plusieurs objets](/assets/images/link.drawio)
+
+Figure: Édition des liens de plusieurs objets {#fig:link}
 
 []{#hello-world}
 

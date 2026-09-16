@@ -58,6 +58,8 @@ Nous définirons par la suite les opérations suivantes :
 
 ![Opérations sur un tableau dynamique](/assets/images/dyn-array-operations.drawio)
 
+Figure: Opérations sur un tableau dynamique {#fig:dyn-array-operations}
+
 Table: Vocabulaire des actions sur un tableau dynamique
 
 | Action                                         | Terme technique         |
@@ -74,6 +76,8 @@ Nous comprenons rapidement qu'il est plus compliqué d'ajouter ou de supprimer u
 Un tableau dynamique peut être représenté par la figure suivante :
 
 ![Tableau dynamique](/assets/images/dyn-array.drawio)
+
+Figure: Tableau dynamique {#fig:dyn-array}
 
 Un espace mémoire est réservé dynamiquement sur le tas. Comme `malloc` ne retourne pas la taille de l'espace alloué mais seulement un pointeur, il est nécessaire de conserver la capacité du tableau dans une variable dédiée. Notons qu'un tableau de dix `int32_t` occupe 10 × 4 octets, soit 40 octets. La mémoire réservée par `malloc` n'est généralement pas vide : elle contient les vestiges d’anciennes allocations. Pour connaître le nombre d'éléments effectifs du tableau, il faut également stocker cette information. Enfin, le pointeur vers l'espace mémoire doit être mémorisé.
 
@@ -111,6 +115,8 @@ L'opération `pop` retire l'élément de la fin du tableau. Le nombre d'élémen
 
 ![Suppression d'un élément dans un tableau dynamique](/assets/images/dyn-array-pop.drawio)
 
+Figure: Suppression d'un élément dans un tableau dynamique {#fig:dyn-array-pop}
+
 ```c
 if (elements <= 0) exit(EXIT_FAILURE);
 int value = data[--elements];
@@ -122,6 +128,8 @@ L'opération `push` ajoute un élément à la fin du tableau.
 
 ![Ajout d'un élément dans un tableau dynamique](/assets/images/dyn-array-push.drawio)
 
+Figure: Ajout d'un élément dans un tableau dynamique {#fig:dyn-array-push}
+
 ```c
 if (elements >= capacity) exit(EXIT_FAILURE);
 data[elements++] = value;
@@ -131,7 +139,7 @@ data[elements++] = value;
 
 L'opération `shift` retire un élément depuis le début. Elle a une complexité en $O(n)$ puisqu'à chaque exécution il faut déplacer l'ensemble des éléments restants.
 
-Figure: Suppression du premier élément dans un tableau dynamique
+Figure: Suppression du premier élément dans un tableau dynamique {#fig:dyn-array-shift}
 
 ![Tableau dynamique: pop front](/assets/images/dyn-array-shift.drawio)
 
@@ -159,6 +167,8 @@ Il est toutefois indispensable de conserver séparément un pointeur vers le blo
 Enfin, l'opération `unshift` ajoute un élément depuis le début du tableau :
 
 ![Ajout d'un élément en début d'un tableau dynamique](/assets/images/dyn-array-unshift.drawio)
+
+Figure: Ajout d'un élément en début d'un tableau dynamique {#fig:dyn-array-unshift}
 
 ```c
 for (int k = elements; k >= 1; k--)
@@ -222,6 +232,8 @@ Une pile est une structure de données utilisée pour empiler des données de ma
 
 ![Pile ou *stack*](/assets/images/dyn-array-stack.drawio)
 
+Figure: Pile ou *stack* {#fig:dyn-array-stack}
+
 Nous avons vu que certaines opérations sont plus coûteuses que d'autres. Les opérations `push-back` et `pop-back` sont les moins gourmandes. Puisque la pile ne repose que sur ces deux actions, on peut en tirer parti.
 
 Une pile peut donc être implémentée sous forme d'un tableau dynamique dans lequel on ne conserve que ces deux opérations.
@@ -241,6 +253,8 @@ Pour permettre la circulation, les indices sont calculés modulo la taille du bu
 Il est possible de représenter schématiquement ce buffer comme un cercle et ses deux pointeurs :
 
 ![Exemple d'un tampon circulaire](/assets/images/ring.drawio)
+
+Figure: Exemple d'un tampon circulaire {#fig:ring}
 
 Le nombre d'éléments dans le tampon est la différence entre le pointeur de tête et le pointeur de queue, modulo la taille du buffer. Néanmoins, l'opérateur `%` en C ne fonctionne que sur des nombres positifs et ne retourne pas toujours le résidu positif minimal. En somme, `-2 % 5` devrait donner `3`, ce qui est le cas en Python, mais en C, en C++ ou en PHP la valeur retournée est `-2`. Le modulo mathématiquement correct peut être calculé ainsi :
 

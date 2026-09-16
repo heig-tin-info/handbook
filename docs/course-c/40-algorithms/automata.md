@@ -4,6 +4,8 @@ Dans le contexte de l'algorithmique, il est pertinent d'aborder les automates fi
 
 ![Hiérarchie des automates](/assets/images/automata-classes.drawio)
 
+Figure: Hiérarchie des automates {#fig:automata-classes}
+
 Nous avions évoqué, en introduction de cet ouvrage, la [machine de Turing](#turingmachine), modèle théorique capable d'exécuter n'importe quel algorithme. Bien que la très grande majorité des langages de programmation soient dits Turing-complets, il reste parfois plus judicieux de recourir à des automates finis pour certains problèmes spécifiques. Une règle pragmatique en informatique recommande d'aligner la complexité de l'outil sur celle du problème à résoudre. Autrement dit, si un problème possède une structure simple, il est plus efficace d'utiliser un modèle computationnel ou un langage de programmation d'une complexité comparable. Employer un outil plus puissant que nécessaire peut engendrer des inefficacités, des erreurs ou des solutions inutilement lourdes.
 
 On rencontre les automates finis dans de très nombreux domaines, du distributeur automatique de boissons aux ascenseurs en passant par les feux de circulation.
@@ -11,6 +13,8 @@ On rencontre les automates finis dans de très nombreux domaines, du distributeu
 Contrairement à un système Turing-complet, un automate fini ne peut pas réaliser n'importe quel algorithme. Sa structure et son nombre d'états limités restreignent ses capacités. Voici, par exemple, un automate simple qui modélise un ascenseur :
 
 ![Ascenseur](/assets/images/elevator-states.drawio)
+
+Figure: Ascenseur {#fig:elevator-states}
 
 Ces états peuvent également être représentés par un tableau de transition :
 
@@ -30,6 +34,8 @@ Un autre exemple classique d'automate fini est le problème de la chèvre, du ch
 Ce problème peut être modélisé par un automate fini. Chaque état est nommé d'après les éléments déjà arrivés. Par exemple, l'état CFS signifie que le chou, le fermier et le loup ont traversé. Les transitions précisent quels éléments passent d'une rive à l'autre. Notons que l'on désigne le chou par `S` (comme *salade*) afin d'éviter la confusion avec la chèvre. Voici le diagramme d'états :
 
 ![La chèvre, le loup et le chou](/assets/images/river-crossing.drawio)
+
+Figure: La chèvre, le loup et le chou {#fig:river-crossing}
 
 ### Implémentation
 
@@ -175,9 +181,13 @@ Dans ces exemples, à chaque état un caractère est capturé sur la chaîne de 
 
 ![DFA simples](/assets/images/regex-nfas.drawio)
 
+Figure: DFA simples {#fig:regex-nfas}
+
 À partir de ces éléments simples, il est possible de construire une expression plus complexe comme `#!re /Z|X(X|Y)*/` : la lettre `Z` seule ou `X` suivi de `X` ou `Y`, répétés zéro ou plusieurs fois. Pour l'étoile de Kleene, la construction n'est pas toujours évidente. Pour résoudre ce problème, on introduit la notion de transition epsilon `ε`, qui permet de passer d'un état à un autre sans consommer de caractère. On peut en ajouter autant que nécessaire :
 
 ![NFA avec epsilon](/assets/images/regex-nfa.drawio)
+
+Figure: NFA avec epsilon {#fig:regex-nfa}
 
 Ce diagramme d'état peut être représenté sous forme de tableau de transition :
 
@@ -205,6 +215,8 @@ Table: Table de transition simplifiée
 Ceci nous donne un automate fini déterministe (DFA):
 
 ![DFA](/assets/images/regex-dfa.drawio)
+
+Figure: DFA {#fig:regex-dfa}
 
 ### Implémentation
 

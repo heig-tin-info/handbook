@@ -48,6 +48,8 @@ Imaginons maintenant un tableau de `int16_t` de 5 éléments. En mémoire, il co
 
 ![Tableau en mémoire](/assets/images/array.drawio)
 
+Figure: Tableau en mémoire {#fig:array}
+
 ```c
 int16_t array[5] = {0x0201, 0x0403, 0x0605, 0x0807, 0x0A09};
 ```
@@ -370,6 +372,8 @@ int array[2][3][4];
 On peut le représenter graphiquement comme suit :
 
 ![Tableau multidimensionnel 2x3x4](/assets/images/multidimensional-array.drawio)
+
+Figure: Tableau multidimensionnel 2x3x4 {#fig:multidimensional-array}
 
 Néanmoins en mémoire, ce tableau est toujours représenté de façon linéaire. L'association des coordonnées `x`, `y` et `z` est subjective et dépend de la manière dont le tableau est utilisé. Néanmoins, on pourrait s'accorder sur une représentation en mémoire logique. Dans le cas de cette figure, l'axe horizontal est l'axe des `x`, l'axe vertical est l'axe des `y` et la profondeur est l'axe des `z`. L'accès se fera avec `[z][y][x]`:
 

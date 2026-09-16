@@ -4,6 +4,8 @@ GTK (*Gimp ToolKit*) est une bibliothèque logicielle libre qui permet de créer
 
 ![Architecture GTK](/assets/images/gtk-stack.drawio)
 
+Figure: Architecture GTK {#fig:gtk-stack}
+
 Elle repose grandement sur GLib, la bibliothèque de base de GNOME, qui fournit des types de données, des macros, des structures et des fonctions de base pour la programmation en C. Avec Glib on peut par exemple simplifier considérablement le développement en C, en fournissant des fonctions pour la gestion de la mémoire, des chaînes de caractères, des listes, des tableaux, des arbres, des files d'attente, des piles, des tables de hachage etc. Voici un exemple simple d'utilisation de GLib :
 
 ```c

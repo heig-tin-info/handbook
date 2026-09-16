@@ -411,6 +411,8 @@ Prenons l'exemple concrêt de la structure d'un fichier audio WAV :
 
 ![Fichier WAV](/assets/images/wav.drawio)
 
+Figure: Fichier WAV {#fig:wav}
+
 Cette structure peut être définie de la façon suivante :
 
 ```c
