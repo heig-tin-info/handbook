@@ -1433,3 +1433,169 @@ warning (`@Ry` in `cpu-zero.md`, known):
 
 Screenshots of the dialog before and after are in the scratchpad
 (`shots/before-*.png`, `shots/after-*.png`).
+
+## 13. CI, numbered figures, the fill-in-the-blanks
+
+Branch `zensical`, TeXSmith 0.7.1.dev of `/home/ycr/texsmith` branch `zensical`,
+`tmark-core` built from `/home/ycr/tmark` branch `autorefs-anchors`, Zensical
+0.0.62. The MkDocs build starts at 10 warnings and 0 errors:
+
+| code | count |
+| --- | --- |
+| `var-unresolved` | 8 |
+| `ref-unresolved` (`@Ry`) | 1 |
+| `asset-convert-failed` (the `pie` fence) | 1 |
+
+and ends at 2, the two known ones.
+
+### A non-blocking `make zensical` in CI
+
+`.github/workflows/zensical.yml`, a file of its own so that `ci.yml` and its
+`mkdocs gh-deploy` are untouched: `continue-on-error`, `contents: read`, its own
+concurrency group, and on `master`, `main`, `zensical`, every pull request and
+`workflow_dispatch`. It runs `make zensical` whole — `texsmith site assets`,
+`zensical build`, `texsmith site build` with its two PDFs — and uploads `site/`
+and the two books.
+
+Three things the runner cannot do the way the developer's tree does.
+
+**The sources.** `[tool.uv.sources]` pins `texsmith`, `mkdocs-texsmith` and
+`tmark-core` to working copies under `/home/ycr`. `uv` has no per-environment
+override for a source: `--no-sources` would fall back to PyPI, where `texsmith`
+and `mkdocs-texsmith` are at 0.7.0 and `tmark-core` at 0.1.0 without the
+branch's fixes, and `UV_OVERRIDE` overrides versions, not sources. So the job
+checks the two repositories out beside the handbook (`.ci/texsmith`,
+`.ci/tmark`, `actions/checkout` with `path:`) and rewrites the three paths with
+one `sed`; `uv sync` re-locks by itself, the lock of the checkout being
+disposable. It is the step the `tmark-core` and TeXSmith releases remove.
+
+Neither ref exists on its remote: `yves-chevallier/texsmith` has `master` and
+`gh-pages`, `yves-chevallier/tmark` redirects to `yves-chevallier/tmark-core`
+and has `main`. The job is therefore red until the branches are pushed, which
+is what `continue-on-error` is for, and both repositories are public so no token
+is needed once they are.
+
+**The core.** `tmark-core` is a Rust extension and no wheel of the branch is
+published, so the job installs `dtolnay/rust-toolchain@stable` and lets `uv`
+build it, with `Swatinem/rust-cache` over `.ci/tmark`. Measured here with the
+target tree removed and a warm crates registry: 27 s of wall time, 2 min 56 s
+of CPU on 20 cores — so some 3 minutes on a two-core runner, plus the registry
+fetch on a first run.
+
+**The diagrams.** `docs/assets/drawio/` is generated and gitignored, and
+`texsmith site assets` exports the 122 `.drawio` sources to SVG. Its first
+backend is Playwright, whose Python package TeXSmith already depends on, so the
+job adds the browser (`playwright install --with-deps chromium`); the draw.io
+CLI and the Docker image are the other two backends and both cost more. Cold,
+with `TEXSMITH_CACHE_DIR` pointed at an empty directory, the export is
+**2 min 38 s** for 115 diagrams. Tolerating the raw `.drawio` images was the
+alternative and it is not one: the pages would point at files no browser
+renders, the MkDocs `drawio` plugin that drew them being another thing Zensical
+does not run.
+
+**Checked outside the tree.** `git clone /home/ycr/handbook … && git checkout
+zensical`, the two repositories cloned beside it as the job checks them out, the
+`sed` the job runs, then each step in order:
+
+| step | result |
+| --- | --- |
+| `uv sync` | 150 packages resolved, 125 installed |
+| `texsmith site assets` | 115 of 122 diagrams exported, 0 failed |
+| `zensical build` | 146 pages, the 47 known anchor notices |
+| `texsmith site build` | `book.pdf` 37.8 MB, `tools.pdf` 4.5 MB, 10 min 1 s |
+
+`python -c "import yaml"` parses the workflow and `yamllint` is clean.
+
+### The images that deserve a number
+
+`mkdocs-caption` selected `//p/a/img|//p/img` — every image alone in a paragraph
+— and wrapped it in a `<figure>` whose `<figcaption>` was the image's `title`
+or, failing that, its alt. What `master` configured was **not** a number:
+`caption_prefix: ''` empties the `Figure {index}:` the plugin would have
+prefixed, and `reference_text: ''` its cross-reference. So the web had a caption
+under every image and no number, and `ignore_classes: [nocaption]` took the 15
+badges of `refcards.md` out.
+
+What TMark does with the same paragraph, checked against the writers and the
+built pages:
+
+| | LaTeX | web lowering |
+| --- | --- | --- |
+| `![alt](img)` | `figure` float, `\caption{alt}`, no label | left as written, no `<figure>` |
+| `![alt](img)` + `Figure: text` | `\caption[alt]{text}` | `<figure>` + `<figcaption>`, no number |
+| the same + `{#fig:id}` | `\caption[alt]{text}\label{fig:id}` | `<span class="ts-caption-label">Figure N :</span>` |
+
+So the book has been numbering its figures all along, from the alt, and the web
+needs the caption line *and* a label. `utils/number_figures.py` writes both,
+idempotently and with a `--check` mode: the label is the image's file name
+(`fig:von-neumann-harvard`), an id already taken is suffixed, and an image
+carrying an `{#id}` of its own hands it to its caption line, where the anchor
+belongs (one image did, `{#beetle}`).
+
+The rule is `mkdocs-caption`'s, plus three restrictions: the pages under
+`docs/assets/` are sources of other pages and stay out (8 images); a
+link-wrapped image is not a paragraph made of one image, so the web lowering
+would not promote it and the caption line would leak into the page (5, all in
+`refcards.md`); an image already captioned keeps its caption and only gains the
+label (8).
+
+| | before | after |
+| --- | --- | --- |
+| images captioned | 8 | 194 |
+| `<figure>` on the Zensical site | 125 | 312 |
+| of them tables | 111 | 112 |
+| of them Mermaid | 6 | 6 |
+| of them images | 8 | 194 |
+| `ts-caption-label` | 1 (a table) | 195 |
+| `figure` environments in the C book | 189 | 189 |
+| of them labelled `fig:` | 0 | 181 |
+| `\caption` in the C book's pages | 287 | 288 |
+
+The web numbers run **1 to 194 with no gap**, site-wide as the exercises are —
+`Numbering::All` numbers every series on the web and no scope resets it, so
+`05-introduction/programming` opens on *Figure 7* and closes on *Figure 147*.
+Whether that is wanted is the same open question as the exercises', and it is
+one item in `TODO.md` now. The 15 `nocaption` badges keep no caption and no
+number on either medium, `refcards.md` being in neither book. Screenshot:
+`shots/figures-functions-page.png`.
+
+The `\caption` that appears is a caption that had been swallowed: `Table:
+Vocabulaire des actions sur un tableau dynamique` sat one blank line under an
+uncaptioned image, and a caption line attaches to the float *before* it when
+that float has none — so the image took a `Table:` caption its writer ignores
+and the table got nothing. The image has its own caption now and the table takes
+its own.
+
+Two warts the conversion leaves, both in `TODO.md`. The six Mermaid diagrams
+captioned `Figure:` show their caption without a number on the web and no
+`\caption` at all in the book — a caption line on a fence is a `Listing:` for
+the web writer and nothing for the LaTeX one. And three figures inside an
+indented callout body come out as `<p><figure markdown="span" …>`: they render
+and they are numbered, but `md_in_html` does not read a block-level tag that
+does not start its line, the same limit as §10's `??? solution`.
+
+The MkDocs build is unharmed, which matters while it is still what publishes:
+`mkdocs-caption` finds no image left under a `<p>` where TMark has made a
+figure, so nothing is captioned twice (0 nested `<figure>` in the 143 pages),
+and the 12 images the rule leaves out — the 7 of `assets/summaries/summary.md`
+and the 5 link-wrapped previews of `refcards.md` — keep the plugin's own
+`id="_figure-N"` wrapper, on the MkDocs site only.
+
+### The 13 fill-in-the-blanks
+
+`{{word}}` was the `exercises` plugin's gap-fill; nothing renders it since the
+plugin left, so the braces reached both media literally and the 8 markers whose
+word is ASCII warned `var-unresolved` (a `{{…}}` with an accent is not even a
+`Var` node — hence 13 markers and 8 warnings).
+
+Each of the three exercises was rewritten by hand into the handbook's own shape,
+the question asked in full and the answer in a `??? solution`:
+
+| page | before | after |
+| --- | --- | --- |
+| `10-numeration/data.md` | 4 sentences with 8 blanks | the four bytes listed, the rule (low bit, high bit) and the four answers in the solution |
+| `05-introduction/me-and-my-computer.md` | `{{posix}} est la norme…` | *Quelle norme … les unifie … ?*, the solution it already carried |
+| `05-introduction/programming.md` | one sentence with 4 blanks | four questions, and the sentence given back in bold in the solution |
+
+`var-unresolved` is 8 → 0 and no `{{…}}` is left under `docs/` outside the C
+sources' brace initialisers.
