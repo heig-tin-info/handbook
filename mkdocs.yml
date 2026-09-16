@@ -112,7 +112,10 @@ plugins:
   - awesome-pages # MkDocs reads the .pages files
   - awesome-nav # Zensical reads the .nav.yml files
   - tags
-  - pills
+  # `pills` is gone: Zensical runs no MkDocs plugin, and the plugin only
+  # registered two Markdown extensions and copied its stylesheet. Both
+  # are now in `markdown_extensions` and `extra_css` below, where the two
+  # generators read them.
   - texsmith:
       build_dir: build
       clean_assets: false
@@ -190,6 +193,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.snippets
   - pymdownx.details
   - pymdownx.tabbed:
@@ -216,6 +221,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # The two extensions the `mkdocs-pills` plugin used to register itself:
+  # `#!re /…/` becomes a link to regex101, `U+XXXX` one to symbl.cc. Named
+  # here so Zensical, which drops the plugin, renders them too.
+  - mkdocs_plugin_pills.regex:RegexExtension
+  - mkdocs_plugin_pills.unicode:UnicodeExtension
 extra:
   consent:
     title: Cookie consent
@@ -254,6 +264,7 @@ extra_css:
   - css/extra.css
   - css/tables.css
   - css/drawio.css
+  - css/pills.css
 extra_javascript:
   - js/feedback.js
   - js/mathjax.js
