@@ -30,7 +30,7 @@ int main() {
 
 ## Interruptions
 
-Dans un système embarqué ou un microcontrôleur, une [[interruption]] est un mécanisme qui permet à un processeur de **suspendre temporairement l’exécution du programme en cours** afin de répondre à un événement particulier, souvent externe ou d'une urgence particulière. En d'autres termes, l'interruption interrompt le flux normal d'instructions pour traiter un événement prioritaire, comme si quelqu’un frappait à la porte pendant que vous lisez un livre captivant. Il faut alors poser le livre pour ouvrir la porte.
+Dans un système embarqué ou un microcontrôleur, une interruption #[interruption] est un mécanisme qui permet à un processeur de **suspendre temporairement l’exécution du programme en cours** afin de répondre à un événement particulier, souvent externe ou d'une urgence particulière. En d'autres termes, l'interruption interrompt le flux normal d'instructions pour traiter un événement prioritaire, comme si quelqu’un frappait à la porte pendant que vous lisez un livre captivant. Il faut alors poser le livre pour ouvrir la porte.
 
 Voici comment cela se passe, étape par étape, de manière plus technique :
 

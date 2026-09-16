@@ -7,29 +7,29 @@ epigraph:
 
 Le langage C compte parmi les tout premiers langages de programmation modernes. Proche de l’assembleur — ce langage de bas niveau exécuté directement par les processeurs — il autorise la conception d’applications d’une efficacité redoutable. On le retrouve aussi bien dans les montres connectées que dans les stimulateurs cardiaques (*pacemakers*) ou encore les [machines à café][mcu].
 
-Même s’il est apparu en [[1972]], le C demeure largement utilisé et enseigné. Sa sobriété et sa rigueur en font un formidable outil pour assimiler les fondements de la programmation structurée.
+Même s’il est apparu en 1972 #[1972], le C demeure largement utilisé et enseigné. Sa sobriété et sa rigueur en font un formidable outil pour assimiler les fondements de la programmation structurée.
 
-En 2024, rares sont les alternatives aussi mûres et éprouvées que le C pour le développement d’applications embarquées hautes performances ou pour les noyaux de systèmes d’exploitation. Des langages plus récents comme [[Rust]] ou [[Zig]] gagnent en visibilité, mais ils ne se sont pas encore généralisés dans l’industrie.
+En 2024, rares sont les alternatives aussi mûres et éprouvées que le C pour le développement d’applications embarquées hautes performances ou pour les noyaux de systèmes d’exploitation. Des langages plus récents comme Rust #[Rust] ou Zig #[Zig] gagnent en visibilité, mais ils ne se sont pas encore généralisés dans l’industrie.
 
 []{#c-history}
 
 ## Historique { data-search-keyword="thompson"}
 
-En [[1964]] naît, d'une collaboration entre les laboratoires [[Bell]] (*Bell Telephone Laboratories*), [[General Electric]] et le [[MIT]], le projet [Multics](https://fr.wikipedia.org/wiki/Multics) (*Multiplexed Information and Computing Service*), qui vise à développer un nouveau système d'exploitation.
+En 1964 #[1964] naît, d'une collaboration entre les laboratoires Bell #[Bell] (*Bell Telephone Laboratories*), General Electric #[General Electric] et le MIT #[MIT], le projet [Multics](https://fr.wikipedia.org/wiki/Multics) (*Multiplexed Information and Computing Service*), qui vise à développer un nouveau système d'exploitation.
 
-Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de [[Multics]], décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie), entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (*Programming Language number 1*), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le "mot" (*word*). [[||Ken Thompson]] [[||Dennis Ritchie]]
+Cependant, la fin de la décennie est marquée par des remous. Les laboratoires Bell, désillusionnés par les promesses de Multics #[Multics], décident de se retirer du projet pour élaborer leur propre système d'exploitation. Un groupe informel, dirigé notamment par [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson) et [Dennis Ritchie](https://fr.wikipedia.org/wiki/Dennis_Ritchie), entreprend de revoir certains concepts de Multics qui leur déplaisaient, notamment le langage de programmation PL/I (*Programming Language number 1*), alors prédominant pour l’écriture de systèmes d’exploitation. Thompson développe un langage baptisé B, inspiré du BCPL, dans lequel il ne conserve que les éléments qu'il juge essentiels pour fonctionner sur de petites machines. À ce stade, B ne comporte qu’un seul type de donnée, le "mot" (*word*). #[Ken Thompson] #[Dennis Ritchie]
 
-[[BCPL]], conçu par [[Martin Richards]] au MIT dans les années [[1960]], est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.
+BCPL #[BCPL], conçu par Martin Richards #[Martin Richards] au MIT dans les années 1960 #[1960], est l'ancêtre de B, et par extension, l'arrière-grand-père du C. Dennis Ritchie, alors collègue de Thompson, retravaille le langage B pour y ajouter la gestion des types de données.
 
-Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où *Multiplexed* est remplacé par *Uniplexed*. Le nom évolue ensuite pour devenir [[UNIX]], un pilier dans l'histoire de l'informatique.
+Le système d'exploitation que Thompson et Ritchie développent aux laboratoires Bell s’appelle d'abord UNICS, par opposition à Multics, où *Multiplexed* est remplacé par *Uniplexed*. Le nom évolue ensuite pour devenir UNIX #[UNIX], un pilier dans l'histoire de l'informatique.
 
 Plus tard, [Brian Kernighan](https://fr.wikipedia.org/wiki/Brian_Kernighan) contribue à la diffusion du langage. Principal auteur du livre *The C Programming Language*, il laisse à Dennis Ritchie le soin de rédiger les annexes techniques.
 
-L’évolution du C se poursuit dans les années 1980, lorsque [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) y adjoint des mécanismes de programmation orientée objet (OOP). Ce paradigme, que nous étudierons dans un autre cours, enrichit la boîte à outils des développeuses et développeurs C++. La figure suivante présente le trio fondateur du langage C. [[||Bjarne Stroustrup]]
+L’évolution du C se poursuit dans les années 1980, lorsque [Bjarne Stroustrup](https://fr.wikipedia.org/wiki/Bjarne_Stroustrup) y adjoint des mécanismes de programmation orientée objet (OOP). Ce paradigme, que nous étudierons dans un autre cours, enrichit la boîte à outils des développeuses et développeurs C++. La figure suivante présente le trio fondateur du langage C. #[Bjarne Stroustrup]
 
 ![Les pères fondateurs du C](/assets/images/thompson-kernighan-ritchie.drawio)
 
-Il faut attendre [[1989]] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Le C s’impose alors comme un standard international et renforce sa position dominante dans l’informatique.
+Il faut attendre 1989 #[1989] pour que le langage C soit normalisé par l’ANSI (*American National Standards Institute*). L’année suivante, l’ISO (*International Organization for Standardization*) ratifie le standard *ISO/IEC 9899:1990*, communément appelé **C90**. Le C s’impose alors comme un standard international et renforce sa position dominante dans l’informatique.
 
 Les langages de programmation se nourrissent souvent les uns des autres, et le C ne fait pas exception. La figure suivante illustre quelques-unes des influences entre langages :
 
@@ -50,15 +50,15 @@ flowchart LR
     B --> C
 ```
 
-Cinquante ans plus tard, le C demeure l'un des langages les plus prisés par les ingénieures et ingénieurs. Sa capacité à mêler une vision de haut niveau à des manipulations de bas niveau en fait un allié précieux pour les applications embarquées sur microcontrôleurs ou pour optimiser du code critique, comme dans les noyaux de systèmes d'exploitation tels que le [[noyau]] [[Linux]] ([[Kernel]]) ou Windows.
+Cinquante ans plus tard, le C demeure l'un des langages les plus prisés par les ingénieures et ingénieurs. Sa capacité à mêler une vision de haut niveau à des manipulations de bas niveau en fait un allié précieux pour les applications embarquées sur microcontrôleurs ou pour optimiser du code critique, comme dans les noyaux de systèmes d'exploitation tels que le noyau #[noyau] Linux #[Linux] (Kernel #[Kernel]) ou Windows.
 
 Retenons simplement que **C** est un langage à la fois sobre et puissant : votre machine à café, votre voiture ou vos écouteurs Bluetooth ont probablement été, au moins en partie, programmés en C.
 
 ## Standardisation
 
-Comme nous l'avons vu, le langage C a un long historique. Il a fallu attendre près de vingt ans après sa création pour qu’il fasse l’objet d’une [[normalisation]] internationale.
+Comme nous l'avons vu, le langage C a un long historique. Il a fallu attendre près de vingt ans après sa création pour qu’il fasse l’objet d’une normalisation #[normalisation] internationale.
 
-Le standard le plus courant en 2024 demeure [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). [[C11]] commence à le supplanter dans certains secteurs, tandis que l’évolution se poursuit avec [[C17]], [[C18]] et [[C23]]. La figure suivante synthétise les principaux standards internationaux du C :
+Le standard le plus courant en 2024 demeure [C99](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf). C11 #[C11] commence à le supplanter dans certains secteurs, tandis que l’évolution se poursuit avec C17 #[C17], C18 #[C18] et C23 #[C23]. La figure suivante synthétise les principaux standards internationaux du C :
 
 Table: Normes internationales du langage C
 
@@ -110,7 +110,7 @@ Table: Langages de programmation et leur année de création
 | [Swift](https://fr.wikipedia.org/wiki/Swift_(langage_d%27Apple)) | 2014  | Applications mobiles      |
 | [Zig](https://fr.wikipedia.org/wiki/Zig_(langage))               | 2016  | Systèmes embarqués        |
 
-L'index [TIOBE](https://www.tiobe.com/tiobe-index/) constitue un excellent indicateur de la popularité des langages de programmation. Il est mis à jour mensuellement et permet de suivre l'évolution de la popularité des différents langages. En 2024, le classement des 10 langages de programmation les plus populaires est présenté dans la table suivante : [[||TIOBE]]
+L'index [TIOBE](https://www.tiobe.com/tiobe-index/) constitue un excellent indicateur de la popularité des langages de programmation. Il est mis à jour mensuellement et permet de suivre l'évolution de la popularité des différents langages. En 2024, le classement des 10 langages de programmation les plus populaires est présenté dans la table suivante : #[TIOBE]
 
 Table: Top 10 des langages de programmation
 
@@ -127,7 +127,7 @@ Table: Top 10 des langages de programmation
 | 9      | Visual Basic             |
 | 10     | Fortran                  |
 
-Sur le podium, [[Python]] est un langage de très haut niveau, simple à appréhender mais éloigné du matériel. [[C++]] se distingue par sa richesse orientée objet et sa puissance, au prix d’une complexité certaine. Avec la médaille d’argent, C offre un excellent compromis : il reste accessible tout en ouvrant les portes de la programmation bas niveau. C’est pour cette raison que ce cours repose sur le langage C. Ai-je réussi à vous convaincre ?
+Sur le podium, Python #[Python] est un langage de très haut niveau, simple à appréhender mais éloigné du matériel. C++ #[C++] se distingue par sa richesse orientée objet et sa puissance, au prix d’une complexité certaine. Avec la médaille d’argent, C offre un excellent compromis : il reste accessible tout en ouvrant les portes de la programmation bas niveau. C’est pour cette raison que ce cours repose sur le langage C. Ai-je réussi à vous convaincre ?
 
 []{#structured-text-programming}
 
@@ -288,19 +288,19 @@ Naturellement vous ne connaîtrez le numéro de page exact qu'une fois que tous 
 
 ## Hello World!
 
-Il est traditionnellement coutume depuis la publication en [[1978]] du livre [The C Programming Language](https://fr.wikipedia.org/wiki/C_(langage)) de reprendre l'exemple de [[Brian Kernighan]] comme premier programme.
+Il est traditionnellement coutume depuis la publication en 1978 #[1978] du livre [The C Programming Language](https://fr.wikipedia.org/wiki/C_(langage)) de reprendre l'exemple de Brian Kernighan #[Brian Kernighan] comme premier programme.
 
 ```c title="hello.c"
 --8<-- "docs/assets/src/hello.c"
 ```
 
-Ce programme est composé de deux parties. L'inclusion de la [[bibliothèque standard]] d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. [[||hello, world]]
+Ce programme est composé de deux parties. L'inclusion de la bibliothèque standard #[bibliothèque standard] d'entrées sorties (*STandarD Inputs Outputs*) à l'aide d'une directive préprocesseur qui définit l'existence de la fonction `printf` qui vous permet d'écrire sur le terminal. Le programme principal est nommé `main` et tout ce qui se situe à l'intérieur des accolades `{ }` appartient à ce dernier. L'ensemble que définit `main` et ses accolades est appelé une fonction, et la tâche de cette fonction est ici d'appeler une autre fonction `printf`. On prend soin de terminer chaque instruction par un point-virgule `;`. #[hello, world]
 
 L'appel d'une fonction comme  `printf` peut prendre des **paramètres** comme ici le texte `Hello world!\n` dont le `\n` représente un retour à la ligne.
 
-Une fois ce code écrit, il faut le [[compiler]]. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.
+Une fois ce code écrit, il faut le compiler #[compiler]. Pour bien comprendre ce que l'on fait, utilisons la ligne de commande ; plus tard vous utiliserez votre éditeur de texte favori pour écrire vos programmes.
 
-Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible [[POSIX]], sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :
+Pour obtenir un invité de commande, vous devez ouvrir un terminal. Comme nous avons choisi de travailler sur un système compatible POSIX #[POSIX], sur n'importe quel système d'exploitation vous lancez un terminal et sous Windows vous devez installer WSL2. Une fois lancée la console ressemble à ceci :
 
 ```bash
 $
@@ -318,13 +318,13 @@ int main()
 }
 ```
 
-Évidemment, vous devez avoir écrit le programme `hello.c` au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier `hello.c` : [[||echo]]
+Évidemment, vous devez avoir écrit le programme `hello.c` au préalable. Alternativement vous pouvez utiliser la commande suivante pour créer le fichier `hello.c` : #[echo]
 
 ```bash
 echo '#include <stdio.h>\n\nint main()\n{\n  printf("hello, world");\n}' > hello.c
 ```
 
-À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter. [[||cc]]
+À présent on peut utiliser notre compilateur par défaut: `cc` pour *C Compiler*. Ce compilateur prend en argument un fichier C et sans autre option, il génèrera un fichier [a.out](https://fr.wikipedia.org/wiki/A.out) pour *assembler output*. C'est un fichier exécutable que l'on peut donc exécuter. #[cc]
 
 Utilisez donc la commande suivante pour compiler votre programme :
 
@@ -332,7 +332,7 @@ Utilisez donc la commande suivante pour compiler votre programme :
 $ gcc hello.c
 ```
 
-Rien ne s'est affiché ? C'est une excellente nouvelle ! La philosophie POSIX veut qu'un programme soit aussi discret que possible : si tout s'est bien déroulé, il n'est pas nécessaire d'en informer l'utilisateur. Toutefois, cela ne signifie pas que la commande n'a eu aucun effet. En réalité, vous devriez maintenant trouver dans le répertoire courant votre fichier source ainsi que le résultat de la compilation, à savoir le fichier `a.out`. Pour vérifier cela, nous allons utiliser le programme [ls](https://fr.wikipedia.org/wiki/Ls), qui liste les fichiers présents dans un répertoire : [[||ls]]
+Rien ne s'est affiché ? C'est une excellente nouvelle ! La philosophie POSIX veut qu'un programme soit aussi discret que possible : si tout s'est bien déroulé, il n'est pas nécessaire d'en informer l'utilisateur. Toutefois, cela ne signifie pas que la commande n'a eu aucun effet. En réalité, vous devriez maintenant trouver dans le répertoire courant votre fichier source ainsi que le résultat de la compilation, à savoir le fichier `a.out`. Pour vérifier cela, nous allons utiliser le programme [ls](https://fr.wikipedia.org/wiki/Ls), qui liste les fichiers présents dans un répertoire : #[ls]
 
 ```bash
 $ ls
@@ -380,7 +380,7 @@ a.out         Nom du fichier
 
 ## Conclusion
 
-Le langage C, inventé dans les années 70 par des pionniers de l'informatique, reste aujourd'hui un pilier fondamental dans le monde de la programmation, notamment pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis des ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme [[Rust]] ou [[Zig]].
+Le langage C, inventé dans les années 70 par des pionniers de l'informatique, reste aujourd'hui un pilier fondamental dans le monde de la programmation, notamment pour le développement d'applications embarquées et de systèmes d'exploitation. Son efficacité, sa proximité avec le matériel, et sa capacité à offrir un contrôle précis des ressources en font un langage toujours pertinent, malgré l'émergence de concurrents modernes comme Rust #[Rust] ou Zig #[Zig].
 
 Son histoire, riche et marquée par des figures emblématiques telles que Dennis Ritchie et Ken Thompson, ainsi que son influence sur de nombreux autres langages, témoigne de sa longévité et de son importance. Apprendre le C, c'est non seulement saisir les bases de la programmation, mais aussi acquérir des compétences indispensables pour tout développeur désireux de maîtriser les rouages du matériel et des systèmes informatiques.
 

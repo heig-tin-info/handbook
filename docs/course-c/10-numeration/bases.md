@@ -5,7 +5,7 @@ epigraph:
 ---
 # Bases
 
-Une [[base]] correspond à la valeur dont les puissances successives interviennent dans l'écriture des nombres d'un système positionnel. Dans un tel système, chaque chiffre occupe une place déterminée et cette position est reliée à la suivante par un multiplicateur : la base même du système de numération.
+Une base #[base] correspond à la valeur dont les puissances successives interviennent dans l'écriture des nombres d'un système positionnel. Dans un tel système, chaque chiffre occupe une place déterminée et cette position est reliée à la suivante par un multiplicateur : la base même du système de numération.
 
 Sans connaître **a priori** la base employée, il est impossible d'interpréter correctement les nombres suivants :
 
@@ -30,7 +30,7 @@ En effet, au-delà de l'ordre des symboles (de gauche à droite), la base employ
 
 ## Système décimal
 
-Le [[système décimal]] repose sur la base **dix** et demeure aujourd'hui le plus répandu. Cela n'a toutefois pas toujours été le cas : les civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel [[sexagésimal]] (base 60), toujours présent pour mesurer les heures ou les angles, tandis que la civilisation maya préférait une base 20. Cette dernière laisse encore une empreinte dans certaines langues celtiques et dans le français courant avec la dénomination *quatre-vingts*.
+Le système décimal #[système décimal] repose sur la base **dix** et demeure aujourd'hui le plus répandu. Cela n'a toutefois pas toujours été le cas : les civilisations de Mésopotamie (Sumer ou Babylone) utilisaient un système positionnel sexagésimal #[sexagésimal] (base 60), toujours présent pour mesurer les heures ou les angles, tandis que la civilisation maya préférait une base 20. Cette dernière laisse encore une empreinte dans certaines langues celtiques et dans le français courant avec la dénomination *quatre-vingts*.
 
 L'exemple suivant montre l'écriture de 1506 en écriture [hiéroglyphique](https://fr.wikipedia.org/wiki/%C3%89criture_hi%C3%A9roglyphique_%C3%A9gyptienne) de :
 
@@ -40,7 +40,7 @@ Il s'agit ici d'une numération additive.
 
 ![1506 en écriture hiéroglyphique](../../assets/images/hieroglyph.drawio)
 
-Notre système de représentation des nombres décimaux est la numération [[indo-arabe]]. Elle emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf ; tout nombre peut ainsi se décomposer en puissances successives :
+Notre système de représentation des nombres décimaux est la numération indo-arabe #[indo-arabe]. Elle emploie une notation positionnelle et dix chiffres (ou symboles) allant de zéro à neuf ; tout nombre peut ainsi se décomposer en puissances successives :
 
 $$
 1506_{10} = 1 \cdot 10^{3} + 5 \cdot 10^{2} + 0 \cdot 10^{1} + 6 \cdot 10^{0}
@@ -60,7 +60,7 @@ Comme évoqué au chapitre précédent, la base dix n'est pas utilisée dans les
 
 ## Système binaire
 
-Le [[système binaire]] est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
+Le système binaire #[système binaire] est similaire au système décimal, mais utilise la base deux. Les symboles utilisés pour exprimer ces deux états possibles sont d'ailleurs empruntés au système indo-arabe :
 
 $$
 \begin{bmatrix}
@@ -289,7 +289,7 @@ $h_i$
 
 : La valeur du chiffre à la position $i$
 
-Ainsi, la valeur `AP7` exprimée en [[base tritrigesimale]] (base 33), utilisée pour les plaques d'immatriculation à Hong Kong, peut se convertir en décimal dès que l'on connaît la correspondance entre symboles tritrigesimaux et chiffres décimaux :
+Ainsi, la valeur `AP7` exprimée en base tritrigesimale #[base tritrigesimale] (base 33), utilisée pour les plaques d'immatriculation à Hong Kong, peut se convertir en décimal dès que l'on connaît la correspondance entre symboles tritrigesimaux et chiffres décimaux :
 
 ```text
 Tritrigesimal -> Décimal :
@@ -330,7 +330,7 @@ n = 209
 
     ![Les Shadocks](../../assets/images/shadocks.drawio)
 
-    Les [[Shadocks||Shadocks, les]] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
+    Les Shadocks #[Shadocks, les] ne connaissent que quatre mots : `GA`, `BU`, `ZO`, `MEU`. La vidéo éducative [comment compter comme les Shadocks](https://www.youtube.com/watch?v=lP9PaDs2xgQ) en détaille le principe. Ils et elles utilisent par conséquent une base quaternaire.
 
     Convertir `−⨼○◿○` (`BU ZO GA MEU GA`) en décimal.
 
@@ -367,7 +367,7 @@ n = 209
 
 Une autre base couramment utilisée est la [base64](https://fr.wikipedia.org/wiki/Base64), qui utilise les 26 lettres de l'alphabet latin (majuscules et minuscules), les 10 chiffres et deux symboles additionnels. Cette base est souvent utilisée pour encoder des données binaires en ASCII, par exemple pour les pièces jointes des courriels.
 
-Elle ne constitue pas, à proprement parler, une base fondamentale, mais plutôt une méthode de codage qui exploite 64 caractères imprimables. [[||base64]]
+Elle ne constitue pas, à proprement parler, une base fondamentale, mais plutôt une méthode de codage qui exploite 64 caractères imprimables. #[base64]
 
 On peut bien sûr transmettre directement de l'information en binaire, mais cela suppose de gérer un contenu arbitraire, ce qui n'est pas toujours évident dans des environnements pensés pour des caractères imprimables. Utiliser la représentation ASCII n'est pas non plus suffisant, nombre de caractères n'étant pas imprimables. La base64 propose une solution élégante pour encoder des données binaires en ASCII.
 
@@ -388,7 +388,7 @@ $ echo -ne 'La fleur en bouquet fâne... et jamais ne renait !'  | hexdump -C
 0032
 ```
 
-En [[base64]], le message est découpé en mots de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère [[ASCII]] selon la table de codage suivante :
+En base64 #[base64], le message est découpé en mots de 6 bits, soit 64 valeurs possibles. Chaque mot de 6 bits est ensuite converti en un caractère ASCII #[ASCII] selon la table de codage suivante :
 
 ```text
 0  000000 A    17 010001 R    34 100010 i    51 110011 z

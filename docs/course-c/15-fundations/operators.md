@@ -9,19 +9,19 @@ En programmation, un opérateur est une **fonction** qui effectue une opération
 
 L'unité de calcul arithmétique du processeur (ALU) est responsable d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait par exemple effectuer plus de 2 milliards (2'000'000'000) d'opérations par seconde.
 
-Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`. [[||arité]] [[||unaire]] [[||opérande]]
+Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`. #[arité] #[unaire] #[opérande]
 
 Un opérateur possède plusieurs propriétés :
 
-Une **priorité** [[||priorité]]
+Une **priorité** #[priorité]
 
 : La multiplication `*` est plus prioritaire que l'addition `+`
 
-Une **associativité** [[||associativité]]
+Une **associativité** #[associativité]
 
 : L'opérateur d'affectation `=` possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
 
-Un **point de séquence** [[||point de séquence]]
+Un **point de séquence** #[point de séquence]
 
 : Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garantit l'ordre des choses, ce qui n'est pas le cas avec l'affectation `=`.
 
@@ -72,7 +72,7 @@ Table: Opérateurs arithmétiques
 | `/`       | *div*       | Division       | `2 == 5 / 2`    |
 | `%`       | *mod*       | Modulo         | `13 % 4 == 1`   |
 
-Lors d'opérations, il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` : [[||division]]
+Lors d'opérations, il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` : #[division]
 
 ```c
 int a = 5 / 2;      // 2
@@ -220,8 +220,8 @@ int reste = nombre % 16; // 4
 // La valeur en hexadécimal est donc 94
 ```
 
-Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : [[||modulo]]
-[[||%]]
+Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : #[modulo]
+#[%]
 
 ```c
 assert(13 % 4 == 1)

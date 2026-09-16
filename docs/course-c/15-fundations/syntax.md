@@ -9,7 +9,7 @@ Ce chapitre traite des éléments constitutifs et fondamentaux du langage C. Il 
 
 ## L'alphabet
 
-[[||alphabet, l']]
+#[alphabet, l']
 
 Heureusement pour nous occidentaux, l'alphabet de C est composé de 52 caractères latins et de 10 [chiffres indo-arabes](https://fr.wikipedia.org/wiki/Chiffres_arabes) :
 
@@ -19,7 +19,7 @@ a b c d e f g h i j k l m n o p q r s t u v w x y z
 0 1 2 3 4 5 6 7 8 9
 ```
 
-Pour comparaison, le système d'écriture coréen ([[Hangul]]) est [[alphasyllabique]], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres, ils sont les mêmes qu'en occident.
+Pour comparaison, le système d'écriture coréen (Hangul #[Hangul]) est alphasyllabique #[alphasyllabique], c'est-à-dire que chaque caractère représente une syllabe. Les lettres de base sont composées de 14 consonnes de base et 10 voyelles. Quant aux chiffres, ils sont les mêmes qu'en occident.
 
 ```text
 g n d r/l m b s ng j ch k t p h
@@ -29,7 +29,7 @@ a ya eo yeo o yo u yu eu i
 ㅏ ㅑ ㅓ ㅕ ㅗ ㅛ ㅜ ㅠ ㅡ ㅣ
 ```
 
-Les Japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]], le [[Katakana]] et le [[Kanji]]. Les deux premiers sont des syllabaires et le dernier est un système d'[[écriture logographique]]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
+Les Japonais quant à eux utilisent trois systèmes d'écriture, le Hiragana #[Hiragana], le Katakana #[Katakana] et le Kanji #[Kanji]. Les deux premiers sont des syllabaires et le dernier est un système d'écriture logographique #[écriture logographique]. Le Hiragana et Katakana ont tous deux 46 caractères de base. Voici l'exemple du Katakana:
 
 ```text
 あ (a),  い (i),   う (u),   え (e),  お (o)
@@ -47,7 +47,7 @@ Les Japonais quant à eux utilisent trois systèmes d'écriture, le [[Hiragana]]
 
 On notera ici que l'alphabet latin est tout particulièrement adapté à la programmation, car, d'une part ce fut le premier alphabet à être utilisé pour l'écriture de programmes informatiques et d'autre part, il reste assez simple pour être utilisé par des machines. On peut noter en outre que les pays qui utilisent leur propre alphabet doivent impérativement apprendre et maîtriser l'alphabet latin pour pouvoir programmer. Ceci implique qu'ils doivent également disposer d'un clavier latin pour pouvoir saisir leur code. Ayez à l'esprit que nous sommes des privilégiés de ne pas devoir jongler avec plusieurs alphabets pour écrire du code...
 
-Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une [[tabulation]] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. [[||pied-de-mouche (¶)]] [[||caractère non imprimable]]
+Outre ces caractères, la séparation des symboles est assurée par [une espace](https://fr.wikipedia.org/wiki/Espace_(typographie)), une tabulation horizontale, une tabulation #[tabulation] verticale, et un caractère de retour à la ligne. Ces caractères ne sont pas imprimables, c'est-à-dire qu'ils ne sont pas directement visibles ni à l'écran ni à l'impression (ni sur le papier d'ailleurs). Microsoft Word et d'autres éditeurs utilisent généralement le [pied-de-mouche](https://fr.wikipedia.org/wiki/Pied-de-mouche) `¶` U+00B6 pour indiquer les fins de paragraphes qui sont également des caractères non imprimables. #[pied-de-mouche (¶)] #[caractère non imprimable]
 
 La convention est de nommer les caractères non imprimables soit par leur acronyme `LF` pour *Line Feed* ou soit par leur convention C échappée par un *backslash n* `\n`:
 
@@ -79,7 +79,7 @@ Peut-être avez-vous déjà été confronté à une machine à écrire mécaniqu
 
 ![Machine à écrire Hermès 3000 hébraïque](/assets/images/hermes-3000.webp){width=50%}
 
-Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement ([[tiret bas]], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
+Historiquement il y a donc bien une distinction entre ces deux caractères, mais aujourd'hui, cela n'a plus vraiment de sens. Un autre point que l'on peut relever est que pour souligner un texte, on utilisait le caractère de soulignement (tiret bas #[tiret bas], ou *underscore*) `_` pour mettre en emphase du texte déjà écrit. De même pour barrer un texte, on utilisait le caractère `-` pour faire reculer le chariot d'une demi-case et ensuite frapper le même caractère. Enfin, pour ajouter un accent circonflexe, il fallait utiliser la touche `^` pour faire reculer le chariot d'une demi-case et ensuite frapper la lettre à accentuer.
 
 Ces subtilités de la machine à écrire ont été partiellement reprises dans le format [Unicode][unicode]. Aussi pour écrire un accent aigu, il y a aujourd'hui plusieurs façons de le faire.
 
@@ -122,7 +122,7 @@ c=0)                            :( O
 
 ## Fin de lignes (EOL)
 
-[[||EOL, fin de ligne]] [[||CR, retour chariot]] [[||LF, nouvelle ligne]]
+#[EOL, fin de ligne] #[CR, retour chariot] #[LF, nouvelle ligne]
 
 À l'instar des premières machines à écrire, les [téléscripteurs](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) possédaient de nombreux caractères de déplacement qui sont depuis tombés en désuétude et prêtent aujourd'hui à confusion même pour le plus aguerri des programmeurs. Maintenant que les ordinateurs possèdent des écrans, la notion originale du terme [retour chariot](https://fr.wikipedia.org/wiki/Retour_chariot) est compromise et comme il y a autant d'avis que d'ingénieurs, les premiers PC [IBM compatibles](https://fr.wikipedia.org/wiki/Compatible_PC) ont choisi qu'une nouvelle ligne dût toujours se composer de deux caractères: un retour chariot (`CR`) et une nouvelle ligne (`LF`) ou en C `\r\n`. Les premiers [Macintosh](https://fr.wikipedia.org/wiki/Macintosh) d'Apple jugeant inutile de gaspiller deux caractères pour chaque nouvelle ligne dans un fichier et ont décidé d'associer le retour chariot et la nouvelle ligne dans le caractère `\r`. Enfin, les ordinateurs UNIX ont eu le même raisonnement, mais ils ont choisi de ne garder que `\n`.
 
@@ -135,7 +135,7 @@ Il n'y a pas de consensus établi sur lesquels des deux types de fin de ligne (`
 
 ## Mots clés
 
-[[||mot clé]]
+#[mot clé]
 
 Le langage de programmation C tel que défini par C17 comporte 44 mots clés :
 
@@ -151,7 +151,7 @@ _Alignof   _Atomic    _Bool      _Complex   _Generic
 _Imaginary _Noreturn  _Static_assert        _Thread_local
 ```
 
-[[||_Bool]] [[||_Complex]] [[||_Imaginary]] [[||auto]] [[||break]] [[||case]] [[||char]] [[||const]] [[||continue]] [[||default]] [[||do]] [[||double]] [[||else]] [[||enum]] [[||extern]] [[||float]] [[||for]] [[||goto]] [[||if]] [[||inline]] [[||int]] [[||long]] [[||register]] [[||restrict]] [[||return]] [[||short]] [[||signed]] [[||sizeof]] [[||static]] [[||struct]] [[||switch]] [[||typedef]] [[||union]] [[||unsigned]] [[||void]] [[||volatile]] [[||while]]
+#[_Bool] #[_Complex] #[_Imaginary] #[auto] #[break] #[case] #[char] #[const] #[continue] #[default] #[do] #[double] #[else] #[enum] #[extern] #[float] #[for] #[goto] #[if] #[inline] #[int] #[long] #[register] #[restrict] #[return] #[short] #[signed] #[sizeof] #[static] #[struct] #[switch] #[typedef] #[union] #[unsigned] #[void] #[volatile] #[while]
 
 Dans ce cours, l'usage des mots clés suivants est découragé, car leur utilisation pourrait prêter à confusion ou mener à des inélégances d'écriture.
 
@@ -161,7 +161,7 @@ _Bool, _imaginary, auto, goto, inline, long, register, restrict, short
 
 Il n'y a donc plus que 35 mots clés à connaître pour être un bon développeur C.
 
-Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++. [[||true]] [[||false]]
+Notons que les mots clés `true` et `false` ne sont pas standardisés en C, mais ils le sont en C++. #[true] #[false]
 
 Ces mots clés font partie intégrante de la [grammaire][grammar] du langage et ne peuvent être utilisés pour identifier des variables, des fonctions ou des étiquettes.
 
@@ -255,7 +255,7 @@ int main() {
 
 ## Variables
 
-Une [[variable]] est un [[symbole]] qui associe un nom (**identificateur**) à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
+Une variable #[variable] est un symbole #[symbole] qui associe un nom (**identificateur**) à une **valeur**. Comme son nom l'indique, une variable peut voir son contenu varier au cours du temps.
 
 Une variable est définie par :
 
@@ -311,7 +311,7 @@ char message[] = "Jarvis, il faut parfois savoir "
                  "courir avant de savoir marcher.";
 ```
 
-Il n'est pas nécessaire d'associer une valeur initiale à une variable, une [[déclaration]] peut se faire sans [[initialisation]] comme montré dans l'exemple suivant dans lequel on réserve trois variables `i`, `j`, `k`.
+Il n'est pas nécessaire d'associer une valeur initiale à une variable, une déclaration #[déclaration] peut se faire sans initialisation #[initialisation] comme montré dans l'exemple suivant dans lequel on réserve trois variables `i`, `j`, `k`.
 
 ```c
 int i, j, k;
@@ -371,7 +371,7 @@ Table: Conventions de nommage
 | *pascalcase* | Casse de Pascal  | `UserLoginCount`   |
 | *kebabcase*  | Casse de kebab   | `user-login-count` |
 
-[[||camelCase]] [[||snake_case]] [[||PascalCase]] [[||kebab-case]]
+#[camelCase] #[snake_case] #[PascalCase] #[kebab-case]
 
 !!! note
 
@@ -380,7 +380,7 @@ Table: Conventions de nommage
 ### Variable métasyntaxique
 
 Souvent lors d'exemples donnés en programmation, on utilise des variables génériques dites [métasyntaxiques](https://fr.wikipedia.org/wiki/Variable_m%C3%A9tasyntaxique). En français les valeurs `toto`, `titi`, `tata` et `tutu` sont régulièrement utilisées tandis qu'en anglais
-`foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](https://en.wikipedia.org/wiki/Spam_(Monty_Python)) des Monthy Python. [[||Monty Python]] [[||foo]] [[||bar]] [[||baz]] [[||qux]] [[||spam]] [[||ham]] [[||eggs]]
+`foo`, `bar`, `baz` et `qux` sont régulièrement utilisés. Les valeurs `spam`, `ham` et `eggs` sont quant à elles souvent utilisée en Python, en référence au sketch [Spam](https://en.wikipedia.org/wiki/Spam_(Monty_Python)) des Monthy Python. #[Monty Python] #[foo] #[bar] #[baz] #[qux] #[spam] #[ham] #[eggs]
 
 Leur usage est conseillé pour appuyer le cadre générique d'un exemple sans lui donner la consonance d'un problème plus spécifique.
 
@@ -400,7 +400,7 @@ Une constante par opposition à une variable voit son contenu **fixe** et **immu
 const double scale_factor = 12.67;
 ```
 
-Une [[constante]] est principalement utilisée pour indiquer au développeur que la valeur ne doit pas être modifiée. Le compilateur peut également s'en servir pour mieux optimiser le code et donc améliorer les performances d'exécution.
+Une constante #[constante] est principalement utilisée pour indiquer au développeur que la valeur ne doit pas être modifiée. Le compilateur peut également s'en servir pour mieux optimiser le code et donc améliorer les performances d'exécution.
 
 !!! warning
 
@@ -424,7 +424,7 @@ En résumé, les constantes sont utilisées pour:
 
 ## Constantes littérales
 
-Les constantes littérales représentent des **grandeurs scalaires** numériques ou de caractères et initialisées lors de la phase de compilation. [[||constante littérale]]
+Les constantes littérales représentent des **grandeurs scalaires** numériques ou de caractères et initialisées lors de la phase de compilation. #[constante littérale]
 
 En effet, lorsque l'on veut saisir un nombre, on ne veut pas que le compilateur la comprenne comme un identificateur, mais bien comme une valeur numérique. C'est d'ailleurs la raison pour laquelle un identificateur ne peut pas commencer par un chiffre.
 
@@ -447,7 +447,7 @@ Nous l'avons vu plus haut, le **type** d'une variable est important pour déterm
 
 Comme vu dans le chapitre sur la [numération][numeration], les valeurs numériques peuvent être stockées en mémoire de différentes manières. Ainsi, une valeur `48` peut être stockée sur un octet, un mot de 16 bits, un mot de 32 bits ou un mot de 64 bits. De plus, la valeur peut faire référence au caractère `0` en ASCII, mais aussi au nombre `72` s'il est exprimé en hexadécimal.
 
-On utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10). [[||0x]] [[||0b]]
+On utilisera un préfixe devant un nombre `0x` pour indiquer qu'il est en hexadécimal, `0b` pour indiquer qu'il est en binaire et `0` pour indiquer qu'il est en octal. Sans préfixe il s'agit d'un nombre décimal (base 10). #[0x] #[0b]
 
 On utilisera un suffixe `u` pour indiquer que le nombre est non signé (n'admettant pas de valeurs négatives) et `l` pour indiquer qu'il est long ou `ll` pour indiquer qu'il est très long.
 
@@ -491,7 +491,7 @@ Quant aux guillemets simples `'`, ils sont utilisés pour délimiter un caractè
 
     </div>
 
-La [[notation scientifique]], aussi appelée [[notation exponentielle]], est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
+La notation scientifique #[notation scientifique], aussi appelée notation exponentielle #[notation exponentielle], est une manière d'écrire des nombres très grands ou très petits de manière plus compacte. Par exemple, `1.23e3` est équivalent à `1230.` et `1.23e-3` est équivalent à `0.00123`. Le caractère `e` est utilisé pour indiquer la puissance de 10 par laquelle le nombre doit être multiplié. Il tire probablement son origine du Fortran qui l'utilisait déjà en 1957.
 
 !!! warning "Pas Euler"
 
@@ -503,7 +503,7 @@ La [[notation scientifique]], aussi appelée [[notation exponentielle]], est une
 
 ## Opérateur d'affectation
 
-Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable. Historiquement, et malheureusement, le symbole choisi pour cet opérateur est le signe égal `=` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation. [[||=]]
+Dans les exemples ci-dessus, on utilise l'opérateur d'affectation pour associer une valeur à une variable. Historiquement, et malheureusement, le symbole choisi pour cet opérateur est le signe égal `=` or, l'égalité est une notion mathématique qui n'est en aucun cas reliée à l'affectation. #[=]
 
 Pour mieux saisir la nuance, considérons le programme suivant :
 
@@ -519,7 +519,7 @@ Mathématiquement, la valeur de `b` devrait être égale à 42 ce qui n'est pas 
 
 Comme on ne connaît pas la valeur de `b`, avec cet exemple, on ne peut pas connaître la valeur de `a`. Certains langages de programmation ont été sensibilisés à l'importance de cette distinction et dans les langages **F#**, **OCaml**, **R** ou **S**, l'opérateur d'affectation est `<-` et une affectation pourrait s'écrire par exemple: `a <- 42` ou `42 -> a`.
 
-En C, l'opérateur d'égalité que nous verrons plus loin s'écrit `==` (deux `=` concaténés). [[||==]]
+En C, l'opérateur d'égalité que nous verrons plus loin s'écrit `==` (deux `=` concaténés). #[==]
 
 Remarquez ici que l'opérateur d'affectation de C agit toujours de droite à gauche c'est-à-dire que la valeur à **droite** de l'opérateur est affectée à la variable située à **gauche** de l'opérateur. S'agissant d'un opérateur il est possible de chaîner les opérations, comme on le ferait avec l'opérateur `+` et dans l'exemple suivant il faut lire que `42` est assigné à `c`, que la valeur de `c` est ensuite assigné à `b` et enfin la valeur de `b` est assignée à `a`. Nous verrons plus tard comment l'ordre des opérations et l'associativité de chaque opérateur.
 
@@ -614,7 +614,7 @@ int main() {
 
 ## Commentaires
 
-Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. [[||commentaire]]
+Comme en français et ainsi qu'illustré par la figure suivante, il est possible d'annoter un programme avec des **commentaires**. Les commentaires n'ont pas d'incidence sur le fonctionnement d'un programme et ne peuvent être lus que par le développeur qui possède le code source. Par ailleurs, comme nous l'avons vu en [introduction][preproc-intro], le préprocesseur C supprime les commentaires du code source avant la compilation. #[commentaire]
 
 ![Les carafes dans la Vivonne](/assets/images/vivonne.drawio)
 

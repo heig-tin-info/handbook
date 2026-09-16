@@ -7,7 +7,7 @@ epigraph:
 
 ## Qu'est-ce qu'un programme?
 
-Un [[programme]] informatique est une suite d'instruction définissant des opérations à réaliser sur des données ; des instructions destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
+Un programme #[programme] informatique est une suite d'instruction définissant des opérations à réaliser sur des données ; des instructions destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
 
 - le code source (C, C++, Python, Java, etc.) ;
 - le *listing* assembleur (`.s`, `.asm`) ;

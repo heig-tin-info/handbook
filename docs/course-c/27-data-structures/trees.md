@@ -2,9 +2,9 @@
 
 ![Arbre binaire IRL](/assets/images/binary-tree.jpg)
 
-Les [[arbres]] sont des structures de données non linéaires composées de nœuds. Chaque nœud possède un ou plusieurs enfants, à l’exception de la racine qui n'a pas de parent. Les arbres servent fréquemment à modéliser des hiérarchies telles que les systèmes de fichiers, les arbres généalogiques ou encore les arbres de décision.
+Les arbres #[arbres] sont des structures de données non linéaires composées de nœuds. Chaque nœud possède un ou plusieurs enfants, à l’exception de la racine qui n'a pas de parent. Les arbres servent fréquemment à modéliser des hiérarchies telles que les systèmes de fichiers, les arbres généalogiques ou encore les arbres de décision.
 
-Voici un exemple d'arbre : il représente une structure de documents stockés sur un ordinateur. En haut figure le disque C:, qui contient des dossiers et des fichiers. Chaque dossier peut abriter d'autres dossiers ou des fichiers. Il existe donc une [[hiérarchie]] entre les éléments : chaque dossier accepte plusieurs contenus, mais chaque élément appartient à un seul dossier.
+Voici un exemple d'arbre : il représente une structure de documents stockés sur un ordinateur. En haut figure le disque C:, qui contient des dossiers et des fichiers. Chaque dossier peut abriter d'autres dossiers ou des fichiers. Il existe donc une hiérarchie #[hiérarchie] entre les éléments : chaque dossier accepte plusieurs contenus, mais chaque élément appartient à un seul dossier.
 
 Ce type d'arbre est appelé **arbre n-aire dirigé** : chaque nœud peut avoir plusieurs enfants et les arêtes suivent un sens unique de la racine vers les feuilles. Les flèches indiquent ainsi la direction de la hiérarchie.
 
@@ -57,7 +57,7 @@ graph LR
 
 ## Arbre binaire
 
-Un [[arbre binaire]] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
+Un arbre binaire #[arbre binaire] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
 
 Il s'agit d'une structure de données très répandue en informatique. En pratique, on implémente rarement un arbre binaire nu : on privilégie des structures de plus haut niveau qui s'appuient sur cette représentation.
 
@@ -146,7 +146,7 @@ Table: Opérations d'accès aux éléments d'un tas
 
 ### Min-heap
 
-Un [[tas binaire]] stocke des éléments en conservant un ordre partiel. C'est un arbre binaire complet dans lequel chaque nœud est **plus petit que ses enfants**. Les tas binaires sont fréquemment utilisés pour implémenter des files de priorité.
+Un tas binaire #[tas binaire] stocke des éléments en conservant un ordre partiel. C'est un arbre binaire complet dans lequel chaque nœud est **plus petit que ses enfants**. Les tas binaires sont fréquemment utilisés pour implémenter des files de priorité.
 
 !!! example "Implémentation en C"
 

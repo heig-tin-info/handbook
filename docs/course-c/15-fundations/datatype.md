@@ -5,7 +5,7 @@ epigraph:
 ---
 # Types de données
 
-Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. [[||type]]
+Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. #[type]
 
 Les langages de programmation se divisent ainsi en deux grandes catégories : ceux que l’on qualifie de **typés**, où le programmeur a la charge explicite de définir la manière dont les données seront stockées, et ceux dits **non typés**, où ce choix est géré implicitement. Chaque approche présente des avantages et des inconvénients. Reprenons l’exemple du rendu de monnaie : s’il était possible d’enregistrer des montants avec une précision supérieure à celle des pièces en circulation, disons à la fraction de centime, cela poserait problème pour qu’un caissier puisse rendre la monnaie correctement. Dans de telles situations, un langage **typé** s’avère plus adapté, car il permet de fixer des bornes pertinentes à la précision des données. C, en ce sens, est un langage fortement typé, ce qui convient particulièrement à la manipulation rigoureuse des données financières, entre autres.
 
@@ -13,7 +13,7 @@ Il convient de noter que les types de données ne se limitent pas aux seules inf
 
 !!! note "Standard ISO 80000-2"
 
-    Les ingénieurs ont une prédilection marquée pour les standards, et cela d'autant plus lorsqu’ils sont de portée internationale. Pour prévenir des erreurs aussi regrettables que le crash d'une fusée dû à une incompréhension entre deux ingénieurs de nations différentes, il existe des normes telles que l'[[ISO 80000-2]], qui définit avec rigueur ce que l'on entend par un entier (incluant ou non le zéro), la nature des nombres réels, et bien d'autres concepts mathématiques fondamentaux. Il va sans dire que les compilateurs, lorsqu’ils sont correctement conçus, s'efforcent de respecter ces normes internationales au plus près. Et vous, en tant que développeur, faites-vous de même ?
+    Les ingénieurs ont une prédilection marquée pour les standards, et cela d'autant plus lorsqu’ils sont de portée internationale. Pour prévenir des erreurs aussi regrettables que le crash d'une fusée dû à une incompréhension entre deux ingénieurs de nations différentes, il existe des normes telles que l'ISO 80000-2 #[ISO 80000-2], qui définit avec rigueur ce que l'on entend par un entier (incluant ou non le zéro), la nature des nombres réels, et bien d'autres concepts mathématiques fondamentaux. Il va sans dire que les compilateurs, lorsqu’ils sont correctement conçus, s'efforcent de respecter ces normes internationales au plus près. Et vous, en tant que développeur, faites-vous de même ?
 
 ## Stockage et interprétation
 
@@ -72,7 +72,7 @@ int main() {
 
 ![Boutisme par J. J. Grandville (1838)](/assets/images/endian.jpg){width=70%}
 
-La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. [[||endianess]] [[||Gulliver, les voyages de]] [[||boutisme]]
+La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. #[endianess] #[Gulliver, les voyages de] #[boutisme]
 
 En informatique, cette question, loin d’être triviale, persiste dans le monde des microprocesseurs. Certains fonctionnent en **big endian**, où les octets sont stockés en mémoire du plus significatif au moins significatif, tandis que d'autres adoptent le format **little endian**, inversant cet ordre. Imaginons qu’une donnée soit enregistrée en mémoire ainsi :
 
@@ -271,7 +271,7 @@ Table: Modèle de données
 | **ILP64**  | 16    | 64  | 64   | 64        | 64     | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)           |
 | **SILP64** | 64    | 64  | 64   | 64        | 64     | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)           |
 
-[[||LP32]] [[||ILP32]] [[||LLP64]] [[||LP64]] [[||ILP64]] [[||SILP64]]
+#[LP32] #[ILP32] #[LLP64] #[LP64] #[ILP64] #[SILP64]
 
 Table: Taille usuelle des types de base
 
@@ -306,7 +306,7 @@ Historiquement, alors que les informations dans un ordinateur ne sont que des 1 
 
 En 1963 l'ASA (*American Standards Association*) aujourd'hui **ANSI** propose un premier standard qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. En effet, l'œuvre de la recherche du temps perdu de Marcel Proust - 7 tomes - pour 3000 pages et quelques 10.45 millions de signes demanderait 9.96 MiB de mémoire de stockage avec 8 bits et seulement contre 8.72 MiB sur 7 bits, soit 12% d'économie : une aubaine !
 
-La première table [[ASCII]] définissant 128 caractères est donnée par la figure suivante : [[||ANSI]]
+La première table ASCII #[ASCII] définissant 128 caractères est donnée par la figure suivante : #[ANSI]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
 
@@ -331,7 +331,7 @@ En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules
     printf("%c\n", letter); // Affiche P
     ```
 
-Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'[[ISO-8859-1]] et de l'[[ISO-8859-15]] :
+Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'ISO-8859-1 #[ISO-8859-1] et de l'ISO-8859-15 #[ISO-8859-15] :
 
 ![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](/assets/images/latin1.drawio)
 
@@ -355,7 +355,7 @@ Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, don
 
 [Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, []{#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
-En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. [[||wchar]] [[||unicode]] [[||utf8]] [[||Ken Thompson]]
+En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. #[wchar] #[unicode] #[utf8] #[Ken Thompson]
 
 Ce nouveau standard devait résoudre de nombreux problème techniques. Le premier étant la rétro-compatibilité avec l'ASCII. La première excellente idée fut de calquer les 128 premiers caractères Unicode à la table ASCII. Ainsi, un texte ASCII est aussi un texte Unicode. Rappelez-vous la première table n'utilisant que 7 bits, le huitième bit était toujours à 0, et ce fut une idée brillante de s'approprier ce huitième bit pour définir des caractères supplémentaires. Mais comment faire pour caser les 1'112'064 caractères dans seulement 128 valeurs supplémentaires ?
 
@@ -434,7 +434,7 @@ Le calcul de la longueur d'une chaîne de caractères peut être effectué en ut
 
 ### Les emojis
 
-Les [[emojis]] sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles ou des étrons (💩).
+Les emojis #[emojis] sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles ou des étrons (💩).
 
 Les émoticônes que vous pouvez envoyer à votre grand-mère via WhatsApp sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
@@ -471,7 +471,7 @@ U+253C ┼  (jonction croisée)
 
 ## Chaîne de caractères
 
-Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une [[sentinelle]].
+Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle #[sentinelle].
 
 !!! example "Les légumes et les choux"
 
@@ -523,11 +523,11 @@ On utilise le caractère nul `\0` pour plusieurs raisons:
 
 ## Booléens
 
-Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme). [[||booléen]] [[||George Boole]] [[||Boole, George]] [[||true]] [[||false]]
+Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme). #[booléen] #[George Boole] #[Boole, George] #[true] #[false]
 
 La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `<stdbool.h>`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur. [[||<stdbool.h>]]
+Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `<stdbool.h>`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur. #[<stdbool.h>]
 
 ```c
 #include <stdbool.h>
@@ -579,7 +579,7 @@ enum ColorCode {
 };
 ```
 
-Le type d'une énumération est apparenté à un entier `int`. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : [[||enum]]
+Le type d'une énumération est apparenté à un entier `int`. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : #[enum]
 
 ```c
 typedef enum country_codes {
@@ -615,17 +615,17 @@ void call(enum country_codes code) {
 
 ## Type incomplet
 
-En C, un [[type incomplet]] est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme `void` sont également incomplets.
+En C, un type incomplet #[type incomplet] est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme `void` sont également incomplets.
 
 ### VLQ
 
-Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers VLQ utilisés dans le protocole [[MIDI]]
+Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers VLQ utilisés dans le protocole MIDI #[MIDI]
 
-On peut stocker un nombre [[VLQ]] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
+On peut stocker un nombre VLQ #[VLQ] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
 
 ### Type vide (*void*)
 
-Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : [[||void]]
+Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : #[void]
 
 ```c
 void shout() {
@@ -633,7 +633,7 @@ void shout() {
 }
 ```
 
-Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy` [[||memcpy]] :
+Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy` #[memcpy] :
 
 ```c
 void *memcpy(void * restrict dest, const void * restrict src, size_t n);
@@ -649,7 +649,7 @@ Le mot clé `void` ne peut être utilisé que dans les contextes suivants :
 
 ### Promotion implicite
 
-Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur. [[||promotion]] C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un `int`.
+Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur. #[promotion] C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
@@ -721,7 +721,7 @@ int n = 10;
 double x = (double)n;
 ```
 
-Le changement de type forcé ([[transtypage]]) entre des variables de
+Le changement de type forcé (transtypage #[transtypage]) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. À l'inverse, on peut

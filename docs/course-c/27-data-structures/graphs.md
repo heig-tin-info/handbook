@@ -8,7 +8,7 @@ C'est une variante générale des arbres. Un arbre est un graphe particulier où
 
 ### Forêts
 
-Un [[graphe]] sans cycle est appelé une [[forêt]]. Une forêt est un ensemble d'arbres. Un arbre est un graphe [[connexe]] sans cycle.
+Un graphe #[graphe] sans cycle est appelé une forêt #[forêt]. Une forêt est un ensemble d'arbres. Un arbre est un graphe connexe #[connexe] sans cycle.
 
 ![Exemple de forêt](/assets/images/forest.drawio)
 

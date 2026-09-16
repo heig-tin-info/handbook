@@ -120,7 +120,7 @@ Les *informaticiens-tisserands* responsables de la création des cartes perforé
 
 ![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
 
-Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
+Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de Mayenne #[Mayenne, Duc de] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :
@@ -152,25 +152,25 @@ En 2 et 3 contre-écartelé :
         à la bordure endentée de gueules et d'or.
 ```
 
-[[|heraldique]]
+#[heraldique]
 
-Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en [[langage machine]] compréhensible par un métier à tisser. Cette traduction est le rôle du [[compilateur]] que nous verrons plus tard. Quant au texte, et bien qu'il nous vient tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
+Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en langage machine #[langage machine] compréhensible par un métier à tisser. Cette traduction est le rôle du compilateur #[compilateur] que nous verrons plus tard. Quant au texte, et bien qu'il nous vient tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
 
 Lexique
 
-: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir, etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). [[|lexique]]
+: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir, etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). #[lexique]
 
 Syntaxe
 
-: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionné en premier, les figures en second suivi de leurs attributs. [[|syntaxe]]
+: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionné en premier, les figures en second suivi de leurs attributs. #[syntaxe]
 
 Sémantique
 
-: les termes peuvent adopter une certaine [[morphologie]], par exemple le lion peut être *lampassé* (langue de couleur différente), *couronné* (avec une couronne), *armé* (avec des griffes et des dents de couleur différente). Cette sémantique implique l'adjonction de préfixes ou de suffixes. [[|sémantique]]
+: les termes peuvent adopter une certaine morphologie #[morphologie], par exemple le lion peut être *lampassé* (langue de couleur différente), *couronné* (avec une couronne), *armé* (avec des griffes et des dents de couleur différente). Cette sémantique implique l'adjonction de préfixes ou de suffixes. #[sémantique]
 
 Grammaire
 
-: le texte est organisé en phrases, les phrases sont organisées en paragraphes, les paragraphes en sections, les symboles vont être interprétés en fonction de leur position dans le texte, de leur contexte. [[|grammaire]]
+: le texte est organisé en phrases, les phrases sont organisées en paragraphes, les paragraphes en sections, les symboles vont être interprétés en fonction de leur position dans le texte, de leur contexte. #[grammaire]
 
 !!! info "De gueules"
 
@@ -187,13 +187,13 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
 ??? info "Scratch"
 
-    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. [[|Scratch|Scratch, langage]]
+    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. #[Scratch, langage]
 
     ![Interface de scratch](/assets/images/scratch.png)
 
 ??? info "LabView"
 
-    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. [[|LabView|LabView, programme]]
+    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. #[LabView, programme]
 
     ![Interface de LabView](/assets/images/labview.webp)
 
@@ -201,7 +201,7 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
 ??? info "Common Lisp"
 
-    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en [[Common Lisp|lisp|Lisp, Common]] pour résoudre le problème des tours de [[Hanoï||Hanoï, tours de]] :
+    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en Common Lisp #[Lisp, Common] pour résoudre le problème des tours de Hanoï #[Hanoï, tours de] :
 
     ```lisp
     (defun hanoi (n source target auxiliary)
@@ -220,7 +220,7 @@ Pour ce cours, et pour l'enseignement de la programmation en général, nous uti
 
 ## Calculateur
 
-Un [[calculateur]] du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
+Un calculateur #[calculateur] du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
@@ -237,7 +237,7 @@ Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d
 
 ## Ordinateur
 
-Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques Perret]] à la demande d'IBM France (*c.f.* [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). [[|ordinateur]] Voici la lettre de Jacques Perret à IBM France :
+Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret #[Jacques Perret] à la demande d'IBM France (*c.f.* [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). #[ordinateur] Voici la lettre de Jacques Perret à IBM France :
 
 >« Le 16 IV 1955, Cher Monsieur,
 

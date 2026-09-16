@@ -13,7 +13,7 @@ L'information constitue le cœur battant de l'informatique : les ordinateurs la 
 
 Un **bit** est l'unité d'information fondamentale qui ne peut prendre que deux états : `1` ou `0`. En électronique, cette information peut être stockée dans un élément mémoire par une charge électrique. Dans le monde réel, on peut stocker un bit avec une pièce de monnaie déposée sur le côté pile ou face. La combinaison de plusieurs bits permet de former des messages plus complexes.
 
-Le bit est l'abréviation de *binary digit* ([[chiffre]] binaire) et occupe une place centrale dans la théorie de l'information. Ce concept a été popularisé par [[Claude Shannon]] dans son article fondateur de 1948, *A Mathematical Theory of Communication*, où il introduit le bit comme unité fondamentale de mesure.
+Le bit est l'abréviation de *binary digit* (chiffre #[chiffre] binaire) et occupe une place centrale dans la théorie de l'information. Ce concept a été popularisé par Claude Shannon #[Claude Shannon] dans son article fondateur de 1948, *A Mathematical Theory of Communication*, où il introduit le bit comme unité fondamentale de mesure.
 
 Imaginons un meuble doté de huit casiers assez grands pour accueillir une pomme. Chaque casier peut contenir soit une pomme, soit n'être pas rempli. Le nombre de configurations possibles est alors de $2^8 = 256$. Le chiffre $2$ correspond aux deux états disponibles pour chaque casier (pomme ou absence de pomme) et $8$ au nombre total de casiers. La quantité d'information nécessaire pour connaître l'état du meuble est donc de 8 bits.
 
@@ -35,7 +35,7 @@ $$I = \log_2(N)$$
 
 où $I$ est la quantité d'information en bits, et $N$ est le nombre de possibilités.
 
-Les informaticiens ont l'habitude d'agencer les bits par groupe de 8 pour former ce que l'on appelle un **octet**. Un [[octet]] peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais, mais ce terme reste ambigu, car il peut également désigner un groupe de bits de taille variable. Historiquement les ordinateurs ont utilisé des bytes de 6, 7, ou 8 bits, mais aujourd'hui l'octet est équivalent au *byte*.
+Les informaticiens ont l'habitude d'agencer les bits par groupe de 8 pour former ce que l'on appelle un **octet**. Un octet #[octet] peut donc représenter $256$ valeurs différentes. Un octet est souvent appelé un **byte** en anglais, mais ce terme reste ambigu, car il peut également désigner un groupe de bits de taille variable. Historiquement les ordinateurs ont utilisé des bytes de 6, 7, ou 8 bits, mais aujourd'hui l'octet est équivalent au *byte*.
 
 Lorsque vous achetez un disque de stockage pour votre ordinateur, vous pouvez par exemple lire sur l'emballage que l'unité de stockage dispose d'une capacité de 1 Tio (Tébi-octet). Un Tébi-octet est égal à $2^{40}$ octets, soit $1'099'511'627'776$ octets. Un octet étant égal à 8 bits, donc un tébi (millier de milliards) d'octet est égal à $8'796'093'022'208$ bits. À titre d'information l'entièreté d'encyclopédie libre Wikipédia en pèse environ 22 Go (Giga-octet). On peut affirmer que notre disque de 1 Tio, acheté environ 50 dollars, permettrait de stocker 45 copies de Wikipédia.
 
@@ -51,7 +51,7 @@ Pour représenter l'état de Wikipédia, il suffirait donc d'avoir $10'225'593'7
 
 !!! info "Entropie"
 
-    On entend souvent que l'[[entropie]] mesure le désordre d'un système. En thermodynamique, elle correspond à l'énergie non disponible ; en informatique, elle quantifie l'incertitude d'une information. Plus une information est incertaine, plus elle contient d'entropie. Cette grandeur, fréquemment mesurée en bits, est notamment utilisée en cryptographie pour évaluer la qualité d'un générateur de nombres aléatoires.
+    On entend souvent que l'entropie #[entropie] mesure le désordre d'un système. En thermodynamique, elle correspond à l'énergie non disponible ; en informatique, elle quantifie l'incertitude d'une information. Plus une information est incertaine, plus elle contient d'entropie. Cette grandeur, fréquemment mesurée en bits, est notamment utilisée en cryptographie pour évaluer la qualité d'un générateur de nombres aléatoires.
 
     Néanmoins l'entropie peut également être utilisée pour mesurer la quantité d'information transmise par un message. Plus un message est incertain, plus il contient d'entropie. Par exemple, si un message est composé de 8 bits, il contient 8 bits d'entropie. Si le message est composé de 16 bits, il contient 16 bits d'entropie.
 
@@ -61,7 +61,7 @@ Comme évoqué, le nombre de bits peut croître très rapidement, même après d
 
 Dans le système international d'unités, nous utilisons couramment des préfixes pour exprimer des multiples de dix. Par exemple, un kilogramme équivaut à 1000 grammes, une tonne à 1000 kilogrammes et un hectare à 10'000 mètres carrés.
 
-En informatique, où l'unité fondamentale d'information suit un système binaire, chaque bit ajouté double la quantité représentable. On privilégie donc des préfixes correspondant à des puissances de deux. Par définition, un kilo-octet vaut 1000 octets ($10^3$), tandis qu'un kibi-octet en compte 1024 ($2^{10}$). Les [[préfixes binaires]] sont normalisés et définis par l'IEC (International Electrotechnical Commission). Voici un tableau des préfixes les plus courants :
+En informatique, où l'unité fondamentale d'information suit un système binaire, chaque bit ajouté double la quantité représentable. On privilégie donc des préfixes correspondant à des puissances de deux. Par définition, un kilo-octet vaut 1000 octets ($10^3$), tandis qu'un kibi-octet en compte 1024 ($2^{10}$). Les préfixes binaires #[préfixes binaires] sont normalisés et définis par l'IEC (International Electrotechnical Commission). Voici un tableau des préfixes les plus courants :
 
 === "Préfixes standards"
 
@@ -99,7 +99,7 @@ En informatique, où l'unité fondamentale d'information suit un système binair
 
 ## Notation positionnelle
 
-La numération est la science de la représentation des nombres. La numération décimale est un système de [[base 10]], c'est-à-dire que chaque chiffre peut prendre dix valeurs différentes : $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. La position des chiffres dans un nombre décimal indique la puissance de 10 par laquelle il est multiplié. Par exemple, le nombre 123 est égal à :
+La numération est la science de la représentation des nombres. La numération décimale est un système de base 10 #[base 10], c'est-à-dire que chaque chiffre peut prendre dix valeurs différentes : $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$. La position des chiffres dans un nombre décimal indique la puissance de 10 par laquelle il est multiplié. Par exemple, le nombre 123 est égal à :
 
 $$1 \times 10^2 + 2 \times 10^1 + 3 \times 10^0$$
 
@@ -111,7 +111,7 @@ Ce système indien a ensuite été transmis aux savant·es arabes, qui l'ont ado
 
 Le choix du nombre de symboles reste bien entendu arbitraire. On pourrait en utiliser deux, trois ou cinquante, pourvu que leur position indique la valeur multiplicative par une puissance correspondant à ce nombre de symboles. Ce principe définit ce que nous appelons la **base** d'un système de numération.
 
-En informatique, nous utilisons deux symboles et donc une base de deux, appelée base binaire. En binaire, on nomme **LSB** ([[Least Significant Bit]]) le bit de poids faible et **MSB** ([[Most Significant Bit]]) le bit de poids fort. Le bit de poids faible est le plus à droite et le bit de poids fort le plus à gauche. Il est remarquable de noter que le **LSB** permet de savoir si le nombre est pair ou impair : si le **LSB** vaut `0`, le nombre est pair, et s'il vaut `1`, il est impair :
+En informatique, nous utilisons deux symboles et donc une base de deux, appelée base binaire. En binaire, on nomme **LSB** (Least Significant Bit #[Least Significant Bit]) le bit de poids faible et **MSB** (Most Significant Bit #[Most Significant Bit]) le bit de poids fort. Le bit de poids faible est le plus à droite et le bit de poids fort le plus à gauche. Il est remarquable de noter que le **LSB** permet de savoir si le nombre est pair ou impair : si le **LSB** vaut `0`, le nombre est pair, et s'il vaut `1`, il est impair :
 
 ```c
 bool is_even(int n) {
@@ -144,7 +144,7 @@ La norme *IEEE 754* sert à représenter les nombres à virgule flottante, tandi
 
 ## Transmission de l'information
 
-Il est fondamental de comprendre que le stockage de l'information n'acquiert sa pleine valeur que lorsqu'elle peut être efficacement transmise et reçue. Ce processus ne se limite pas à la conservation des données : le protocole d'encodage joue un rôle tout aussi crucial. L'histoire regorge d'exemples où les vestiges des civilisations passées nous ont transmis des messages énigmatiques dont le [[déchiffrement]] reste incertain. Citons les hiéroglyphes égyptiens, les tablettes cunéiformes sumériennes ou encore les manuscrits de la mer Morte, partiellement révélés grâce aux travaux érudits de Jean-François Champollion sur la pierre de Rosette, d'Henry Rawlinson sur l'inscription de Behistun ou de William F. Albright sur les manuscrits de Qumrân. Toutefois, certaines écritures anciennes demeurent hermétiques, comme l'écriture [[rongorongo]] de l'île de Pâques. Les [[khipus]], ces cordes nouées par les Incas, offrent un autre exemple fascinant d'un système d'encodage dont le secret nous échappe encore.
+Il est fondamental de comprendre que le stockage de l'information n'acquiert sa pleine valeur que lorsqu'elle peut être efficacement transmise et reçue. Ce processus ne se limite pas à la conservation des données : le protocole d'encodage joue un rôle tout aussi crucial. L'histoire regorge d'exemples où les vestiges des civilisations passées nous ont transmis des messages énigmatiques dont le déchiffrement #[déchiffrement] reste incertain. Citons les hiéroglyphes égyptiens, les tablettes cunéiformes sumériennes ou encore les manuscrits de la mer Morte, partiellement révélés grâce aux travaux érudits de Jean-François Champollion sur la pierre de Rosette, d'Henry Rawlinson sur l'inscription de Behistun ou de William F. Albright sur les manuscrits de Qumrân. Toutefois, certaines écritures anciennes demeurent hermétiques, comme l'écriture rongorongo #[rongorongo] de l'île de Pâques. Les khipus #[khipus], ces cordes nouées par les Incas, offrent un autre exemple fascinant d'un système d'encodage dont le secret nous échappe encore.
 
 L'évolution des moyens de communication nous permet aujourd'hui de transmettre des informations sur des distances inimaginables à des vitesses vertigineuses. Par exemple, la transmission d'un signal entre la Terre et Mars, à une distance moyenne d'environ 225 millions de kilomètres, prend environ 12,5 minutes. Cette durée, bien que rapide à l'échelle cosmique, impose des contraintes significatives pour les missions spatiales, obligeant à une planification méticuleuse et à une anticipation des échanges. Un autre exemple marquant est la communication avec la sonde Voyager 1, située actuellement à plus de 23 milliards de kilomètres de la Terre. Les signaux radio, voyageant à la vitesse de la lumière, mettent plus de 21 heures pour atteindre notre planète, illustrant les défis de la transmission à travers les vastes étendues de l'espace.
 

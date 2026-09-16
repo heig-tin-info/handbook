@@ -15,8 +15,8 @@ $$
 
 Les principaux ensembles de nombres sont les suivants :
 
-- $\mathbb{N}$ : ensemble des [[entiers naturels]] (0, 1, 2, 3, ...)
-- $\mathbb{Z}$ : ensemble des [[entiers relatifs]] (..., -3, -2, -1, 0, 1, 2, 3, ...)
+- $\mathbb{N}$ : ensemble des entiers naturels #[entiers naturels] (0, 1, 2, 3, ...)
+- $\mathbb{Z}$ : ensemble des entiers relatifs #[entiers relatifs] (..., -3, -2, -1, 0, 1, 2, 3, ...)
 - $\mathbb{D}$ : ensemble des décimaux (-0,1, 0, 0,1, 0,2, 0,3, ...)
 - $\mathbb{Q}$ : ensemble des rationnels (0, 1, 1/2, 1/3, 1/4, ...)
 - $\mathbb{R}$ : ensemble des réels ($\pi$, $\sqrt{2}$, ...)
@@ -27,7 +27,7 @@ Les principaux ensembles de nombres sont les suivants :
 
 !!! info "Quaternions, octonions et sédénions"
 
-    Les [[quaternions]], [[octonions]] et [[sédénions]] sont des [[nombres hypercomplexes]] qui généralisent les [[nombres complexes]]. Ils sont utilisés en physique pour décrire les rotations dans l'espace.
+    Les quaternions #[quaternions], octonions #[octonions] et sédénions #[sédénions] sont des nombres hypercomplexes #[nombres hypercomplexes] qui généralisent les nombres complexes #[nombres complexes]. Ils sont utilisés en physique pour décrire les rotations dans l'espace.
 
     Les quaternions sont couramment utilisés en informatique pour représenter les rotations en 3D. Les octonions et sédénions prolongent ce modèle, mais restent plus confidentiels en pratique.
 
@@ -39,9 +39,9 @@ Les principaux ensembles de nombres sont les suivants :
 
     Dans une carrière d'ingénieur·e, il est rare d'avoir à manipuler quaternions, octonions ou sédénions. Les nombres complexes constituent néanmoins une extension utile des nombres réels, très présente en physique et en mathématiques, et exploitable en C sous certaines conditions.
 
-[[Archimède]] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : « Donnez-moi un nombre et je vous construirai un univers ! » Bien entendu, la quantité d'information dans l'univers est gargantuesque ; elle croît avec l'entropie et donc avec le temps. Mais à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu naître d'un nombre. [[Stephen Wolfram]] explore cette idée dans son ouvrage [[A New Kind of Science]], où il imagine l'univers comme un système informatique ou algorithmique régi par des lois fondamentales simples dont l'évolution produit la diversité des phénomènes observés.
+Archimède #[Archimède] disait : Δός μοι πᾶ στῶ καὶ τὰν γᾶν κινάσω (donnez-moi un point d'appui et je soulèverai le monde). Le Créateur, s'il existe, aurait pu dire : « Donnez-moi un nombre et je vous construirai un univers ! » Bien entendu, la quantité d'information dans l'univers est gargantuesque ; elle croît avec l'entropie et donc avec le temps. Mais à l'origine du temps et de l'espace, il n'est pas impensable que l'univers ait pu naître d'un nombre. Stephen Wolfram #[Stephen Wolfram] explore cette idée dans son ouvrage A New Kind of Science #[A New Kind of Science], où il imagine l'univers comme un système informatique ou algorithmique régi par des lois fondamentales simples dont l'évolution produit la diversité des phénomènes observés.
 
-Dans le jeu [[Minecraft]], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un univers pseudo-aléatoire. Cette [[graine]] est un nombre fini qui sert de base à l'algorithme de génération. Si vous utilisez la même graine, vous obtenez le même [[monde]]. La graine -5584399987456711267 permet par exemple d'obtenir de splendides cerisiers en fleurs rappelant la saison du [[sakura]] à [[Kyoto]]. Pour que cela fonctionne, il faut toutefois le code source de Minecraft : lui aussi n'est qu'une succession de 0 et de 1, donc un nombre fini.
+Dans le jeu Minecraft #[Minecraft], lorsque vous créez un monde, vous pouvez utiliser une graine pour générer un univers pseudo-aléatoire. Cette graine #[graine] est un nombre fini qui sert de base à l'algorithme de génération. Si vous utilisez la même graine, vous obtenez le même monde #[monde]. La graine -5584399987456711267 permet par exemple d'obtenir de splendides cerisiers en fleurs rappelant la saison du sakura #[sakura] à Kyoto #[Kyoto]. Pour que cela fonctionne, il faut toutefois le code source de Minecraft : lui aussi n'est qu'une succession de 0 et de 1, donc un nombre fini.
 
 ![Monde correspondant à la graine -5584399987456711267](/assets/images/minecraft.png)
 
@@ -80,17 +80,17 @@ $$
 \mathbb{Z} = {..., -3, -2, -1, 0, 1, 2, 3, ...}
 $$
 
-Vous le savez désormais, l'interprétation d'une valeur binaire n'est possible qu'en connaissant son [[encodage]]. S'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il manque une information pour représenter le signe `-` (et, de la même manière, le signe `+`).
+Vous le savez désormais, l'interprétation d'une valeur binaire n'est possible qu'en connaissant son encodage #[encodage]. S'agissant d'entiers, on peut se demander comment stocker des valeurs négatives, car il manque une information pour représenter le signe `-` (et, de la même manière, le signe `+`).
 
 Une première idée consisterait à réserver une partie de la mémoire aux entiers positifs et une autre aux entiers négatifs, en stockant la correspondance binaire/décimale séparément. Ce serait un peu comme disposer chez soi de deux boîtes : l'une pour les aliments encore consommables (le réfrigérateur), l'autre pour ceux qui ne le sont plus (la poubelle).
 
-L'ennui pour les **variables** c'est que le contenu peut changer et qu'un [[nombre négatif]] pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
+L'ennui pour les **variables** c'est que le contenu peut changer et qu'un nombre négatif #[nombre négatif] pourrait très bien devenir positif après un calcul. Il faudrait alors le déplacer d'une région mémoire à une autre. Ce n'est donc pas la meilleure méthode.
 
 On pourrait alors renseigner la nature du nombre, c'est-à-dire son signe avec sa valeur.
 
 ### Bit de signe
 
-Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ? C'est cet exemple qui est montré ici :
+Pourquoi ne pas se réserver un bit de signe #[bit de signe], par exemple le 8^e^ bit de notre nombre de 8 bits, pour indiquer si le nombre est positif ou négatif ? C'est cet exemple qui est montré ici :
 
 ```text
 ┌─┐┌─┬─┬─┬─┬─┬─┬─┐
@@ -103,9 +103,9 @@ Pourquoi ne pas se réserver un [[bit de signe]], par exemple le 8^e^ bit de not
 
 Cette méthode impose de sacrifier un bit ; l'intervalle représentable se limite donc à `[-127..127]`. Elle souffre en outre d'un autre inconvénient majeur : la représentation du zéro.
 
-Dans cette représentation, il existe deux zéros : le [[zéro]] négatif `0b00000000` et le zéro positif `0b10000000`, ce qui complique les comparaisons. $0$ est-il égal à $-0$ ? Conceptuellement oui, mais l'information stockée diffère.
+Dans cette représentation, il existe deux zéros : le zéro #[zéro] négatif `0b00000000` et le zéro positif `0b10000000`, ce qui complique les comparaisons. $0$ est-il égal à $-0$ ? Conceptuellement oui, mais l'information stockée diffère.
 
-Du point de vue des calculs, l'[[addition]] n'est plus cohérente si l'on raisonne directement sur les bits. En ajoutant 1 au zéro positif (`0b10000000`), on obtient 1, tandis qu'en ajoutant 1 au zéro négatif (`0b00000000`), on obtient −1 : résultat pour le moins déroutant.
+Du point de vue des calculs, l'addition #[addition] n'est plus cohérente si l'on raisonne directement sur les bits. En ajoutant 1 au zéro positif (`0b10000000`), on obtient 1, tandis qu'en ajoutant 1 au zéro négatif (`0b00000000`), on obtient −1 : résultat pour le moins déroutant.
 
 ```text
 000   001   010   011   100   101   110   111
@@ -132,7 +132,7 @@ Si on résume, la solution proposée qui utilise un bit de signe pose deux probl
 
 ### Complément à un
 
-Le **[[complément à un]]** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) ([[1964]]) ou le UNIVAC 1107 ([[1962]]). Il existe également un bit de signe, mais il est implicite.
+Le **complément à un #[complément à un]** est une méthode plus maline utilisée dans les premiers ordinateurs comme le [CDC 6600](https://fr.wikipedia.org/wiki/Control_Data_6600) (1964 #[1964]) ou le UNIVAC 1107 (1962 #[1962]). Il existe également un bit de signe, mais il est implicite.
 
 Le complément à un tire son nom de sa définition générique nommée *radix-complement* ou complément de base et s'exprime par :
 
@@ -154,7 +154,7 @@ $y$
 
 : La valeur à complémenter.
 
-Ainsi, il est facile d'écrire le [[complément à neuf]] d'un nombre en base dix, car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
+Ainsi, il est facile d'écrire le complément à neuf #[complément à neuf] d'un nombre en base dix, car on s'arrange pour que chaque chiffre composant le nombre on trouve un autre chiffre dont la somme est égale à neuf.
 
 ```
   0 1 2 3 4 5 6 7 8 9
@@ -206,7 +206,7 @@ Pour résumer les avantages et inconvénients du complément à un :
 []{#twos_complement}
 ### Complément à deux
 
-Le [[complément à deux]] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles est de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.
+Le complément à deux #[complément à deux] n'est rien d'autre que le complément à un **plus** un. C'est donc une amusante plaisanterie des informaticiens. Car dans un système binaire, le nombre de symboles est de 2 (`0` et `1`). On ne peut pas trouver un chiffre tel que la somme donne `2`. C'est la même idée que de demander le complément à 10 en base 10. Vous ne pouvez pas sur la base d'un chiffre unique obtenir un autre chiffre dont la somme est égale à 10 sans avoir recours à un autre chiffre.
 
 Pour réaliser ce complément à deux (complément à un plus un), il y a deux étapes :
 
@@ -255,7 +255,7 @@ Au début de l'ère des ordinateurs, il n'était possible de stocker que des nom
 
 Le premier ordinateur avec une capacité de calcul en virgule flottante date de 1942 (ni vous ni moi n'étions probablement nés) avec le [Zuse's Z4](https://fr.wikipedia.org/wiki/Zuse_4), du nom de son inventeur [Konrad Zuse](https://fr.wikipedia.org/wiki/Konrad_Zuse).
 
-Attardons-nous un peu sur ces concepts de [[virgule fixe]] et de [[virgule flottante]].
+Attardons-nous un peu sur ces concepts de virgule fixe #[virgule fixe] et de virgule flottante #[virgule flottante].
 
 ### Virgule fixe
 
@@ -292,7 +292,7 @@ Cette solution est élégante, mais demande à présent 11-bits contre 8-bits in
 
 ### Virgule flottante
 
-Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). [[||virgule flottante]]
+Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour encoder l'information de la position de la virgule. Appelons l'espace réservé pour positionner la virgule l' [exposant](https://fr.wikipedia.org/wiki/Exposant_(math%C3%A9matiques)) et le reste de l'information la [mantisse](https://fr.wikipedia.org/wiki/Mantisse), qui en mathématique représente la partie décimale d'un logarithme (à ne pas confondre avec la [mantis shrimp](https://fr.wikipedia.org/wiki/Stomatopoda), une quille ou crevette-mante boxeuse aux couleurs particulièrement chatoyantes). #[virgule flottante]
 
 ```
   exp.  mantisse
@@ -304,7 +304,7 @@ Depuis l'exemple précédent, imaginons que l'on sacrifie 3 bits sur les 8 pour 
 
 Notre construction nous permet toujours d'exprimer des grandeurs réelles, mais avec ce sacrifice, il n'est maintenant plus possible d'exprimer que les grandeurs comprises entre $1\cdot2^{7}=0.0078125$ et $63$. Ce problème peut être aisément résolu en augmentant la profondeur mémoire à 16 ou 32 bits. Ajoutons par ailleurs que cette solution n'est pas à même d'exprimer des grandeurs négatives.
 
-Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'[[exposant]] et 23 bits pour la [[mantisse]] :
+Poursuivons notre raisonnement. Cette fois-ci nous choisissons d'étendre notre espace de stockage à 4 octets. Un bit de signe est réservé pour exprimer les grandeurs négatives, 8 bits pour l'exposant #[exposant] et 23 bits pour la mantisse #[mantisse] :
 
 ```
  ┌ Signe 1 bit
@@ -344,7 +344,7 @@ $f_k$
 
 : Entier non négatif plus petit que la base $b$.
 
-Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés. [[||virgule flottante]] [[||IEEE 754]] [[||FPU]] [[||single precision]] [[||double precision]] [[||binary XX]]
+Étant donné que les ordinateurs sont plus à l'aise à la manipulation d'entrées binaire, la base est 2 et la norme IEEE nomme ces nombres `binary16`, `binary32` ou `binary64`, selon le nombre de bits utilisé pour coder l'information. Les termes de *Single precision* ou *Double precision* sont aussi couramment utilisés. #[virgule flottante] #[IEEE 754] #[FPU] #[single precision] #[double precision] #[binary XX]
 
 Les formats supporté par un ordinateur ou qu'un microcontrôleur équipé d'une unité de calcul en virgule flottante ([FPU](https://fr.wikipedia.org/wiki/Unit%C3%A9_de_calcul_en_virgule_flottante) pour *Floating point unit*) sont les suivants :
 
@@ -361,7 +361,7 @@ Il est temps de faire quelques observations :
 - la précision est d'autant plus grande que le nombre de bits de la mantisse est grand ;
 - la base ayant été fixée à 2, il est possible d'exprimer $1/1024$ sans erreur de précision, mais pas $1/1000$ ;
 - un ordinateur qui n'est pas équipé d'une FPU sera beaucoup plus lent [(10 à 100x)](https://stackoverflow.com/a/15585448/2612235) pour faire des calculs en virgule flottante ;
-- bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. [[||double]] [[||long double]]
+- bien que le standard **C99** définisse les types virgule flottante `float`, `double` et `long double`, ils ne définissent pas la précision avec laquelle ces nombres sont exprimés, car cela dépend de l'architecture du processeur utilisé. #[double] #[long double]
 
 ### Simple précision
 
@@ -434,7 +434,7 @@ On peut encore noter quelques valeurs particulières :
 
     $$ (-1)^s \times (1.m) \times 2^{(e - Bias)} $$
 
-    Les [[nombres subnormaux||nombre subnormal]] sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.
+    Les nombres subnormaux #[nombre subnormal] sont des nombres qui ne respectent pas la norme IEEE 754, mais qui sont tout de même représentables. Ils sont utilisés pour représenter des nombres très petits, proches de zéro. En effet, la norme IEEE 754 impose que le premier bit de la mantisse soit toujours égal à 1, ce qui implique que le nombre 0 ne peut pas être représenté. Les nombres subnormaux permettent de représenter des nombres très proches de zéro, en diminuant la précision de la mantisse.
 
 ### Double précision
 
@@ -456,7 +456,7 @@ La double précision est similaire à la simple précision, mais avec une mantis
 
 ### Quadruple précision
 
-Bien que ce soit marginal dans le monde de l'informatique, la [[quadruple précision]] est une norme définie dans [[IEEE 754]] qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au [[CERN]] ou pour l'étude de modèles cosmologiques. La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision.
+Bien que ce soit marginal dans le monde de l'informatique, la quadruple précision #[quadruple précision] est une norme définie dans IEEE 754 #[IEEE 754] qui utilise 128 bits pour stocker les nombres réels. Elle est utilisée pour des calculs scientifiques nécessitant une très grande précision comme au CERN #[CERN] ou pour l'étude de modèles cosmologiques. La quadruple précision offre une précision de 34 chiffres significatifs, soit environ 112 bits de précision.
 
 Seul un nombre réduit de langages de programmation peut gérer nativement cette notation, et la grande majorité des processeurs n'est pas prévue pour les traiter efficacement. Il est néanmoins possible de l'utiliser avec certains compilateurs C comme GCC en utilisant le type `__float128` de la bibliothèque `<quadmath.h>`.
 
@@ -466,7 +466,7 @@ Seul un nombre réduit de langages de programmation peut gérer nativement cette
 
 ## Nombres complexes
 
-En C, il est possible de définir des nombres complexes en utilisant le type `complex` de la bibliothèque `<complex.h>`. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du standard C.  [[||nombre complexe]] [[||<complex.h>]]
+En C, il est possible de définir des nombres complexes en utilisant le type `complex` de la bibliothèque `<complex.h>`. Les nombres complexes sont composés de deux parties, la partie réelle et la partie imaginaire. Ils sont souvent utilisés en mathématiques pour représenter des nombres qui ne peuvent pas être exprimés avec des nombres réels. Ils ont été introduits avec la version C99 du standard C.  #[nombre complexe] #[<complex.h>]
 
 Néanmoins les nombres complexes ne sont pas supportés par les opérateurs du langage, il est donc nécessaire d'utiliser des fonctions spécifiques pour effectuer des opérations complexes.
 
@@ -510,7 +510,7 @@ int main() {
 
 ## Format Q (virgule fixe)
 
-Le format Q est une notation en [[virgule fixe]] dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
+Le format Q est une notation en virgule fixe #[virgule fixe] dans laquelle le format d'un nombre est représenté par la lettre **Q** suivie de deux nombres :
 
 1. Le nombre de bits entiers.
 2. Le nombre de bits fractionnaires.
@@ -532,7 +532,7 @@ Pour convertir un nombre **Q4.12** en sa valeur réelle il faut :
 
 On peut noter une perte de précision puisqu'il n'est pas possible d'encoder un tel nombre dans seulement 16 bits. L'incrément positif minimal serait : $1 / 2^{12} = 0.00024$. Il convient alors d'arrondir le nombre à la troisième décimale, soit $3.141$.
 
-Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format. [[||q format]]
+Les opérations arithmétiques restent triviales entre des nombres de mêmes types. Le chapitre sur les [algorithmes][fast-sin] décrit une implémentation de calcul de sinus en utilisant ce format. #[q format]
 
 ### Addition
 

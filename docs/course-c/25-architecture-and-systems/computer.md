@@ -1,20 +1,20 @@
 # L'ordinateur personnel
 
-Un ordinateur personnel ([[PC]] pour *Personal Computer*) est un appareil électronique de format relativement compact destiné à un usage individuel ou familial. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, plutôt réservés à des tâches professionnelles ou collectives, souvent en raison de leur coût élevé et de leur encombrement. Quelle que soit la taille de la machine, ses composants essentiels demeurent pourtant identiques. On retrouve ainsi plusieurs éléments principaux :
+Un ordinateur personnel (PC #[PC] pour *Personal Computer*) est un appareil électronique de format relativement compact destiné à un usage individuel ou familial. Il se distingue des ordinateurs centraux (ou *mainframes*) et des serveurs, plutôt réservés à des tâches professionnelles ou collectives, souvent en raison de leur coût élevé et de leur encombrement. Quelle que soit la taille de la machine, ses composants essentiels demeurent pourtant identiques. On retrouve ainsi plusieurs éléments principaux :
 
-Un **processeur** (ou **[[CPU]]** pour *Central Processing Unit*)
+Un **processeur** (ou **CPU #[CPU]** pour *Central Processing Unit*)
 
 : Il constitue le cœur de calcul de l'ordinateur. Le processeur exécute les instructions des programmes et coordonne l'activité des autres composants matériels.
 
-La **mémoire** (ou **[[RAM]]** pour *Random Access Memory*)
+La **mémoire** (ou **RAM #[RAM]** pour *Random Access Memory*)
 
 : Cette mémoire est **volatile**, c'est-à-dire qu'elle perd son contenu lorsque l'ordinateur est éteint, mais elle offre un accès extrêmement rapide. Elle stocke temporairement les données des programmes en cours d'exécution.
 
-Un **disque dur** (ou **[[HDD]]** pour *Hard Disk Drive*)
+Un **disque dur** (ou **HDD #[HDD]** pour *Hard Disk Drive*)
 
 : Il assure le stockage de masse et conserve les données de manière persistante entre deux mises sous tension.
 
-Une **carte graphique** (ou **[[GPU]]**)
+Une **carte graphique** (ou **GPU #[GPU]**)
 
 : Elle gère l'affichage des images à l'écran ainsi que les calculs 3D. Aujourd'hui, elle contribue également à accélérer les traitements parallèles, notamment pour l'entraînement des modèles de langage.
 
@@ -30,7 +30,7 @@ Un **chipset**
 
 ## La RAM
 
-La [[mémoire vive]] est une mémoire de stockage temporaire ; on la qualifie parfois de mémoire non permanente. Le plus souvent, une barrette de mémoire est amovible et vient s'insérer directement sur la carte mère. Avec l'évolution de la technologie, ces modules sont carénés et munis d'un dissipateur thermique.
+La mémoire vive #[mémoire vive] est une mémoire de stockage temporaire ; on la qualifie parfois de mémoire non permanente. Le plus souvent, une barrette de mémoire est amovible et vient s'insérer directement sur la carte mère. Avec l'évolution de la technologie, ces modules sont carénés et munis d'un dissipateur thermique.
 
 ![2 x 16 GB DDR5 DIMM Corsair Vengeance](/assets/images/sdram-corsair-vengeance.avif){ width=50% }
 
@@ -94,7 +94,7 @@ Malgré ces performances, la mémoire reste un goulot d'étranglement pour les p
 
 ![Disque dur](/assets/images/hdd.jpg)
 
-Le disque dur est un dispositif de [[stockage de masse]]. Il se compose de plusieurs plateaux métalliques qui tournent à grande vitesse. Un bras mécanique se déplace au-dessus des surfaces magnétiques pour lire ou écrire les données. Comparés à la mémoire vive, les disques durs demeurent lents, mais ils sont privilégiés pour conserver les données de manière durable.
+Le disque dur est un dispositif de stockage de masse #[stockage de masse]. Il se compose de plusieurs plateaux métalliques qui tournent à grande vitesse. Un bras mécanique se déplace au-dessus des surfaces magnétiques pour lire ou écrire les données. Comparés à la mémoire vive, les disques durs demeurent lents, mais ils sont privilégiés pour conserver les données de manière durable.
 
 De nos jours, ils sont progressivement supplantés par des disques SSD (*Solid State Drive*) plus rapides et plus fiables. Les SSD reposent sur de la mémoire flash et ne contiennent aucune pièce mobile. Contrairement à la mémoire vive, il s'agit d'une mémoire non volatile : les données restent disponibles même lorsque l'alimentation est coupée.
 

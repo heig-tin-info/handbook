@@ -245,10 +245,8 @@ watch:
   - includes
   - overrides
 hooks:
-  - hooks/index.py # Index keywords in codes (language)
   - hooks/spantable.py # Adds span table support
   - hooks/french.py # French typography
-  - hooks/tags.py # Custom tags
   - hooks/mermaid.py # Support for captions in mermaid diagrams
   - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
