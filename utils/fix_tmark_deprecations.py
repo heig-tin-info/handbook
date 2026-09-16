@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rewrite the three Python-Markdown spellings TMark reports as deprecated.
+r"""Rewrite the four Python-Markdown spellings TMark reports as deprecated.
 
 Anchors
     ``[](){#id}`` is Python-Markdown's: an empty link the ``attr_list``
@@ -32,7 +32,27 @@ Listings
     Block-level ``--8<--`` outside a fence is left to ``pymdownx.snippets``,
     which the site still needs for ``auto_append``.
 
-All three rewrites are textual and idempotent. The anchor and container ones
+References
+    ``[text][id]`` is Python-Markdown's reference-style link with no
+    definition: brackets to every Markdown renderer, a link only because
+    ``mkdocs-autorefs`` makes one of it. TMark reports ``deprecated:
+    `[text][id]` is deprecated, write `[text](#id)``` and wants the
+    canonical textual reference, which both media read — ``\hyperref`` in
+    the book, an anchor on the page or a cross-page link on the site.
+
+    The core's own fix reaches only what it resolves: a key that is a label
+    of the *same file*, and a link text made of plain words (a text holding
+    a code span — ``[`#include`][preprocessor-include]`` — is not read as a
+    reference link at all, and lands in the PDF as literal brackets). The
+    corpus is mostly the other two cases, so the rewrite here is textual and
+    site-wide: every page is resolved once for its labels, and a
+    ``[text][key]`` is rewritten only when *key* names a label somewhere
+    under ``docs/``. That is what leaves ``matrice[3][4]`` and ``tab[i][j]``
+    alone — their key is no label — and code spans are skipped as well.
+    An empty text is kept empty: ``[](#id)`` is the number of the target
+    (``\ref``), which is what ``La table [][anglisismes]`` asked for.
+
+All four rewrites are textual and idempotent. The anchor and container ones
 skip fenced code blocks; the listing one reads a fence, but rewrites it only
 when its entire body is the include line::
 
@@ -54,6 +74,8 @@ HTML_CLOSE = re.compile(r"^(\s*)///\s*$")
 ATTRIBUTE = re.compile(r"""(\w+)=('([^']*)'|"([^"]*)")""")
 SNIPPET = re.compile(r'^\s*--8<--\s+"(?P<path>[^"]+)"\s*$')
 ANY_FENCE = re.compile(r"^\s*(`{3,}|~{3,})")
+REFERENCE = re.compile(r"\[(?P<text>[^\[\]]*)\]\[(?P<key>[^\[\]]+)\]")
+CODE_SPAN = re.compile(r"`[^`]*`")
 
 
 def _attributes(spec: str) -> str:
@@ -65,8 +87,46 @@ def _attributes(spec: str) -> str:
     return " ".join(parts)
 
 
-def convert(text: str) -> tuple[str, int, int, int]:
-    """Return *text* rewritten, with the anchor, container and listing counts."""
+def site_labels(root: Path) -> dict[str, list[str]]:
+    """Every label declared under *root*, with the pages declaring it."""
+    import tmark
+
+    labels: dict[str, list[str]] = {}
+    for path in sorted(root.rglob("*.md")):
+        try:
+            resolved = tmark.resolve(tmark.parse(path.read_text(encoding="utf-8")))
+        except Exception as error:  # a page that does not parse declares nothing
+            print(f"{path}: {error}", file=sys.stderr)
+            continue
+        for label in resolved["labels"]:
+            labels.setdefault(label["id"], []).append(str(path))
+    return labels
+
+
+def _references(line: str, labels: dict[str, list[str]]) -> tuple[str, int]:
+    """*line* with every ``[text][key]`` naming a known label made ``(#key)``."""
+    spans = [span.span() for span in CODE_SPAN.finditer(line)]
+    pieces: list[str] = []
+    last = 0
+    count = 0
+    for match in REFERENCE.finditer(line):
+        key = match.group("key")
+        if key not in labels:
+            continue
+        if any(start <= match.start() < end for start, end in spans):
+            continue
+        pieces.append(line[last : match.start()])
+        pieces.append(f"[{match.group('text')}](#{key})")
+        last = match.end()
+        count += 1
+    pieces.append(line[last:])
+    return "".join(pieces), count
+
+
+def convert(
+    text: str, labels: dict[str, list[str]] | None = None
+) -> tuple[str, int, int, int, int]:
+    """*text* rewritten, with the anchor, container, listing and reference counts."""
     lines = text.split("\n")
     out: list[str] = []
     fence: str | None = None
@@ -74,6 +134,7 @@ def convert(text: str) -> tuple[str, int, int, int]:
     anchors = 0
     containers = 0
     listings = 0
+    references = 0
     index = 0
     while index < len(lines):
         line = lines[index]
@@ -122,9 +183,12 @@ def convert(text: str) -> tuple[str, int, int, int]:
 
         rewritten, count = ANCHOR.subn(r"[]{\1}", line)
         anchors += count
+        if labels:
+            rewritten, count = _references(rewritten, labels)
+            references += count
         out.append(rewritten)
         index += 1
-    return "\n".join(out), anchors, containers, listings
+    return "\n".join(out), anchors, containers, listings, references
 
 
 def _listing(lines: list[str], index: int, ticks: str) -> tuple[str, int] | None:
@@ -144,29 +208,41 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--docs", type=Path, default=Path("docs"), help="tree to walk by default"
     )
+    parser.add_argument(
+        "--no-references",
+        action="store_true",
+        help="skip the [text][id] rewrite, which resolves every page for its labels",
+    )
     args = parser.parse_args(argv)
 
     paths = args.paths or sorted(args.docs.rglob("*.md"))
+    labels = {} if args.no_references else site_labels(args.docs)
     total_anchors = 0
     total_containers = 0
     total_listings = 0
+    total_references = 0
     total_files = 0
     for path in paths:
         text = path.read_text(encoding="utf-8")
-        converted, anchors, containers, listings = convert(text)
-        if not anchors and not containers and not listings:
+        converted, anchors, containers, listings, references = convert(text, labels)
+        if not anchors and not containers and not listings and not references:
             continue
         total_anchors += anchors
         total_containers += containers
         total_listings += listings
+        total_references += references
         total_files += 1
-        print(f"{path}: {anchors} anchors, {containers} containers, {listings} listings")
+        print(
+            f"{path}: {anchors} anchors, {containers} containers, "
+            f"{listings} listings, {references} references"
+        )
         if not args.check:
             path.write_text(converted, encoding="utf-8")
     verb = "would change" if args.check else "changed"
     print(
-        f"{verb} {total_anchors} anchors, {total_containers} containers and "
-        f"{total_listings} listings in {total_files} files"
+        f"{verb} {total_anchors} anchors, {total_containers} containers, "
+        f"{total_listings} listings and {total_references} references "
+        f"in {total_files} files"
     )
     return 0
 
