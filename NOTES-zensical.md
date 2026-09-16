@@ -1035,6 +1035,188 @@ Browse check, `uv run zensical serve -f mkdocs.yml -a 127.0.0.1:8123`:
   markup on both media. Either they become prose (a solution callout with the
   answer) or something has to render them.
 
+## 10. Layout, epigraphs, pills, task lists
+
+Branch `zensical`, TeXSmith 0.7.1.dev of `/home/ycr/texsmith` branch `zensical`,
+`tmark-core` built from `/home/ycr/tmark` branch `autorefs-anchors`.
+
+### The Syntax page rendered in narrow columns
+
+`course-c/15-fundations/syntax/` showed the whole article in two columns with
+the H1 stacked letter by letter. The cause is not Zensical: **the MkDocs build
+of the same source was broken in exactly the same way**, on the same two pages.
+An HTML-parser walk of every `<article>` of the built site found, under both
+generators, `MISMATCH close details` with a `div.two-column-list` still open and
+a `STRAY close div` after it, on `15-fundations/syntax` and
+`15-fundations/datatype` — and nowhere else.
+
+The shape both pages share:
+
+```markdown
+::: exercise {title="#(ex:…) : …"}
+…
+??? solution
+
+    …
+
+    <div class="two-column-list" markdown>
+
+    1. …
+
+    </div>
+:::
+```
+
+The exercise is numbered, so its title lowers to a `<span class="ts-counter">`,
+which a `!!!` line cannot carry: the callout takes the
+`<div class="admonition exercise" markdown="1">` wrapper. The `??? solution`
+inside it stayed as written — four-space indented body — and that is what
+`md_in_html` cannot read. Reduced to eight lines and checked against the
+installed `markdown` 3.10:
+
+| document | result |
+| --- | --- |
+| `???` + indented `<div markdown>` at the top level | correct |
+| the same inside a `markdown="1"` wrapper | **broken** |
+| the wrapper with the `<div markdown>` *not* indented | correct |
+| the wrapper with the details written as raw HTML too | correct |
+
+`HTMLExtractorExtra.handle_starttag` only treats a block-level tag as HTML when
+it is at the start of a line, so the indented `<div …>` is *data*;
+`handle_endtag` has no such condition and matches `</div>` against `mdstack`,
+which holds the wrapper. The inner close therefore closes the outer wrapper, the
+rest of the page falls inside the two-column container, and `pymdownx.details`
+emits its `</details>` after that.
+
+Fixed in the core (`tmark`, `crates/tmark-writers/src/mkdocs.rs`, challenge
+C68): a callout that is a direct child of an HTML wrapper takes the HTML wrapper
+itself, so its body starts at the wrapper's own column and nothing HTML is
+indented inside a `markdown="1"` block. `??? solution` becomes
+`<details class="solution" markdown="1">` with `<summary class="admonition-title">`,
+which Material styles identically. A block kept as written keeps its source
+indentation and does not inherit the rule — a `<div markdown>` inside a list
+item inside a wrapper would still break, but the corpus has none.
+
+| whole-site `<article>` nesting walk | before | after |
+| --- | --- | --- |
+| MkDocs build | 2 broken of 143 | **0 of 141** |
+| Zensical build | 2 broken of 143 | **0 of 143** |
+
+No source page was rewritten: the Markdown was legitimate, the lowering was not.
+
+### Epigraphs, in the book and on the site
+
+17 pages carry `epigraph: {quote, source}`. The key is TMark's own — declared in
+`spec/tmark.md`, typed as `Keys::epigraph`, in the JSON schema — and **no writer
+read it**: the site lost the epigraphs with the `mkdocs-epigraph` plugin, and the
+book never had them (`build/book/pages/*.tex` held not one `\tsepigraph`, while
+`ts-typesetting.sty` shipped the macro into every build).
+
+So the fix belongs in the core, not in TeXSmith: the printer already had the
+place for it. `common::epigraph` builds the same block quote a `> {.epigraph}`
+line makes — carrying the front-matter island's own node id and span — and hands
+it to the three writers, which each keep the single emitter they already had.
+The web lowering splices text rather than nodes, so it prints the blockquote
+with the opening heading.
+
+| backend | output |
+| --- | --- |
+| LaTeX | `\tsepigraph[source={Albert Einstein}]{Tout devrait être…}` |
+| Typst | `#ts-epigraph(source: [Albert Einstein])[Tout devrait être…]` |
+| HTML | `<blockquote class="epigraph"><p>…</p><footer>…</footer></blockquote>` |
+| web lowering | `<blockquote class="ts-epigraph">…<footer>…</footer></blockquote>` |
+
+Placement: **under** the document's opening heading, between it and its content
+— where the removed plugin put it (it inserted after the first `<h…>` line) and
+where an epigraph belongs in print. The spec said "before the first heading";
+that sentence was the bug and was corrected (challenge C69). A page opening with
+no heading takes it at the top, after the blank lines the site index pads with.
+
+`quote` and `source` are plain text, not Markdown. The web appearance is
+TeXSmith's `texsmith.css` (`blockquote.ts-epigraph`): italic, indented 30% from
+the left, ranged right, an em dash before the source — the old `epigraph.css`
+rules, and the shape `\tsepigraph` gives the page.
+
+Verified: 17 pages of the Zensical site and of the MkDocs site carry the
+blockquote right after their `<h1>`; 16 of the C book's pages carry
+`\tsepigraph` (the seventeenth, `course-cpp/cpp.md`, is not in that book) and
+the PDF builds.
+
+### Pills
+
+`mkdocs.yml` declared a `pills` plugin and `pyproject.toml` requires
+`mkdocs-pills`. The package is **installed and correct**; only its import name
+differs from its distribution name — the wheel ships `mkdocs_plugin_pills`, and
+`mkdocs-pills` is resolved by MkDocs through the entry point
+`pills=mkdocs_plugin_pills.plugin:PillsPlugin`. Nothing was missing from the
+lock and nothing was overridden.
+
+The pages do use it: `#!re /…/` on 3 pages (13 occurrences) and bare `U+XXXX` on
+8 pages (57 occurrences), giving 9 pages with `ycr-pill` links in the baseline
+site — to regex101 for a pattern, to symbl.cc for a code point.
+
+The plugin itself does two things Zensical cannot ask it for: `on_config`
+registers two Python-Markdown extensions, `on_post_build` copies its stylesheet
+and two mask icons into the site. Both are configuration, so both moved into
+`mkdocs.yml` and `docs/css/`, and **the plugin entry is gone**:
+
+```yaml
+markdown_extensions:
+  - mkdocs_plugin_pills.regex:RegexExtension
+  - mkdocs_plugin_pills.unicode:UnicodeExtension
+extra_css:
+  - css/pills.css
+```
+
+Python-Markdown resolves a `module:Class` extension name, and both generators
+feed `markdown_extensions` to the same `Markdown` instance, so this is *one*
+implementation — the plugin's own — for both. Nothing was reimplemented in
+TeXSmith: duplicating an upstream extension to make it reachable would have been
+the wrong trade. `docs/css/pills.css` is the plugin's own stylesheet with its two
+`mask` icons inlined as data URIs, so the sheet stands alone; `mkdocs-pills` stays
+a dependency because the extensions live in it.
+
+Output is byte-identical to the baseline:
+`<a class="ycr-pill ycr-regex" href="https://regex101.com/?regex=…"><code>/0x[0-9a-f]+/i</code></a>`
+and `<a class="ycr-pill ycr-unicode" href="https://symbl.cc/en/00E9">00E9</a>`.
+8 regex pills and 7 code-point pills on the Syntax page under Zensical, as under
+MkDocs.
+
+### Task lists
+
+`- [ ]` / `- [x]` rendered as literal brackets: `pymdownx.tasklist` was never
+enabled — the `exercises` plugin drew the boxes under MkDocs, and it is gone.
+`mkdocs.yml` now carries
+
+```yaml
+  - pymdownx.tasklist:
+      custom_checkbox: true
+```
+
+which is Material's own spelling, and both generators draw the 129 quiz items
+(32 `task-list-control` labels on the Syntax page alone).
+
+TMark is undisturbed: it *already* parses a GFM task item — `ListItem.task` is
+`open` or `done` in the IR — and renders it in print as `\begin{tstasklist}`
+with `\item[\tstodo]` / `\item[\tsdone]` (fragment `ts-todolist`) and in HTML as
+a disabled `<input type="checkbox">`. `lower_web` deliberately leaves `- [ ]` as
+written, which is exactly what `pymdownx.tasklist` needs. So the item in §9 —
+"the 129 `- [x]` quiz lines are dead markup on both media" — was only ever true
+of the web: the book has been printing the boxes all along.
+
+### An index page for the tags
+
+`docs/appendix/index-tags.md` (titled *Index*, listed in `docs/appendix/.nav.yml`
+and `.pages`) carries `<!-- material/tags -->`. After `zensical build -c` the 252
+chips stop being `<span>`s: every one is a link into that page, which groups the
+tags with the pages carrying them (`<h2 id="tag:0b">` and a list of links). The
+page sits under the top-level `appendix` section, which is neither book's root,
+so `texsmith site build` ignores it — both `.tex` bundles build and neither holds
+the directive; no `hide`/`ignore` key was needed. Under MkDocs the page is inert
+(Material's `tags` plugin never sees the derived tags, §11), so it shows its
+heading and its sentence and nothing else — the MkDocs build stays at 10
+warnings and 0 errors.
+
 ## 11. Tags in the search
 
 Branch `zensical`, TeXSmith 0.7.1.dev of `/home/ycr/texsmith` branch `zensical`,
@@ -1114,12 +1296,10 @@ added: a cap would make the filter lie about what the page contains.
 
 ### Still open here
 
-* **No tags listing page.** The chips are `<span>`s, not links, because the
-  handbook declares the `tags` plugin but has no page carrying
-  `<!-- material/tags -->`. One page with that directive, anywhere in the
-  navigation, turns all 252 chips into links into it and gives the handbook an
-  index of its own on the web. `tags_file` is deprecated; the directive is the
-  spelling Zensical honours.
+* ~~**No tags listing page.**~~ Done in §10: `docs/appendix/index-tags.md`
+  carries `<!-- material/tags -->`, the 252 chips are links into it, and it
+  groups the tags with the pages carrying them. `tags_file` is deprecated; the
+  directive is the spelling Zensical honours.
 * **`tags_allowed`** (a `tags` plugin option Zensical implements) would restrict
   the facet to a declared list and warn on anything else — the knob to reach for
   if 252 filters ever prove too many.
