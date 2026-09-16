@@ -1,0 +1,122 @@
+name: zensical
+
+# The Zensical chain, next to the MkDocs one and blocking nothing: it builds
+# the site with Zensical and the two books with TeXSmith, and uploads both as
+# artefacts. `ci.yml` keeps publishing the site with MkDocs until this job is
+# green on its own.
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - zensical
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zensical-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The branch pins its TeXSmith and its TMark core to a working copy
+  # (`[tool.uv.sources]` of `pyproject.toml`), which no runner can resolve, so
+  # the job checks the two repositories out beside the handbook and points the
+  # sources at them. Neither ref is on its remote yet, so the job stays red
+  # until they are pushed — which is why it is non-blocking.
+  TEXSMITH_REPOSITORY: yves-chevallier/texsmith
+  TEXSMITH_REF: zensical
+  TMARK_REPOSITORY: yves-chevallier/tmark-core
+  TMARK_REF: autorefs-anchors
+
+jobs:
+  zensical:
+    name: Build the Zensical site and the two books
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 60
+    steps:
+      - name: Checkout the handbook
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout TeXSmith
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TEXSMITH_REPOSITORY }}
+          ref: ${{ env.TEXSMITH_REF }}
+          path: .ci/texsmith
+
+      - name: Checkout the TMark core
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TMARK_REPOSITORY }}
+          ref: ${{ env.TMARK_REF }}
+          path: .ci/tmark
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      # `tmark-core` is a Rust extension and no wheel of the branch is
+      # published, so the runner compiles it. A released `tmark-core` drops
+      # these two steps and some three minutes with them.
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache the Rust build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: .ci/tmark
+
+      - name: Install Ubuntu dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pngquant ghostscript
+
+      - name: Point the local sources at the checkouts
+        run: |
+          sed -i -e 's#"/home/ycr/texsmith#".ci/texsmith#' \
+                 -e 's#"/home/ycr/tmark/#".ci/tmark/#' pyproject.toml
+          sed -n '/\[tool.uv.sources\]/,$p' pyproject.toml
+
+      - name: Install Python deps with uv
+        run: uv sync
+
+      # `texsmith site assets` exports the 123 draw.io diagrams of the corpus
+      # to SVG, and its first backend is Playwright. Without the exports the
+      # pages point at `.drawio` files no browser renders, so the browser is
+      # worth its minute.
+      - name: Install Chromium for Playwright
+        run: uv run playwright install --with-deps chromium
+
+      - name: Build the site and the two books
+        run: make zensical
+
+      - name: Upload the site
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zensical-site
+          path: site/
+          if-no-files-found: warn
+
+      - name: Upload the books
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zensical-pdf
+          path: |
+            build/book/book.pdf
+            build/tools/tools.pdf
+          if-no-files-found: warn
