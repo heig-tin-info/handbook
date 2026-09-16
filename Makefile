@@ -12,25 +12,30 @@ else
 	RUNCMD = uv run
 endif
 
-all:
-	$(RUNCMD) mkdocs build
+# The site is built with Zensical: the generated assets first (Zensical
+# empties the site directory and caches pages, so nothing Python writes during
+# a build survives), then the site, then the two books. The search index needs
+# no step of its own: a page's index entries are its tags, and the extension
+# writes them while the page renders. `make zensical` is the whole chain, the
+# one CI runs.
+all: zensical
 
-serve:
-	$(RUNCMD) mkdocs serve
-
-# The Zensical chain: the generated assets first (Zensical empties the site
-# directory and caches pages, so nothing Python writes during a build
-# survives), then the site, then the two books. The search index needs no
-# step of its own: a page's index entries are its tags, and the extension
-# writes them while the page renders.
 zensical:
 	$(RUNCMD) texsmith site assets mkdocs.yml
 	$(RUNCMD) zensical build -f mkdocs.yml
 	$(RUNCMD) texsmith site build mkdocs.yml
 
-serve-zensical:
+serve:
 	$(RUNCMD) texsmith site assets mkdocs.yml
-	$(RUNCMD) zensical serve -f mkdocs.yml -a 127.0.0.1:8100
+	$(RUNCMD) zensical serve -f mkdocs.yml
+
+# MkDocs, which CI still publishes with until the Zensical job has run green
+# for a while.
+mkdocs:
+	$(RUNCMD) mkdocs build
+
+serve-mkdocs:
+	$(RUNCMD) mkdocs serve
 
 servefast:
 	$(RUNCMD) mkdocs serve --dirty
@@ -38,8 +43,7 @@ servefast:
 uv.lock: pyproject.toml
 	uv lock
 
-build:
-	$(RUNCMD) mkdocs build
+build: zensical
 
 latex-clean:
 	$(RM) -rf $(BUILD_DIR)/_minted-index
@@ -86,4 +90,4 @@ mrproper: clean
 
 FORCE:
 
-.PHONY: all serve zensical serve-zensical build clean update optimize latex latex-clean docker-image ci update-viewer
+.PHONY: all serve zensical mkdocs serve-mkdocs servefast build clean update optimize latex latex-clean docker-image ci update-viewer
