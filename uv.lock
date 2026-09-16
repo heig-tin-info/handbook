@@ -656,7 +656,7 @@ requires-dist = [
     { name = "mkdocs-pills", specifier = ">=0.1.0,<0.2.0" },
     { name = "mkdocs-plugin-exercises", git = "https://github.com/yves-chevallier/mkdocs-exercise.git" },
     { name = "mkdocs-snippets", specifier = ">=1.3.2,<2.0.0" },
-    { name = "mkdocs-texsmith", editable = "../texsmith/packages/mkdocs_texsmith" },
+    { name = "mkdocs-texsmith", specifier = ">=0.8.0" },
     { name = "mkdocs-toggle-sidebar-plugin", specifier = ">=0.0.8,<0.0.9" },
     { name = "mkdocs-wikipedia", specifier = ">=0.1.0,<0.2.0" },
     { name = "pillow", specifier = ">=12.0.0,<13.0.0" },
@@ -665,7 +665,7 @@ requires-dist = [
     { name = "pypdf", specifier = ">=6.4.0,<7.0.0" },
     { name = "ruamel-yaml", specifier = ">=0.18.15,<0.19.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.14.0,<0.15.0" },
-    { name = "texsmith", editable = "../texsmith" },
+    { name = "texsmith", specifier = ">=0.8.0" },
     { name = "unidecode", specifier = ">=1.4.0,<2.0.0" },
     { name = "voluptuous", specifier = ">=0.15.2,<0.16.0" },
     { name = "wikipedia-api", specifier = ">=0.8.1,<0.9.0" },
@@ -1455,25 +1455,14 @@ wheels = [
 
 [[package]]
 name = "mkdocs-texsmith"
-source = { editable = "../texsmith/packages/mkdocs_texsmith" }
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "texsmith" },
 ]
-
-[package.metadata]
-requires-dist = [{ name = "texsmith", editable = "../texsmith" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mkdocs", specifier = ">=1.6.1" },
-    { name = "mkdocs-awesome-nav", specifier = ">=3.2.0" },
-    { name = "mkdocs-material", specifier = ">=9.6.22" },
-    { name = "mkdocstrings-python", specifier = ">=1.18.2" },
-    { name = "nox", extras = ["pbs"], specifier = ">=2024.4.16" },
-    { name = "pillow", specifier = ">=12.0.0" },
-    { name = "pytest", specifier = ">=8.4.2" },
-    { name = "pytest-cov", specifier = ">=7.0.0" },
-    { name = "ruff", specifier = ">=0.14.1" },
+sdist = { url = "https://files.pythonhosted.org/packages/d2/44/ac3e1a8fc33c4d1dd00d6b139fc609f4fd318da31a9b5079d9b25af69817/mkdocs_texsmith-0.8.0.tar.gz", hash = "sha256:3d5daa5b693f450165626ce061aedea86a8050b03096805b3f4fdf6751ac31b0", size = 84624, upload-time = "2026-09-16T16:20:12.499Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/16/6e/37437dc44eba685644c2810cdb6ef814342a04b2f71c727bc4e938ee6c62/mkdocs_texsmith-0.8.0-py3-none-any.whl", hash = "sha256:c3e86351f637ff4ea4d18f70b1e1759112585cb3d78c781f47ba6bc297046e37", size = 10649, upload-time = "2026-09-16T16:20:11.159Z" },
 ]
 
 [[package]]
@@ -2383,12 +2372,15 @@ wheels = [
 
 [[package]]
 name = "texsmith"
-source = { editable = "../texsmith" }
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "cairosvg" },
     { name = "emoji" },
     { name = "jinja2" },
+    { name = "natsort" },
+    { name = "pathspec" },
     { name = "pillow" },
     { name = "pint", version = "0.24.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "pint", version = "0.25.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
@@ -2407,52 +2399,11 @@ dependencies = [
     { name = "tmark-core" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
     { name = "typer" },
+    { name = "wcmatch" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "beautifulsoup4", specifier = ">=4.14.2" },
-    { name = "cairosvg", specifier = ">=2.8.2" },
-    { name = "emoji", specifier = ">=2.12.1" },
-    { name = "jinja2", specifier = ">=3.1.6" },
-    { name = "pillow", specifier = ">=12.0.0" },
-    { name = "pint", specifier = ">=0.24" },
-    { name = "playwright", specifier = ">=1.56.0" },
-    { name = "pybtex", specifier = ">=0.24.0" },
-    { name = "pydantic", specifier = ">=2.7.0" },
-    { name = "pygments", specifier = ">=2.18.0" },
-    { name = "pylatexenc", specifier = ">=2.10" },
-    { name = "pymupdf", specifier = ">=1.24.3" },
-    { name = "pypdf", specifier = ">=6.1.1" },
-    { name = "python-slugify", specifier = ">=8.0.4" },
-    { name = "pyxindy", specifier = ">=0.0.7" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
-    { name = "requests", specifier = ">=2.32.5" },
-    { name = "rich", specifier = ">=13.9.0" },
-    { name = "tmark-core", directory = "../tmark/crates/tmark-py" },
-    { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0.1" },
-    { name = "typer", specifier = ">=0.12.5" },
-    { name = "typst", marker = "extra == 'typst'", specifier = ">=0.15" },
-]
-provides-extras = ["typst"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mkdocs-texsmith", marker = "python_full_version >= '3.10'", editable = "../texsmith/packages/mkdocs_texsmith" },
-    { name = "nox", extras = ["pbs"], specifier = ">=2024.4.16" },
-    { name = "pytest", specifier = ">=8.4.2" },
-    { name = "pytest-cov", specifier = ">=7.0.0" },
-    { name = "ruff", specifier = ">=0.14.1" },
-    { name = "typst", specifier = ">=0.15" },
-]
-docs = [
-    { name = "mike", specifier = ">=2.1.2" },
-    { name = "mkdocs-awesome-nav", specifier = ">=3.2.0" },
-    { name = "mkdocs-drawio", git = "https://github.com/yves-chevallier/mkdocs-drawio.git?rev=testounet" },
-    { name = "mkdocs-material", specifier = ">=9.6.22" },
-    { name = "mkdocs-texsmith", marker = "python_full_version >= '3.10'", editable = "../texsmith/packages/mkdocs_texsmith" },
-    { name = "mkdocstrings", extras = ["python"], specifier = ">=0.21.2" },
-    { name = "zensical", specifier = ">=0.0.62" },
+sdist = { url = "https://files.pythonhosted.org/packages/8a/01/b000f73650c048dfd63dc7c8af661426044241b77241ffd426a32ba28f4d/texsmith-0.8.0.tar.gz", hash = "sha256:07c73fda2f06e61253b3c14453f9573fe7adae6a383beb83aeb643a09c299d04", size = 7825845, upload-time = "2026-09-16T16:20:03.147Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0a/3e/9ff90d40a0978b6b57385ff4122885978a35838f7f211b42881bad5adf4c/texsmith-0.8.0-py3-none-any.whl", hash = "sha256:cbc2c1185fde1c1e86a2f27770c9de85e267c0cd72c31961b3dd949654f58992", size = 655134, upload-time = "2026-09-16T16:20:01.305Z" },
 ]
 
 [[package]]
@@ -2478,7 +2429,15 @@ wheels = [
 
 [[package]]
 name = "tmark-core"
-source = { directory = "../tmark/crates/tmark-py" }
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8c/45/f9c838eea417081cda172b8a3417d93b31437d63e3ea5ed0a6b477b6846d/tmark_core-0.2.0.tar.gz", hash = "sha256:bc4c58c447e2fa6b46cbab39654fb19233e2ca4a33f12b3d25dc752e1f317311", size = 762937, upload-time = "2026-09-16T12:21:03.778Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6e/8f/da6a351ee3e757f11c3edcc93d2e1ebdbfbece639bddabaa8b4846a11e1b/tmark_core-0.2.0-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:add18f0e2b19c129243d8c44c098b0def7312f31e680b932da2eb35c3f174492", size = 5001449, upload-time = "2026-09-16T12:20:55.893Z" },
+    { url = "https://files.pythonhosted.org/packages/24/07/093abd7468a9b4e22f9f341912c2b78a73d5f26498d4a68946e140e3f9c6/tmark_core-0.2.0-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:27e1f97d4d85ed15d3c8587c130504e14bf183598ca043b2de8f385b2d21fce2", size = 2758736, upload-time = "2026-09-16T12:20:58.277Z" },
+    { url = "https://files.pythonhosted.org/packages/00/91/e28fb609d69d055036d105d7bc497680a8a08afb51d4c99fd9a9dc627f26/tmark_core-0.2.0-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:12566859b0f61df0314c31eecd287a10c5aa6243296708b90ff88e5f550ecdd9", size = 2756943, upload-time = "2026-09-16T12:21:00.09Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/af/b6f29690c5d13429c47f5b9904e49c7afb3287b9ce787d4bddcf83461ec1/tmark_core-0.2.0-cp310-abi3-win_amd64.whl", hash = "sha256:c7f16bbb89f298db6d2a11194f4cccd1ff4e26a591811eda47287445e8ec1cbb", size = 2507629, upload-time = "2026-09-16T12:21:02.091Z" },
+]
 
 [[package]]
 name = "tomli"

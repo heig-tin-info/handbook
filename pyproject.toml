@@ -64,8 +64,8 @@ dependencies = [
     "voluptuous>=0.15.2,<0.16.0",
     "wikipedia-api>=0.8.1,<0.9.0",
     "mkdocs-wikipedia>=0.1.0,<0.2.0",
-    "mkdocs-texsmith>=0.7.0",
-    "texsmith>=0.7.0",
+    "mkdocs-texsmith>=0.8.0",
+    "texsmith>=0.8.0",
     "zensical>=0.0.62",
 ]
 
@@ -95,7 +95,3 @@ build-backend = "hatchling.build"
 # 11 or later; the cap is stale, so the two live in one environment.
 override-dependencies = ["pymdown-extensions>=11.0"]
 
-[tool.uv.sources]
-texsmith = { path = "/home/ycr/texsmith", editable = true }
-mkdocs-texsmith = { path = "/home/ycr/texsmith/packages/mkdocs_texsmith", editable = true }
-tmark-core = { path = "/home/ycr/tmark/crates/tmark-py" }
