@@ -514,3 +514,260 @@ Untracked: this file, `zensical-trial.yml` (the trial copy of `mkdocs.yml` with
 `docs/assets/drawio/` (115 SVG exports), `docs/assets/texsmith/texsmith.css`,
 `docs/assets/snippets/` (empty). The last three are generated and belong in
 `.gitignore` (H10).
+
+## 8. Wave 2 — the hooks leave (H5 … H9)
+
+Branch `zensical`, on top of wave 1 (H1–H4, H10, H11). TeXSmith 0.7.1.dev5 of
+`/home/ycr/texsmith` branch `zensical`, `tmark-core` 0.1.0, Zensical 0.0.62.
+
+### What was done
+
+| # | package | result |
+| --- | --- | --- |
+| H5 | `[[tag]]` → `#[term]` | **done**: 275 markers, 17 files, `utils/migrate_wiki_tags.py`; `hooks/tags.py` and `hooks/index.py` retired |
+| H6 | `hooks/abbr.py` | **done**: 44 abbreviations carry their expansion; hook retired, `wikipedia` plugin kept for MkDocs |
+| H7 | exercise numbering | **not applied**: two TeXSmith defects block it, the migration is committed unapplied as `utils/number_exercises.py` |
+| H8 | `spantable` / `french` / `mermaid` | **done**: all three retired, `hooks/` deleted |
+| H9 | the HEIG-VD cover | **done**: `press.titlepage` / `press.imprint` / `press.preamble` reach `tex/` from `mkdocs.yml` |
+| (H4) | `--8<--` in a fence | **tried and reverted**: `include=` is spliced on the web now, but its path is not resolved the way the snippet extension resolves one |
+
+`hooks:` is gone from `mkdocs.yml` and the `hooks/` directory with it.
+
+### H5 — index entries
+
+`hooks/tags.py` read four shapes, all of them a visible text plus an index
+entry: `[[Zig]]`, `[[||void]]`, `[[|heraldique]]`, `[[Mayenne|Mayenne, Duc de]]`,
+`[[Shadocks||Shadocks, les]]`, `[[bit|bit|bit, le]]`. The entry is the **last
+non-empty field**, the visible text the first one — the hook's own rule (the
+middle field kebab-cased into a `data-tag` for Lunr) disappears with it, since
+`texsmith site search` keys the entry itself.
+
+`utils/migrate_wiki_tags.py` (idempotent, `--check`) rewrites them to
+`text #[term]`, or `#[term]` alone when nothing was visible: a TMark index
+entry is **zero-width**, so the visible half has to be written out as ordinary
+text. It skips fenced blocks and code spans, as the hook's inline processor
+did. 275 markers, 17 files, distribution 142 `[[text]]`, 119 `[[||entry]]`,
+6 `[[|tag]]`, 3 `[[text||entry]]`, 2+2 three-field, 1 `[[text|tag]]`.
+
+`hooks/index.py` is **dropped, not migrated**: it wrapped every inline
+`<code>` of three to fifteen characters in an index entry — an automatic index
+of thousands of terms. The C keywords it mostly caught (`#[void]`, `#[while]`,
+…) are already explicit entries in `syntax.md`, coming from the `[[||…]]` form.
+
+Numbers: `compat-unsupported` 540 → **0**; Zensical's 45 `unresolved autoref`
+→ **0**; `texsmith site search` reports **74 search entries gained the index
+entries of their page** (it reported nothing before, the corpus declaring
+none); the C book's `.tex` carries **270 `\tsindex{}`** calls and a
+`\printindex`.
+
+### H6 — abbreviations
+
+`*[KEY]: https://…wikipedia.org/…` is not what `abbr` means anywhere but in
+this repository: TMark reads the same definitions PHP-Markdown-Extra does and
+gives them to `<abbr title>` on the web and to `glossaries` in the PDF. The 44
+entries of `includes/abbreviations.md` therefore carry their **expansion**
+(`*[POSIX]: Portable Operating System Interface`), which is what a reader
+hovering an acronym wants; the click-through to the article is gone, and the
+`wikipedia` plugin still decorates the article links written in the prose —
+under MkDocs only, Zensical has no plugin hooks.
+
+`K&R` left the list, see the lesson below.
+
+**The acronym list does not reach the PDF**, and did not before either:
+TeXSmith does not honour `pymdownx.snippets`' `auto_append`, so the file the
+site appends to every page is invisible to the book builder
+(`build/book/sources/**.md` has never contained it). Verified: an explicit
+`{include}(includes/abbreviations.md)` on one page puts all 44
+`\newacronym` in the preamble but substitutes `\tsacr{}` on that page only,
+and `glossaries` prints only the entries that were used.
+
+### H7 — exercise numbering: what is missing
+
+TMark numbers a callout through a counter item in its title, declared
+site-wide under `plugins.texsmith.declare.counters`:
+
+```yaml
+ex: {name: Exercice, format: "Exercice {n}", scope: document}
+```
+
+`::: exercise {title="#(ex:mot-du-jour) : Mot du jour"}` renders
+`Exercice 12 : Mot du jour` in both writers — verified on a standalone
+document, web lowering and LaTeX. **Neither spelling survives the site path**:
+
+1. `texsmith.site.index` parses a page's **body** and attaches a front-matter
+   node afterwards (`SiteIndex.register` and `.lower`: `tmark.parse(padded)`
+   where `padded` is the body, then `doc["front_matter"] = node`). The parser
+   therefore never sees the page's own declarations, and
+   `press.declare.admonitions` is invisible to it: `::: exercise` raises
+   `container-unknown` and the lowering leaves the fence as **literal text on
+   the page**. `tmark.parse` takes no declarations, so the fix is to parse the
+   whole page text, or to re-parse once the site declarations are merged in.
+   (The same page parsed whole — `tmark.parse(open(page).read())` — has no
+   diagnostic and renders correctly.)
+2. The `!!!` spelling needs no declaration, the PyMdownX profile taking any
+   word as a callout kind, but it cannot carry the counter:
+   `tmark.lower_web` splices a `#(ex:key)` written in a `!!!` title at the
+   **start of the line** instead of at the marker, so
+   `!!! exercise "#(ex:un) : T"` lowers to
+   `<span class="ts-counter">Exercice 1</span>cise "#(ex:un) : T"`. The
+   offsets of a node inside a `!!!` title look relative to the title rather
+   than to the file.
+
+Either one fixed is enough. `utils/number_exercises.py` is the finished
+migration for (1) — 123 blocks, 25 files, the de-indentation and the
+front-matter declaration included — committed **unapplied**: it reports by
+default and writes only with `--apply`.
+
+Also lost with the `exercises` plugin under Zensical, and not replaceable by
+TMark: the multiple-choice quizzes it built from a `- [x]` list and the
+fill-in-the-blank inputs it built from `{{word}}` (8 left in 3 files, reported
+as `var-unresolved`). Numbering was **per page** there; the TMark counter is
+continuous site-wide.
+
+### H8 — the last three hooks
+
+**`spantable.py`.** The operator-priority table repeats its priority and
+associativity on every row instead of spanning them, and a `yaml table-config`
+fence gives the description column the flexible width `@flex` asked for
+(`clXl` in LaTeX). TMark's `yaml table` *can* express the row spans
+(`{value: …, rows: 2}` with `~` below), but its **web lowering mangles a code
+span inside a YAML cell** — `["`code`", "x"]` renders as ` ```yam ` — and that
+table is made of `` `++` ``, `` `()` ``, `` `sizeof` ``. The `@rb` / `@bb`
+markers of the addition table are dropped: CSS borders with no print meaning.
+The dead rules go too, the global `white-space: nowrap` on every table cell
+that hid behind `td:not(.ycr-flex-column)` included. 24 of the 25
+`ref-unresolved` are gone with them.
+
+**`french.py`.** Nothing localises a callout's default title: the LaTeX word
+list (`ts_callout_words`) is the capitalised kind or tmark's English label
+whatever `language:` says, and a declared kind's `name:` does not reach it
+either — a declared `exercise: {name: Exercice}` still prints `Exercise`. The
+eighteen untitled callouts of the four translated kinds (`tip`, `warning`,
+`example`, `bug`) therefore carry their French title in the source, and
+`extra.admonition_translations` is gone from `mkdocs.yml`. The typography pass
+has **no equivalent**: `babel-french` spaces `;:!?` in the PDF, the web loses
+the thin spaces and the `«…»`, and the ligature lint (`coeur` → `cœur`) with
+them. `docs/css/french.css` is untouched — it styles the dash lists, not the
+hook.
+
+**`mermaid.py`.** The six fences whose first line was a `%% title` carry a
+`Figure:` caption line after the fence instead, which is a numbered figure on
+both media (`<figure><pre class="mermaid">…<figcaption>` on the web, a float in
+the PDF).
+
+### H9 — the cover
+
+`press.titlepage`, `press.imprint` and `press.preamble` landed on the TeXSmith
+side during this wave, so `mkdocs.yml` reaches `tex/titlepage.tex`,
+`tex/imprint.tex` and `heiglogo.sty` without forking the template. The two
+`.tex` files were written against the in-repo LaTeX class TeXSmith replaced and
+were adapted: the template's macros (`\booktitle`, `\bookauthor`,
+`\bookemail`, `\bookdate`) in place of bare `\title` / `\author` / `\email`,
+and plain text where a Creative Commons *font* the class loaded used to draw a
+glyph (`\creativecommon` is defined nowhere in this repository). The
+`titlingpage` environment stays: the `book` template is `memoir`, which has it
+and has no `titlepage`.
+
+LaTeX stops nesting a bullet list at four levels and the Shunting-yard rules
+nest six (`Too deeply nested`, the first content error after the cover). A
+`tex/handbook.sty` loaded through `press.preamble` fixed it here; TeXSmith
+then shipped `texsmith-lists.sty`, which does the same for `itemize` and
+`enumerate` alike, so the handbook's copy went again and the preamble loads
+the logo only.
+
+Three anchors were renamed, `twos_complement` → `twos-complement` and
+friends: an `_` in a label reaches `\hyperref[twos\_complement]{…}`, which
+builds a csname and dies on `Missing \endcsname`. The stray second
+`sequence_point` anchor became a link to the canonical one.
+
+### The tail of H4, tried and put back
+
+Wave 1 left `--8<-- "file"` inside a fence alone because the web lowering did
+not splice `include="file"`. It does now — verified on
+`docs/assets/src/hello.c` — so the 36 fences of 15 files were converted, and
+put back: **the path is not resolved the same way**. The corpus writes it from
+the project directory (`docs/assets/src/hello.c`), which is what
+`pymdownx.snippets`' `base_path: .` means and what `--8<--` gets; the site
+pre-pass reports `include-missing` for all 36 and leaves the fence **raw**, so
+the listing becomes literal ```` ```c include="…" ```` text and swallows the
+paragraph after it. Fifteen pages broken on the site; the book pass resolves
+them fine. `utils/fix_tmark_deprecations.py` carries the finding where it says
+why the corpus keeps the old spelling.
+
+**TeXSmith lesson**: the site pipeline should resolve a fence's `include=`
+against the snippet base paths, as it resolves `--8<--`; and an unresolved
+include should not leave a fence raw enough to eat the next paragraph.
+
+### Verification
+
+`uv run mkdocs build` (site **and** both `.tex` bundles, 37.8 s, exit 0):
+
+| | wave 1 | wave 2 |
+| --- | --- | --- |
+| `WARNING` lines | 643 | **79** |
+| `ERROR` lines | 0 | **0** |
+
+| code | count | what is left |
+| --- | --- | --- |
+| `deprecated` | 68 | 36 `--8<--` in a fence, counted twice (site + book); see above |
+| `var-unresolved` | 8 | the `{{word}}` fill-in-the-blanks of three exercises |
+| `ref-unresolved` | 1 | `@Ry` in a formula of `cpu-zero.md` |
+| `asset-convert-failed` | 1 | the `pie` mermaid fence of `me-and-my-computer.md`, already failing in the baseline |
+
+`rm -rf .cache && make zensical`:
+
+* `texsmith site assets` — 122 diagrams, 115 exported, unchanged.
+* `zensical build` — **No issues found** (45 before wave 1, 146 with
+  `texsmith.site.web`), 8.98 s, 145 pages.
+* `texsmith site search` — **74 search entries gained the index entries of
+  their page**.
+* `texsmith site build` — both PDFs, on a machine to itself:
+
+  | book | bundle | PDF | pages |
+  | --- | --- | --- | --- |
+  | *L'informatique pour l'ingénieur* | `book.tex` 16.5 KB + 87 page files | 37.8 MB | **640** |
+  | *Outils de développement* | `tools.tex` 9.1 KB + 21 page files | 4.5 MB | **64** |
+
+  The C book opens on the HEIG-VD cover (`pdftotext -f 1`: the title, the
+  author, the TIN address, the date) and page 3 is the imprint. About six
+  minutes end to end — the forty-minute runs of this session were two agents
+  compiling the same `build/book/book.tex` at once, which is worth knowing:
+  pass `--build-dir` when the tree is shared.
+
+**The printed index is empty.** The 270 `\tsindex` calls all reach
+`book.idx` — `makeindex book.idx` turns it into a correct 334-line `book.ind`
+(`<complex.h>, 66`, `=, 80`, …) — but `ts-index.sty` is
+`\RequirePackage[xindy]{imakeidx}` and `imakeidx` runs the index program
+through shell-escape, which the `tectonic` invocation does not enable. So
+`\printindex` prints nothing and the book has no index page, silently.
+**TeXSmith lesson**: run the index program from the build driver (it already
+picks one, `core/templates/base.py:_detect_index_engine`) and re-run the
+engine, or enable shell-escape for that pass.
+
+### Still open
+
+* **H7**, waiting on either TeXSmith defect above.
+* `mkdocs-plugin-exercises` and `mkdocs-wikipedia` stay in `pyproject.toml`:
+  the first still numbers the exercises under MkDocs, the second still fetches
+  the article summaries there. `pyproject.toml` is not touched at all in this
+  wave.
+* `tools/.nav.yml`'s `- "*"` matches nothing and both nav resolvers say so;
+  it is the faithful conversion of the `.pages` and was left alone.
+
+### The TeXSmith lessons of this wave
+
+| # | what | where |
+| --- | --- | --- |
+| 1 | A page's own `press.declare` never reaches the **parser**: `texsmith.site.index` parses the body and attaches the front matter afterwards, so a declared container is `container-unknown` and lowers to literal text. | `site/index.py` `register` / `lower` |
+| 2 | `lower_web` splices a `#(prefix:key)` written in a `!!!` callout title at the start of the line instead of at the marker. | `tmark` web lowering |
+| 3 | A callout's default title is English whatever `language:` says, and a declared kind's `name:` does not reach the LaTeX word list either. | `fragments/callouts/__init__.py:_callout_words` |
+| 4 | `lower_web` mangles a **code span inside a `yaml table` cell**: a cell holding a backticked word renders as a slice of the fence line itself. | `tmark` web lowering |
+| 5 | A fence's `include=` is spliced on the web now but its path is not resolved against the snippet base paths, and an unresolved include leaves the fence raw enough to swallow the next paragraph. | `site/` include resolution |
+| 6 | `pymdownx.snippets`' `auto_append` is not honoured anywhere, so a site-wide abbreviation list never reaches a book. | `site/config.py`, `site/book.py` |
+| 7 | An acronym key that is not csname-safe emits a second `\newacronym` with the **unsanitised** lowercased key: `\newacronym{k&r}` is a LaTeX syntax error. | glossary writer |
+| 8 | An `_` in a label reaches `\hyperref[a\_b]{…}`, which builds a csname and dies on `Missing \endcsname`. | LaTeX writer |
+| 9 | The index program is never run: `imakeidx` needs shell-escape, `tectonic` is called without it, and `\printindex` prints nothing. | build driver |
+
+The typography `french.py` did on the web — thin spaces before `;:!?`, `«…»`,
+the missing-ligature lint — has no TMark equivalent and is simply lost under
+Zensical. `babel-french` still spaces the punctuation in the PDF.
