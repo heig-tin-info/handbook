@@ -7,4 +7,9 @@ nav:
 - editor
 - python
 - analysis
-- "*"
+# `arrange:` in the `.pages` orders what it names and leaves the rest
+# where it is; `nav:` is exhaustive, so the catch-all keeps that meaning
+# for a page added later. The seven entries above are the whole
+# directory today, which is why the glob has to say it matches nothing.
+- glob: "*"
+  ignore_no_matches: true
