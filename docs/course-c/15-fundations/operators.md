@@ -326,7 +326,7 @@ if (a == b) {
 }
 ```
 
-!!! tip "Astuce"
+!!! tip
 
     Programmer c'est être minimaliste, dès lors il serait possible de simplifier l'écriture ci-dessus de la façon suivante :
 
@@ -586,7 +586,7 @@ assert(b == 0x0000'0000);
 assert(-8 >> 1 == -4) // 0b1111'1000 >> 1 == 0b1111'1100
 ```
 
-!!! warning "Avertissement"
+!!! warning
 
     Le standard ne définit pas le comportement des décalages pour des valeurs de décalage négatives (`a >> -2`). Néanmoins il n'y aura pas d'erreur de compilation, le comportement est simplement indéfini et le résultat dépend donc du compilateur utlisé.
 
@@ -658,7 +658,7 @@ Le résultat d'une opération logique est toujours un `booléen` (valeur 0 ou 1)
 
 La priorité des opérateurs logiques est plus faible que celle des opérateurs de comparaison et plus forte que celle des opérateurs d'affectation. Ainsi l'expression `a == b && c == d` est équivalente à `(a == b) && (c == d)`. Les parenthèses sont facultatives, mais permettent de clarifier l'expression.
 
-!!! warning "Avertissement"
+!!! warning
 
     La priorité de l'opérateur `&&` est plus forte que celle de l'opérateur `||`. Ainsi l'expression `a || b && c` est équivalente à `a || (b && c)`. C'est un piège classique en programmation, pour l'éviter il est recommandé d'utiliser des parenthèses.
 
@@ -754,7 +754,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     y = x;
     ```
 
-!!! tip "Astuce"
+!!! tip
 
     Pour résoudre les ambiguïtés, on procède par étape. Par exemple l'expression suivante n'est pas très claire :
 
@@ -797,7 +797,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     - Favoriser la précédence explicite en utilisant des parenthèses
     - Séparez vos opérations par des espaces pour plus de lisibilité: `#!c k = i-- - -j`
 
-!!! tip "Astuce"
+!!! tip
 
     Il est généralement préférable d'utiliser la pré-incrémentation ou la pré-décrémentation car elles sont plus efficaces. En effet, la post-incrémentation ou la post-décrémentation nécessitent de stocker la valeur actuelle de la variable pour la retourner après l'incrémentation ou la décrémentation.
 
@@ -869,7 +869,7 @@ On remarque dans cet exemple une répétition `max =`. Une façon plus élégant
 max = a > b ? a : b;
 ```
 
-!!! warning "Avertissement"
+!!! warning
 
     Ne pas utiliser l'opérateur ternaire si vous ne modifiez pas une valeur. L'opérateur ternaire est un opérateur de **sélection** et non de **modification**.
 

@@ -402,7 +402,7 @@ const double scale_factor = 12.67;
 
 Une constante #[constante] est principalement utilisée pour indiquer au développeur que la valeur ne doit pas être modifiée. Le compilateur peut également s'en servir pour mieux optimiser le code et donc améliorer les performances d'exécution.
 
-!!! warning "Avertissement"
+!!! warning
 
     Il ne faut pas confondre la **constante** qui est une variable immuable, stockée en mémoire et une **macro** qui appartient au préprocesseur. Sur certaines plateformes, le fichier d'en-tête `math.h` définit par exemple la constante `M_PI` sous forme de macro.
 
