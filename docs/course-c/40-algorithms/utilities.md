@@ -4,12 +4,10 @@
 
 Il est souvent nécessaire de lire l'intégralité de l'entrée standard dans une chaîne de caractères. Cependant, comme l'entrée standard (`stdin`) n'est pas *seekable*, c'est-à-dire qu'il est impossible de se déplacer librement dans le flux ou d'en déterminer la taille à l'avance, il devient impossible d'allouer précisément la mémoire nécessaire à l'avance. Une stratégie commune consiste à lire le flux par fragments et à utiliser un tableau dynamique, redimensionné de façon progressive (via un facteur de croissance), pour stocker l'intégralité du contenu. C'est précisément l'objectif de la fonction `slurp` présentée ci-dessous. Slurp est un terme argotique qui signifie "aspirer" ou "engloutir" en anglais, c'est également un terme utilisé en informatique pour désigner le fait de lire un fichier en entier, notamment en Perl.
 
-```c title="slurp.h"
---8<-- "docs/assets/src/slurp/slurp.h"
+```c title="slurp.h" include="docs/assets/src/slurp/slurp.h"
 ```
 
-```c title="slurp.c"
---8<-- "docs/assets/src/slurp/slurp.c"
+```c title="slurp.c" include="docs/assets/src/slurp/slurp.c"
 ```
 
 ### Analyse et alternatives possibles
@@ -86,8 +84,7 @@ Notez également que si la fonction `callback` utilise un mécanisme de `longjmp
 
 L'opération de jointure est l'opération inverse de `split`. Elle consiste à concaténer plusieurs chaînes de caractères en une seule, en les séparant par un délimiteur. Cette opération est couramment utilisée pour générer des chaînes de requêtes SQL, des URL, des chaînes de formatage, etc. Voici une implémentation possible de la fonction `join` en utilisant la bibliothèque standard C :
 
-```c
---8<-- "docs/assets/src/join/main.c"
+```c include="docs/assets/src/join/main.c"
 ```
 
 ## Trim
