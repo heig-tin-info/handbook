@@ -169,7 +169,7 @@ int make_coffee(void) {
 }
 ```
 
-Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel []{#calling_conventions} de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel []{#calling-conventions} de la fonction.
 
 ## Syntaxe
 

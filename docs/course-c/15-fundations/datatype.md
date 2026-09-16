@@ -148,7 +148,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 32 bits    | -2'147'483'648             | +2'147'483'647             |
 | 64 bits    | -9'223'372'036'854'775'808 | +9'223'372'036'854'775'807 |
 
-En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos_complement] que nous avons déjà évoqué.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos-complement] que nous avons déjà évoqué.
 
 ### Les entiers bornés
 

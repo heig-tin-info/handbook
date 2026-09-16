@@ -128,7 +128,9 @@ plugins:
           press:
             # The HEIG-VD cover and the imprint page of the printed book;
             # `heiglogo.sty` reaches the bundle through `copy_files` below.
-            preamble: \usepackage{heiglogo}
+            preamble: |
+              \usepackage{heiglogo}
+              \usepackage{handbook}
             titlepage: tex/titlepage.tex
             imprint: tex/imprint.tex
           frontmatter:
@@ -138,7 +140,6 @@ plugins:
           copy_files:
             docs/assets/c-logo.pdf: assets/
             tex/*.sty: .
-            tex/*.tex: .
         - root: Outils
           base_level: -1
           title: Outils de développement
@@ -147,8 +148,6 @@ plugins:
           email: yves.chevallier@heig-vd.ch
           copy_files:
             tex/tool-hero.pdf: assets/
-            tex/*.sty: .
-            tex/*.tex: .
   - wikipedia
   - glightbox:
       auto_themed: true
