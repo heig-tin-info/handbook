@@ -1034,3 +1034,97 @@ Browse check, `uv run zensical serve -f mkdocs.yml -a 127.0.0.1:8123`:
   lines are dead
   markup on both media. Either they become prose (a solution callout with the
   answer) or something has to render them.
+
+## 11. Tags in the search
+
+Branch `zensical`, TeXSmith 0.7.1.dev of `/home/ycr/texsmith` branch `zensical`,
+Zensical 0.0.62.
+
+`hooks/tags.py` did two things with `[[tag]]`, and only one of them survived the
+migration. The tag became an index entry — that is `#[term]` now, and
+`texsmith site search` puts the terms into the `text` of the page's entries in
+`search.json`, so typing one still finds the page. The other half was that the
+tag was a **tag**: lunr indexed it in a field of its own, Material boosted it and
+showed it on the result. On Zensical that was gone, and with it the notion the
+search had of a tag.
+
+### What Zensical does natively
+
+A page's `tags:` metadata drives three things, and the `tags` plugin is needed
+for only one of them:
+
+| | needs the `tags` plugin? |
+| --- | --- |
+| the chips under the content (`partials/tags.html`) | no |
+| the `tags` of every `search.json` entry of the page → the *Filters* panel | no |
+| the `<!-- material/tags -->` listing page, and the chips linking into it | yes |
+
+The *Filters* panel is the part worth having. It is a term aggregation over the
+`tags` of the current results: click one and the results narrow to the pages
+carrying it, and with an empty query it *is* the query — a browse-by-tag view
+the handbook never had under MkDocs.
+
+What it is not is searchable text. The search worker's text index has three
+fields, `title` (weight 3), `text` and `path` (weight 2); `tags` is a separate
+filter sub-index. On a scratch site whose only occurrence of a word was a tag,
+typing it returned nothing while the Filters panel listed it with its count. So
+both halves are needed, and TeXSmith writes both.
+
+### How the terms get there
+
+`zensical.markdown.render` builds the `Page` it gives the context extension
+around the very metadata dict it returns to Rust once the page is converted. So
+a key a Python-Markdown extension writes into `page.meta` is a key the build
+reads — the one channel Python still has to tell Rust something about a page.
+`texsmith.site.web` writes `tags` there, derived from the `ts-index` spans the
+lowering just produced: one tag per entry, its top level only (`#[mémoire]
+[allocation]` gives `mémoire`), the author's spelling kept, deduplicated in
+first-appearance order, after the tags the page declares itself. The option is
+`plugins.texsmith.web.tags` (`index`, the default, or `none`); a page that would
+rather not show the chips says `hide: [tags]` in its front matter, which leaves
+the search filters alone.
+
+Two things learnt doing it:
+
+* it has to be the **preprocessor**. The `toc` extension replays every
+  postprocessor over each heading and over the table of contents
+  (`markdown.extensions.toc.render_inner_html`), so a postprocessor fires three
+  or four times per page, on fragments that hold no entry at all.
+* a page's metadata is part of its cached render, so a change of derivation
+  needs `zensical build -c`. `rm -rf .cache` does as well.
+
+### Numbers on the handbook
+
+`rm -rf .cache`, `texsmith site assets`, `zensical build -c`, `texsmith site
+search`, one warning (`@Ry` in `cpu-zero.md`, known):
+
+| | |
+| --- | --- |
+| pages carrying `#[term]` entries | 17 of 142 |
+| distinct tags across the site | 252 |
+| `search.json` entries carrying tags | 235 of 1205 |
+| `search.json` entries that gained index terms in `text` | 74 |
+
+The two last lines are the division of labour. `text` is patched only where an
+entry actually sits, down to the section; `tags` are the page's and reach every
+one of its sections, which is what makes the Filters panel list a page once per
+heading it has. The biggest page, `15-fundations/syntax.md`, ends on 79 chips —
+a legible index of the page, nine rows of pills, and the reason no cap was
+added: a cap would make the filter lie about what the page contains.
+
+### Still open here
+
+* **No tags listing page.** The chips are `<span>`s, not links, because the
+  handbook declares the `tags` plugin but has no page carrying
+  `<!-- material/tags -->`. One page with that directive, anywhere in the
+  navigation, turns all 252 chips into links into it and gives the handbook an
+  index of its own on the web. `tags_file` is deprecated; the directive is the
+  spelling Zensical honours.
+* **`tags_allowed`** (a `tags` plugin option Zensical implements) would restrict
+  the facet to a declared list and warn on anything else — the knob to reach for
+  if 252 filters ever prove too many.
+* Under MkDocs nothing changes: Material's `tags` plugin reads a page's metadata
+  from `on_page_markdown` at the same priority as the TeXSmith plugin and is
+  declared before it in `mkdocs.yml`, so it never sees the derived tags. The
+  terms reach MkDocs' search the way they always have, through the `tags` field
+  of `search_index.json`.
