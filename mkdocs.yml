@@ -19,6 +19,12 @@ edit_uri: edit/master/docs/
 docs_dir: !ENV [DOCS, docs]
 validation:
   absolute_links: relative_to_docs
+  # Zensical checks a page's `#id` links against the page's own source, before
+  # the TeXSmith lowering points a cross-page reference at the page that holds
+  # the label, so every `[text](#id)` to another page is a false alarm there.
+  # TMark reports an unknown label itself (`ref-unresolved`).
+  links:
+    anchors: ignore
 theme:
   name: material
   language: fr
