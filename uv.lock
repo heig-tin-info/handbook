@@ -443,7 +443,7 @@ name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219", size = 30371, upload-time = "2025-11-21T23:01:54.787Z" }
 wheels = [
@@ -582,7 +582,6 @@ dependencies = [
     { name = "chalk-diagrams" },
     { name = "deepmerge" },
     { name = "inflection" },
-    { name = "mike" },
     { name = "mkdocs" },
     { name = "mkdocs-autorefs" },
     { name = "mkdocs-awesome-nav" },
@@ -634,7 +633,6 @@ requires-dist = [
     { name = "deepmerge", specifier = ">=2.0,<3.0.0" },
     { name = "inflection", specifier = ">=0.5.1,<0.6.0" },
     { name = "ipdb", marker = "extra == 'dev'", specifier = ">=0.13.13,<0.14.0" },
-    { name = "mike", specifier = ">=2.1.3,<3.0.0" },
     { name = "mkdocs", specifier = ">=1.6.1,<2.0.0" },
     { name = "mkdocs-autorefs", specifier = ">=1.4.3,<2.0.0" },
     { name = "mkdocs-awesome-nav", specifier = ">=3.2.0,<4.0.0" },
@@ -656,7 +654,7 @@ requires-dist = [
     { name = "mkdocs-pills", specifier = ">=0.1.0,<0.2.0" },
     { name = "mkdocs-plugin-exercises", git = "https://github.com/yves-chevallier/mkdocs-exercise.git" },
     { name = "mkdocs-snippets", specifier = ">=1.3.2,<2.0.0" },
-    { name = "mkdocs-texsmith", specifier = ">=0.8.0" },
+    { name = "mkdocs-texsmith", specifier = ">=0.9.3" },
     { name = "mkdocs-toggle-sidebar-plugin", specifier = ">=0.0.8,<0.0.9" },
     { name = "mkdocs-wikipedia", specifier = ">=0.1.0,<0.2.0" },
     { name = "pillow", specifier = ">=12.0.0,<13.0.0" },
@@ -665,7 +663,7 @@ requires-dist = [
     { name = "pypdf", specifier = ">=6.4.0,<7.0.0" },
     { name = "ruamel-yaml", specifier = ">=0.18.15,<0.19.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.14.0,<0.15.0" },
-    { name = "texsmith", specifier = ">=0.8.0" },
+    { name = "texsmith", specifier = ">=0.9.3" },
     { name = "unidecode", specifier = ">=1.4.0,<2.0.0" },
     { name = "voluptuous", specifier = ">=0.15.2,<0.16.0" },
     { name = "wikipedia-api", specifier = ">=0.8.1,<0.9.0" },
@@ -703,15 +701,6 @@ wheels = [
 ]
 
 [[package]]
-name = "importlib-resources"
-version = "6.5.2"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/cf/8c/f834fbf984f691b4f7ff60f50b514cc3de5cc08abfc3295564dd89c5e2e7/importlib_resources-6.5.2.tar.gz", hash = "sha256:185f87adef5bcc288449d98fb4fba07cea78bc036455dd44c5fc4a2fe78fed2c", size = 44693, upload-time = "2025-01-03T18:51:56.698Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl", hash = "sha256:789cfdc3ed28c78b67a06acb8126751ced69a3d5f79c095a98298cd8a760ccec", size = 37461, upload-time = "2025-01-03T18:51:54.306Z" },
-]
-
-[[package]]
 name = "inflection"
 version = "0.5.1"
 source = { registry = "https://pypi.org/simple" }
@@ -743,17 +732,17 @@ resolution-markers = [
     "python_full_version < '3.11'",
 ]
 dependencies = [
-    { name = "colorama", marker = "python_full_version < '3.11' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version < '3.11'" },
-    { name = "exceptiongroup", marker = "python_full_version < '3.11'" },
-    { name = "jedi", marker = "python_full_version < '3.11'" },
-    { name = "matplotlib-inline", marker = "python_full_version < '3.11'" },
-    { name = "pexpect", marker = "python_full_version < '3.11' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
-    { name = "prompt-toolkit", marker = "python_full_version < '3.11'" },
-    { name = "pygments", marker = "python_full_version < '3.11'" },
-    { name = "stack-data", marker = "python_full_version < '3.11'" },
-    { name = "traitlets", marker = "python_full_version < '3.11'" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "decorator" },
+    { name = "exceptiongroup" },
+    { name = "jedi" },
+    { name = "matplotlib-inline" },
+    { name = "pexpect", marker = "sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "prompt-toolkit" },
+    { name = "pygments" },
+    { name = "stack-data" },
+    { name = "traitlets" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/85/31/10ac88f3357fc276dc8a64e8880c82e80e7459326ae1d0a211b40abf6665/ipython-8.37.0.tar.gz", hash = "sha256:ca815841e1a41a1e6b73a0b08f3038af9b2252564d01fc405356d34033012216", size = 5606088, upload-time = "2025-05-31T16:39:09.613Z" }
 wheels = [
@@ -769,17 +758,17 @@ resolution-markers = [
     "python_full_version >= '3.11' and python_full_version < '3.13'",
 ]
 dependencies = [
-    { name = "colorama", marker = "python_full_version >= '3.11' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version >= '3.11'" },
-    { name = "ipython-pygments-lexers", marker = "python_full_version >= '3.11'" },
-    { name = "jedi", marker = "python_full_version >= '3.11'" },
-    { name = "matplotlib-inline", marker = "python_full_version >= '3.11'" },
-    { name = "pexpect", marker = "python_full_version >= '3.11' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
-    { name = "prompt-toolkit", marker = "python_full_version >= '3.11'" },
-    { name = "pygments", marker = "python_full_version >= '3.11'" },
-    { name = "stack-data", marker = "python_full_version >= '3.11'" },
-    { name = "traitlets", marker = "python_full_version >= '3.11'" },
-    { name = "typing-extensions", marker = "python_full_version == '3.11.*'" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "decorator" },
+    { name = "ipython-pygments-lexers" },
+    { name = "jedi" },
+    { name = "matplotlib-inline" },
+    { name = "pexpect", marker = "sys_platform != 'emscripten' and sys_platform != 'win32'" },
+    { name = "prompt-toolkit" },
+    { name = "pygments" },
+    { name = "stack-data" },
+    { name = "traitlets" },
+    { name = "typing-extensions", marker = "python_full_version < '3.12'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/12/51/a703c030f4928646d390b4971af4938a1b10c9dfce694f0d99a0bb073cb2/ipython-9.8.0.tar.gz", hash = "sha256:8e4ce129a627eb9dd221c41b1d2cdaed4ef7c9da8c17c63f6f578fe231141f83", size = 4424940, upload-time = "2025-12-03T10:18:24.353Z" }
 wheels = [
@@ -791,7 +780,7 @@ name = "ipython-pygments-lexers"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pygments", marker = "python_full_version >= '3.11'" },
+    { name = "pygments" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ef/4c/5dd1d8af08107f88c7f741ead7a40854b8ac24ddf9ae850afbcf698aa552/ipython_pygments_lexers-1.1.1.tar.gz", hash = "sha256:09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81", size = 8393, upload-time = "2025-01-17T11:24:34.505Z" }
 wheels = [
@@ -1123,25 +1112,6 @@ wheels = [
 ]
 
 [[package]]
-name = "mike"
-version = "2.1.3"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "importlib-metadata" },
-    { name = "importlib-resources" },
-    { name = "jinja2" },
-    { name = "mkdocs" },
-    { name = "pyparsing" },
-    { name = "pyyaml" },
-    { name = "pyyaml-env-tag" },
-    { name = "verspec" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ab/f7/2933f1a1fb0e0f077d5d6a92c6c7f8a54e6128241f116dff4df8b6050bbf/mike-2.1.3.tar.gz", hash = "sha256:abd79b8ea483fb0275b7972825d3082e5ae67a41820f8d8a0dc7a3f49944e810", size = 38119, upload-time = "2024-08-13T05:02:14.167Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/fd/1a/31b7cd6e4e7a02df4e076162e9783620777592bea9e4bb036389389af99d/mike-2.1.3-py3-none-any.whl", hash = "sha256:d90c64077e84f06272437b464735130d380703a76a5738b152932884c60c062a", size = 33754, upload-time = "2024-08-13T05:02:12.515Z" },
-]
-
-[[package]]
 name = "mkdocs"
 version = "1.6.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1455,14 +1425,14 @@ wheels = [
 
 [[package]]
 name = "mkdocs-texsmith"
-version = "0.8.0"
+version = "0.9.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "texsmith" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d2/44/ac3e1a8fc33c4d1dd00d6b139fc609f4fd318da31a9b5079d9b25af69817/mkdocs_texsmith-0.8.0.tar.gz", hash = "sha256:3d5daa5b693f450165626ce061aedea86a8050b03096805b3f4fdf6751ac31b0", size = 84624, upload-time = "2026-09-16T16:20:12.499Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e9/99/f10decb6cdbda489c9f285e72fdc347a021c61406e9df4a1df4caece4e61/mkdocs_texsmith-0.9.3.tar.gz", hash = "sha256:a3f5b5f9f154b83ab120a314971c4797a9f4584cdfa53756ed7df3d84c46fdb2", size = 84630, upload-time = "2026-10-04T20:30:35.378Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/16/6e/37437dc44eba685644c2810cdb6ef814342a04b2f71c727bc4e938ee6c62/mkdocs_texsmith-0.8.0-py3-none-any.whl", hash = "sha256:c3e86351f637ff4ea4d18f70b1e1759112585cb3d78c781f47ba6bc297046e37", size = 10649, upload-time = "2026-09-16T16:20:11.159Z" },
+    { url = "https://files.pythonhosted.org/packages/75/27/e780ec347ff37ea6a041fcc016c02c1cc6d84e83c0d4adb7c7cf83fc42aa/mkdocs_texsmith-0.9.3-py3-none-any.whl", hash = "sha256:b1ba6e2a2f43b12a51c3d140887128cfd912dddd39eed79798107325adfe65cc", size = 10648, upload-time = "2026-10-04T20:30:34.224Z" },
 ]
 
 [[package]]
@@ -1664,10 +1634,10 @@ resolution-markers = [
     "python_full_version < '3.11'",
 ]
 dependencies = [
-    { name = "flexcache", marker = "python_full_version < '3.11'" },
-    { name = "flexparser", marker = "python_full_version < '3.11'" },
-    { name = "platformdirs", marker = "python_full_version < '3.11'" },
-    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
+    { name = "flexcache" },
+    { name = "flexparser" },
+    { name = "platformdirs" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/20/bb/52b15ddf7b7706ed591134a895dbf6e41c8348171fb635e655e0a4bbb0ea/pint-0.24.4.tar.gz", hash = "sha256:35275439b574837a6cd3020a5a4a73645eb125ce4152a73a2f126bf164b91b80", size = 342225, upload-time = "2024-11-07T16:29:46.061Z" }
 wheels = [
@@ -1683,10 +1653,10 @@ resolution-markers = [
     "python_full_version >= '3.11' and python_full_version < '3.13'",
 ]
 dependencies = [
-    { name = "flexcache", marker = "python_full_version >= '3.11'" },
-    { name = "flexparser", marker = "python_full_version >= '3.11'" },
-    { name = "platformdirs", marker = "python_full_version >= '3.11'" },
-    { name = "typing-extensions", marker = "python_full_version >= '3.11'" },
+    { name = "flexcache" },
+    { name = "flexparser" },
+    { name = "platformdirs" },
+    { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/5f/74/bc3f671997158aef171194c3c4041e549946f4784b8690baa0626a0a164b/pint-0.25.2.tar.gz", hash = "sha256:85a45d1da8fe9c9f7477fed8aef59ad2b939af3d6611507e1a9cbdacdcd3450a", size = 254467, upload-time = "2025-11-06T22:08:09.184Z" }
 wheels = [
@@ -1981,15 +1951,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/62/9b/f86224847949577a523be2207315ae0fd3155b5d909cd66c274d095349a3/pymupdf-1.26.7-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:1d5106f46e1ca0d64d46bd51892372a4f82076bdc14a9678d33d630702abca36", size = 24324386, upload-time = "2025-12-12T14:58:45.483Z" },
     { url = "https://files.pythonhosted.org/packages/85/8e/a117d39092ca645fde8b903f4a941d9aa75b370a67b4f1f435f56393dc5a/pymupdf-1.26.7-cp310-abi3-win32.whl", hash = "sha256:7c9645b6f5452629c747690190350213d3e5bbdb6b2eca227d82702b327f6eee", size = 17203888, upload-time = "2025-12-12T13:59:57.613Z" },
     { url = "https://files.pythonhosted.org/packages/dd/c3/d0047678146c294469c33bae167c8ace337deafb736b0bf97b9bc481aa65/pymupdf-1.26.7-cp310-abi3-win_amd64.whl", hash = "sha256:425b1befe40d41b72eb0fe211711c7ae334db5eb60307e9dd09066ed060cceba", size = 18405952, upload-time = "2025-12-11T21:48:02.947Z" },
-]
-
-[[package]]
-name = "pyparsing"
-version = "3.3.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/33/c1/1d9de9aeaa1b89b0186e5fe23294ff6517fce1bc69149185577cd31016b2/pyparsing-3.3.1.tar.gz", hash = "sha256:47fad0f17ac1e2cad3de3b458570fbc9b03560aa029ed5e16ee5554da9a2251c", size = 1550512, upload-time = "2025-12-23T03:14:04.391Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/40/2614036cdd416452f5bf98ec037f38a1afb17f327cb8e6b652d4729e0af8/pyparsing-3.3.1-py3-none-any.whl", hash = "sha256:023b5e7e5520ad96642e2c6db4cb683d3970bd640cdf7115049a6e9c3682df82", size = 121793, upload-time = "2025-12-23T03:14:02.103Z" },
 ]
 
 [[package]]
@@ -2372,7 +2333,7 @@ wheels = [
 
 [[package]]
 name = "texsmith"
-version = "0.8.0"
+version = "0.9.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "beautifulsoup4" },
@@ -2401,9 +2362,9 @@ dependencies = [
     { name = "typer" },
     { name = "wcmatch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8a/01/b000f73650c048dfd63dc7c8af661426044241b77241ffd426a32ba28f4d/texsmith-0.8.0.tar.gz", hash = "sha256:07c73fda2f06e61253b3c14453f9573fe7adae6a383beb83aeb643a09c299d04", size = 7825845, upload-time = "2026-09-16T16:20:03.147Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/84/be/dba03afbda5dc387c2dc2806196e8d45a1819fc2e91c1dc550c4b2727efe/texsmith-0.9.3.tar.gz", hash = "sha256:801f42e17e4856c45a3930f1e757871ddc96b450441272931c583a118d101d75", size = 7952099, upload-time = "2026-10-04T20:30:26.924Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0a/3e/9ff90d40a0978b6b57385ff4122885978a35838f7f211b42881bad5adf4c/texsmith-0.8.0-py3-none-any.whl", hash = "sha256:cbc2c1185fde1c1e86a2f27770c9de85e267c0cd72c31961b3dd949654f58992", size = 655134, upload-time = "2026-09-16T16:20:01.305Z" },
+    { url = "https://files.pythonhosted.org/packages/af/79/7219747d2da2c0963aef5605a74eb3d17f9a816364a175d1902123a5c18b/texsmith-0.9.3-py3-none-any.whl", hash = "sha256:0af250efceda5bd03527d0c02147a02c55500ba36867caf684d21c6405bc03d6", size = 661923, upload-time = "2026-10-04T20:30:25.063Z" },
 ]
 
 [[package]]
@@ -2429,14 +2390,14 @@ wheels = [
 
 [[package]]
 name = "tmark-core"
-version = "0.2.0"
+version = "0.3.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/8c/45/f9c838eea417081cda172b8a3417d93b31437d63e3ea5ed0a6b477b6846d/tmark_core-0.2.0.tar.gz", hash = "sha256:bc4c58c447e2fa6b46cbab39654fb19233e2ca4a33f12b3d25dc752e1f317311", size = 762937, upload-time = "2026-09-16T12:21:03.778Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/ea/8522e213d0097038e5c3b6df4179b5dd07c4d96411a1a8dacb6496fdee84/tmark_core-0.3.3.tar.gz", hash = "sha256:0b4ef8bf71c2db72471508d1e8d1f1e34f69f028f79d411637a87f9a82e3aa7f", size = 768899, upload-time = "2026-10-04T19:11:38.443Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/6e/8f/da6a351ee3e757f11c3edcc93d2e1ebdbfbece639bddabaa8b4846a11e1b/tmark_core-0.2.0-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:add18f0e2b19c129243d8c44c098b0def7312f31e680b932da2eb35c3f174492", size = 5001449, upload-time = "2026-09-16T12:20:55.893Z" },
-    { url = "https://files.pythonhosted.org/packages/24/07/093abd7468a9b4e22f9f341912c2b78a73d5f26498d4a68946e140e3f9c6/tmark_core-0.2.0-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:27e1f97d4d85ed15d3c8587c130504e14bf183598ca043b2de8f385b2d21fce2", size = 2758736, upload-time = "2026-09-16T12:20:58.277Z" },
-    { url = "https://files.pythonhosted.org/packages/00/91/e28fb609d69d055036d105d7bc497680a8a08afb51d4c99fd9a9dc627f26/tmark_core-0.2.0-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:12566859b0f61df0314c31eecd287a10c5aa6243296708b90ff88e5f550ecdd9", size = 2756943, upload-time = "2026-09-16T12:21:00.09Z" },
-    { url = "https://files.pythonhosted.org/packages/7f/af/b6f29690c5d13429c47f5b9904e49c7afb3287b9ce787d4bddcf83461ec1/tmark_core-0.2.0-cp310-abi3-win_amd64.whl", hash = "sha256:c7f16bbb89f298db6d2a11194f4cccd1ff4e26a591811eda47287445e8ec1cbb", size = 2507629, upload-time = "2026-09-16T12:21:02.091Z" },
+    { url = "https://files.pythonhosted.org/packages/36/96/8894eea4c3856b03af514d94b359d5475821277cc4a4bb9033e04c9b98a8/tmark_core-0.3.3-cp310-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:20b4911114160878eb7226892763a1f0cc1357b3f4025ac2bbe7d8a7a2c78133", size = 5003510, upload-time = "2026-10-04T19:11:32.615Z" },
+    { url = "https://files.pythonhosted.org/packages/b3/c8/ac53b86607903998270460d8238c3fa78ffffaa05a89e63bc63bf6aecdc5/tmark_core-0.3.3-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:ac2df83a615b979b166166921f2dd3b54726f4452522e44e80ac9778d668cade", size = 2764626, upload-time = "2026-10-04T19:11:34.358Z" },
+    { url = "https://files.pythonhosted.org/packages/5e/44/d9e693aa58f0a58ce29259298ecd00a9b97db67f07e2d11d02a816373897/tmark_core-0.3.3-cp310-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:6ac405422372b1e5f9874200c26cd92b69464a7bb3ab34f8a2677a14a47bd75e", size = 2765948, upload-time = "2026-10-04T19:11:35.735Z" },
+    { url = "https://files.pythonhosted.org/packages/7a/2e/1e7b326b80aff1528b48eb16de25e2fb0a738bebad334663e5a6213ba3f4/tmark_core-0.3.3-cp310-abi3-win_amd64.whl", hash = "sha256:280c9a6d9af53d5d1ba65561619d336d19130c285f9f453b23f3b76d1dc3eafc", size = 2508750, upload-time = "2026-10-04T19:11:37.138Z" },
 ]
 
 [[package]]
@@ -2591,15 +2552,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/1e/24/a2a2ed9addd907787d7aa0355ba36a6cadf1768b934c652ea78acbd59dcd/urllib3-2.6.2.tar.gz", hash = "sha256:016f9c98bb7e98085cb2b4b17b87d2c702975664e4f060c6532e64d1c1a5e797", size = 432930, upload-time = "2025-12-11T15:56:40.252Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6d/b9/4095b668ea3678bf6a0af005527f39de12fb026516fb3df17495a733b7f8/urllib3-2.6.2-py3-none-any.whl", hash = "sha256:ec21cddfe7724fc7cb4ba4bea7aa8e2ef36f607a4bab81aa6ce42a13dc3f03dd", size = 131182, upload-time = "2025-12-11T15:56:38.584Z" },
-]
-
-[[package]]
-name = "verspec"
-version = "0.1.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/e7/44/8126f9f0c44319b2efc65feaad589cadef4d77ece200ae3c9133d58464d0/verspec-0.1.0.tar.gz", hash = "sha256:c4504ca697b2056cdb4bfa7121461f5a0e81809255b41c03dda4ba823637c01e", size = 27123, upload-time = "2020-11-30T02:24:09.646Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a4/ce/3b6fee91c85626eaf769d617f1be9d2e15c1cca027bbdeb2e0d751469355/verspec-0.1.0-py3-none-any.whl", hash = "sha256:741877d5633cc9464c45a469ae2a31e801e6dbbaa85b9675d481cda100f11c31", size = 19640, upload-time = "2020-11-30T02:24:08.387Z" },
 ]
 
 [[package]]

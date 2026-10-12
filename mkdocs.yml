@@ -93,7 +93,6 @@ plugins:
       enabled: !ENV CI
       plugins:
         #- privacy # Seem to mess with images
-        # - mike
         # - minify:
         #     minify_html: true # Break draw.io images?
         - git-committers:
