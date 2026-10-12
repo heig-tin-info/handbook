@@ -8,6 +8,8 @@ Chaque cellule peut être dans un état 0 (morte) ou 1 (vivante) en fonction de 
 
 ![Voisinage de Moore](/assets/images/moore-neighbors.drawio)
 
+Figure: Voisinage de Moore {#fig:moore-neighbors}
+
 Le format B/S est utilisé pour définir les règles de transition. B signifie *birth* (naissance) et S signifie *survival* (survie). Les règles sont définies par une liste de chiffres qui indiquent le nombre de voisins nécessaires pour qu'une cellule naisse ou survive. Par exemple, la règle `B3/S23` signifie qu'une cellule naît si elle a exactement 3 voisins et survit si elle a 2 ou 3 voisins. Certaines règles ont des noms spécifiques:
 
 | Nom          | Règle        | Description                     |

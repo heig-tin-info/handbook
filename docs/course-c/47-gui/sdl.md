@@ -35,11 +35,12 @@ sudo apt install libsdl2-dev "libsdl2-*"
 
 Une extension de SDL nommée GFX est également disponible. Elle ajoute des fonctionnalités graphiques supplémentaires comme des fonctions de dessin de primitives (lignes, rectangles, cercles, etc.).
 
-```bash
---8<-- "docs/assets/src/sdl/shapes/main.c"
+```bash include="docs/assets/src/sdl/shapes/main.c"
 ```
 
 ![Intersections de cercles](/assets/images/circles.png)
+
+Figure: Intersections de cercles {#fig:circles}
 
 
 ## Polygones
@@ -48,6 +49,7 @@ Voici un exemple d'un programme de dessin de polygones en utilisant SDL.
 
 ![Programme de dessin de polygones](/assets/images/polygons.png)
 
-```c
---8<-- "docs/assets/src/sdl/bezier/light.c"
+Figure: Programme de dessin de polygones {#fig:polygons}
+
+```c include="docs/assets/src/sdl/bezier/light.c"
 ```

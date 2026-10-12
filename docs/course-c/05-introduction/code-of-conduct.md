@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "Les programmes doivent être écrits pour être lus par des humains, et seulement accessoirement pour être exécutés par des machines."
+    quote: "Les programmes doivent être écrits pour être lus par des humains, et seulement accessoirement pour être exécutés par des machines."
     source: Harold Abelson
 ---
 # Développement logiciel
@@ -14,19 +14,21 @@ epigraph:
 
 Devenir développeuse ou développeur logiciel, que ce soit par métier ou par passion, ne se limite pas à écrire du code. Cette discipline requiert une finesse d’exécution, le respect de règles, de consensus partagés et l’appropriation de bonnes pratiques.
 
-J’ai souvent observé, dans les milieux académiques comme professionnels, des personnes se revendiquant expertes ou professeures transmettre à leurs élèves ou collègues des pratiques dogmatiques nourries de croyances personnelles ou d’habitudes désuètes. Or l’informatique est une [[discipline]] vivante, fondée sur la collaboration, l’écoute et l’introspection. Il est donc primordial d’avoir l’esprit ouvert et de cultiver l’humilité.
+J’ai souvent observé, dans les milieux académiques comme professionnels, des personnes se revendiquant expertes ou professeures transmettre à leurs élèves ou collègues des pratiques dogmatiques nourries de croyances personnelles ou d’habitudes désuètes. Or l’informatique est une discipline #[discipline] vivante, fondée sur la collaboration, l’écoute et l’introspection. Il est donc primordial d’avoir l’esprit ouvert et de cultiver l’humilité.
 
-On ne développe pas sur la base de certitudes figées, mais en s’appuyant sur des principes et des valeurs qui évoluent avec le temps et changent selon le contexte. Un ou une [[développeur·euse]] web n’adoptera pas les mêmes approches qu’un scientifique utilisant Python ou qu’une personne spécialisée dans l’embarqué.
+On ne développe pas sur la base de certitudes figées, mais en s’appuyant sur des principes et des valeurs qui évoluent avec le temps et changent selon le contexte. Un ou une développeur·euse #[développeur·euse] web n’adoptera pas les mêmes approches qu’un scientifique utilisant Python ou qu’une personne spécialisée dans l’embarqué.
 
 Dans le cadre de projets personnels, il est possible de coder seul·e. Mais en entreprise, vous faites partie d’une équipe. Le code que vous écrivez doit pouvoir perdurer après votre départ. Il doit rester lisible, maintenable, testable et évolutif. Il doit se conformer aux standards de l’entreprise, respecter les conventions de codage, les bonnes pratiques, les règles de sécurité et les normes de qualité. Il doit être documenté, commenté, versionné et archivé. Bref, il doit pouvoir être partagé, diffusé, échangé. Des méthodes de travail éprouvées existent pour cela, et nous les aborderons dans ce cours.
 
-Cependant, les valeurs humaines fondamentales du développement logiciel transcendent les considérations purement techniques et méthodologiques. Elles restent stables, comme celles qui régissent la société depuis des millénaires : ouverture d’esprit, humilité, [[curiosité]], rigueur, [[patience]], persévérance, écoute, entraide et partage.
+Cependant, les valeurs humaines fondamentales du développement logiciel transcendent les considérations purement techniques et méthodologiques. Elles restent stables, comme celles qui régissent la société depuis des millénaires : ouverture d’esprit, humilité, curiosité #[curiosité], rigueur, patience #[patience], persévérance, écoute, entraide et partage.
 
 ## Les règles évoluent
 
-En [[1750]] av. J.-C., le roi [[Hammurabi de Babylone]] a gravé sur une stèle de basalte le premier code de lois connu de l’histoire. Ce code, qui comprend 282 lois, régissait la vie quotidienne en [[Mésopotamie]]. Bien que ces lois soient considérées comme un jalon important vers une justice équitable, elles imposaient des sanctions souvent sévères : châtiments corporels, mutilations, esclavage, voire exécutions. La célèbre [[loi du talion]], "œil pour œil, dent pour dent", en est un exemple emblématique.
+En 1750 #[1750] av. J.-C., le roi Hammurabi de Babylone #[Hammurabi de Babylone] a gravé sur une stèle de basalte le premier code de lois connu de l’histoire. Ce code, qui comprend 282 lois, régissait la vie quotidienne en Mésopotamie #[Mésopotamie]. Bien que ces lois soient considérées comme un jalon important vers une justice équitable, elles imposaient des sanctions souvent sévères : châtiments corporels, mutilations, esclavage, voire exécutions. La célèbre loi du talion #[loi du talion], "œil pour œil, dent pour dent", en est un exemple emblématique.
 
 ![Code d'Hammurabi (1750 av. J.-C.)](/assets/images/hammurabi.png)
+
+Figure: Code d'Hammurabi (1750 av. J.-C.) {#fig:hammurabi}
 
 Ce qu’il faut retenir de cette analogie avec le développement logiciel, c’est que, tout comme les conventions sociales, les règles et les consensus en informatique changent avec le temps. Les bonnes pratiques d’aujourd’hui seront probablement différentes demain.
 
@@ -38,13 +40,15 @@ En d’autres termes, ce que je vous transmets aujourd’hui n’est pas une vé
 
 ![La langue, une barrière](/assets/images/english.png)
 
+Figure: La langue, une barrière {#fig:english}
+
 En programmation, quel que soit le langage utilisé, l’anglais est omniprésent. Les mots-clés des langages sont majoritairement issus de l’anglais, et bon nombre d’outils de développement sont exclusivement disponibles dans cette langue. Pourquoi cela ? Tout comme un article de journal local n’intéressera que peu de lectrices et lecteurs à l’autre bout du globe, un code informatique doit pouvoir être réutilisé pour réduire les coûts de développement et s’affranchir des barrières linguistiques.
 
 On réutilise ainsi volontiers un algorithme écrit par un programmeur japonais ou une bibliothèque de calcul matriciel développée en Amérique du Sud. Pour que chacune et chacun puisse corriger, maintenir ou améliorer le code des autres, une langue commune s’impose, et l’anglais est naturellement devenu cette langue.
 
 Dans ce cours, bien que rédigé en français, l’anglais sera privilégié pour les exemples de code et les noms des symboles (variables, constantes, etc.). Les termes techniques seront traduits lorsqu’un consensus existe ; à défaut, l’anglicisme restera la référence. Parler de « feu d’alerte » à la place de *warning* ferait perdre la nuance technique. J’opte donc, même au risque de froisser l’Académie, pour préserver les usages établis parmi les développeuses et développeurs.
 
-Un autre point mérite d’être souligné : la consultation quasi constante d’Internet par toute personne qui programme pour y puiser exemples, conseils ou assistance dans l’utilisation d’outils développés par d’autres. La majorité de ces ressources sont en [[anglais]].
+Un autre point mérite d’être souligné : la consultation quasi constante d’Internet par toute personne qui programme pour y puiser exemples, conseils ou assistance dans l’utilisation d’outils développés par d’autres. La majorité de ces ressources sont en anglais #[anglais].
 
 !!! tip "Apprenez les langues"
 
@@ -55,6 +59,8 @@ Un autre point mérite d’être souligné : la consultation quasi constante d�
 ## Apprendre à pêcher
 
 ![Un père et son fils pêchant](/assets/images/fisherman.png)
+
+Figure: Un père et son fils pêchant {#fig:fisherman}
 
 Un jeune homme part en mer avec son père et lui demande : « Papa, j’ai faim, comment ramènes-tu du poisson ? » Le père, fier, lance sa ligne et lui rapporte un beau poisson. Plus tard, alors que le jeune homme revient d’une balade sur l’estran, il demande : « Papa, j’ai faim, me ramènerais-tu du poisson ? » Le père sort de son étui sa plus belle canne, l’équipe d’un hameçon et, d’un geste précis, ramène encore une belle prise. Pendant longtemps, le fils mange ainsi à sa faim grâce à la patience de son père.
 

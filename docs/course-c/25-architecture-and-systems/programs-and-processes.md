@@ -1,13 +1,13 @@
 ---
 epigraph:
-    text: "L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur."
+    quote: "L'informatique est avant tout une science de l'abstraction. Il s'agit de créer le bon modèle pour un problème et d'imaginer les bonnes techniques automatisables et appropriées pour le résoudre. Toutes les autres sciences considèrent l'univers tel qu'il est. Par exemple, le travail d'un physicien est de comprendre le monde et non pas d'inventer un monde dans lequel les lois de la physique seraient plus simples et auxquelles il serait plus agréable de se conformer. À l'opposé, les informaticiens doivent créer des abstractions des problèmes du monde réel qui pourraient être représentées et manipulées dans un ordinateur."
     source: Alfred Vaino Aho et Jeffrey David Ullman
 ---
 # Programmes et Processus
 
 ## Qu'est-ce qu'un programme?
 
-Un [[programme]] informatique est une suite d'instruction définissant des opérations à réaliser sur des données ; des instructions destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
+Un programme #[programme] informatique est une suite d'instruction définissant des opérations à réaliser sur des données ; des instructions destinées à être exécutées par un ordinateur. Un programme peut se décliner sous plusieurs formes :
 
 - le code source (C, C++, Python, Java, etc.) ;
 - le *listing* assembleur (`.s`, `.asm`) ;
@@ -17,7 +17,7 @@ Un **processus** est l'état d'un programme en cours d'exécution. Lorsqu'un pro
 
 Quelque soit le langage de programmation utilisé, sur un ordinateur le processeur adopte un flot d'exécution séquentiel. Les instructions sont exécutées les unes après les autres.
 
-Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées
+Figure: Programmeuse en tenue décontractée à côté de 62'500 cartes perforées {#fig:vintage-programmer}
 
 ![Programmeuse à côté de cartes perforées](/assets/images/vintage-programmer.jpg){width="60%"}
 
@@ -35,8 +35,7 @@ Un exécutable binaire doit être compilé pour la bonne architecture matériell
 
 Prenons l'exemple du programme suivant qui calcule la suite des nombres de Fibonacci :
 
-```c
---8<-- "docs/assets/src/fibonacci.c"
+```c include="docs/assets/src/fibonacci.c"
 ```
 
 Une fois [assemblé](https://fr.wikipedia.org/wiki/Assembly_(informatique)) le code  source est converti en langage assembleur, une version intermédiaire entre le C et le langage machine. L'exemple est compilé en utilisant gcc :
@@ -104,7 +103,7 @@ $ hexdump -s0x680 -n256 a.out
 0000770 ff0c ffff 15ff 0866 0020 0ff4 441f 0000
 ```
 
-Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. [endianess][endianess]), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
+Il est facile de voir la correspondance entre l'assembleur et l'exécutable binaire. Les valeurs `41 55` puis `41 54` puis `48 8d 35 59` se retrouvent directement dans le *dump*: `5541 5441 8d48`. Si les valeurs sont interverties, c'est parce qu'un PC est *little-endian* (c.f. [endianess](#endianess)), les octets de poids faible apparaissent par conséquent en premier dans la mémoire.
 
 Sous Windows, l'extension des fichiers détermine leur type. Un fichier avec l'extension `.jpg` sera un fichier image du [Join Photographic Experts Group](https://fr.wikipedia.org/wiki/JPEG) et exécuter ce fichier correspond à l'ouvrir en utilisant l'application par défaut pour visualiser les images de ce type. Un fichier avec l'extension `.exe` est un exécutable binaire, et il sera exécuté en tant que programme par le système d'exploitation.
 
@@ -148,7 +147,9 @@ La figure suivante résume les interactions qu'un programme peut avoir sur son e
 
 ![Résumé des interactions avec un programme](/assets/images/program.drawio)
 
-[](){#signals}
+Figure: Résumé des interactions avec un programme {#fig:program}
+
+[]{#signals}
 ### Signaux
 
 Lorsqu'un programme est en cours d'exécution, il peut recevoir de la part du système d'exploitation des [signaux](https://fr.wikipedia.org/wiki/Signal_(informatique)). Il s'agit d'une notification asynchrone envoyée à un processus pour lui signaler l'apparition d'un évènement.
@@ -233,8 +234,7 @@ int getopt_long (int argc, char *const *argv, const char *shortopts,
 
 Ci-dessous une possible utilisation de cette fonction :
 
-```c
---8<-- "docs/assets/src/options.c"
+```c include="docs/assets/src/options.c"
 ```
 
 ### Windows
@@ -243,7 +243,7 @@ Windows utilise à l'instar de `RDOS` ou [OpenVMS](https://fr.wikipedia.org/wiki
 
 ## Fonction main
 
-Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://fr.wikipedia.org/wiki/BIOS_(informatique)) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World][hello-world] n'est pas la première, mais est appelé.
+Le standard définit une fonction nommée `main` comme étant la fonction principale appelée à l'exécution du programme. Or, sur un système d'exploitation, la fonction `main` a déjà été appelée il y a belle lurette lorsque l'ordinateur a été allumé et que le [BIOS](https://fr.wikipedia.org/wiki/BIOS_(informatique)) a chargé le système d'exploitation en mémoire. Dès lors la fonction `main` de notre programme [Hello World](#hello-world) n'est pas la première, mais est appelé.
 
 ### Qui appelle main ?
 
@@ -346,6 +346,8 @@ La commande suivante `cat` lis le contenu du fichier dont le nom est passé en a
 
 ![Rot13](/assets/images/rot13.drawio)
 
+Figure: Rot13 {#fig:rot13}
+
 Dans le cas où un de ces programmes génère une alerte (*warning*), le texte ne sera pas transmis le long de la chaîne, mais simplement affiché sur la console. Il est donc une bonne pratique que d'utiliser le bon flux de sortie: `stdout` pour la sortie standard et `stderr` pour les messages de diagnostic et les erreurs.
 
 ## Boucle d'attente
@@ -387,12 +389,12 @@ int main(void) {
 }
 ```
 
-!!! exercise "La fortune, la vache qui dit et le chat drôle"
+::: exercise {title="#(ex:la-fortune-la-vache-qui-dit-et-le-chat-drole) : La fortune, la vache qui dit et le chat drôle"}
+En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
 
-    En rappelant l'historique des dernières commandes exécutées sur l'ordinateur du professeur pendant qu'il avait le dos tourné, vous tombez sur cette commande :
+```bash
+$ fortune | cowsay | lolcat
+```
 
-    ```bash
-    $ fortune | cowsay | lolcat
-    ```
-
-    Quelle est sa structure et que fait-elle ?
+Quelle est sa structure et que fait-elle ?
+:::

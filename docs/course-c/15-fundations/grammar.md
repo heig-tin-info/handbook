@@ -1,4 +1,4 @@
-[](){ #grammar }
+[]{#grammar}
 
 # La grammaire
 
@@ -23,6 +23,8 @@ int main() {
 La figure suivante montre comment il serait possible de hiérarchiser les éléments de ce programme. On constate une imbriquation des éléments.
 
 ![Exemple d'arbre syntaxique (AST)](/assets/images/parsing.drawio)
+
+Figure: Exemple d'arbre syntaxique (AST) {#fig:parsing}
 
 La grammaire formelle du langage C est très complexe et comporte de nombreuses règles. Elle est définie par le standard du langage C, qui est un document officiel publié par l'ANSI (American National Standards Institute) et l'ISO (International Organization for Standardization).
 

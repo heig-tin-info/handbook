@@ -24,11 +24,11 @@ Pour écrire un programme, vous aurez besoin d’un **éditeur de code**, lui au
 
 Si vous trouvez une [DeLorean DMC-12](https://fr.wikipedia.org/wiki/DeLorean_(Retour_vers_le_futur)) munie d’un convecteur temporel et que vous dépassez les 88 miles à l’heure avec 2,21 gigowatts d’énergie, vous pourriez vous retrouver en 1973 et utiliser `ed`, un éditeur de code prononcé « idi », écrit par Ken Thompson (l’un des créateurs d’Unix et du langage C, que nous évoquerons plus loin).
 
-C’est un éditeur de texte né à l’époque des [télétypes][teletype] et qui, curieusement, a traversé les âges puisqu’il est toujours intégré au standard POSIX. Il reste donc disponible sur nos systèmes d’exploitation modernes. Toutefois, à cette époque, les écrans n’existaient pas et l’on utilisait des imprimantes pour afficher les résultats ; cet éditeur primitif n’était donc guère interactif.
+C’est un éditeur de texte né à l’époque des [télétypes](#teletype) et qui, curieusement, a traversé les âges puisqu’il est toujours intégré au standard POSIX. Il reste donc disponible sur nos systèmes d’exploitation modernes. Toutefois, à cette époque, les écrans n’existaient pas et l’on utilisait des imprimantes pour afficher les résultats ; cet éditeur primitif n’était donc guère interactif.
 
 Autre fait notable : `ed` est l’un des premiers éditeurs dits *modaux*. Son utilisation peut sembler déroutante, car il n’offre aucun retour visuel immédiat — rassurez-vous, on n’imprimait pas chaque lettre tapée ! Pour saisir du texte, il fallait donc exécuter des commandes : certaines pour sauvegarder, d’autres pour quitter, rechercher ou remplacer. Un exemple vaut mieux qu’un long discours. Imaginons que nous voulions saisir le poème « L’Albatros » de Charles Baudelaire dans un fichier nommé `albatros.txt`. Voici comment procéder :
 
-[](){#ed}
+[]{#ed}
 
 ```text
 $ ed
@@ -60,12 +60,13 @@ Puisque nous évoquons Vim, mentionnons aussi son rival historique : Emacs. Inve
 
 ![Guerre d'éditeurs](/assets/images/vim-vs-emacs.png)
 
+Figure: Guerre d'éditeurs {#fig:vim-vs-emacs}
+
 Je passe rapidement sur d’autres éditeurs qui ont connu leur heure de gloire mais paraissent aujourd’hui dépassés : TextPad, UltraEdit, Sublime Text, Atom, Notepad++… L’Usain Bolt — ou le Michael Phelps — des éditeurs actuels, c’est Visual Studio Code, l’outil phare de Microsoft qui a conquis les doigts agiles des développeuses et développeurs du monde entier. Gratuit, open source et disponible sur tous les systèmes d’exploitation, il s’enrichit d’innombrables extensions (notamment l’extension Vim utilisée par plus de 6,7 millions de personnes et l’extension Emacs par 55 000 personnes). Rapide, puissant et bien intégré aux outils que nous utiliserons, il reste l’éditeur que je vous recommande… jusqu’à la prochaine révolution.
 
 Pour être plus factuel, l’enquête annuelle 2023 de [Stack Overflow](https://survey.stackoverflow.co/2023/#overview) donne une idée assez fidèle de la popularité des éditeurs et environnements de développement intégrés les plus utilisés par les personnes qui programment :
 
 ```mermaid
-%% Utilisation des éditeurs de code
 pie
     "Visual Studio Code" : 73.3
     "Visual Studio" : 28.4
@@ -76,6 +77,8 @@ pie
     "Eclipse": 9.9
     "Nano": 8.98
 ```
+
+Figure: Utilisation des éditeurs de code
 
 ### Fonctionnalités attendues
 
@@ -173,7 +176,7 @@ Tous les éditeurs ne sont pas des IDE, mais tous les IDE sont des éditeurs. En
 
 La figure suivante illustre les relations entre les différents outils que nous avons évoqués jusqu'à présent.
 
-Figure: Représentation graphique des notions de compilateur, IDE, toolchain...
+Figure: Représentation graphique des notions de compilateur, IDE, toolchain... {#fig:toolchain}
 
 ![Notions de compilateur, IDE, toolchain...](/assets/images/toolchain.drawio)
 
@@ -183,58 +186,58 @@ On notera que l'ensemble des outils nécessaires à créer un logiciel exécutab
 
 ## Exercices de révision
 
-!!! exercise "Norme"
+::: exercise {title="#(ex:norme) : Norme"}
+Quelle norme, respectée par la plupart des systèmes d'exploitation modernes sauf Windows, les unifie en définissant une interface standardisée pour les programmes ?
 
-    {{posix}} est la norme respectée par la plupart systèmes d'exploitation modernes sauf Windows? Elle unifie les systèmes d'exploitation en définissant une interface standardisée pour les programmes.
+??? solution
 
-    ??? solution
+    La norme POSIX (*Portable Operating System Interface*) est une norme qui définit une interface standardisée pour les systèmes d'exploitation. Elle est respectée en grande partie par Unix, Linux, Solaris, BSD, macOS, Android, QNX, Cygwin, Haiku, VxWorks, RTEMS, etc.
 
-        La norme POSIX (*Portable Operating System Interface*) est une norme qui définit une interface standardisée pour les systèmes d'exploitation. Elle est respectée en grande partie par Unix, Linux, Solaris, BSD, macOS, Android, QNX, Cygwin, Haiku, VxWorks, RTEMS, etc.
+    Hélas, Windows ne respecte pas cette norme ce qui le positionne en marge des autres systèmes d'exploitation.
+:::
 
-        Hélas, Windows ne respecte pas cette norme ce qui le positionne en marge des autres systèmes d'exploitation.
+::: exercise {title="#(ex:eclipse) : Eclipse"}
+Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
 
-!!! exercise "Eclipse"
+??? solution
 
-    Un ami vous parle d'un outil utilisé pour le développement logiciel nommé **Eclipse**. De quel type d'outil s'agit-il ?
+    [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+:::
 
-    ??? solution
+::: exercise {title="#(ex:stack-overflow) : Stack Overflow"}
+Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
 
-        [Eclipse](https://www.eclipse.org/ide/) est un IDE. Il n'intègre donc pas de chaîne de compilation et donc aucun compilateur.
+??? solution
 
-!!! exercise "Stack Overflow"
+    Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
 
-    Combien y a-t-il eu de questions posées en C sur le site Stack Overflow?
+    Seriez-vous capable de répondre à une question posée?
+:::
 
-    ??? solution
+::: exercise {title="#(ex:quel-systeme-d-exploitation) : Quel système d'exploitation ?"}
+Quel système d'exploitation doit-on utiliser pour exécuter un programme écrit en C ?
 
-        Il suffit pour cela de se rendre sur le site de [Stackoverflow](https://stackoverflow.com/tags/c) et d'accéder à la liste des tags. En 2019/07 il y eut 307'669 questions posées.
+- [ ] Windows
+- [ ] Linux
+- [ ] macOS
+- [x] N'imorte lequel
+:::
 
-        Seriez-vous capable de répondre à une question posée?
+::: exercise {title="#(ex:copilot) : Copilot"}
+Qu'est-ce que Copilot ?
 
-!!! exercise "Quel système d'exploitation ?"
+- [x] Une intelligence artificielle
+- [ ] Un éditeur de code
+- [ ] Un compilateur
+- [ ] Un IDE
+:::
 
-    Quel système d'exploitation doit-on utiliser pour exécuter un programme écrit en C ?
+::: exercise {title="#(ex:posix-sous-windows) : POSIX sous Windows ?"}
+Si je souhaite pouvoir développer des programmes en C sous Windows compatibles avec la norme POSIX, que dois-je faire ?
 
-    - [ ] Windows
-    - [ ] Linux
-    - [ ] macOS
-    - [x] N'imorte lequel
-
-!!! exercise "Copilot"
-
-    Qu'est-ce que Copilot ?
-
-    - [x] Une intelligence artificielle
-    - [ ] Un éditeur de code
-    - [ ] Un compilateur
-    - [ ] Un IDE
-
-!!! exercise "POSIX sous Windows ?"
-
-    Si je souhaite pouvoir développer des programmes en C sous Windows compatibles avec la norme POSIX, que dois-je faire ?
-
-    - [ ] Rien, Windows est compatible POSIX
-    - [x] Installer un sous-système Linux comme WSL2
-    - [ ] Installer un compilateur GCC
-    - [ ] Installer un IDE
-    - [ ] Changer de système d'exploitation
+- [ ] Rien, Windows est compatible POSIX
+- [x] Installer un sous-système Linux comme WSL2
+- [ ] Installer un compilateur GCC
+- [ ] Installer un IDE
+- [ ] Changer de système d'exploitation
+:::

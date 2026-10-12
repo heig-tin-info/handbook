@@ -4,6 +4,8 @@
 
 ![Docker](/assets/images/docker.png)
 
+Figure: Docker {#fig:docker}
+
 Docker est une plateforme logicielle qui permet de créer, de tester et de déployer des applications dans des **conteneurs logiciels**. Un conteneur est une unité logicielle qui contient une application et toutes ses dépendances. Les conteneurs sont légers, portables et auto-suffisants. Ils sont exécutés dans un environnement isolé de l'hôte.
 
 C'est une alternative à la virtualisation (comme VirtualBox ou VMware) vue comme beaucoup plus légère et plus rapide. Docker est devenu un outil incontournable pour les développeurs et les administrateurs système.

@@ -1,5 +1,54 @@
 # TO-DO And Bugs
 
+## Zensical migration (2026-09-16)
+
+Everything below this section predates the migration and a good part of it is
+stale: it was written against MkDocs, Material and the plugin hooks, so the
+exercise numbering, the figure captions and the checkbox bugs it lists are
+TMark's business now, and "Fix in mkdocs-material" has no addressee any more.
+What the move to Zensical + TeXSmith leaves open is here; `NOTES-zensical.md`
+§§8–13 holds the evidence behind each item.
+
+### Content
+
+- [x] ~~Quizzes: the 129 `- [x]` lines of 11 files are plain checkboxes now, nothing checks an answer.~~ Done: `docs/js/exercises.js` and `docs/css/exercises.css` turn the task list of an exercise callout back into a quiz on the client — the checked boxes are the answers, hidden until the student has answered, the `??? solution` waits for an answer too, and a button starts it over.
+- [x] ~~Fill-in-the-blanks: 13 `{{word}}` markers in 3 files (8 `var-unresolved`), dead markup on both media.~~ Done (§13): each exercise asks its question in full and answers it in a `??? solution`; `var-unresolved` is 8 → 0 and the MkDocs build is at 2 warnings.
+- [ ] Exercise numbering is continuous site-wide (the `ex` counter of `plugins.texsmith.declare.counters`); the `exercises` plugin restarted it on every page. The 194 figures are numbered the same way — the web profile numbers every series and no scope resets it, so a late page opens on *Figure 147* — so the same decision covers both. (`mkdocs.yml`, TeXSmith, tmark)
+- [ ] Four abbreviations never reach the glossary: `EOF`, `FLOPS`, `SVG` and `W3C` are absent from `ts-glossary.sty` and `UTF-8` lands under the key `UTF8`, while the other forty are fine. Cause unknown. (`includes/abbreviations.md`, TeXSmith)
+- [x] ~~`@Ry` in `docs/course-c/25-architecture-and-systems/cpu-zero.md`.~~ Done: an assembly mnemonic in a table cell, now a code span with the rest of its column; the Zensical build has no warning left.
+- [ ] The `pie` mermaid fence of `docs/course-c/05-introduction/me-and-my-computer.md` is `asset-convert-failed` since the baseline. (TeXSmith asset conversion)
+- [ ] `docs/tools/.nav.yml`'s `- "*"` matches nothing and both nav resolvers say so; it is the faithful conversion of the old `.pages` and was never cleaned up.
+
+### Web rendering under Zensical
+
+- [x] ~~A plain `![alt](img)` gets no numbered `Figure N` caption: `mkdocs-caption` was a plugin hook and Zensical has none.~~ Done (§13): `utils/number_figures.py` gave 194 images a `Figure: … {#fig:…}` line, and the site went from 1 numbered caption to 195.
+- [ ] The six Mermaid diagrams captioned `Figure:` keep a caption without a number, and their `figure` environments in the book carry no `\caption` at all: a caption line on a fence is a `Listing:` for the web writer and nothing for the LaTeX one. (`docs/`, tmark)
+- [ ] Three figures sit inside an indented callout body, where `md_in_html` does not read the `<figure markdown="span">` the lowering writes: they render, numbered, but inside a `<p>` and with their `markdown` attribute left in the page. The same indentation limit as the `??? solution` of §10, in the one place the corpus still meets it. (tmark web lowering)
+- [ ] Markdown inside a rewritten callout title does not render: the title is emitted as `<p class="admonition-title">` with no `markdown` attribute, so a code span or an emphasis written in a title stays literal. (tmark web lowering)
+- [ ] Nothing replaces `hooks/french.py`'s web typography: the thin spaces before `;:!?`, the `«…»` and the missing-ligature lint (`coeur` → `cœur`) are lost. `babel-french` still does it in the PDF. (TeXSmith, or a Zensical-side pass)
+- [ ] The operator-priority table repeats its priority and associativity on every row instead of spanning them: `lower_web` mangles a code span inside a `yaml table` cell, and that table is made of `` `++` ``, `` `()` ``, `` `sizeof` ``. (tmark web lowering)
+
+### The books
+
+- [ ] Box-drawing glyphs in code blocks (`─ │ ┴`) have no coverage in the monospace font: ~7800 "Missing character" lines in the C book log. Pick a mono font covering U+2500…U+257F, or drop the glyphs from the listings. (TeXSmith fonts, `docs/`)
+
+### Build, CI and dependencies
+
+- [x] ~~Nothing in CI runs `make zensical`.~~ Done (§13): `.github/workflows/zensical.yml` runs it non-blocking beside `ci.yml`, which still publishes with `uv run mkdocs gh-deploy --force`. Switching the publish step is what decides when the MkDocs-only plugins can go.
+- [x] ~~The Zensical job cannot run until the two branches are pushed.~~ Done: TeXSmith 0.8.0 and `tmark-core` 0.2.0 are on PyPI and the job installs them with `uv sync`, no checkout, no Rust, no `sed`.
+- [x] ~~The Zensical job rewrites `[tool.uv.sources]` and builds the core.~~ Gone with the releases; only the Chromium install for the draw.io exports remains.
+- [x] ~~Decide what replaces `mike`.~~ Nothing: the latest publication is the only one. `mike` left `pyproject.toml`, `mkdocs.yml` and `overrides/main.html` (its outdated banner).
+- [x] ~~Switch the publish step to Zensical.~~ Done: `ci.yml` runs `make all`, publishes `site/` on `gh-pages` (orphan commit, no history kept), and a tag attaches the two books compressed by `make optimize`. `zensical.yml` and the Docker/latexmk book job are gone.
+- [x] ~~Replace the `tmark-core` path override.~~ Done: `pyproject.toml` requires `texsmith>=0.8.0`, `mkdocs-texsmith>=0.8.0`, and the lock resolves `tmark-core` 0.2.0 from PyPI.
+- [ ] Drop `mkdocs-autorefs`: it was the only thing resolving `[text][id]`, the corpus is written `[text](#id)` now, and TMark's lowering points a cross-page reference at the page holding the label on both generators. (`mkdocs.yml`, `pyproject.toml`)
+- [ ] Drop `mkdocs-plugin-exercises` and `mkdocs-wikipedia` once CI stops running MkDocs: TMark numbers the exercises now, and the article summaries are the only thing `wikipedia` still adds. (`pyproject.toml`, `mkdocs.yml`)
+
+### Zensical upstream
+
+- [ ] Zensical's anchor check reads the source, not the lowered page: the 47 cross-page `[text](#id)` references of the corpus are each reported `anchor does not exist` although the built link is correct (`../datatype/#unicode`), because TMark splices the sibling's page into the link after that check has run. Ask upstream for a check that runs on what is rendered, or for a way to declare the site's anchors. (`zensical build`, TeXSmith hook order)
+- [ ] Zensical ignores `exclude_docs`, so the include sources under `docs/` are built as orphan pages, reachable by URL though listed nowhere; their `search: {exclude: true}` front matter keeps them out of the index only. Ask upstream for `exclude_docs`, or move those sources out of `docs/`.
+- [ ] `tags_allowed` is the knob if the 252 tags of the Filters facet ever prove too many: it restricts the facet to a declared list and warns on anything else. (`mkdocs.yml`)
+
 ## Content update
 
 - [ ] Hand drawn flow diagram `https://i.sstatic.net/WdbInYwX.png`

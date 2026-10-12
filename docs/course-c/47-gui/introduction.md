@@ -10,11 +10,15 @@ Le Smaky, développé par le professeur Jean-Daniel Nicoud au LAMI de l'EPFL, es
 
 ![Souris Depraz](/assets/images/depraz.png)
 
+Figure: Souris Depraz {#fig:depraz}
+
 Depuis lors, les interfaces graphiques ont non seulement rendu les ordinateurs plus accessibles à un public non technique, mais elles ont également transformé l'expérience utilisateur. L'interface graphique permet de manipuler les objets numériques comme s'ils étaient des objets physiques. Cette analogie, que l'on appelle [métaphore d'interface](https://en.wikipedia.org/wiki/Interface_metaphor), est l'un des piliers de la conception des GUI. Par exemple, la corbeille, où l'on dépose les fichiers pour les supprimer, est une métaphore simple, mais efficace qui transforme un concept abstrait en une action que tout utilisateur peut comprendre.
 
 En outre, les GUI facilitent les interactions complexes en cachant la complexité du code sous une couche de simplicité visuelle. Chaque clic sur un bouton, chaque interaction avec un menu déclenche des opérations en arrière-plan, rendant l'utilisation du système plus fluide et plus intuitive.
 
-![Scarabé Julodimorpha bakewelli](/assets/images/beetle.png){ #beetle }
+![Scarabé Julodimorpha bakewelli](/assets/images/beetle.png)
+
+Figure: Scarabé Julodimorpha bakewelli {#beetle}
 
 Donald Hoffman, dans son excellent TED Talk intitulé [Do we see reality as it is?](https://www.ted.com/talks/donald_hoffman_do_we_see_reality_as_it_is), aborde la question de la perception du réel. Il explique que notre cerveau ne perçoit pas la réalité telle qu'elle est, mais qu'il la modélise pour nous permettre de survivre. Les interfaces graphiques sont une forme de modélisation de la réalité numérique qui nous permet de manipuler des objets virtuels de manière intuitive.
 
@@ -30,9 +34,13 @@ La technologie et l'avènement de la souris ont façonné une nouvelle manière 
 
 ![sketchpad](/assets/images/sketchpad.png)
 
+Figure: sketchpad {#fig:sketchpad}
+
 Cependant, c'est Xerox qui, dans les années 1970, avec son **Xerox Alto**, pose les bases des GUI modernes. La véritable révolution survient avec l'introduction des interfaces graphiques par Apple en 1984, via le Macintosh, suivi de près par Microsoft avec Windows. Ces systèmes d'exploitation grand public intègrent les concepts de fenêtres, d'icônes et de menus, offrant une alternative conviviale à l'interface en ligne de commande.
 
 ![Xerox Alto](/assets/images/xerox-alto.png)
+
+Figure: Xerox Alto {#fig:xerox-alto}
 
 Depuis, les interfaces graphiques n'ont cessé d'évoluer, s'adaptant aux nouvelles technologies (interfaces tactiles, commandes vocales) et aux besoins des utilisateurs. Aujourd'hui, les GUI se retrouvent non seulement sur les ordinateurs de bureau, mais aussi sur les appareils mobiles, les objets connectés et les systèmes embarqués.
 
@@ -51,7 +59,11 @@ Les interfaces graphiques de commandes d'équipements professionnels se substitu
 
 ![Table de mixage traditionnelle](/assets/images/sound-mixing.png)
 
+Figure: Table de mixage traditionnelle {#fig:sound-mixing}
+
 ![Table de mixage numérique Lawo](/assets/images/lawo.png)
+
+Figure: Table de mixage numérique Lawo {#fig:lawo}
 
 Ces interfaces propriétaires n'ont pas vocation à être portables. Elles sont conçues pour un équipement spécifique et sont souvent développées dans des langages de haut niveau comme le C++, Java ou C#. Les composants graphiques sont fréquemment réalisés sur mesure pour répondre aux besoins précis du dispositif.
 
@@ -61,11 +73,15 @@ De la même manière, dans la commande de robots industriels, les télécommande
 
 ![Interface d'un robot Kuka](/assets/images/kuka-gui.png)
 
+Figure: Interface d'un robot Kuka {#fig:kuka-gui}
+
 #### Interfaces de contrôle de systèmes embarqués
 
 Lorsque le coût de développement et la puissance de calcul limitée des architectures embarquées deviennent un enjeu, les interfaces graphiques se réduisent parfois à un simple écran tactile. La société Decent Espresso a par exemple conçu une machine à café dotée d'une interface graphique qui rompt avec les codes traditionnels, où de gros boutons et cadrans physiques faisaient office de gage de qualité et de prestige.
 
 ![Interface d'une machine à café Decent](/assets/images/decent-espresso.jpg)
+
+Figure: Interface d'une machine à café Decent {#fig:decent-espresso}
 
 Le prestige représentant une part importante de l'expérience, l'interface graphique devient un élément clé qui doit être soigné tant au niveau de l'ergonomie que de l'esthétique et de la fluidité de l'interaction. Ces interfaces sont majoritairement développées à l'aide de technologies web ou multiplateformes (Qt, HTML, JavaScript).
 
@@ -73,13 +89,19 @@ Le prestige représentant une part importante de l'expérience, l'interface grap
 
 ![Embedded Wizard](/assets/images/embedded-wizard.png)
 
+Figure: Embedded Wizard {#fig:embedded-wizard}
+
 #### Applications mobiles
 
 ![Interface de commande du robot Spot de Boston Dynamics](/assets/images/spot-controller.png)
 
+Figure: Interface de commande du robot Spot de Boston Dynamics {#fig:spot-controller}
+
 #### Applications PC multiplateformes
 
 ![AutoCAD 2025](/assets/images/autocad2025.jpg)
+
+Figure: AutoCAD 2025 {#fig:autocad2025}
 
 ## Ergonomie
 

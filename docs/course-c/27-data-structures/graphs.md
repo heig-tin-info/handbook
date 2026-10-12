@@ -8,9 +8,11 @@ C'est une variante générale des arbres. Un arbre est un graphe particulier où
 
 ### Forêts
 
-Un [[graphe]] sans cycle est appelé une [[forêt]]. Une forêt est un ensemble d'arbres. Un arbre est un graphe [[connexe]] sans cycle.
+Un graphe #[graphe] sans cycle est appelé une forêt #[forêt]. Une forêt est un ensemble d'arbres. Un arbre est un graphe connexe #[connexe] sans cycle.
 
 ![Exemple de forêt](/assets/images/forest.drawio)
+
+Figure: Exemple de forêt {#fig:forest}
 
 ### Graphes orientés
 
@@ -18,17 +20,23 @@ Un graphe orienté est un graphe dont les arêtes ont une direction. Les graphes
 
 ![Exemple de graphe orienté](/assets/images/oriented.drawio)
 
+Figure: Exemple de graphe orienté {#fig:oriented}
+
 ### Graphes pondérés
 
 Un graphe pondéré est un graphe dont les arêtes ont un poids. Les graphes pondérés sont utilisés pour modéliser des relations quantitatives. Par exemple, un graphe pondéré peut être utilisé pour représenter un réseau de transport où les arêtes représentent des routes avec une longueur ou un coût associé.
 
 ![Exemple de graphe pondéré](/assets/images/weighted.drawio)
 
+Figure: Exemple de graphe pondéré {#fig:weighted}
+
 ### Graphes bipartis
 
 Un graphe biparti est un graphe dont les sommets peuvent être divisés en deux ensembles disjoints. Les arêtes d'un graphe biparti relient les sommets des deux ensembles. Les graphes bipartis sont utilisés pour modéliser des relations binaires. Par exemple, un graphe biparti peut être utilisé pour représenter des relations d'adjacence entre deux ensembles d'objets.
 
 ![Exemple de graphe biparti](/assets/images/bipartite.drawio)
+
+Figure: Exemple de graphe biparti {#fig:bipartite}
 
 ## Représentation des graphes
 

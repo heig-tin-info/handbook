@@ -1,4 +1,4 @@
-[](){#fast-sin}
+[]{#fast-sin}
 
 # Sinus rapide
 

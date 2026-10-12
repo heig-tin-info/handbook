@@ -74,7 +74,7 @@ Les chaînes de caractères larges sont des chaînes de caractères qui utilisen
 wchar_t wstr[] = L"Hello, 世界";
 ```
 
-Ce type de chaîne de caractères est typiquement utilisé pour représenter des caractères Unicode. Comme nous l'avons vu au chapitre sur les [types de données][unicode], les caractères qui ne sont pas dans la table ASCII sont représentés par plusieurs bytes. La fameuse émoji `👋` est représentée par 5 bytes U+1F44B.
+Ce type de chaîne de caractères est typiquement utilisé pour représenter des caractères Unicode. Comme nous l'avons vu au chapitre sur les [types de données](#unicode), les caractères qui ne sont pas dans la table ASCII sont représentés par plusieurs bytes. La fameuse émoji `👋` est représentée par 5 bytes U+1F44B.
 
 L'en-tête `wchar.h` contient les fonctions pour manipuler les chaînes de caractères larges. Par exemple, pour obtenir la longueur d'une chaîne de caractères larges, on utilise la fonction `wcslen` :
 

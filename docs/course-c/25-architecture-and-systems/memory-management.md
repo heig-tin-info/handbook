@@ -60,6 +60,8 @@ Néanmoins si l'on considère la bibliothèque standard `libc` qui est utilisée
 
 ![Organisation de mémoire d'un programme](/assets/images/program-memory.drawio)
 
+Figure: Organisation de mémoire d'un programme {#fig:program-memory}
+
 On observe que le tas et la pile vont à leur rencontre, et que lorsqu'ils se percutent c'est le crash avec l'erreur bien connue [stack overflow](https://fr.wikipedia.org/wiki/D%C3%A9passement_de_pile).
 
 ### Allocation statique
@@ -138,6 +140,8 @@ Considérons la figure suivante. En abscisse le temps et verticalement l'espace 
 
 ![Allocation et libération mémoire](/assets/images/malloc.drawio)
 
+Figure: Allocation et libération mémoire {#fig:malloc}
+
 À la fin de l'exécution du programme, ce dernier consomme sur le *heap* trois bytes d'espace mémoire bien qu'il n'en utilise que deux. Imaginez un programme qui alloue et libère de la mémoire de manière répétée, il est probable que la fragmentation mémoire s'installe et que le programme consomme beaucoup plus de mémoire que nécessaire. Ces problèmes de fragmentation sont fréquents dans de gros programmes. N'avez-vous jamais été contraint de redémarrer votre navigateur web car il consommait trop de mémoire mais qu'aucun onglet n'était ouvert ? C'est probablement dû à un problème de fragmentation mémoire.
 
 En pratique, c'est l'allocateur (`malloc` et consorts) qui tente de limiter la fragmentation externe en réutilisant les blocs libérés ou en en fusionnant certains. Le système d'exploitation, lui, ne peut pas déplacer arbitrairement les blocs d'un processus pour les « recoller » : il n'a aucun moyen de mettre à jour toutes les copies des pointeurs que manipule le programme. La [MMU](https://en.wikipedia.org/wiki/Memory_management_unit) aide en revanche à masquer la fragmentation au niveau **physique** en mappant des pages qui ne sont pas contiguës en mémoire réelle derrière un espace virtuel contigu. Sur les microcontrôleurs dépourvus de MMU, l'allocateur doit travailler directement avec l'adresse physique, ce qui rend la fragmentation plus problématique ; c'est pour cette raison que l'allocation dynamique est souvent évitée sur ces plateformes.
@@ -169,7 +173,7 @@ int main() {
 
 Pour éviter ce genre de problème, il est recommandé de ne pas utiliser la pile pour stocker des données de grande taille, préférez l'allocation dynamique sur le tas.
 
-[](){#stack-plumbing}
+[]{#stack-plumbing}
 
 ### Fonctionnement de la pile
 
@@ -287,6 +291,8 @@ En (1), il y a le passage initial des arguments depuis le `main`, `collatz` a é
 La figure ci-dessous résume graphiquement le fonctionnement de la pile. On y voit deux *frames* liées entre elles par le *frame pointer*. Les adresses de retours correspondent à la ligne 10 et 14 du programme, soit l'emplacement des appels de fonctions.
 
 ![Pile d'exécution](/assets/images/stack.drawio)
+
+Figure: Pile d'exécution {#fig:stack}
 
 ### Passage des arguments
 
@@ -510,6 +516,8 @@ Dans la figure suivante, on suit l'évolution de l'utilisation du *heap* au cour
 
 ![Fragmentation mémoire](/assets/images/fragmentation.drawio)
 
+Figure: Fragmentation mémoire {#fig:fragmentation}
+
 Dans une petite architecture, l'allocation et la libération fréquente d'espaces mémoire de taille arbitraire sont malvenues. Une fois que la fragmentation mémoire est installée, il n'existe aucun moyen de soigner le mal si ce n'est au travers de l'ultime solution de l'informatique : [éteindre puis redémarrer](https://www.youtube.com/watch?v=nn2FB1P_Mn8).
 
 ### MMU
@@ -523,6 +531,8 @@ La programmation sur de petites architectures matérielles (microcontrôleurs, D
 Dans la figure ci-dessous. La mémoire physique est représentée à droite en termes de pages mémoires physiques (*Physical Pages* ou **PP**). Il s'agit de blocs mémoires contigus d'une taille fixe, par exemple 64 kb. Chaque page physique est mappée dans une table propre à chaque processus (programme exécutable). On y retrouve quelques propriétés utiles à savoir, est-ce que la page mémoire est accessible en écriture, est-ce qu'elle peut contenir du code exécutable ? Une propriété peut indiquer par exemple si la page mémoire est valide. Chacune de ces entrées est considérée comme une page mémoire virtuelle (*virtual page* **VP**).
 
 ![Mémoire virtuelle](/assets/images/mmu.drawio)
+
+Figure: Mémoire virtuelle {#fig:mmu}
 
 ### Mémoire cache
 

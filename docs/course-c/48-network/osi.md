@@ -12,6 +12,8 @@ La figure suivante illustre les 7 couches du modèle OSI en comparaison du PDU (
 
 ![Modèle OSI](/assets/images/osi-model.drawio)
 
+Figure: Modèle OSI {#fig:osi-model}
+
 1. **Couche physique (Physical Layer)**: Cette couche est responsable de la transmission des données brutes sur le support de communication. Elle définit les caractéristiques électriques, mécaniques et fonctionnelles du matériel de communication.
 
 2. **Couche liaison de données (Data Link Layer)**: Cette couche est responsable de la transmission des données entre les nœuds voisins sur le réseau local. Elle gère les erreurs de transmission, le contrôle de flux et l'accès au support.

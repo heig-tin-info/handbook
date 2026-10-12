@@ -1,9 +1,6 @@
-BUILD_BASE_DIR = build
-BUILD_DIRS=$(shell find $(BUILD_BASE_DIR) -mindepth 1 -maxdepth 1 -type d)
-
-BUILD_INDEXES=$(foreach dir,$(BUILD_DIRS),$(dir)/index.tex)
-BUILD_PDFS=$(foreach dir,$(BUILD_DIRS),$(dir)/index.pdf)
-BUILD_OUTPUTS=$(foreach dir,$(BUILD_DIRS),$(dir)/output-print.pdf)
+# The two books `texsmith site build` writes, one folder per book of
+# `mkdocs.yml`.
+BOOKS = build/book/book.pdf build/tools/tools.pdf
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -12,10 +9,28 @@ else
 	RUNCMD = uv run
 endif
 
-all:
-	$(RUNCMD) mkdocs build
+# The site is built with Zensical: the generated assets first (Zensical
+# empties the site directory and caches pages, so nothing Python writes during
+# a build survives), then the site, then the two books. The search index needs
+# no step of its own: a page's index entries are its tags, and the extension
+# writes them while the page renders. `make zensical` is the whole chain, the
+# one CI runs before publishing.
+all: zensical
+
+zensical:
+	$(RUNCMD) texsmith site assets mkdocs.yml
+	$(RUNCMD) zensical build -f mkdocs.yml
+	$(RUNCMD) texsmith site build mkdocs.yml
 
 serve:
+	$(RUNCMD) texsmith site assets mkdocs.yml
+	$(RUNCMD) zensical serve -f mkdocs.yml
+
+# MkDocs, which no longer publishes anything: CI publishes the Zensical site.
+mkdocs:
+	$(RUNCMD) mkdocs build
+
+serve-mkdocs:
 	$(RUNCMD) mkdocs serve
 
 servefast:
@@ -24,45 +39,23 @@ servefast:
 uv.lock: pyproject.toml
 	uv lock
 
-build:
-	$(RUNCMD) mkdocs build
+build: zensical
 
-latex-clean:
-	$(RM) -rf $(BUILD_DIR)/_minted-index
-	latexmk -cd $(BUILD_DIR)/index.tex -C
+# The books compressed for print, the ones a release attaches.
+optimize: $(BOOKS:.pdf=-print.pdf)
 
-%.pdf: %.tex | FORCE
-	latexmk -cd -gg \
-	-time -logfilewarninglist --interaction=nonstopmode --halt-on-error \
-	$<
-
-latex: $(BUILD_PDFS) | FORCE
-
-%/output-print.pdf: %/index.pdf
+%-print.pdf: %.pdf
 	gs -sDEVICE=pdfwrite -dPDFSETTINGS=/printer \
 	   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$@ \
 	   -dDownsampleColorImages=true -dDownsampleGrayImages=true \
 	   -dDownsampleMonoImages=true -dColorImageResolution=200 \
 	   -dGrayImageResolution=200 -dMonoImageResolution=200 $<
 
-image: Dockerfile
-	docker build -t latex-ycr .
-
-ci:
-	docker run -v $(shell pwd):/workspace \
-	-w /workspace \
-	-u $(shell id -u):$(shell id -g) \
-	-v /etc/passwd:/etc/passwd:ro \
-	latex-ycr \
-	make latex optimize
-
 update: docs/js/viewer.min.js
 	uv lock --upgrade
 
 docs/js/viewer.min.js: FORCE
 	wget https://raw.githubusercontent.com/jgraph/drawio/dev/src/main/webapp/js/viewer.min.js -O docs/js/viewer.min.js
-
-optimize: $(BUILD_OUTPUTS)
 
 clean:
 	$(RM) -rf build site __pycache__ _minted-*
@@ -72,4 +65,4 @@ mrproper: clean
 
 FORCE:
 
-.PHONY: all serve build clean update optimize latex latex-clean docker-image ci update-viewer
+.PHONY: all serve zensical mkdocs serve-mkdocs servefast build clean update optimize

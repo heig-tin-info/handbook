@@ -1,6 +1,6 @@
 ---
 epigraph:
-  text: La programmation, c'est l'art d'organiser la complexité.
+  quote: La programmation, c'est l'art d'organiser la complexité.
   source: E. Dijkstra
 ---
 
@@ -22,9 +22,11 @@ Dans le cadre d'un enseignement académique, on parle souvent de **cours d'Algor
 
 ![L'un des premiers ordinateurs: l'Eniac](/assets/images/eniac.jpg)
 
+Figure: L'un des premiers ordinateurs: l'Eniac {#fig:eniac}
+
 ## Algorithmique
 
-L'**algorithmique**, et non l'*algorithmie* (terme fautif en français), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception][algorithmsanddesign], dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs ; elle est omniprésente dans notre quotidien et se manifeste dans des contextes aussi variés que :
+L'**algorithmique**, et non l'*algorithmie* (terme fautif en français), est la science qui se consacre à l'élaboration des règles et techniques régissant la création et la conception des [algorithmes](https://fr.wikipedia.org/wiki/Algorithme). Ce domaine, que nous explorerons plus en détail dans le chapitre dédié aux [algorithmes et à leur conception](#algorithmsanddesign), dépasse largement le cadre de l'informatique. L'algorithmique ne se cantonne pas aux ordinateurs ; elle est omniprésente dans notre quotidien et se manifeste dans des contextes aussi variés que :
 
 - l'art de concocter une recette de cuisine,
 - la maîtrise du tissage des tapis persans,
@@ -39,6 +41,8 @@ Ainsi, l'algorithmique constitue l'essence même de la pensée organisée. Elle 
 Dans le cadre mathématique et scientifique qui nous occupe, l'[algorithme d'Euclide](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide), datant probablement de 300 av. J.-C., constitue un exemple emblématique. Cet algorithme, d'une élégance intemporelle, permet de déterminer le [plus grand commun diviseur](https://fr.wikipedia.org/wiki/Plus_grand_commun_diviseur) (PGCD) de deux nombres. Sa logique, simple, mais puissante, se prête parfaitement à une représentation sous forme de diagramme de flux comme représenté sur cette figure:
 
 ![Algorithme de calcul du PGCD d'Euclide](/assets/images/pgcd.drawio)
+
+Figure: Algorithme de calcul du PGCD d'Euclide {#fig:pgcd}
 
 Les informaticiens et ingénieurs apprécient particulièrement l'usage des diagrammes pour synthétiser et clarifier leurs idées complexes. Le diagramme de flux, en tant qu'outil de communication visuelle, permet de représenter un **processus** de manière structurée et accessible. Dans ce type de diagramme, les formes géométriques symbolisent des étapes du processus, tandis que les flèches en indiquent le déroulement. Par convention, les formes ovales marquent le début et la fin du processus, les rectangles désignent les opérations de traitement, et les losanges représentent les décisions à prendre. Une forme de décision pose une question et offre deux chemins possibles, chacun correspondant à une réponse spécifique. Comme nous le verrons plus tard, tout processus de traitement d'information comporte nécessairement une entrée et une sortie, illustrant ainsi la dynamique intrinsèque de l'algorithme.
 
@@ -66,13 +70,13 @@ Table: Exemple de calcul du PGCD entre 42 et 30
 | Est-ce que $b$ est nul ? oui !                              | 6   | 0   | 0          |
 | Le PGCD de 42 et 30 est 6                                   | 6   | 0   | 0          |
 
-!!! exercise "Algorithme d'Euclide"
+::: exercise {title="#(ex:algorithme-d-euclide) : Algorithme d'Euclide"}
+Appliquer l'algorithme d'Euclide aux entrées $a$ et $b$ suivantes.
 
-    Appliquer l'algorithme d'Euclide aux entrées $a$ et $b$ suivantes.
+Que vaut $a, b$ et $r$ à la fin de l'algorithme, et quel est le plus grand diviseur commun ?
 
-    Que vaut $a, b$ et $r$ à la fin de l'algorithme, et quel est le plus grand diviseur commun ?
-
-    $$a = 1260, b = 630$$
+$$a = 1260, b = 630$$
+:::
 
 ### Tri à bulles
 
@@ -84,6 +88,8 @@ Voici un diagramme de flux représentant l'algorithme du tri à bulles :
 
 ![Algorithme de tri à bulles.](/assets/images/bubblesort.drawio)
 
+Figure: Algorithme de tri à bulles. {#fig:bubblesort}
+
 Soit un tableau de $N = 5$ valeurs à trier donné ci-dessous, le cycle se répète jusqu'à ce que le tableau soit complètement trié. Si $s$ est égal à 0, il n'y a pas eu d'échange lors du parcours du tableau et le tableau est donc trié.
 
 $$T = {5, 3, 8, 4, 2}$$
@@ -91,6 +97,8 @@ $$T = {5, 3, 8, 4, 2}$$
 Les différentes étapes du tri à bulles sont illustrées ci-dessous :
 
 ![Étape par étape du tri à bulles.](/assets/images/bubblesort-steps.drawio)
+
+Figure: Étape par étape du tri à bulles. {#fig:bubblesort-steps}
 
 Pour les cycles $3$ et $4$, nous ne montrons pas les étapes sans échange. Au cinquième cycle, aucun échange n'est nécessaire : l'algorithme se termine.
 
@@ -108,6 +116,8 @@ Parlons couture ! La machine Jacquard est un [métier à tisser](https://fr.wiki
 
 ![Mécanisme Jacquard au Musée des arts et métiers de Paris.](/assets/images/loom.png)
 
+Figure: Mécanisme Jacquard au Musée des arts et métiers de Paris. {#fig:loom}
+
 Les cartes perforées, ici des rouleaux de papier, contiennent donc la suite des actions guidant les crochets permettant de tisser des motifs complexes. Elles font office de programme pour la machine, et leur format (largeur, dimensions des trous, etc.) reste spécifique à chaque modèle. En termes informatiques, on dirait que les cartes perforées sont écrites en **langage machine**.
 
 !!! info "La révolte des canuts"
@@ -120,7 +130,9 @@ Les *informaticiens-tisserands* responsables de la création des cartes perforé
 
 ![Armoiries des ducs de Mayenne](/assets/images/armoiries.drawio)
 
-Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de [[Mayenne|Mayenne, Duc de]] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
+Figure: Armoiries des ducs de Mayenne {#fig:armoiries}
+
+Nul n'ignore que l'héraldique possède son langage parfois obscur, et celle ou celui qui le maîtrise souhaiterait l'utiliser plutôt que de percer manuellement les cartes pour chaque point de couture. Ainsi, l'anachronique informaticien-tisserand désireux de tisser le motif des armoiries du duc de Mayenne #[Mayenne, Duc de] aurait sans doute rédigé un programme informatique dans sa langue. Ce programme aurait pu ressembler à ceci :
 
 ```text
 Écartelé, en 1 et 4 :
@@ -152,25 +164,25 @@ En 2 et 3 contre-écartelé :
         à la bordure endentée de gueules et d'or.
 ```
 
-[[|heraldique]]
+#[heraldique]
 
-Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en [[langage machine]] compréhensible par un métier à tisser. Cette traduction est le rôle du [[compilateur]] que nous verrons plus tard. Quant au texte, et bien qu'il nous vient tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
+Tout l'art est de pouvoir traduire ce texte compréhensible par tout héraldiste en un programme en langage machine #[langage machine] compréhensible par un métier à tisser. Cette traduction est le rôle du compilateur #[compilateur] que nous verrons plus tard. Quant au texte, et bien qu'il nous vient tout droit du moyen-âge, il partage avec les langages de programmation modernes des caractéristiques communes :
 
 Lexique
 
-: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir, etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). [[|lexique]]
+: le texte est composé de mots et de symboles qui ont un sens précis, les couleurs (émaux) ont des termes spécifiques (gueules pour le rouge, azur pour le bleu, sable pour le noir, etc.), les figures (meubles) aussi (lys, croix, lion, aigle, etc.). #[lexique]
 
 Syntaxe
 
-: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionné en premier, les figures en second suivi de leurs attributs. [[|syntaxe]]
+: le texte suit une structure grammaticale précise, le fond (champ) est toujours mentionné en premier, les figures en second suivi de leurs attributs. #[syntaxe]
 
 Sémantique
 
-: les termes peuvent adopter une certaine [[morphologie]], par exemple le lion peut être *lampassé* (langue de couleur différente), *couronné* (avec une couronne), *armé* (avec des griffes et des dents de couleur différente). Cette sémantique implique l'adjonction de préfixes ou de suffixes. [[|sémantique]]
+: les termes peuvent adopter une certaine morphologie #[morphologie], par exemple le lion peut être *lampassé* (langue de couleur différente), *couronné* (avec une couronne), *armé* (avec des griffes et des dents de couleur différente). Cette sémantique implique l'adjonction de préfixes ou de suffixes. #[sémantique]
 
 Grammaire
 
-: le texte est organisé en phrases, les phrases sont organisées en paragraphes, les paragraphes en sections, les symboles vont être interprétés en fonction de leur position dans le texte, de leur contexte. [[|grammaire]]
+: le texte est organisé en phrases, les phrases sont organisées en paragraphes, les paragraphes en sections, les symboles vont être interprétés en fonction de leur position dans le texte, de leur contexte. #[grammaire]
 
 !!! info "De gueules"
 
@@ -187,21 +199,25 @@ L'être humain a appris depuis des millénaires à communiquer avec des symboles
 
 ??? info "Scratch"
 
-    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. [[|Scratch|Scratch, langage]]
+    [Scratch](https://fr.wikipedia.org/wiki/Scratch_(langage)) est un langage de programmation visuel développé par le MIT. Il est utilisé pour enseigner les bases de la programmation aux enfants. Il permet de créer des animations, des jeux et des histoires interactives. #[Scratch, langage]
 
     ![Interface de scratch](/assets/images/scratch.png)
 
+    Figure: Interface de scratch {#fig:scratch}
+
 ??? info "LabView"
 
-    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. [[|LabView|LabView, programme]]
+    [LabView](https://fr.wikipedia.org/wiki/LabVIEW) est un langage de programmation visuel développé par National Instruments. Il est utilisé pour la programmation de systèmes de mesure et de contrôle. Il est très utilisé dans l'industrie et la recherche. #[LabView, programme]
 
     ![Interface de LabView](/assets/images/labview.webp)
+
+    Figure: Interface de LabView {#fig:labview}
 
     Son interface est composée de blocs graphiques que l'on relie entre eux pour créer un programme.
 
 ??? info "Common Lisp"
 
-    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en [[Common Lisp|lisp|Lisp, Common]] pour résoudre le problème des tours de [[Hanoï||Hanoï, tours de]] :
+    [Common Lisp](https://fr.wikipedia.org/wiki/Common_Lisp) est un langage de programmation inventé en 1984. C'est un langage de programmation textuel de type fonctionnel. Voici un exemple de programme en Common Lisp #[Lisp, Common] pour résoudre le problème des tours de Hanoï #[Hanoï, tours de] :
 
     ```lisp
     (defun hanoi (n source target auxiliary)
@@ -220,11 +236,13 @@ Pour ce cours, et pour l'enseignement de la programmation en général, nous uti
 
 ## Calculateur
 
-Un [[calculateur]] du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
+Un calculateur #[calculateur] du latin *calculare*: calculer avec des cailloux, originellement appelés [abaque,](https://fr.wikipedia.org/wiki/Abaque_(calcul)) était un dispositif permettant de faciliter les calculs mathématiques.
 
 Les [os d'Ishango](https://fr.wikipedia.org/wiki/Os_d%27Ishango) datés de 20'000 ans sont des artéfacts archéologiques attestant la pratique de l'arithmétique dans l'histoire de l'humanité.
 
 ![Os d'Ishango](/assets/images/ishango.drawio)
+
+Figure: Os d'Ishango {#fig:ishango}
 
 Si les anglophones ont détourné le verbe *compute* (calculer) en un nom *computer*, un ordinateur est généralement plus qu'un simple calculateur, car même une calculatrice de poche doit gérer en plus des calculs un certain nombre de périphériques comme :
 
@@ -237,7 +255,7 @@ Notons qu'à l'instar de notre diagramme de flux, un calculateur dispose aussi d
 
 ## Ordinateur
 
-Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques Perret]] à la demande d'IBM France (*c.f.* [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). [[|ordinateur]] Voici la lettre de Jacques Perret à IBM France :
+Le terme ordinateur est très récent, il daterait de 1955, créé par Jacques Perret #[Jacques Perret] à la demande d'IBM France (*c.f.* [2014: 100 ans d'IBM en France](http://centenaireibmfrance.blogspot.com/2014/04/1955-terme-ordinateur-invente-par-jacques-perret.html)). #[ordinateur] Voici la lettre de Jacques Perret à IBM France :
 
 >« Le 16 IV 1955, Cher Monsieur,
 
@@ -251,7 +269,7 @@ Le terme ordinateur est très récent, il daterait de 1955, créé par [[Jacques
 
 >Vôtre, Jacques Perret »
 
-[](){#turingmachine}
+[]{#turingmachine}
 
 ## La machine de Turing
 
@@ -265,11 +283,15 @@ Prenons l'exemple d'un programme visant à ajouter `1` à un nombre `n` en binai
 
 ![Algorithme d'addition binaire](/assets/images/turing-add.drawio)
 
+Figure: Algorithme d'addition binaire {#fig:turing-add}
+
 On commence par l'état de gauche, on lit un symbole sur la bande. Tant que ce symbole est `0` ou `1` on avance à droite. Lorsque l'on rencontre une case vide, on se déplace à gauche et on entre dans le second état. Tant qu’on lit un `1`, on le remplace par un `0` et on avance à gauche. Lorsqu’on lit un `0` ou une case vide, on le remplace par un `1` et on se déplace à gauche. On revient à l'état initial et on continue jusqu'à ce que l'on rencontre une case vide.
 
 Sur la figure ci-dessous, on peut voir l'exécution de l'algorithme sur une bande après chaque étape. La case centrale est celle sous la tête de lecture/écriture. On voit bien qu'au début on a le nombre `101` (5) et à la fin on obtient le nombre `110` (6). L'algorithme a bien fonctionné.
 
 ![Exécution de l'algorithme sur une bande](/assets/images/turing-animation.drawio)
+
+Figure: Exécution de l'algorithme sur une bande {#fig:turing-animation}
 
 On peut essayer de traduire cet algorithme dans un langage formel :
 
@@ -341,10 +363,12 @@ On peut essayer de traduire cet algorithme dans un langage formel :
     }
     ```
 
-[](){#teletype}
+[]{#teletype}
 ## L'ordinateur d'antan
 
 ![Téléscripteur Siemens T100](/assets/images/siemens-t100.jpg)
+
+Figure: Téléscripteur Siemens T100 {#fig:siemens-t100}
 
 Le [téléscripteur](https://fr.wikipedia.org/wiki/T%C3%A9l%C3%A9scripteur) Siemens T100 est un exemple d'ordinateur des années 1960. Il était utilisé pour la transmission de messages télégraphiques. Il était composé d'un clavier et d'une imprimante. Il était capable de lire et d'écrire des messages sur une bande de papier. Il était programmé en utilisant des cartes perforées.
 
@@ -430,8 +454,8 @@ c3
 0000000000110001110000000100100010000011110001000001100011000011
 ```
 
-[](){#coffee-maker}
-[](){#mcu}
+[]{#coffee-maker}
+[]{#mcu}
 
 ## Les systèmes à microcontrôleurs
 
@@ -441,15 +465,21 @@ Ces derniers sont aussi programmés en implémentant des algorithmes. Le plus so
 
 ![Machine à café Citiz de Nespresso](/assets/images/citiz-cherry-red.png)
 
+Figure: Machine à café Citiz de Nespresso {#fig:citiz-cherry-red}
+
 Prenons l'exemple de cette machine à café. C'est une machine qui coûte environ 100 CHF. Elle est équipée d'un microcontrôleur à 30 centimes qui contrôle le chauffage, la pompe à eau et les leds. Le microcontrôleur est programmé pour lire les boutons de commande, contrôler les actionneurs et afficher des messages à l'utilisateur.
 
 ![Schéma bloc de la machine à café Citiz](/assets/images/citiz-diagram.drawio)
+
+Figure: Schéma bloc de la machine à café Citiz {#fig:citiz-diagram}
 
 Derrière se cache un programme, bien complexe. Si vous avez une de ces machines mettez là en service, vous verrez que s'il manque de l'eau vous aurez un message d'erreur. Au démarrage, les LEDs clignotent le temps que la machine chauffe. Une fois en température, vous pouvez l'utiliser. Ce sont des algorithmes qui sont derrière tout cela.
 
 ## Historique
 
 ![Historique](/assets/images/history.drawio)
+
+Figure: Historique {#fig:history}
 
 Pour mieux se situer dans l'histoire de l'informatique, voici quelques dates clés :
 
@@ -531,24 +561,33 @@ Aujourd'hui, les superordinateurs sont capables de réaliser des milliards de mi
 
 ## Exercices de révision
 
-!!! exercise "Ordinateur"
+::: exercise {title="#(ex:ordinateur) : Ordinateur"}
+Quelle est l'étymologie du mot *ordinateur* ?
 
-    Quelle est l'étymologie du mot *ordinateur* ?
+- [ ] calculateur
+- [ ] ordonnateur
+- [ ] systémateur
+- [x] ordiner
+:::
 
-    - [ ] calculateur
-    - [ ] ordonnateur
-    - [ ] systémateur
-    - [x] ordiner
+::: exercise {title="#(ex:machine-de-turing) : Machine de Turing"}
+Qu'est-ce que la machine de Turing ?
 
-!!! exercise "Machine de Turing"
+- [ ] Une bombe réalisée pour casser le code de la machine Enigma.
+- [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
+- [ ] Le premier ordinateur électronique.
+- [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.
+:::
 
-    Qu'est-ce que la machine de Turing ?
+::: exercise {title="#(ex:machine-a-cafe) : Machine à café"}
+Complétez la description d'une machine à café en nommant les quatre éléments manquants :
 
-    - [ ] Une bombe réalisée pour casser le code de la machine Enigma.
-    - [x] Un modèle théorique d'un ordinateur capable de simuler n'importe quel algorithme.
-    - [ ] Le premier ordinateur électronique.
-    - [ ] Un modèle théorique d'un ordinateur ne pouvant pas simuler n'importe quel algorithme.
+1. Quel composant est l'organe de contrôle de la machine ?
+2. Comment nomme-t-on, pour ce composant, les boutons de commande et les capteurs ?
+3. Et les LEDs et les actionneurs ?
+4. Qu'est-ce qui stocke les paramètres de configuration de la machine ainsi que son programme ?
 
-!!! exercise "Machine à café"
+??? solution
 
-    Une machine à café est équipée d'un {{microcontrôleur}}, qui est l'organe de contrôle de la machine. Ce dernier comporte des {{entrées}} comme les boutons de commande ou les capteurs ainsi que des {{sorties}} comme les LEDs et les actionneurs. Une {{mémoire}} permet de stocker les paramètres de configuration de la machine ainsi que son programme.
+    Une machine à café est équipée d'un **microcontrôleur**, qui est l'organe de contrôle de la machine. Ce dernier comporte des **entrées** comme les boutons de commande ou les capteurs ainsi que des **sorties** comme les LEDs et les actionneurs. Une **mémoire** permet de stocker les paramètres de configuration de la machine ainsi que son programme.
+:::

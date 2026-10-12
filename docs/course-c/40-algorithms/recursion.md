@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "To understand what recursion is, you must first understand recursion."
+    quote: "To understand what recursion is, you must first understand recursion."
     source: Internet
 ---
 
@@ -10,7 +10,7 @@ La [récursivité](https://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9) est une 
 
 La récursivité est utilisée pour résoudre des problèmes qui peuvent être décomposés en sous-problèmes plus petits de même nature. Par exemple, la factorielle d'un nombre est le produit de tous les entiers positifs inférieurs ou égaux à ce nombre ; on la définit ainsi : `n! = n × (n - 1)!`.
 
-Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci][fib-iterative] jusqu'à `n` :
+Au chapitre sur les fonctions, nous avions donné l'[exemple du calcul de la somme de la suite de Fibonacci](#fib-iterative) jusqu'à `n` :
 
 ```c
 int fib(int n)
@@ -48,7 +48,6 @@ Le code est beaucoup plus simple à écrire, et même à lire. Néanmoins, cet a
 Cette chaîne d'appels indique combien de fois `fib` est invoquée et à quel niveau de la pile. Par exemple, `fib(4)` est appelé dans `fib(5)` :
 
 ```mermaid
-%% Arbre d'appel de Fibonacci
 graph TD
 
 5(("fib(5)")) --> 41(("fib(4)"))
@@ -68,6 +67,8 @@ graph TD
 
 23 --> 15(("fib(1)"))
 ```
+
+Figure: Arbre d'appel de Fibonacci
 
 Au final, `fib(1)` est appelé cinq fois, `fib(2)` trois fois, `fib(3)` deux fois et `fib(4)` comme `fib(5)` une seule fois. Il faut donc douze appels à la fonction `fib` pour calculer `fib(5)`.
 
@@ -108,18 +109,18 @@ Les [tours de Hanoï](https://fr.wikipedia.org/wiki/Tours_de_Hano%C3%AF) sont un
 
 ![Tours de Hanoï](/assets/images/hanoi.drawio)
 
+Figure: Tours de Hanoï {#fig:hanoi}
+
 Ce problème se prête parfaitement à une résolution récursive. Pour déplacer `n` disques de la tige `A` vers la tige `C`, il suffit de transférer `n - 1` disques de `A` vers `B`, de déplacer le disque restant de `A` vers `C`, puis de déplacer les `n - 1` disques de `B` vers `C`.
 
 === "Algorithme Récursif"
 
-    ```c
-    --8<-- "docs/assets/src/hanoi.c"
+    ```c include="docs/assets/src/hanoi.c"
     ```
 
 === "Algorithme Itératif"
 
-    ```c
-    --8<-- "docs/assets/src/hanoi-iterative.c"
+    ```c include="docs/assets/src/hanoi-iterative.c"
     ```
 
 L'exécution produit le résultat suivant :
@@ -144,8 +145,7 @@ Par ailleurs, une fonction récursive qui utilise de nombreuses variables locale
 
 Considérons l'exemple suivant d'une fonction récursive qui déclare un tableau de 1 Mio de caractères :
 
-```c
---8<-- "docs/assets/src/stack-overflow.c"
+```c include="docs/assets/src/stack-overflow.c"
 ```
 
 À l'exécution, on obtient :
@@ -218,21 +218,21 @@ int memoize_get(int input) {
 }
 ```
 
-!!! exercise "La plus petite différence"
+::: exercise {title="#(ex:la-plus-petite-difference) : La plus petite différence"}
+Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
 
-    Soit deux tableaux d'entiers, trouver la paire de valeurs (une dans chaque tableau) ayant la plus petite différence (positive).
+Exemple :
 
-    Exemple :
+```c
+int a[] = {5, 3, 14, 11, 2};
+int b[] = {24, 128, 236, 20, 8};
 
-    ```c
-    int a[] = {5, 3, 14, 11, 2};
-    int b[] = {24, 128, 236, 20, 8};
+int diff = 3 // pair 11, 8
+```
 
-    int diff = 3 // pair 11, 8
-    ```
-
-    1. Proposer une implémentation
-    2. Quelle est la complexité de votre algorithme ?
+1. Proposer une implémentation
+2. Quelle est la complexité de votre algorithme ?
+:::
 
 ## Programmation dynamique
 
@@ -276,14 +276,15 @@ Le problème des huit dames est un problème classique de placement de huit dame
 
 ![Les huit dames](/assets/images/eight-queens.drawio)
 
+Figure: Les huit dames {#fig:eight-queens}
+
 La solution naïve est de tester toutes les combinaisons possibles de placement des huit dames et de vérifier si elles sont valides. Cependant, cette approche est inefficace car le nombre de combinaisons possibles est très élevé. Si nous considérons simplement toutes les manières de placer 8 dames sur un échiquier 8x8 sans tenir compte des contraintes d'attaque (c'est-à-dire sans tenir compte des lignes, colonnes ou diagonales), le nombre de configurations possibles est donné par le nombre de combinaisons de 64 cases (l'échiquier) prises 8 à la fois soit :
 
 $$\binom{64}{8} = \frac{64!}{8!(64-8)!} = 4'426'165'368$$
 
 Néanmoins ce problème qui est connu admet 92 solutions. C'est un problème de recherche exhaustive. On peut le résoudre en utilisant une approche de backtracking.
 
-```c
---8<-- "docs/assets/src/eight-queens.c"
+```c include="docs/assets/src/eight-queens.c"
 ```
 
 On commence par définir un échiquier de `N`x`N` cases sous la forme d'une tableau bidimensionnel `bool board[N][N]`. Chaque case de l'échiquier peut contenir une dame (`true`) ou être vide (`false`).

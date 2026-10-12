@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Un microcontrôleur est un ordinateur sur une puce. Il est composé d'un processeur, de mémoire et de périphériques d'entrée/sortie. Les microcontrôleurs sont utilisés dans de nombreux systèmes embarqués, tels que les télécommandes, les jouets, les appareils électroménagers, les instruments de mesure, les systèmes de contrôle de moteurs etc. Nous avons déjà évoqué la [machine à café][coffee-maker] en début de cours qui est un bon exemple de système embarqué.
+Un microcontrôleur est un ordinateur sur une puce. Il est composé d'un processeur, de mémoire et de périphériques d'entrée/sortie. Les microcontrôleurs sont utilisés dans de nombreux systèmes embarqués, tels que les télécommandes, les jouets, les appareils électroménagers, les instruments de mesure, les systèmes de contrôle de moteurs etc. Nous avons déjà évoqué la [machine à café](#coffee-maker) en début de cours qui est un bon exemple de système embarqué.
 
 ## Style de programmation
 
@@ -30,7 +30,7 @@ int main() {
 
 ## Interruptions
 
-Dans un système embarqué ou un microcontrôleur, une [[interruption]] est un mécanisme qui permet à un processeur de **suspendre temporairement l’exécution du programme en cours** afin de répondre à un événement particulier, souvent externe ou d'une urgence particulière. En d'autres termes, l'interruption interrompt le flux normal d'instructions pour traiter un événement prioritaire, comme si quelqu’un frappait à la porte pendant que vous lisez un livre captivant. Il faut alors poser le livre pour ouvrir la porte.
+Dans un système embarqué ou un microcontrôleur, une interruption #[interruption] est un mécanisme qui permet à un processeur de **suspendre temporairement l’exécution du programme en cours** afin de répondre à un événement particulier, souvent externe ou d'une urgence particulière. En d'autres termes, l'interruption interrompt le flux normal d'instructions pour traiter un événement prioritaire, comme si quelqu’un frappait à la porte pendant que vous lisez un livre captivant. Il faut alors poser le livre pour ouvrir la porte.
 
 Voici comment cela se passe, étape par étape, de manière plus technique :
 

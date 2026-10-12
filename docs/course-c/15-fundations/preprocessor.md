@@ -1,10 +1,10 @@
 # Préprocesseur
 
-Figure: Illustration du mécanisme de pré-processing avant la compilation
+Figure: Illustration du mécanisme de pré-processing avant la compilation {#fig:preprocessing-fun}
 
 ![Mécanisme de pré-processing avant compilation](/assets/images/preprocessing-fun.drawio)
 
-Comme nous l'avons vu en [introduction][structured-text-programming], le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation. Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon `#` U+0023, *hash* (ou *she*) en anglais et utilisées récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (*sharp*) `♯` U+266F présent sur les pavés numériques de téléphone.
+Comme nous l'avons vu en [introduction](#structured-text-programming), le langage C est basé sur une double grammaire, c'est-à-dire qu'avant la compilation du code, un autre processus est appelé visant à préparer le code source avant la compilation. Le cœur de cette opération est appelé **préprocesseur**. Les instructions du préprocesseur C sont faciles à reconnaître, car elles débutent toutes par le croisillon `#` U+0023, *hash* (ou *she*) en anglais et utilisées récemment comme [hashtag](https://fr.wikipedia.org/wiki/Hashtag) sur les réseaux sociaux. Notons au passage que ce caractère était historiquement utilisé par les Anglais sous le dénominatif *pound* (livre). Lorsqu'il est apparu en Europe, il a été confondu avec le caractère dièse (*sharp*) `♯` U+266F présent sur les pavés numériques de téléphone.
 
 Le vocabulaire du préprocesseur se compose de directives démarrant par un croisillon. Notons que ces directives (à l'exception des opérateurs de concaténation de conversion en chaîne de caractère) sont des instructions de ligne (*line-wise*), c'est-à-dire qu'elles doivent se terminer par un caractère de fin de ligne. Le point-virgule n'a pas d'effet sur le préprocesseur. En outre, il est possible d'insérer des espaces et des tabulations entre le croisillon et la directive. Il est communément admis d'utiliser cette fonctionnalité pour gérer l'indentation des directives préprocesseur, car certaines conventions imposent que le croisillon soit en première colonne. La table suivante résume les directives du préprocesseur.
 
@@ -12,16 +12,16 @@ Table: Vocabulaire du préprocesseur
 
 | Terme                                          | Description                                     |
 | ---------------------------------------------- | ----------------------------------------------- |
-| [`#include`][preprocessor-include]             | Inclus un fichier dans le fichier courant       |
-| [`#define`][preprocessor-define]               | Crée une définition (Macro)                     |
-| [`#undef`][preprocessor-undef]                 | Détruit une définition existante                |
-| [`#if defined`][preprocessor-ifdef]            | Teste si une définition existe                  |
-| [`#if` .. `#endif`][preprocessor-if]           | Test conditionnel                               |
-| [`#`][preprocessor-hash]                       | Opérateur de conversion en chaîne de caractères |
-| [`##`][preprocessor-hash-hash]                 | Opérateur de concaténation de chaînes           |
-| [`#line`][preprocessor-line]                   | Directive de ligne                              |
-| [`#error "error message"`][preprocessor-error] | Génère une erreur                               |
-| [`#pragma`][preprocessor-pragma]               | Directive spécifique au compilateur             |
+| [`#include`](#preprocessor-include)             | Inclus un fichier dans le fichier courant       |
+| [`#define`](#preprocessor-define)               | Crée une définition (Macro)                     |
+| [`#undef`](#preprocessor-undef)                 | Détruit une définition existante                |
+| [`#if defined`](#preprocessor-ifdef)            | Teste si une définition existe                  |
+| [`#if` .. `#endif`](#preprocessor-if)           | Test conditionnel                               |
+| [`#`](#preprocessor-hash)                       | Opérateur de conversion en chaîne de caractères |
+| [`##`](#preprocessor-hash-hash)                 | Opérateur de concaténation de chaînes           |
+| [`#line`](#preprocessor-line)                   | Directive de ligne                              |
+| [`#error "error message"`](#preprocessor-error) | Génère une erreur                               |
+| [`#pragma`](#preprocessor-pragma)               | Directive spécifique au compilateur             |
 
 Le préprocesseur C est indépendant du langage C, c'est-à-dire qu'il peut être exécuté sur n'importe quel type de fichier. Pour le prouver, prenons l'exemple d'une lettre générique d'un cabinet dentaire :
 
@@ -150,7 +150,7 @@ Pour s'y retrouver, une convention existe sur les extensions des fichiers. Rappe
 
 : Bibliothèque dynamique. Fichier objet partagé.
 
-[](){ #preprocessor-include }
+[]{#preprocessor-include}
 
 ## Inclusion (`#include`)
 
@@ -178,7 +178,7 @@ head.h:1:18: error: #include nested depth 200 exceeds maximum of 200 (use
 
 ### Prévenir les inclusions multiples
 
-Pour éviter ce genre de problème, il est courant d’utiliser des *include guards* (ou *header guards*). Ce mécanisme consiste à encapsuler le contenu d’un fichier d’en-tête avec une macro unique, garantissant ainsi que le fichier ne sera inclus qu'une seule fois au cours de la compilation. Ce procédé est détaillé [plus loin][preprocessor-include-guard].
+Pour éviter ce genre de problème, il est courant d’utiliser des *include guards* (ou *header guards*). Ce mécanisme consiste à encapsuler le contenu d’un fichier d’en-tête avec une macro unique, garantissant ainsi que le fichier ne sera inclus qu'une seule fois au cours de la compilation. Ce procédé est détaillé [plus loin](#preprocessor-include-guard).
 
 ### Chevrons ou guillemets ?
 
@@ -224,7 +224,7 @@ Ici, les types `bool` et `int_least32_t` ne sont pas définis dans ce fichier, c
 
 Aucune erreur ne sera générée. Cependant, `stack.h` dépend d'inclusions externes, ce qui est généralement à éviter. En incluant les fichiers locaux en premier, on s'assure de leur autonomie.
 
-[](){ #preprocessor-define }
+[]{#preprocessor-define}
 
 ## Macros (`#define`)
 
@@ -396,23 +396,23 @@ Ici, `x` est incrémenté trois fois au lieu d'une seule, ce qui peut entraîner
 2. **Encapsuler les macros à plusieurs instructions dans une boucle vide** pour éviter des erreurs dans les structures de contrôle comme `if-else`.
 3. **Éviter les post/pré-incréments dans les macros**, car ils peuvent provoquer des réévaluations imprévues et des erreurs difficiles à détecter.
 
-!!! exercise "Macro compromise ?"
+::: exercise {title="#(ex:macro-compromise) : Macro compromise ?"}
+Que retourne la fonction `foo` lors de son exécution avec le code suivant ?
 
-    Que retourne la fonction `foo` lors de son exécution avec le code suivant ?
+```c
+#define ABS(x) x >= 0 ? x: -x
+int foo(void) { return ABS(5 - 8); }
+```
 
-    ```c
-    #define ABS(x) x >= 0 ? x: -x
-    int foo(void) { return ABS(5 - 8); }
-    ```
+- [ ] 3
+- [ ] -3
+- [x] -13
+- [ ] 5 - 8
+- [ ] 0
+:::
 
-    - [ ] 3
-    - [ ] -3
-    - [x] -13
-    - [ ] 5 - 8
-    - [ ] 0
-
-[](){ #preprocessor-if }
-[](){ #preprocessor-ifdef }
+[]{#preprocessor-if}
+[]{#preprocessor-ifdef}
 
 ### _Static_assert
 
@@ -422,7 +422,7 @@ Le mot-clé `_Static_assert` est une directive de préprocesseur introduite dans
 _Static_assert(sizeof(tab) > 10, "La taille du tableau est inférieure à 10");
 ```
 
-[](){ #preprocessor-va-args }
+[]{#preprocessor-va-args}
 
 ### Varadiques
 
@@ -540,7 +540,7 @@ void display(char value) {
 }
 ```
 
-[](){ #preprocessor-undef }
+[]{#preprocessor-undef}
 
 ## Suppression (`#undef`)
 
@@ -585,7 +585,7 @@ Ou alors, vous pourriez forcer la valeur de $\pi$ à celle que vous souhaitez :
 #define M_PI 3.14159265358979323846
 ```
 
-[](){ #preprocessor-error }
+[]{#preprocessor-error}
 
 ## Erreur (`#error`)
 
@@ -669,7 +669,7 @@ L'anti-slash (`backslash`) suivi directement d'un retour à la ligne est interpr
     __FILE__, __LINE__);
 ```
 
-[](){ #preprocessor-line }
+[]{#preprocessor-line}
 
 ## Directive de ligne
 
@@ -679,7 +679,7 @@ La directive `#line` permet de modifier le numéro de ligne et le nom du fichier
 #line 42 "foo.c"
 ```
 
-[](){ #preprocessor-hash-hash }
+[]{#preprocessor-hash-hash}
 
 ## Concaténation de chaînes
 
@@ -733,7 +733,7 @@ int main() {
 
 Rappelez-vous que le langage C ne permet pas de définir des fonctions avec le même nom même si elles ont des signatures différentes et même si elles sont dans deux fichiers séparés. Un paramètre de configuration `MANGLE` permettrait de spécifier à la compilation d'une bibliothèque le préfixe à ajouter à toutes les fonctions de la bibliothèque.
 
-[](){ #preprocessor-hash }
+[]{#preprocessor-hash}
 
 ## Conversion en chaîne
 
@@ -781,7 +781,7 @@ if (x < 0) {
 #endif
 ```
 
-[](){ #preprocessor-include-guard }
+[]{#preprocessor-include-guard}
 
 ## Include guard
 
@@ -826,7 +826,7 @@ On préfèrera utiliser la directive [#pragma once](https://en.wikipedia.org/wik
 ```
 
 
-[](){ #preprocessor-pragma }
+[]{#preprocessor-pragma}
 
 ## Pragmas (`#pragma`)
 
@@ -857,7 +857,7 @@ Notons que si l'on souhaite définir un pragma au sein d'une directive préproce
 #define PRAGMA(x) _Pragma(#x)
 ```
 
-[](){ #preprocessor-exceptions }
+[]{#preprocessor-exceptions}
 ## Simulation d'exceptions
 
 Dans des langages de plus haut niveau comme le C++, le Python ou le Java, il existe un mécanisme nommé exception qui permet de gérer des erreurs plus efficacement. Au lieu de retourner une valeur d'erreur, on lève une exception qui sera attrapée plus haut dans la chaîne d'appel.

@@ -60,6 +60,8 @@ Dans notre exemple, imagions que notre pyramide est celle de Kheops, de Khéphre
 
 ![Pyramide depuis le Caire](/assets/images/caire.png)
 
+Figure: Pyramide depuis le Caire {#fig:caire}
+
 (donner un exemple concret avec les données de la caméra, de la lumière et une texture de brique, une transformation de perspective de la lentille de la caméra, let normales des faces pour le calcul de l'éclairage. Donner un exemple en GLSL du vertex shader pour la pyramide.)
 
 ### Tessellation
@@ -266,7 +268,7 @@ int main() {
 
 GLUT (*OpenGL Utility Toolkit*) est une bibliothèque qui facilite la création de fenêtres OpenGL. Elle est plus ancienne que GLFW et elle est moins utilisée. GLUT est une bibliothèque portable qui permet de créer des fenêtres OpenGL sur Windows, Linux et MacOS. Elle permet également de gérer les événements de fenêtre, les événements de clavier et de souris, et les événements de redimensionnement de fenêtre. Préférez GLFW à GLUT pour vos projets OpenGL.
 
-[](){#opengl-coordinates}
+[]{#opengl-coordinates}
 
 ## Coordonnées
 
@@ -417,7 +419,7 @@ glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 Ici on indique que le `vbo` créé sera utilisé pour stocker des `GL_ARRAY_BUFFER`, c'est-à-dire des données de sommets, et que ce `vbo` sera désormais le buffer actif pour toutes les fonctions du type `glBufferData`, `glBufferSubData`, `glMapBuffer`, etc. Et ce jusqu'à ce qu'un autre buffer soit lié ou que le buffer soit supprimé.
 
-[Plus haut][opengl-coordinates], nous avions défini les coordonnées d'un triangle en 3 dimensions. Il est maintenant temps de les envoyer à la carte graphique. Pour cela nous utilisons la fonction `glBufferData` après que le buffer ait été lié au contexte :
+[Plus haut](#opengl-coordinates), nous avions défini les coordonnées d'un triangle en 3 dimensions. Il est maintenant temps de les envoyer à la carte graphique. Pour cela nous utilisons la fonction `glBufferData` après que le buffer ait été lié au contexte :
 
 ```c
 glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -642,6 +644,8 @@ gcc -o triangle triangle.c -lglfw -lGLEW -lGL -lm
 ```
 
 ![Triangle Blanc](/assets/images/triangle1.png)
+
+Figure: Triangle Blanc {#fig:triangle1}
 
 ## Matrices
 

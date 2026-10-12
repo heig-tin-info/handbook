@@ -1,11 +1,11 @@
 ---
 epigraph:
-    text: "Well-typed programs don’t go wrong."
+    quote: "Well-typed programs don’t go wrong."
     source: Robin Milner
 ---
 # Types de données
 
-Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. [[||type]]
+Inhérent au fonctionnement interne d’un ordinateur, un langage de programmation opère à un certain degré d’abstraction par rapport au mode de stockage des données dans la mémoire. De la même façon qu’il est impossible, dans la vie quotidienne, de rendre la monnaie à une fraction de centime près, un ordinateur ne peut enregistrer des informations numériques avec une précision infinie. Ce principe est intrinsèque aux limites matérielles et au modèle mathématique des nombres. #[type]
 
 Les langages de programmation se divisent ainsi en deux grandes catégories : ceux que l’on qualifie de **typés**, où le programmeur a la charge explicite de définir la manière dont les données seront stockées, et ceux dits **non typés**, où ce choix est géré implicitement. Chaque approche présente des avantages et des inconvénients. Reprenons l’exemple du rendu de monnaie : s’il était possible d’enregistrer des montants avec une précision supérieure à celle des pièces en circulation, disons à la fraction de centime, cela poserait problème pour qu’un caissier puisse rendre la monnaie correctement. Dans de telles situations, un langage **typé** s’avère plus adapté, car il permet de fixer des bornes pertinentes à la précision des données. C, en ce sens, est un langage fortement typé, ce qui convient particulièrement à la manipulation rigoureuse des données financières, entre autres.
 
@@ -13,7 +13,7 @@ Il convient de noter que les types de données ne se limitent pas aux seules inf
 
 !!! note "Standard ISO 80000-2"
 
-    Les ingénieurs ont une prédilection marquée pour les standards, et cela d'autant plus lorsqu’ils sont de portée internationale. Pour prévenir des erreurs aussi regrettables que le crash d'une fusée dû à une incompréhension entre deux ingénieurs de nations différentes, il existe des normes telles que l'[[ISO 80000-2]], qui définit avec rigueur ce que l'on entend par un entier (incluant ou non le zéro), la nature des nombres réels, et bien d'autres concepts mathématiques fondamentaux. Il va sans dire que les compilateurs, lorsqu’ils sont correctement conçus, s'efforcent de respecter ces normes internationales au plus près. Et vous, en tant que développeur, faites-vous de même ?
+    Les ingénieurs ont une prédilection marquée pour les standards, et cela d'autant plus lorsqu’ils sont de portée internationale. Pour prévenir des erreurs aussi regrettables que le crash d'une fusée dû à une incompréhension entre deux ingénieurs de nations différentes, il existe des normes telles que l'ISO 80000-2 #[ISO 80000-2], qui définit avec rigueur ce que l'on entend par un entier (incluant ou non le zéro), la nature des nombres réels, et bien d'autres concepts mathématiques fondamentaux. Il va sans dire que les compilateurs, lorsqu’ils sont correctement conçus, s'efforcent de respecter ces normes internationales au plus près. Et vous, en tant que développeur, faites-vous de même ?
 
 ## Stockage et interprétation
 
@@ -66,13 +66,15 @@ int main() {
 }
 ```
 
-[](){#endianess}
+[]{#endianess}
 
 ## Boutisme
 
 ![Boutisme par J. J. Grandville (1838)](/assets/images/endian.jpg){width=70%}
 
-La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. [[||endianess]] [[||Gulliver, les voyages de]] [[||boutisme]]
+Figure: Boutisme par J. J. Grandville (1838) {#fig:endian}
+
+La hantise de l’ingénieur bas-niveau, c’est le concept de **boutisme**, ou *endianess* en anglais. Ce terme, popularisé par l’informaticien Danny Cohen, fait référence au livre *Les Voyages de Gulliver* de Jonathan Swift. Dans cette satire, les habitants de Lilliput se divisent en deux factions : ceux qui mangent leurs œufs à la coque en commençant par le petit bout (les *Little Endians*) et ceux qui préfèrent le gros bout (les *Big Endians*), engendrant un conflit absurde. #[endianess] #[Gulliver, les voyages de] #[boutisme]
 
 En informatique, cette question, loin d’être triviale, persiste dans le monde des microprocesseurs. Certains fonctionnent en **big endian**, où les octets sont stockés en mémoire du plus significatif au moins significatif, tandis que d'autres adoptent le format **little endian**, inversant cet ordre. Imaginons qu’une donnée soit enregistrée en mémoire ainsi :
 
@@ -148,7 +150,7 @@ Table: Stockage d'un entier signé sur différentes profondeurs
 | 32 bits    | -2'147'483'648             | +2'147'483'647             |
 | 64 bits    | -9'223'372'036'854'775'808 | +9'223'372'036'854'775'807 |
 
-En mémoire, ces nombres sont stockés en utilisant le [complément à deux][twos_complement] que nous avons déjà évoqué.
+En mémoire, ces nombres sont stockés en utilisant le [complément à deux](#twos-complement) que nous avons déjà évoqué.
 
 ### Les entiers bornés
 
@@ -164,6 +166,8 @@ Comme nous l'avons vu, les degrés de liberté pour définir un entier sont :
 La construction d'un type entier C peut être résumée par la figure suivante :
 
 ![Entiers standardisés](/assets/images/ansi-integers.drawio)
+
+Figure: Entiers standardisés {#fig:ansi-integers}
 
 Le préfixe `signed` est implicite, mais il est possible de l'utiliser pour plus de clarté. En pratique il sera rarement utilisé. De même, lorsque `short`, `long` ou `long long` est utilsé, le suffixe `int` est implicite.
 
@@ -213,7 +217,9 @@ Avec l'avènement de **C99**, une meilleure cohésion des types a été proposé
 
 ![Flux de construction d'un entier standardisé](/assets/images/c99-integers.drawio)
 
-[](){#reformed-types}
+Figure: Flux de construction d'un entier standardisé {#fig:c99-integers}
+
+[]{#reformed-types}
 
 ### Nouveaux types standard
 
@@ -236,21 +242,21 @@ Table: Entiers standard défini par stdint
 
 À ces types s'ajoutent les types **rapides** (*fast*) et **minimums** (*least*). Un type nommé `uint_least32_t` garanti l'utilisation du type de donnée utilisant le moins de mémoire et garantissant une profondeur d'au minimum 32 bits. Les types rapides, moins utilisés, vont automatiquement choisir le type adapté le plus rapide à l'exécution. Par exemple, si l'architecture matérielle permet un calcul natif sur 48-bits, elle sera privilégiée par rapport au type 32-bits.
 
-!!! exercise "Débordement"
+::: exercise {title="#(ex:debordement) : Débordement"}
+Quel sera le contenu de `j` après l'exécution de l'instruction suivante :
 
-    Quel sera le contenu de `j` après l'exécution de l'instruction suivante :
+```c
+uint16_t j = 1024 * 64;
+```
 
-    ```c
-    uint16_t j = 1024 * 64;
-    ```
+- [ ] 0
+- [x] 1
+- [ ] 64
+- [ ] 1024
+- [ ] 65536
+:::
 
-    - [ ] 0
-    - [x] 1
-    - [ ] 64
-    - [ ] 1024
-    - [ ] 65536
-
-[](){#datamodel}
+[]{#datamodel}
 
 ## Modèle de donnée
 
@@ -271,7 +277,7 @@ Table: Modèle de données
 | **ILP64**  | 16    | 64  | 64   | 64        | 64     | [HAL](https://en.wikipedia.org/wiki/HAL_Computer_Systems) (SPARC)           |
 | **SILP64** | 64    | 64  | 64   | 64        | 64     | [UNICOS](https://en.wikipedia.org/wiki/UNICOS) (Super ordinateur)           |
 
-[[||LP32]] [[||ILP32]] [[||LLP64]] [[||LP64]] [[||ILP64]] [[||SILP64]]
+#[LP32] #[ILP32] #[LLP64] #[LP64] #[ILP64] #[SILP64]
 
 Table: Taille usuelle des types de base
 
@@ -286,7 +292,7 @@ Table: Taille usuelle des types de base
 | double      | normalement 64 bits                  | 8       | 8     |
 | long double | au moins 63 bits                     | 8       | 16    |
 
-Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types `long` et `long double` varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards][reformed-types] de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
+Les troisième et quatrième colonnes représentent la taille des types de base sur des machines modernes 64-bits. On notera que la taille des types `long` et `long double` varie selon l'architecture matérielle et le système d'exploitation. On voit donc que selon le modèle les types n'ont pas la même taille et donc que la portabilité des programmes est un enjeu majeur. Aussi, pour s'assurer qu'un type est de la taille souhaitée, il est recommandé d'utiliser les [nouveaux types standards](#reformed-types) de `<stdint.h>`. Ainsi pour s'assurer qu'un type soit **au moins** de 32-bits, on utilisera `uint_least32_t`.
 
 ## Les caractères
 
@@ -306,13 +312,17 @@ Historiquement, alors que les informations dans un ordinateur ne sont que des 1 
 
 En 1963 l'ASA (*American Standards Association*) aujourd'hui **ANSI** propose un premier standard qui ne définissait alors que 63 caractères imprimables. Comme la mémoire à cette époque était très chère, un caractère n'était codé que sur 7 bits. En effet, l'œuvre de la recherche du temps perdu de Marcel Proust - 7 tomes - pour 3000 pages et quelques 10.45 millions de signes demanderait 9.96 MiB de mémoire de stockage avec 8 bits et seulement contre 8.72 MiB sur 7 bits, soit 12% d'économie : une aubaine !
 
-La première table [[ASCII]] définissant 128 caractères est donnée par la figure suivante : [[||ANSI]]
+La première table ASCII #[ASCII] définissant 128 caractères est donnée par la figure suivante : #[ANSI]
 
 ![Table ASCII ASA X3.4 établie en 1963](/assets/images/ascii-1963.drawio)
+
+Figure: Table ASCII ASA X3.4 établie en 1963 {#fig:ascii-1963}
 
 En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules et minuscules. Cette réforme est donnée par la figure suivante. Il s'agit de la table ASCII standard actuelle.
 
 ![Table ANSI INCITS 4-1986 (standard actuel)](/assets/images/ascii.drawio)
+
+Figure: Table ANSI INCITS 4-1986 (standard actuel) {#fig:ascii}
 
 !!! info "Majuscules et Minuscules"
 
@@ -331,9 +341,11 @@ En 1986, la table ASCII a été étendue pour couvrir les caractères majuscules
     printf("%c\n", letter); // Affiche P
     ```
 
-Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'[[ISO-8859-1]] et de l'[[ISO-8859-15]] :
+Ainsi qu'évoqué plusieurs fois dans cet ouvrage, chaque pays et chaque langue utilise ses propres caractères et il a fallu trouver un moyen de satisfaire tout le monde. Il a été alors convenu d'encoder les caractères sur 8-bits au lieu de 7 et de profiter des 128 nouvelles positions offertes pour ajouter les caractères manquants telles que les caractères accentués, le signe euro, la livre sterling et d'autres. Le standard **ISO/IEC 8859** aussi appelé standard *Latin* définit 16 tables d'extension selon les besoins des pays. Les plus courantes en Europe occidentale sont les tables **ISO-8859-1** ou (**latin1**) et **ISO-8859-15** (**latin9**). Voici la table d'extension de l'ISO-8859-1 #[ISO-8859-1] et de l'ISO-8859-15 #[ISO-8859-15] :
 
 ![Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas)](/assets/images/latin1.drawio)
+
+Figure: Table d'extension ISO-8859-1 (haut) et ISO-8859-15 (bas) {#fig:latin1}
 
 Ce standard a généré durant des décennies de grandes frustrations et de profondes incompréhensions chez les développeurs et utilisateurs d'ordinateur. Ne vous est-il jamais arrivé d'ouvrir un fichier texte et de ne plus voir les accents convenablement ? C'est un problème typique d'encodage.
 
@@ -341,7 +353,7 @@ Pour tenter de remédier à ce standard incompatible entre les pays, Microsoft a
 
 C'est pourquoi, en 1991, l'**ISO** a proposé un standard universel nommé **Unicode** qui est capable d'encoder tous les caractères de toutes les langues du monde.
 
-[](){#encodingunicode}
+[]{#encodingunicode}
 
 ### Unicode
 
@@ -349,19 +361,19 @@ Avec l'arrivée d'internet et les échanges entre les Arabes (عَرَب), les C
 
 Un fabuleux consensus planétaire a été atteint en 2008 avec l'adoption majoritaire du standard **Unicode** (*Universal Coded Character Set*) et son encodage **UTF-8** (*Unicode Transformation Format*). Ce standard est capable d'encoder tous les caractères de toutes les langues du monde. Il est utilisé par la plupart des systèmes d'exploitation, des navigateurs web et des applications informatiques. Il est capable d'encoder 1'112'064 caractères en utilisant de 1 à 4 octets. La figure suivante montre la tendance de l'adoption de 2001 à 2012. Cette tendance est accessible [ici](https://googleblog.blogspot.com/2012/02/unicode-over-60-percent-of-web.html).
 
-Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel
+Figure: Tendances sur l'encodage des pages web en faveur de UTF-8 dès 2001, données collectées par Google et Erik van der Poel {#fig:unicode-trends}
 
 ![Utiliation de l'UTF-8 dès 2001](/assets/images/unicode-trends.drawio)
 
-[Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, [](){#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
+[Ken Thompson](https://fr.wikipedia.org/wiki/Ken_Thompson), dont nous avons déjà parlé en introduction, []{#thompson} est à l'origine de ce standard. Par exemple le *devanagari* caractère `ह` utilisé en Sanskrit possède la dénomination Unicode U+0939 et s'encode sur 3 octets: `0xE0 0xA4 0xB9`
 
-En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. [[||wchar]] [[||unicode]] [[||utf8]] [[||Ken Thompson]]
+En programmation C, un caractère `char` ne peut exprimer sans ambigüité que les 128 caractères de la table ASCII standard et selon les conventions locales, les 128 caractères d'extension. C'est-à-dire que vous ne pouvez pas exprimer un caractère Unicode en utilisant un `char`. Pour cela, il faudra utiliser un tableau de caractères `char` ou un tableau de caractères `wchar_t` qui est capable de stocker un caractère Unicode, mais nous verrons cela plus tard. #[wchar] #[unicode] #[utf8] #[Ken Thompson]
 
 Ce nouveau standard devait résoudre de nombreux problème techniques. Le premier étant la rétro-compatibilité avec l'ASCII. La première excellente idée fut de calquer les 128 premiers caractères Unicode à la table ASCII. Ainsi, un texte ASCII est aussi un texte Unicode. Rappelez-vous la première table n'utilisant que 7 bits, le huitième bit était toujours à 0, et ce fut une idée brillante de s'approprier ce huitième bit pour définir des caractères supplémentaires. Mais comment faire pour caser les 1'112'064 caractères dans seulement 128 valeurs supplémentaires ?
 
 Unicode définit plusieurs encodages dont les plus courants sont **UTF-8**, **UTF-16** et **UTF-32**. Le plus utilisé, et de loin est **UTF-8** qui est un encodage à **longueur variable**. Le premier octet, s'il ne s'agit pas d'un caractère ASCII (0xxxxxxx), indique le nombre d'octets utilisés pour encoder le caractère. Par exemple, si le premier octet commence par `110xxxxx`, cela signifie que le caractère est encodé sur 2 octets. Si le premier octet commence par `1110xxxx`, cela signifie que le caractère est encodé sur 3 octets. Si le premier octet commence par `11110xxx`, cela signifie que le caractère est encodé sur 4 octets. Les bits `x` sont utilisés pour coder la valeur du caractère.
 
-Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon le premier octet
+Figure: Table de correspondance du nombre d'octets d'une séquence UTF-8 selon le premier octet {#fig:unicode-table}
 
 ![Nombre d'octets en UTF-8](/assets/images/unicode-table.drawio)
 
@@ -434,7 +446,7 @@ Le calcul de la longueur d'une chaîne de caractères peut être effectué en ut
 
 ### Les emojis
 
-Les [[emojis]] sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles ou des étrons (💩).
+Les emojis #[emojis] sont des caractères spéciaux qui ont été introduits en 2010 par le standard Unicode 6.0. Ils sont donc codés sur 4 octets et permettent de représenter des émotions, des objets, des animaux, des symboles ou des étrons (💩).
 
 Les émoticônes que vous pouvez envoyer à votre grand-mère via WhatsApp sont donc des caractères Unicode et non des images. Si vous dites à votre grand-maman que vous l'aimez en lui envoyant un cœur, elle recevra le caractère U+2764 qui est le caractère `❤`. Mais les navigateurs web et les applications informatiques remplacent à la volée ces caractères par des images.
 
@@ -471,7 +483,7 @@ U+253C ┼  (jonction croisée)
 
 ## Chaîne de caractères
 
-Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une [[sentinelle]].
+Une **chaîne de caractères** est simplement la suite contiguë de plusieurs caractères dans une zone mémoire donnée. Afin de savoir lorsque cette chaîne se termine, le standard impose que le dernier caractère d'une chaîne soit `NUL` ou `\0`. On appelle ce caractère le caractère de fin de chaîne. Il s'agit d'une sentinelle #[sentinelle].
 
 !!! example "Les légumes et les choux"
 
@@ -523,11 +535,11 @@ On utilise le caractère nul `\0` pour plusieurs raisons:
 
 ## Booléens
 
-Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme). [[||booléen]] [[||George Boole]] [[||Boole, George]] [[||true]] [[||false]]
+Un [booléen](https://fr.wikipedia.org/wiki/Bool%C3%A9en) est un type de donnée à deux états consensuellement nommés *vrai* (`true`) et *faux* (`false`) et destinés à représenter les états en logique booléenne (Nom venant de [George Boole,](https://fr.wikipedia.org/wiki/George_Boole) fondateur de l'algèbre éponyme). #[booléen] #[George Boole] #[Boole, George] #[true] #[false]
 
 La convention est d'utiliser `1` pour mémoriser un état vrai, et `0` pour un état faux, c'est d'ailleurs de cette manière que les booléens sont encodés en C.
 
-Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `<stdbool.h>`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur. [[||<stdbool.h>]]
+Les **booléens** ont été introduits formellement en C avec **C99** et nécessitent l'inclusion du fichier d'en-tête `<stdbool.h>`. Avant cela le type booléen était `_Bool` et définir les états vrais et faux était à la charge du développeur. #[<stdbool.h>]
 
 ```c
 #include <stdbool.h>
@@ -579,7 +591,7 @@ enum ColorCode {
 };
 ```
 
-Le type d'une énumération est apparenté à un entier `int`. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : [[||enum]]
+Le type d'une énumération est apparenté à un entier `int`. Sans précision, la première valeur vaut 0, la suivante 1, etc. Il est néanmoins possible de forcer les valeurs de la manière suivante : #[enum]
 
 ```c
 typedef enum country_codes {
@@ -615,17 +627,17 @@ void call(enum country_codes code) {
 
 ## Type incomplet
 
-En C, un [[type incomplet]] est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme `void` sont également incomplets.
+En C, un type incomplet #[type incomplet] est un type de données dont la taille n'est pas encore complètement définie au moment de sa déclaration. En d'autres termes, le compilateur sait qu'un type existe, mais ne connaît pas encore la totalité des détails nécessaires pour allouer de la mémoire ou effectuer certaines opérations sur ce type. Un type incomplet peut apparaître dans le cas des structures ou des tableaux, notamment pour l'abstraction de données. Certains types comme `void` sont également incomplets.
 
 ### VLQ
 
-Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers VLQ utilisés dans le protocole [[MIDI]]
+Dans certains systèmes, on peut stocker des nombres entiers à taille variable. C'est-à-dire que l'on s'arrange pour réserver un bit supplémentaire dans le nombre pour indiquer si le nombre se poursuit sur un autre octet. C'est le cas des nombres entiers VLQ utilisés dans le protocole MIDI #[MIDI]
 
-On peut stocker un nombre [[VLQ]] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
+On peut stocker un nombre VLQ #[VLQ] en mémoire, mais on ne sait pas de combien d'octets on aura besoin. On peut donc définir un type incomplet pour ce type de donnée, mais nous aurons besoin de notions que nous n'avons pas encore vues pour le manipuler, les structures et les unions.
 
 ### Type vide (*void*)
 
-Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : [[||void]]
+Le type `void` est particulier. Il s'agit d'un type dit **incomplet**, car la taille de l'objet qu'il représente en mémoire n'est pas connue. Il est utilisé comme type de retour pour les fonctions qui ne retournent rien : #[void]
 
 ```c
 void shout() {
@@ -633,7 +645,7 @@ void shout() {
 }
 ```
 
-Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy` [[||memcpy]] :
+Il peut être également utilisé comme type générique comme la fonction de copie mémoire `memcpy` #[memcpy] :
 
 ```c
 void *memcpy(void * restrict dest, const void * restrict src, size_t n);
@@ -649,7 +661,7 @@ Le mot clé `void` ne peut être utilisé que dans les contextes suivants :
 
 ### Promotion implicite
 
-Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur. [[||promotion]] C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un `int`.
+Généralement le type `int` est de la même largeur que le bus mémoire de donnée d'un ordinateur. #[promotion] C'est-à-dire que c'est souvent, le type le plus optimisé pour véhiculer de l'information au sein du processeur. Les *registres* du processeur, autrement dit ses casiers mémoires, sont au moins assez grand pour  contenir un `int`.
 
 Aussi, la plupart des types de taille inférieure à `int` sont automatiquement et implicitement promus en `int`. Le résultat de `a + b` lorsque `a` et `b` sont des `char` sera automatiquement un `int`.
 
@@ -666,51 +678,51 @@ Table: Promotion numérique
 Notez qu'il n'y a pas de promotion numérique vers le type *short*. On
 passe directement à un type *int*.
 
-!!! exercise "Promotion numérique"
+::: exercise {title="#(ex:promotion-numerique) : Promotion numérique"}
+Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
 
-    Représentez les promotions numériques qui surviennent lors de l'évaluation des expressions ci-dessous :
+```c
+char c;
+short sh;
+int i;
+float f;
+double d;
+```
 
-    ```c
-    char c;
-    short sh;
-    int i;
-    float f;
-    double d;
-    ```
+<div class="two-column-list" markdown>
 
-    /// html | div[class='two-column-list']
+1. `c * sh - f / i + d;`
+2. `c * (sh – f) / i + d;`
+3. `c * sh - f - i + d;`
+4. `c + sh * f / i + d;`
 
-    1. `c * sh - f / i + d;`
-    2. `c * (sh – f) / i + d;`
-    3. `c * sh - f - i + d;`
-    4. `c + sh * f / i + d;`
+</div>
+:::
 
-    ///
+::: exercise {title="#(ex:expressions-mixtes) : Expressions mixtes"}
+Soit les instructions suivantes :
 
-!!! exercise "Expressions mixtes"
+```c
+int n = 10;
+int p = 7;
+float x = 2.5;
+```
 
-    Soit les instructions suivantes :
+Donnez le type et la valeur des expressions suivantes :
 
-    ```c
-    int n = 10;
-    int p = 7;
-    float x = 2.5;
-    ```
+<div class="two-column-list" markdown>
 
-    Donnez le type et la valeur des expressions suivantes :
+1. `x + n % p`
+2. `x + p / n`
+3. `(x + p) / n`
+4. `.5 * n`
+5. `.5 * (float)n`
+6. `(int).5 * n`
+7. `(n + 1) / n`
+8. `(n + 1.0) / n`
 
-    /// html | div[class='two-column-list']
-
-    1. `x + n % p`
-    2. `x + p / n`
-    3. `(x + p) / n`
-    4. `.5 * n`
-    5. `.5 * (float)n`
-    6. `(int).5 * n`
-    7. `(n + 1) / n`
-    8. `(n + 1.0) / n`
-
-    ///
+</div>
+:::
 
 ### Promotion explicite
 
@@ -721,7 +733,7 @@ int n = 10;
 double x = (double)n;
 ```
 
-Le changement de type forcé ([[transtypage]]) entre des variables de
+Le changement de type forcé (transtypage #[transtypage]) entre des variables de
 différents types engendre des effets de bord qu'il faut connaître. Lors
 d'un changement de type vers un type dont le pouvoir de représentation
 est plus important, il n'y a pas de problème. À l'inverse, on peut
@@ -771,353 +783,353 @@ float f=(float)d; // valeur : 0.1111111119389533 => perte de précision
 À l'exécution, il y a une perte de précision lors de la conversion, ce
 qui peut, lors d'un calcul itératif induire des erreurs de calcul.
 
-!!! exercise "Conversion de types"
+::: exercise {title="#(ex:conversion-de-types) : Conversion de types"}
+On considère les déclarations suivantes :
 
-    On considère les déclarations suivantes :
+```c
+float x;
+short i;
+unsigned short j;
+long k;
+unsigned long l;
+```
 
-    ```c
-    float x;
-    short i;
-    unsigned short j;
-    long k;
-    unsigned long l;
-    ```
+Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
 
-    Identifiez les expressions ci-dessous dont le résultat n'est pas mathématiquement correct.
+```c
+x = 1e6;
+i = x;
+j = -20;
+k = x;
+l = k;
+k = -20;
+l = k;
+```
+
+??? solution
 
     ```c
     x = 1e6;
-    i = x;
-    j = -20;
+    i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
+    j = -20;  // Incorrect, valeur signée dans un conteneur non signé
     k = x;
     l = k;
     k = -20;
-    l = k;
+    l = k;    // Incorrect, valeur signée dans un conteneur non signé
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:un-casting-explicite) : Un casting explicite"}
+Que valent les valeurs de `p`, `x` et `n`:
 
-        ```c
-        x = 1e6;
-        i = x;    // Incorrect, i peut-être limité à -32767..+32767 (C99 §5.2.4.2.1)
-        j = -20;  // Incorrect, valeur signée dans un conteneur non signé
-        k = x;
-        l = k;
-        k = -20;
-        l = k;    // Incorrect, valeur signée dans un conteneur non signé
-        ```
+```c
+float x;
+int n, p;
 
-!!! exercise "Un casting explicite"
+p = 2;
+x = (float)15 / p;
+n = x + 1.1;
+```
 
-    Que valent les valeurs de `p`, `x` et `n`:
+??? solution
+
+    ```text
+    p ≡ 2
+    x = 7.5
+    n = 8
+    ```
+:::
+
+::: exercise {title="#(ex:operateurs-de-relation-et-operateurs-logiques) : Opérateurs de relation et opérateurs logiques"}
+Soit les déclarations suivantes :
+
+```c
+float x, y;
+bool condition;
+```
+
+Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
+
+```c
+condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+```
+
+Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
+
+<div class="two-column-list" markdown>
+
+1. `x = -1.0; y = 60.;`
+2. `x = 0; y = 1.;`
+3. `x = 19.0; y = 1.0;`
+4. `x = 0.0; y = 50.0;`
+5. `x = 2.0; y = 50.0;`
+6. `x = -10.0; y = 60.0;`
+
+</div>
+
+??? solution
 
     ```c
-    float x;
-    int n, p;
-
-    p = 2;
-    x = (float)15 / p;
-    n = x + 1.1;
+    condition = (
+        (x >= 0) && (x <= 20) && (y > x))
+        ||
+        ((y == 50) && (x == 2))
+        ||
+        (y == 60)
+    );
     ```
 
-    ??? solution
+    <div class="two-column-list" markdown>
 
-        ```text
-        p ≡ 2
-        x = 7.5
-        n = 8
-        ```
+    1. `true`
+    2. `true`
+    3. `false`
+    4. `true`
+    5. `true`
+    6. `true`
 
-!!! exercise "Opérateurs de relation et opérateurs logiques"
+    </div>
+:::
 
-    Soit les déclarations suivantes :
+::: exercise {title="#(ex:casse-tete) : Casse-tête"}
+Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
+
+Pour chaque exemple, donner la valeur des variables après exécution du code.
+
+1. &#32;
 
     ```c
-    float x, y;
-    bool condition;
+    unsigned short i = 32767;
+    i++;
     ```
 
-    Réécrire l'expression ci-dessous en mettant des parenthèses montrant l'ordre des opérations :
+1. &#32;
 
     ```c
-    condition = x >= 0 && x <= 20 && y > x || y == 50 && x == 2 || y == 60;
+    short i = 32767;
+    i++;
     ```
 
-    Donner la valeur de `condition` évaluée avec les valeurs suivantes de `x` et `y`:
+1. &#32;
 
-    /// html | div[class='two-column-list']
-
-    1. `x = -1.0; y = 60.;`
-    2. `x = 0; y = 1.;`
-    3. `x = 19.0; y = 1.0;`
-    4. `x = 0.0; y = 50.0;`
-    5. `x = 2.0; y = 50.0;`
-    6. `x = -10.0; y = 60.0;`
-
-    ///
-
-    ??? solution
-
-        ```c
-        condition = (
-            (x >= 0) && (x <= 20) && (y > x))
-            ||
-            ((y == 50) && (x == 2))
-            ||
-            (y == 60)
-        );
-        ```
-
-        /// html | div[class='two-column-list']
-
-        1. `true`
-        2. `true`
-        3. `false`
-        4. `true`
-        5. `true`
-        6. `true`
-
-        ///
-
-!!! exercise "Casse-tête"
-
-    Vous participez à une revue de code et tombez sur quelques perles laissées par quelques collègues. Comment proposeriez-vous de corriger ces écritures ? Le code est écrit pour un modèle de donnée **LLP64**.
-
-    Pour chaque exemple, donner la valeur des variables après exécution du code.
-
-    1. &#32;
-
-        ```c
-        unsigned short i = 32767;
-        i++;
-        ```
-
-    1. &#32;
-
-        ```c
-        short i = 32767;
-        i++;
-        ```
-
-    1. &#32;
-
-        ```c
-        short i = 0;
-        i = i--;
-        i = --i;
-        i = i--;
-        ```
+    ```c
+    short i = 0;
+    i = i--;
+    i = --i;
+    i = i--;
+    ```
+:::
 
 ## Exercices de révision
 
-!!! exercise "Évaluation d'expressions"
+::: exercise {title="#(ex:evaluation-d-expressions) : Évaluation d'expressions"}
+Considérons les déclarations suivantes :
 
-    Considérons les déclarations suivantes :
+```c
+char c = 3;
+short s = 7;
+int i = 3;
+long l = 4;
+float f = 3.3;
+double d = 7.7;
+```
+
+Que vaut le type et la valeur des expressions suivantes ?
+
+<div class="two-column-list" markdown>
+
+1. `c / 2`
+2. `sh + c / 10`
+3. `lg + i / 2.0`
+4. `d + f`
+5. `(int)d + f`
+6. `(int)d + lg`
+7. `c << 2`
+8. `sh & 0xF0`
+9. `sh && 0xF0`
+10. `sh == i + lg`
+11. `d + f == sh + lg`
+
+</div>
+:::
+
+::: exercise {title="#(ex:precision-des-flottants) : Précision des flottants"}
+Que vaut `x`?
+
+```c
+float x = 10000000. + 0.1;
+```
+
+??? solution
+
+    Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
 
     ```c
-    char c = 3;
-    short s = 7;
-    int i = 3;
-    long l = 4;
-    float f = 3.3;
-    double d = 7.7;
+    #include <stdio.h>
+
+    int main(void) {
+        float x = 10000000. + 0.1;
+        printf("%f\n", x);
+    }
     ```
 
-    Que vaut le type et la valeur des expressions suivantes ?
+    ```bash
+    $ ./a.out
+    10000000.000000
+    ```
+:::
 
-    /// html | div[class='two-column-list']
+::: exercise {title="#(ex:type-de-donnee-idoine) : Type de donnée idoine"}
+Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
 
-    1. `c / 2`
-    2. `sh + c / 10`
-    3. `lg + i / 2.0`
-    4. `d + f`
-    5. `(int)d + f`
-    6. `(int)d + lg`
-    7. `c << 2`
-    8. `sh & 0xF0`
-    9. `sh && 0xF0`
-    10. `sh == i + lg`
-    11. `d + f == sh + lg`
+1. Gestion d'un parking: nombre de voitures présente
+2. Station météo
+    a. Température moyenne de la journée
+    b. Nombre de valeurs utilisées pour la moyenne
+3. Montant disponible sur un compte en banque
+4. Programme de calcul de d'énergie produite dans une centrale nucléaire
+5. Programme de conversion décimal, hexadécimal, binaire
+6. Produit scalaire de deux vecteurs plans
+7. Nombre d'impulsions reçues par un capteur de position incrémental
+:::
 
-    ///
+::: exercise {title="#(ex:construction-d-expressions) : Construction d'expressions"}
+On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
+à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
+nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
+secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
 
-!!! exercise "Précision des flottants"
+Donnez une expression arithmétique permettant, en fonction d’un angle donné,
+d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
+l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
+les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
 
-    Que vaut `x`?
+Écrivez un programme demandant l’angle et affichant le numéro de secteur
+correspondant.
+:::
+
+::: exercise {title="#(ex:somme-des-entiers) : Somme des entiers"}
+Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
+
+$$
+\sum_{k=1}^n k = \frac{n(n+1)}{2}
+$$
+
+சீனிவாச இராமானுஜன், un grand mathématicien ([Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan)) à démontré que ce la somme à l'infini donne :
+
+$$
+\sum_{k=1}^{\inf} k = -\frac{1}{12}
+$$
+
+Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur `n` à laquelle s'arrêter.
+
+Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme `time`:
+
+```console
+$ time ./a.out 1000000000
+500000000500000000
+
+real    0m0.180s
+user    0m0.172s
+sys     0m0.016s
+```
+
+À partir de quelle valeur, le temps de calcul devient significativement palpable ?
+
+??? solution
 
     ```c
-    float x = 10000000. + 0.1;
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(int argc, char *argv[]) {
+        long long n = atoi(argv[1]);
+        long long sum = 0;
+        for(size_t i = 0; i < n; i++, sum += i);
+        printf("%lld\n", sum);
+    }
     ```
+:::
 
-    ??? solution
+::: exercise {title="#(ex:systeme-de-vision-industriel) : Système de vision industriel"}
+La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
 
-        Le format float est stocké sur 32-bits avec 23-bits de mantisse et 8-bits d'exposants. Sa précision est donc limitée à environ 6 décimales. Pour représenter 10'000'000.1 il faut plus que 6 décimales et l'addition est donc caduc :
+```c
+uint32_t inspected_parts, bad_parts;
+float percentage_good_parts;
+```
+
+À un moment du programme, on peut lire :
+
+```c
+percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
+```
+
+Sachant que `inspected_parts = 2000` et `bad_parts = 200`:
+
+1. Quel résultat le développeur s'attend-il à obtenir ?
+2. Qu'obtient-il en pratique ?
+3. Pourquoi ?
+4. Corrigez les éventuelles erreurs.
+
+??? solution
+
+    1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
+    2. En pratique, il obtient un entier, c'est-à-dire toujours 0.
+    3. La promotion implicite des entiers peut être découpée comme suit :
 
         ```c
-        #include <stdio.h>
-
-        int main(void) {
-            float x = 10000000. + 0.1;
-            printf("%f\n", x);
-        }
+        (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
+        (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
+        (float)percentage_good_parts = (uint32_t)percentage;
         ```
 
-        ```bash
-        $ ./a.out
-        10000000.000000
-        ```
+    La division est donc appliquée à des entiers et non des flottants.
 
-!!! exercise "Type de donnée idoine"
-
-    Pour chaque entrée suivante, indiquez le nom et le type des variables que vous utiliseriez pour représenter les données dans ce programme :
-
-    1. Gestion d'un parking: nombre de voitures présente
-    2. Station météo
-        a. Température moyenne de la journée
-        b. Nombre de valeurs utilisées pour la moyenne
-    3. Montant disponible sur un compte en banque
-    4. Programme de calcul de d'énergie produite dans une centrale nucléaire
-    5. Programme de conversion décimal, hexadécimal, binaire
-    6. Produit scalaire de deux vecteurs plans
-    7. Nombre d'impulsions reçues par un capteur de position incrémental
-
-!!! exercise "Construction d'expressions"
-
-    On considère un disque, divisé en 12 secteurs angulaires égaux, numérotés de 0
-    à 11. On mesure l’angle de rotation du disque en degrés, sous la forme d’un
-    nombre entier non signé. Une flèche fixe désigne un secteur. Entre 0 et 29 °, le
-    secteur désigné est le n° 0, entre 30 ° et 59 °, c’est le secteur 1, ...
-
-    Donnez une expression arithmétique permettant, en fonction d’un angle donné,
-    d’indiquer quel est le secteur du disque se trouve devant la flèche. Note :
-    l’angle de rotation peut être supérieur à 360 °. Vérifiez cette expression avec
-    les angles de 0, 15, 29, 30, 59, 60, 360, 389, 390 degrés.
-
-    Écrivez un programme demandant l’angle et affichant le numéro de secteur
-    correspondant.
-
-!!! exercise "Somme des entiers"
-
-    Il est prouvé mathématiquement que la somme des entiers strictement positifs pris dans l'ordre croissant peut être exprimée comme :
-
-    $$
-    \sum_{k=1}^n k = \frac{n(n+1)}{2}
-    $$
-
-    சீனிவாச இராமானுஜன், un grand mathématicien ([Srinivasa Ramanujan](https://fr.wikipedia.org/wiki/Srinivasa_Ramanujan)) à démontré que ce la somme à l'infini donne :
-
-    $$
-    \sum_{k=1}^{\inf} k = -\frac{1}{12}
-    $$
-
-    Vous ne le croyez pas et décider d'utiliser le superordinateur [Pensées Profondes](https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27univers_et_le_reste) pour faire ce calcul. Comme vous n'avez pas accès à cet ordinateur pour l'instant (et probablement vos enfants n'auront pas accès à cet ordinateur non plus), écrivez un programme simple pour tester votre algorithme et prenant en paramètre la valeur `n` à laquelle s'arrêter.
-
-    Tester ensuite votre programme avec des valeurs de plus en plus grandes et analyser les performances avec le programme `time`:
-
-    ```console
-    $ time ./a.out 1000000000
-    500000000500000000
-
-    real    0m0.180s
-    user    0m0.172s
-    sys     0m0.016s
-    ```
-
-    À partir de quelle valeur, le temps de calcul devient significativement palpable ?
-
-    ??? solution
+    4. Une possible correction consiste à forcer le type d'un des membres de la division :
 
         ```c
-        #include <stdio.h>
-        #include <stdlib.h>
-
-        int main(int argc, char *argv[]) {
-            long long n = atoi(argv[1]);
-            long long sum = 0;
-            for(size_t i = 0; i < n; i++, sum += i);
-            printf("%lld\n", sum);
-        }
+        percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
         ```
+:::
 
-!!! exercise "Système de vision industriel"
+::: exercise {title="#(ex:missile-patriot) : Missile Patriot"}
+Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
 
-    La société japonaise Nakainœil développe des systèmes de vision industriels pour l'inspection de pièces dans une ligne d'assemblage. Le programme du système de vision comporte les variables internes suivantes :
+Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
 
-    ```c
-    uint32_t inspected_parts, bad_parts;
-    float percentage_good_parts;
-    ```
+Le stockage de la valeur 0.1 est donné par :
 
-    À un moment du programme, on peut lire :
+$$
+0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
+$$
 
-    ```c
-    percentage_good_parts = (inspected_parts - bad_parts) / inspected_parts;
-    ```
+Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
 
-    Sachant que `inspected_parts = 2000` et `bad_parts = 200`:
+$$
+100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
+$$
 
-    1. Quel résultat le développeur s'attend-il à obtenir ?
-    2. Qu'obtient-il en pratique ?
-    3. Pourquoi ?
-    4. Corrigez les éventuelles erreurs.
+En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
 
-    ??? solution
+Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
+:::
 
-        1. Le développeur s'attend à obtenir le pourcentage de bonnes pièces avec plusieurs décimales après la virgule.
-        2. En pratique, il obtient un entier, c'est-à-dire toujours 0.
-        3. La promotion implicite des entiers peut être découpée comme suit :
+::: exercise {title="#(ex:expressions-arithmetiques-entieres) : Expressions arithmétiques entières"}
+Donnez la valeur des expressions ci-dessous :
 
-            ```c
-            (uint32_t)numerator = (uint32_t)inspected_parts - (uint32_t)bad_parts;
-            (uint32_t)percentage = (uint32_t)numerator / (uint32_t)inspected_parts;
-            (float)percentage_good_parts = (uint32_t)percentage;
-            ```
-
-        La division est donc appliquée à des entiers et non des flottants.
-
-        4. Une possible correction consiste à forcer le type d'un des membres de la division :
-
-            ```c
-            percentage_good_parts = (float)(inspected_parts - bad_parts) / inspected_parts;
-            ```
-
-!!! exercise "Missile Patriot"
-
-    Durant la guerre du Golfe le 25 février 1991, une batterie de missile américaine à Dharan en Arabie saoudite à échoué à intercepter un missile irakien Scud. Cet échec tua 28 soldats américains et en blessa 100 autres. L'erreur sera imputée à un problème de type de donnée sera longuement discutée dans le rapport **GAO/OMTEC-92-26** du commandement général.
-
-    Un registre 24-bit est utilisé pour le stockage du temps écoulé depuis le démarrage du logiciel de contrôle indiquant le temps en dixième de secondes. Dès lors il a fallait multiplier ce temps par 1/10 pour obtenir le temps en seconde. La valeur 1/10 était tronquée à la 24^e décimale après la virgule. Des erreurs d'arrondi sont apparue menant à un décalage de près de 1 seconde après 100 heures de fonction. Or, cette erreur d'une seconde s'est traduite par 600 mètres d'erreur lors de la tentative d'interception.
-
-    Le stockage de la valeur 0.1 est donné par :
-
-    $$
-    0.1_{10} \approx \lfloor 0.1_{10}\cdot 2^{23} \rfloor = 11001100110011001100_{2} \approx 0.09999990463256836
-    $$
-
-    Un registre contient donc le nombre d'heures écoulées exprimées en dixième de seconde soit pour 100 heures :
-
-    $$
-    100 \cdot 60 \cdot 60 \cdot 10 = 3'600'000
-    $$
-
-    En termes de virgule fixe, la première valeur est exprimée en Q1.23 tandis que la seconde en Q0.24. Multiplier les deux valeurs entre elles donne `Q1.23 x Q0.24 = Q1.47` le résultat est donc exprimé sur 48 bits. Il faut donc diviser le résultat du calcul par :math:`2^{47}` pour obtenir le nombre de secondes écoulées depuis le début la mise sous tension du système.
-
-    Quel est l'erreur en seconde cumulée sur les 100 heures de fonctionnement ?
-
-!!! exercise "Expressions arithmétiques entières"
-
-    Donnez la valeur des expressions ci-dessous :
-
-    ```text
-    25 + 10 + 7 - 3
-    5 / 2
-    24 + 5 / 2
-    (24 + 5) / 2
-    25 / 5 / 2
-    25 / (5 / 2)
-    72 % 5 - 5
-    72 / 5 - 5
-    8 % 3
-    -8 % 3
-    8 % -3
-    -8 % -3
-    ```
+```text
+25 + 10 + 7 - 3
+5 / 2
+24 + 5 / 2
+(24 + 5) / 2
+25 / 5 / 2
+25 / (5 / 2)
+72 % 5 - 5
+72 / 5 - 5
+8 % 3
+-8 % 3
+8 % -3
+-8 % -3
+```
+:::

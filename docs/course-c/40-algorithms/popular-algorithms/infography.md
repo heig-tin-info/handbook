@@ -8,6 +8,8 @@ L'algorithme de Bresenham est une méthode efficace pour tracer des lignes droit
 
 ![Algorithme de Bresenham](/assets/images/bressenham.gif)
 
+Figure: Algorithme de Bresenham {#fig:bressenham}
+
 ### Principe de l'algorithme
 
 Considérons le tracé d'une ligne entre deux points:
@@ -45,6 +47,8 @@ void bresenhamLine(Point p, Point q, SDL_Renderer *renderer) {
 L'algorithme de Xiaolin Wu est une méthode améliorée pour le tracé d'antialiasing de lignes. Il utilise des techniques de subpixel pour rendre les lignes plus lisses et plus précises. L'algorithme de Xiaolin Wu est basé sur l'algorithme de Bresenham, mais il ajoute des étapes supplémentaires pour gérer les valeurs de couleurs partielles des pixels. Il fut publié en 1991 dans le journal Computer Graphics ([An Efficient Antialiasing Technique](https://cgg.mff.cuni.cz/~pepca/ref/WU.pdf)).
 
 ![Algorithme de Xiaolin Wu](/assets/images/xiaolin-wu.gif)
+
+Figure: Algorithme de Xiaolin Wu {#fig:xiaolin-wu}
 
 ```c
 void wuLine(Point p0, Point p1, SDL_Renderer *renderer) {
@@ -115,6 +119,8 @@ void wuLine(Point p0, Point p1, SDL_Renderer *renderer) {
 Les courbes de Bézier sont des courbes mathématiques utilisées pour représenter des formes lisses et régulières. Elles sont largement utilisées en infographie pour le tracé de courbes.
 
 ![Courbes de Bézier](/assets/images/bezier.gif)
+
+Figure: Courbes de Bézier {#fig:bezier}
 
 Le calcul de Bézier est donné par l'algorithme suivant :
 

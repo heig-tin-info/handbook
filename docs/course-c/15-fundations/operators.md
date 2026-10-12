@@ -1,6 +1,6 @@
 ---
 epigraph:
-    text: "L'un de mes jours les plus productifs a été lorsque j'ai supprimé 1 000 lignes de code. Nous n'avons pas besoin de plus d'opérateurs, nous en avons besoin de moins."
+    quote: "L'un de mes jours les plus productifs a été lorsque j'ai supprimé 1 000 lignes de code. Nous n'avons pas besoin de plus d'opérateurs, nous en avons besoin de moins."
     source: Ken Thompson
 ---
 # Opérateurs
@@ -9,19 +9,19 @@ En programmation, un opérateur est une **fonction** qui effectue une opération
 
 L'unité de calcul arithmétique du processeur (ALU) est responsable d'effectuer les opérations fondamentales. Un ordinateur à 2 GHz pourrait par exemple effectuer plus de 2 milliards (2'000'000'000) d'opérations par seconde.
 
-Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`. [[||arité]] [[||unaire]] [[||opérande]]
+Un **opérateur** prend habituellement deux opérandes et retourne un résultat. On dit alors que cette classe d'opérateurs a une [arité](https://fr.wikipedia.org/wiki/Arit%C3%A9) de 2. Il existe également des opérateurs à arité de 1, aussi appelés opérateurs [unaires](https://fr.wikipedia.org/wiki/Op%C3%A9ration_unaire) comme pour obtenir l'opposé d'un nombre ($-x$). Connaissant le complément à deux, on sait que pour obtenir l'opposé d'un nombre, il suffit d'inverser tous les bits et d'ajouter 1. C'est-à-dire de faire l'opération de négation `~` puis de faire une addition `+1`. #[arité] #[unaire] #[opérande]
 
 Un opérateur possède plusieurs propriétés :
 
-Une **priorité** [[||priorité]]
+Une **priorité** #[priorité]
 
 : La multiplication `*` est plus prioritaire que l'addition `+`
 
-Une **associativité** [[||associativité]]
+Une **associativité** #[associativité]
 
 : L'opérateur d'affectation `=` possède une associativité à droite, c'est-à-dire que l'opérande à droite de l'opérateur sera évalué en premier
 
-Un **point de séquence** [[||point de séquence]]
+Un **point de séquence** #[point de séquence]
 
 : Certains opérateurs comme `&&`, `||`, `?` ou `,` possèdent un point de séquence garantissant que l'exécution séquentielle du programme sera respectée avant et après ce point. Par exemple si dans l'expression `i < 12 && j > 2` la valeur de `i` est plus grande que 12, le test `j > 2` ne sera jamais effectué. L'opérateur `&&` garantit l'ordre des choses, ce qui n'est pas le cas avec l'affectation `=`.
 
@@ -31,6 +31,8 @@ Dans un ordinateur, ou sur un microcontrôleur, c'est l'unité de calcul arithm�
 
 ![ALU](/assets/images/alu.drawio)
 
+Figure: ALU {#fig:alu}
+
 L'unité de calcul arithmétique (**ALU**) représentée est composée de deux entrées `A` et `B`, d'une sortie `C` et d'un mode opératoire `O`. Sur de petites architectures matérielles, l'ALU peut être limité aux opérations d'addition `+`, d'inversion bit à bit `~`, de décalage vers la gauche `<<` et vers la droite `>>` et de l'opération bit à bit logique `&` pour la conjonction ainsi que `|` pour la disjonction.
 
 Si l'on souhaite faire une addition, on peut écrire en C :
@@ -39,7 +41,7 @@ Si l'on souhaite faire une addition, on peut écrire en C :
 c = a + b;
 ```
 
-[](){#operator-arithmetic}
+[]{#operator-arithmetic}
 
 ### Types d'opérateurs
 
@@ -72,7 +74,7 @@ Table: Opérateurs arithmétiques
 | `/`       | *div*       | Division       | `2 == 5 / 2`    |
 | `%`       | *mod*       | Modulo         | `13 % 4 == 1`   |
 
-Lors d'opérations, il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` : [[||division]]
+Lors d'opérations, il faut faire attention aux types des variables impliquées. La division `5 / 2` donnera `2` et non, `2.5` car les deux valeurs fournies sont entières et le résultat est donc un entier. Pour obtenir un résultat flottant, il faut que l'une des valeurs soit un flottant, ici le `5` est exprimé en `double`, la propagation de type fera que le résultat sera aussi un `double` : #[division]
 
 ```c
 int a = 5 / 2;      // 2
@@ -117,7 +119,7 @@ L'addition de deux bits $A$ et $B$ est donnée par la table suivante où `C` est
 
 Table: Addition binaire
 
-|   A   | B  @rb | A + B @rb | C @bb |
+|   A   | B | A + B | C |
 | :---: | :----: | :-------: | :---: |
 |   0   |   0    |     0     |   0   |
 |   0   |   1    |     1     |   0   |
@@ -142,59 +144,59 @@ Table: Addition binaire
 
     L'intérêt de cette méthode c'est qu'il s'agisse d'une addition ou d'une soustraction, c'est la même opération calculée par l'unité arithmétique et logique.
 
-!!! exercise "Additions binaires"
+::: exercise {title="#(ex:additions-binaires) : Additions binaires"}
+Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
 
-    Une unité de calcul arithmétique (ALU) est capable d'effectuer les 4 opérations de bases comprenant additions et soustractions.
+Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
 
-    Traduisez les opérandes ci-dessous en binaire, puis poser l'addition en binaire.
+1. $1 + 51$
+2. $51 - 7$
+3. $204 + 51$
+4. $204 + 204$ (sur 8-bits)
+
+??? solution
+
+    Voici la solution du calcul en binaire :
 
     1. $1 + 51$
+
+        ```text
+                ¹¹
+                 1₂
+        +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
+        ----------
+            110100₂
+        ```
+
     2. $51 - 7$
+
+        ```text
+          …¹¹¹  ¹¹
+          …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
+        + …111111001₂  (complément à deux, 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
+          -----------
+          …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
+        ```
+
     3. $204 + 51$
+
+        ```text
+            11001100₂
+        +     110011₂
+          -----------
+          …011111111₂  (2⁸ - 1 ≡ 255)
+        ```
+
     4. $204 + 204$ (sur 8-bits)
 
-    ??? solution
-
-        Voici la solution du calcul en binaire :
-
-        1. $1 + 51$
-
-            ```text
-                    ¹¹
-                     1₂
-            +   110011₂  (2⁵ + 2⁴ + 2¹+ 2⁰ ≡ 51)
-            ----------
-                110100₂
-            ```
-
-        2. $51 - 7$
-
-            ```text
-              …¹¹¹  ¹¹
-              …000110011₂  (2⁵ + 2⁴ + 2¹ + 2⁰ ≡ 51)
-            + …111111001₂  (complément à deux, 2³ + 2¹ + 2⁰ ≡ 111₂ → !7 + 1 ≡ …111001₂)
-              -----------
-              …000101100₂  (2⁵ + 2³ + 2₂ ≡ 44)
-            ```
-
-        3. $204 + 51$
-
-            ```text
-                11001100₂
-            +     110011₂
-              -----------
-              …011111111₂  (2⁸ - 1 ≡ 255)
-            ```
-
-        4. $204 + 204$ (sur 8-bits)
-
-            ```text
-                ¹|¹  ¹¹
-                 |11001100₂
-             +   |11001100₂
-              ---+--------
-                1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
-            ```
+        ```text
+            ¹|¹  ¹¹
+             |11001100₂
+         +   |11001100₂
+          ---+--------
+            1|10011000₂  (152, le résultat complet devrait être 2⁸ + 152 ≡ 408)
+        ```
+:::
 
 #### Modulo
 
@@ -220,8 +222,8 @@ int reste = nombre % 16; // 4
 // La valeur en hexadécimal est donc 94
 ```
 
-Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : [[||modulo]]
-[[||%]]
+Le modulo (*mod*, `%`) est le reste de la division entière. L'assertion suivante est donc vraie, car 13 divisé par 4 égal 3 et il reste 1 : #[modulo]
+#[%]
 
 ```c
 assert(13 % 4 == 1)
@@ -438,19 +440,19 @@ Table: Opérateurs bit à bit
 
 | Opérateur | Description                               | Exemple                         |
 | --------- | ----------------------------------------- | ------------------------------- |
-| `&`       | [Conjonction (ET)][operator-and]          | `(0b1101 & 0b1010) == 0b1000`   |
-| `         | `                                         | [Disjonction (OU)][operator-or] | `(0b1101 | 0b1010) == 0b1111` |
-| `^`       | [XOR binaire][operator-xor]               | `(0b1101 ^ 0b1010) == 0b0111`   |
-| `~`       | [Complément à un][operator-not]           | `~0b11011010 == 0b00100101`     |
-| `<<`      | [Décalage à gauche][operator-shift-left]  | `(0b1101 << 3) == 0b1101000`    |
-| `>>`      | [Décalage à droite][operator-shift-right] | `(0b1101 >> 2) == 0b11`         |
+| `&`       | [Conjonction (ET)](#operator-and)          | `(0b1101 & 0b1010) == 0b1000`   |
+| `         \| `                                         | [Disjonction (OU)](#operator-or) | `(0b1101 \| 0b1010) == 0b1111` |
+| `^`       | [XOR binaire](#operator-xor)               | `(0b1101 ^ 0b1010) == 0b0111`   |
+| `~`       | [Complément à un](#operator-not)           | `~0b11011010 == 0b00100101`     |
+| `<<`      | [Décalage à gauche](#operator-shift-left)  | `(0b1101 << 3) == 0b1101000`    |
+| `>>`      | [Décalage à droite](#operator-shift-right) | `(0b1101 >> 2) == 0b11`         |
 
 
 !!! important
 
     Ne pas confondre l'opérateur `!` et l'opérateur `~`. Le premier est la négation d'un nombre tandis que l'autre est l'inversion bit à bit. La négation d'un nombre différent de zéro donnera toujours `0` et la négation de zéro donnera toujours `1`.
 
-[](){#operator-and}
+[]{#operator-and}
 
 #### Conjonction
 
@@ -478,7 +480,7 @@ gandalf = 0;
 balrog = balrog & gandalf; // You shall not pass!
 ```
 
-[](){#operator-or}
+[]{#operator-or}
 
 #### Disjonction
 
@@ -500,7 +502,7 @@ bool teacher = true;
 student = student | teacher; // Tes devoirs tu feras...
 ```
 
-[](){#operator-xor}
+[]{#operator-xor}
 
 #### Disjonction exclusive
 
@@ -551,7 +553,7 @@ assert(b == 123);
     assert(*b == 0);
     ```
 
-[](){#operator-not}
+[]{#operator-not}
 #### Complément à un
 
 Le complément à un ($\lnot$) est simplement la valeur qui permet d'inverser bit à bit une valeur :
@@ -569,8 +571,8 @@ Table: Complément à un
 
     En base 10, le symbole le plus grand est `9`. En binaire le symbole le plus grand est `1`. Donc pour inverser un nombre on complémente chaque bit à un.
 
-[](){#operator-shift-left}
-[](){#operator-shift-right}
+[]{#operator-shift-left}
+[]{#operator-shift-right}
 #### Décalages
 
 Les opérations de décalage permettent de déplacer les bits d'une valeur vers la gauche ou vers la droite. Les bits décalés sont perdus et remplacés par des zéros dans le cas d'une valeur non signée et par le bit de signe dans le cas d'une valeur signée.
@@ -699,23 +701,23 @@ Table: Opérateurs d'affectation
 | `<<=`                | Affectation par décalage gauche | `x <<= y`                | `x = x << y`                |
 | `>>=`                | Affectation par décalage droite | `x >>= y`                | `x = x >> y`                |
 
-Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit modifiable ([lvalue][lvalue]). Ainsi l'expression `3 += 2` est incorrecte, car `3` est une constante et ne peut être modifiée.
+Un opérateur d'affectation implique que la valeur à gauche de l'égalité soit modifiable ([lvalue](#lvalue)). Ainsi l'expression `3 += 2` est incorrecte, car `3` est une constante et ne peut être modifiée.
 
-!!! exercise "R-value"
+::: exercise {title="#(ex:r-value) : R-value"}
+Est-ce que l'expression suivante est valide ?
 
-    Est-ce que l'expression suivante est valide ?
+```c
+int a, b, c = 42;
+a + b = c;
+```
 
-    ```c
-    int a, b, c = 42;
-    a + b = c;
-    ```
+- [ ] Oui car la destination est une *lvalue*
+- [x] Non car la destination est une *rvalue*
 
-    - [ ] Oui car la destination est une *lvalue*
-    - [x] Non car la destination est une *rvalue*
+??? solution
 
-    ??? solution
-
-        L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
+    L'opération `+` entre deux nombre retourne une *rvalue* et ne peut donc pas être affecté. L'expression est donc invalide.
+:::
 
 ### Opérateurs d'incrémentation
 
@@ -836,7 +838,7 @@ Notons qu'on peut toujours décomposer ces opérateurs en deux instructions expl
     for (int i = 0; i < 10; i++) { }
     ```
 
-[](){#operator-ternary}
+[]{#operator-ternary}
 ### Opérateur ternaire
 
 L'opérateur ternaire aussi appelé **opérateur conditionnel** permet de faire un test et de retourner soit le second opérande, soit le troisième opérande. C'est le seul opérateur du C avec une `arité` de 3. Chacun des opérandes est symbolisé avec une paire de parenthèses :
@@ -901,7 +903,7 @@ max = a > b ? a : b;
 
 Enfin, on notera que le résultat de l'opérateur ternaire est une *rvalue* et ne peut donc pas être modifiée.
 
-[](){#operator-cast}
+[]{#operator-cast}
 ### Opérateur de transtypage
 
 Le `transtypage` ou *cast* permet de modifier explicitement le type apparent d'une variable. C'est un opérateur particulier, car son premier opérande doit être un **type** et le second une **valeur**.
@@ -919,7 +921,7 @@ double d = a / (double)(b);
 assert(c == 2.0 && d == 2.5);
 ```
 
-[](){#operator-comma}
+[]{#operator-comma}
 ### Opérateur séquentiel
 
 L'opérateur séquentiel (*comma operator*) permet l'exécution ordonnée d'opérations, et retourne la dernière valeur. Son utilisation est couramment limitée, soit aux déclarations de variables, soit au boucles `for`:
@@ -936,16 +938,16 @@ Une particularité de cet opérateur est que seule la dernière valeur est retou
 assert(3 == (1, 2, 3))
 ```
 
-L'opérateur agit également comme un Point de séquence [](){#sequence_point}, c'est-à-dire que l'ordre des étapes est respecté.
+L'opérateur agit également comme un [point de séquence](#sequence-point), c'est-à-dire que l'ordre des étapes est respecté.
 
-!!! exercise "Opérateur séquentiel"
+::: exercise {title="#(ex:operateur-sequentiel) : Opérateur séquentiel"}
+Que sera-t-il affiché à l'écran ?
 
-    Que sera-t-il affiché à l'écran ?
-
-    ```c
-    int i = 0;
-    printf("%d", (++i, i++, ++i));
-    ```
+```c
+int i = 0;
+printf("%d", (++i, i++, ++i));
+```
+:::
 
 ### Opérateur sizeof
 
@@ -992,38 +994,45 @@ La table suivante indique les règles à suivre pour les précédences des opér
 
 Table: Priorité des opérateurs
 
-| Priorité | Opérateur                 | Description @flex                                      | Associativité         |
-| -------- | ------------------------- | ------------------------------------------------------ | --------------------- |
-| 1 @span  | `++`, `--`                | Postfix incréments/décréments                          | Gauche à Droite @span |
-|          | `()`                      | Appel de fonction                                      |                       |
-|          | `[]`                      | Indexage des tableaux                                  |                       |
-|          | `.`                       | Élément d'une structure                                |                       |
-|          | `->`                      | Élément d'une structure                                |                       |
-| 2 @span  | `++`, `--`                | Préfixe incréments/décréments                          | Droite à Gauche @span |
-|          | `+`, `-`                  | Signe                                                  |                       |
-|          | `!`, `~`                  | NON logique et NON binaire                             |                       |
-|          | `(type)`                  | [Cast (Transtypage)][operator-cast]{ data-preview }    |                       |
-|          | `*`                       | Indirection, déréférencement                           |                       |
-|          | `&`                       | Adresse de...                                          |                       |
-|          | `sizeof`                  | Taille de...                                           |                       |
-| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod                          | Gauche à Droite @span |
-| 4        | `+`, `-`                  | Addition, soustraction                                 |                       |
-| 5        | `<<`, `>>`                | Décalages binaires                                     |                       |
-| 6 @span  | `<`, `<=`                 | Comparaison plus petit que                             |                       |
-|          | `>`, `>=`                 | Comparaison plus grand que                             |                       |
-| 7        | `==`, `!=`                | Égalité, non égalité                                   |                       |
-| 8        | `&`                       | ET binaire                                             |                       |
-| 9        | `^`                       | OU exclusif binaire                                    |                       |
-| 10       | <code>&#124;</code>       | OU inclusif binaire                                    |                       |
-| 11       | `&&`                      | ET logique                                             |                       |
-| 12       | <code>&#124;&#124;</code> | OU logique                                             |                       |
-| 13       | `?:`                      | [Opérateur ternaire][operator-ternary]{ data-preview } | Droite à Gauche @span |
-| 14 @span | `=`                       | Assignation simple                                     |                       |
-|          | `+=`, `-=`                | Assignation par somme/diff                             |                       |
-|          | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo                |                       |
-|          | `<<=`, `>>=`              | Assignation par décalage binaire                       |                       |
-| 15       | `,`                       | [Virgule][operator-comma]{ data-preview }              | Gauche à Droite       |
+| Priorité | Opérateur                 | Description                                            | Associativité   |
+| -------- | ------------------------- | ------------------------------------------------------ | --------------- |
+| 1        | `++`, `--`                | Postfix incréments/décréments                          | Gauche à Droite |
+| 1        | `()`                      | Appel de fonction                                      | Gauche à Droite |
+| 1        | `[]`                      | Indexage des tableaux                                  | Gauche à Droite |
+| 1        | `.`                       | Élément d'une structure                                | Gauche à Droite |
+| 1        | `->`                      | Élément d'une structure                                | Gauche à Droite |
+| 2        | `++`, `--`                | Préfixe incréments/décréments                          | Droite à Gauche |
+| 2        | `+`, `-`                  | Signe                                                  | Droite à Gauche |
+| 2        | `!`, `~`                  | NON logique et NON binaire                             | Droite à Gauche |
+| 2        | `(type)`                  | [Cast (Transtypage)](#operator-cast){ data-preview }    | Droite à Gauche |
+| 2        | `*`                       | Indirection, déréférencement                           | Droite à Gauche |
+| 2        | `&`                       | Adresse de...                                          | Droite à Gauche |
+| 2        | `sizeof`                  | Taille de...                                           | Droite à Gauche |
+| 3        | `*`, `/`, `%`             | Multiplication, Division, Mod                          | Gauche à Droite |
+| 4        | `+`, `-`                  | Addition, soustraction                                 | Gauche à Droite |
+| 5        | `<<`, `>>`                | Décalages binaires                                     | Gauche à Droite |
+| 6        | `<`, `<=`                 | Comparaison plus petit que                             | Gauche à Droite |
+| 6        | `>`, `>=`                 | Comparaison plus grand que                             | Gauche à Droite |
+| 7        | `==`, `!=`                | Égalité, non égalité                                   | Gauche à Droite |
+| 8        | `&`                       | ET binaire                                             | Gauche à Droite |
+| 9        | `^`                       | OU exclusif binaire                                    | Gauche à Droite |
+| 10       | <code>&#124;</code>       | OU inclusif binaire                                    | Gauche à Droite |
+| 11       | `&&`                      | ET logique                                             | Gauche à Droite |
+| 12       | <code>&#124;&#124;</code> | OU logique                                             | Gauche à Droite |
+| 13       | `?:`                      | [Opérateur ternaire](#operator-ternary){ data-preview } | Droite à Gauche |
+| 14       | `=`                       | Assignation simple                                     | Droite à Gauche |
+| 14       | `+=`, `-=`                | Assignation par somme/diff                             | Droite à Gauche |
+| 14       | `*=`, `/=`, `%=`          | Assignation par produit/quotient/modulo                | Droite à Gauche |
+| 14       | `<<=`, `>>=`              | Assignation par décalage binaire                       | Droite à Gauche |
+| 15       | `,`                       | [Virgule](#operator-comma){ data-preview }              | Gauche à Droite |
 
+```yaml table-config
+columns:
+  - {align: center}
+  - {align: left}
+  - {align: justify, width: X}
+  - {align: left}
+```
 
 Considérons l'exemple suivant :
 
@@ -1115,23 +1124,23 @@ assert(~a & ~b == ~(a | b));
 
 En logique booléenne on exprime la négation par une barre p.ex. $\overline{P}$.
 
-!!! exercise "De Morgan"
+::: exercise {title="#(ex:de-morgan) : De Morgan"}
+Utiliser les relations de De Morgan pour simplifier l'expression suivante
 
-    Utiliser les relations de De Morgan pour simplifier l'expression suivante
+$$
+D \cdot E + \overline{D} + \overline{E}
+$$
+
+??? solution
+
+    Si l'on applique De Morgan ($\overline{XY} = \overline{X} + \overline{Y}$):
 
     $$
     D \cdot E + \overline{D} + \overline{E}
     $$
+:::
 
-    ??? solution
-
-        Si l'on applique De Morgan ($\overline{XY} = \overline{X} + \overline{Y}$):
-
-        $$
-        D \cdot E + \overline{D} + \overline{E}
-        $$
-
-[](){#rounding}
+[]{#rounding}
 ## Arrondis
 
 En programmation, la notion d'arrondi ([rounding](https://en.wikipedia.org/wiki/Rounding)) est beaucoup plus délicate que l'on peut l'imaginer de prime abord. Un nombre réel dans $\mathbb{R}$ peut être converti en un nombre entier de plusieurs manières. Les méthodes les plus courantes sont données dans la table suivante.
@@ -1189,8 +1198,8 @@ La méthode *round half to even* donne une somme arrondie (46) qui est plus proc
 
 L'utilisation cette méthode est particulièrement utile dans les domaines où l'exactitude statistique est cruciale et où les erreurs d'arrondissement peuvent s'accumuler sur de grands ensembles de données, comme en finance, en analyse de données, et en statistiques.
 
-[](){#lvalue}
-[](){#rvalue}
+[]{#lvalue}
+[]{#rvalue}
 
 ## Valeurs gauches
 
@@ -1243,117 +1252,115 @@ if (a % 2) {
 
 ## Exercices de révision
 
-!!! exercise "Parenthèses superflues"
+::: exercise {title="#(ex:parentheses-superflues) : Parenthèses superflues"}
+Dans les expressions suivantes, lesquelles contiennent des parenthèses superflues qui peuvent être retirées sans changer le sens de l'expression ?
 
-    Dans les expressions suivantes, lesquelles contiennent des parenthèses superflues qui peuvent être retirées sans changer le sens de l'expression ?
+- [ ] `a = (b + c) * d`
+- [x] `a = b + (c * d)`
+- [x] `(a < b) && (c > d)`
+- [ ] `a = (b + c) / (d + e)`
+- [ ] `(a && b) || (c && d)`
+- [x] `(a || b) && (c || d)`
+- [ ] `a = (b + c) % (d + e)`
+:::
 
-    - [ ] `a = (b + c) * d`
-    - [x] `a = b + (c * d)`
-    - [x] `(a < b) && (c > d)`
-    - [ ] `a = (b + c) / (d + e)`
-    - [ ] `(a && b) || (c && d)`
-    - [x] `(a || b) && (c || d)`
-    - [ ] `a = (b + c) % (d + e)`
+::: exercise {title="#(ex:quelle-priorite) : Quelle priorité"}
+Quel est l'opérateur qui a la priorité la plus basse ?
 
-!!! exercise "Quelle priorité"
+- [ ] `+`
+- [ ] `*`
+- [x] <code>&#124;&#124;</code>
+- [] `&&`
+:::
 
-    Quel est l'opérateur qui a la priorité la plus basse ?
+::: exercise {title="#(ex:masque-binaire) : Masque binaire"}
+Soit les déclarations suivantes :
 
-    - [ ] `+`
-    - [ ] `*`
-    - [x] <code>&#124;&#124;</code>
-    - [] `&&`
+```c
+char m, n = 2, d = 0x55, e = 0xAA;
+```
 
-!!! exercise "Masque binaire"
+Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable `m` après exécution de chacune des instructions suivantes :
 
-    Soit les déclarations suivantes :
+1. `m = 1 << n;`
+2. `m = ~1 << n;`
+3. `m = ~(1 << n);`
+4. `m = d | (1 << n);`
+5. `m = e | (1 << n);`
+6. `m = d ^ (1 << n);`
+7. `m = e ^ (1 << n);`
+8. `m = d & ~(1 << n);`
+9. `m = e & ~(1 << n);`
+:::
+
+::: exercise {title="#(ex:registre-systeme) : Registre système"}
+Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
+
+- mettre à 1 le bit numéro `n`, `n` étant un entier entre 0 et 15;
+- mettre à 0 le bit numéro `n`, `n` étant un entier entre 0 et 15;
+- inverser le bit numéro `n`, `n` étant un entier entre 0 et 15;
+
+Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle `r0` la variable désignant le registre en mémoire et `n` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
+:::
+
+::: exercise {title="#(ex:recherche-d-expressions) : Recherche d'expressions"}
+Considérant les déclarations suivantes :
+
+```c
+float a, b;
+int m, n;
+```
+
+Traduire en C les expressions mathématiques ci-dessous; pour chacune, proposer plusieurs écritures différentes lorsque c'est possible. Le symbole $\leftarrow$ signifie *assignation*
+
+1. $n \leftarrow 8 \cdot n$
+2. $a \leftarrow a + 2$
+3. $n \leftarrow \left\{\begin{array}{lr}m & : m > 0\\ 0 & : \text{sinon}\end{array}\right.$
+4. $a \leftarrow n$
+5. $n \leftarrow \left\{\begin{array}{lr}0 & : m~\text{pair}\\ 1 & : m~\text{impair}\end{array}\right.$
+6. $n \leftarrow \left\{\begin{array}{lr}1 & : m~\text{pair}\\ 0 & : m~\text{impair}\end{array}\right.$
+7. $m \leftarrow 2\cdot m + 2\cdot n$
+8. $n \leftarrow n + 1$
+9. $a \leftarrow \left\{\begin{array}{lr}-a & : b < 0\\ a & : \text{sinon}\end{array}\right.$
+10. $n \leftarrow \text{la valeur des 4 bits de poids faible de}~n$
+:::
+
+::: exercise {title="#(ex:nombres-narcissiques) : Nombres narcissiques"}
+Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique) est
+un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
+chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
+
+$$
+n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
+$$
+
+Par exemple :
+
+- `9` est un nombre narcissique, car $9 = 9^1 = 9$
+- `153` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
+- `10` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
+
+Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
+
+```bash
+$ ./armstrong 153
+1
+
+$ ./armstrong 154
+0
+```
+:::
+
+::: exercise {title="#(ex:swap-sans-valeur-intermediaire) : Swap sans valeur intermédiaire"}
+Soit deux variables entières `a` et `b`, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR `^`.
+
+Testez votre solution...
+
+??? solution
 
     ```c
-    char m, n = 2, d = 0x55, e = 0xAA;
+    a ^= b;
+    b ^= a;
+    a ^= b;
     ```
-
-    Représenter en binaire et en hexadécimal la valeur de tous les bits de la variable `m` après exécution de chacune des instructions suivantes :
-
-    1. `m = 1 << n;`
-    2. `m = ~1 << n;`
-    3. `m = ~(1 << n);`
-    4. `m = d | (1 << n);`
-    5. `m = e | (1 << n);`
-    6. `m = d ^ (1 << n);`
-    7. `m = e ^ (1 << n);`
-    8. `m = d & ~(1 << n);`
-    9. `m = e & ~(1 << n);`
-
-
-!!! exercise "Registre système"
-
-    Pour programmer les registres 16-bits d'un composant électronique chargé de gérer des sorties tout ou rien, on doit être capable d'effectuer les opérations suivantes :
-
-    - mettre à 1 le bit numéro `n`, `n` étant un entier entre 0 et 15;
-    - mettre à 0 le bit numéro `n`, `n` étant un entier entre 0 et 15;
-    - inverser le bit numéro `n`, `n` étant un entier entre 0 et 15;
-
-    Pour des questions d'efficacité, ces opérations ne doivent utiliser que les opérateurs bit à bit ou décalage. On appelle `r0` la variable désignant le registre en mémoire et `n` la variable contenant le numéro du bit à modifier. Écrivez les expressions permettant d'effectuer les opérations demandées.
-
-!!! exercise "Recherche d'expressions"
-
-    Considérant les déclarations suivantes :
-
-    ```c
-    float a, b;
-    int m, n;
-    ```
-
-    Traduire en C les expressions mathématiques ci-dessous; pour chacune, proposer plusieurs écritures différentes lorsque c'est possible. Le symbole $\leftarrow$ signifie *assignation*
-
-    1. $n \leftarrow 8 \cdot n$
-    2. $a \leftarrow a + 2$
-    3. $n \leftarrow \left\{\begin{array}{lr}m & : m > 0\\ 0 & : \text{sinon}\end{array}\right.$
-    4. $a \leftarrow n$
-    5. $n \leftarrow \left\{\begin{array}{lr}0 & : m~\text{pair}\\ 1 & : m~\text{impair}\end{array}\right.$
-    6. $n \leftarrow \left\{\begin{array}{lr}1 & : m~\text{pair}\\ 0 & : m~\text{impair}\end{array}\right.$
-    7. $m \leftarrow 2\cdot m + 2\cdot n$
-    8. $n \leftarrow n + 1$
-    9. $a \leftarrow \left\{\begin{array}{lr}-a & : b < 0\\ a & : \text{sinon}\end{array}\right.$
-    10. $n \leftarrow \text{la valeur des 4 bits de poids faible de}~n$
-
-
-!!! exercise "Nombres narcissiques"
-
-    Un nombre narcissique ou [nombre d'Amstrong](https://fr.wikipedia.org/wiki/Nombre_narcissique) est
-    un entier naturel `n` non nul qui est égal à la somme des puissances `p`-ièmes de ses
-    chiffres en base dix, où `p` désigne le nombre de chiffres de `n`:
-
-    $$
-    n=\sum_{k=0}^{p-1}x_k10^k=\sum_{k=0}^{p-1}(x_k)^p\quad\text{avec}\quad x_k\in\{0,\ldots,9\}\quad\text{et}\quad x_{p-1}\ne 0
-    $$
-
-    Par exemple :
-
-    - `9` est un nombre narcissique, car $9 = 9^1 = 9$
-    - `153` est un nombre narcissique, car $153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153$
-    - `10` n'est pas un nombre narcissique, car $10 \ne 1^2 + 0^2 = 1$
-
-    Implanter un programme permettant de vérifier si un nombre d'entrées est narcissique ou non. L'exécution est la suivante :
-
-    ```bash
-    $ ./armstrong 153
-    1
-
-    $ ./armstrong 154
-    0
-    ```
-
-!!! exercise "Swap sans valeur intermédiaire"
-
-    Soit deux variables entières `a` et `b`, chacune contenant une valeur différente. Écrivez les instructions permettant d'échanger les valeurs de a et de b sans utiliser de valeurs intermédiaires. Indice: utilisez l'opérateur XOR `^`.
-
-    Testez votre solution...
-
-    ??? solution
-
-        ```c
-        a ^= b;
-        b ^= a;
-        a ^= b;
-        ```
+:::

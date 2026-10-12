@@ -19,6 +19,12 @@ edit_uri: edit/master/docs/
 docs_dir: !ENV [DOCS, docs]
 validation:
   absolute_links: relative_to_docs
+  # Zensical checks a page's `#id` links against the page's own source, before
+  # the TeXSmith lowering points a cross-page reference at the page that holds
+  # the label, so every `[text](#id)` to another page is a false alarm there.
+  # TMark reports an unknown label itself (`ref-unresolved`).
+  links:
+    anchors: ignore
 theme:
   name: material
   language: fr
@@ -87,7 +93,6 @@ plugins:
       enabled: !ENV CI
       plugins:
         #- privacy # Seem to mess with images
-        # - mike
         # - minify:
         #     minify_html: true # Break draw.io images?
         - git-committers:
@@ -109,15 +114,26 @@ plugins:
         caption_prefix: ''
         position: top
   # - social # Not supporting external logo link
-  - awesome-pages
+  - awesome-pages # MkDocs reads the .pages files
+  - awesome-nav # Zensical reads the .nav.yml files
   - tags
-  - epigraph
-  - pills
+  # `pills` is gone: Zensical runs no MkDocs plugin, and the plugin only
+  # registered two Markdown extensions and copied its stylesheet. Both
+  # are now in `markdown_extensions` and `extra_css` below, where the two
+  # generators read them.
   - texsmith:
       build_dir: build
       clean_assets: false
-      save_html: true
       template: book
+      # Site-wide declarations, merged under every page's own `press.declare`
+      # and handed to both parsers. `ex` numbers the exercise callouts across
+      # the whole corpus — `mkdocs-plugin-exercises` numbered them per page —
+      # and `exercise` is the callout kind `::: exercise` opens.
+      declare:
+        counters:
+          ex: {name: Exercice, format: "Exercice {n}", scope: document}
+        admonitions:
+          exercise: {name: Exercice}
       books:
         - root: Cours C
           title: L'informatique pour l'ingénieur
@@ -126,6 +142,12 @@ plugins:
           email: yves.chevallier@heig-vd.ch
           index_is_foreword: true
           drop_title_index: true
+          press:
+            # The HEIG-VD cover and the imprint page of the printed book;
+            # `heiglogo.sty` reaches the bundle through `copy_files` below.
+            preamble: \usepackage{heiglogo}
+            titlepage: tex/titlepage.tex
+            imprint: tex/imprint.tex
           frontmatter:
             - Préface
           backmatter:
@@ -133,7 +155,6 @@ plugins:
           copy_files:
             docs/assets/c-logo.pdf: assets/
             tex/*.sty: .
-            tex/*.tex: .
         - root: Outils
           base_level: -1
           title: Outils de développement
@@ -142,8 +163,6 @@ plugins:
           email: yves.chevallier@heig-vd.ch
           copy_files:
             tex/tool-hero.pdf: assets/
-            tex/*.sty: .
-            tex/*.tex: .
   - wikipedia
   - glightbox:
       auto_themed: true
@@ -152,11 +171,11 @@ plugins:
       tooltips: false
       use_page_attribute: true
       edit: false
-  - markdown-exec
   - search
   - exercises
 exclude_docs: README.md
 markdown_extensions:
+  - texsmith.site.web
   - toc:
       toc_depth: 3
       permalink: "¤"
@@ -166,13 +185,6 @@ markdown_extensions:
   - tables
   - pymdownx.superfences:
       custom_fences:
-        - name: python
-          class: python
-          validator: !!python/name:markdown_exec.validator
-          format: !!python/name:markdown_exec.formatter
-        - name: vegalite
-          class: vegalite
-          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
@@ -186,6 +198,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.snippets
   - pymdownx.details
   - pymdownx.tabbed:
@@ -203,6 +217,7 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.snippets:
+      base_path: [.]
       check_paths: true
       url_max_size: 2048
       url_timeout: 3
@@ -211,15 +226,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # The two extensions the `mkdocs-pills` plugin used to register itself:
+  # `#!re /…/` becomes a link to regex101, `U+XXXX` one to symbl.cc. Named
+  # here so Zensical, which drops the plugin, renders them too.
+  - mkdocs_plugin_pills.regex:RegexExtension
+  - mkdocs_plugin_pills.unicode:UnicodeExtension
 extra:
-  admonition_translations:
-    tip: Astuce
-    warning: Avertissement
-    example: Exemple
-    cite: Citation
-    bug: Bogue
-    exercise: Exercice
-
   consent:
     title: Cookie consent
     description: >-
@@ -251,20 +263,17 @@ extra:
 watch:
   - includes
   - overrides
-hooks:
-  - hooks/index.py # Index keywords in codes (language)
-  - hooks/spantable.py # Adds span table support
-  - hooks/french.py # French typography
-  - hooks/tags.py # Custom tags
-  - hooks/mermaid.py # Support for captions in mermaid diagrams
-  - hooks/abbr.py # Abbreviations to Wiki links
 extra_css:
+  - assets/texsmith/texsmith.css
   - css/french.css
   - css/extra.css
   - css/tables.css
   - css/drawio.css
+  - css/pills.css
+  - css/exercises.css
 extra_javascript:
   - js/feedback.js
+  - js/exercises.js
   - js/mathjax.js
   - js/navcolor.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

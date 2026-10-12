@@ -2,6 +2,8 @@
 
 ![Un python informaticien](/assets/images/python.png)
 
+Figure: Un python informaticien {#fig:python}
+
 ## Introduction
 
 Python est un langage de programmation comme le C mais il est plus haut niveau. Cela signifie d'une que Python est plus facile à apprendre et à utiliser que le C. Python est un langage interprété, car le code source est exécuté directement par un interpréteur sans nécessairement passer par une étape de compilation.

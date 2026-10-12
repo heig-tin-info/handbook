@@ -2,6 +2,8 @@
 
 ![Fourmi portant des données](/assets/images/ant.png)
 
+Figure: Fourmi portant des données {#fig:ant}
+
 Un *système de fichier* est une structure de données qui permet de stocker des fichiers et des répertoires sur un support de stockage. Les systèmes de fichiers sont utilisés pour organiser les données sur les disques durs, les clés USB, les cartes mémoire, etc.
 
 Nous savons maintenant que les données informatiques sont stockées sous forme binaire. Sur une clé USB ou un disque dur, c'est pareil. On aura des 0 et des 1 stockés à perte de vue sur le silicium. Si votre disque dur de 1 Tio est la surface de la terre, sans les océans et d'environ $148.9$ millions de $\text{km}^2$. Notre disque contient $2^{40}$ octets, soit $2^{43}$ bits :
@@ -266,7 +268,7 @@ Sur votre ordinateur ou dans votre carrière professionnelle vous n'aurez très 
 | Afficher les ACL d'un fichier    | `$ getfacl file`                   |
 | Modifier les ACL d'un fichier    | `$ setfacl -m u:username:rwx file` |
 | Supprimer les ACL d'un fichier   | `$ setfacl -b file`                |
-| Copier les ACL d'un fichier      | `$ getfacl file1                   | setfacl --set-file=- file2` |
+| Copier les ACL d'un fichier      | `$ getfacl file1                   \| setfacl --set-file=- file2` |
 | Sauvegarder les ACL d'un fichier | `$ getfacl file > file.acl`        |
 | Restaurer les ACL d'un fichier   | `$ setfacl --restore=file.acl`     |
 

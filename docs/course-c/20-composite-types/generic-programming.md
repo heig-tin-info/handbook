@@ -6,7 +6,7 @@ La programmation générique est une technique de programmation qui permet de d�
 
 Néanmoins, la programmation générique en C est limitée par le fait que le langage n'est pas orienté objet et ne possède pas de couche de méta-programmation comme les *templates* en C++. Certains développeurs ont été jusqu'à inventer un nouveau langage comme le Vala pour palier à ces limitations. Vala est un meta-langage qui génère du code C à partir de code Vala. Il apporte le paradigme de la programmation orientée objet et de la programmation générique à C. Cependant, Vala n'est pas un langage très répandu en dehors de la communauté GNOME.
 
-[](){#generickw}
+[]{#generickw}
 ## Fonctions génériques
 
 Prenons l'exemple de la fonction d'addition suivante. Elle est écrite pour des entiers et ne fonctionnera donc pas pour des flottants. Il faudrait la réécrire pour les flottants mais cela implique une collision de nom de fonction. Il faudrait alors définir autant de fonctions que de types avec des suffixes différents (`add_int`, `add_float`, etc.).
@@ -149,7 +149,7 @@ void bsearch(const void *key, const void *base, size_t nmemb, size_t size,
 
 ## Types de données abstraits
 
-Un [type de donnée abstrait](https://fr.wikipedia.org/wiki/Type_abstrait) (**ADT** pour [[Abstract Data Type]]) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
+Un [type de donnée abstrait](https://fr.wikipedia.org/wiki/Type_abstrait) (**ADT** pour Abstract Data Type #[Abstract Data Type]) cache généralement une structure dont le contenu n'est pas connu de l'utilisateur final. Ceci est rendu possible par le standard (C99 §6.2.5) par l'usage de types incomplets.
 
 Pour mémoire, un type incomplet décrit un objet dont on ne connaît pas sa taille en mémoire. L'exemple suivant déclare un nouveau type structure qui n'est alors pas (encore) connu dans le fichier courant :
 

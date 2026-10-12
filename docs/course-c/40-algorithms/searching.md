@@ -81,7 +81,7 @@ Il est possible de s'affranchir du risque de collision en utilisant une table de
 
 La complexité de recherche n'est pas le seul critère à prendre en compte pour choisir un algorithme de recherche. Le fonctionnement de l'ordinateur impose des contraintes matérielles qui peuvent influencer les performances. Par exemple, la recherche linéaire peut être plus rapide que la recherche dichotomique pour des tableaux de petite taille, car elle exploite mieux la localité des données en mémoire.
 
-Nous l'avons abordé lors de l'explication du [fonctionnement de la mémoire][light-speed] que l'accès à la RAM est lent par rapport au processeur. Pour ce faire le processeur fait appel à une mémoire cache très rapide mais beaucoup plus petite. Lorsque vous parcourez un tableau, les éléments sont chargés en mémoire cache et la recherche linéaire exploite mieux cette localité des données. Si le tableau est très grand, à chaque saut de la recherche dichotomique vous ne profitez pas de la mémoire cache et le temps d'accès à la RAM devient prépondérant. Aussi dans l'élaboration d'un algorithme on cherche à optimiser la **localité des données**, à la fois spatiale (les éléments sont proches en mémoire) et temporelle (les éléments sont utilisés dans un court laps de temps) afin de minimiser les temps d'accès à la RAM.
+Nous l'avons abordé lors de l'explication du [fonctionnement de la mémoire](#light-speed) que l'accès à la RAM est lent par rapport au processeur. Pour ce faire le processeur fait appel à une mémoire cache très rapide mais beaucoup plus petite. Lorsque vous parcourez un tableau, les éléments sont chargés en mémoire cache et la recherche linéaire exploite mieux cette localité des données. Si le tableau est très grand, à chaque saut de la recherche dichotomique vous ne profitez pas de la mémoire cache et le temps d'accès à la RAM devient prépondérant. Aussi dans l'élaboration d'un algorithme on cherche à optimiser la **localité des données**, à la fois spatiale (les éléments sont proches en mémoire) et temporelle (les éléments sont utilisés dans un court laps de temps) afin de minimiser les temps d'accès à la RAM.
 
 ## Recherche sur de gros volumes de données
 
@@ -202,9 +202,13 @@ Le K-D Tree est une structure de données arborescente qui permet de stocker des
 
 ![Représentation du K-D Tree](/assets/images/kd-tree.drawio)
 
+Figure: Représentation du K-D Tree {#fig:kd-tree}
+
 Lors de l'insertion de chaque point, le plan est divisé en deux parties égales (gauche/droite) ou (haut/bas) selon la parité du niveau de l'arbre. Au niveau stockage, on utilise un arbre binaire:
 
 ![Arbre binaire du K-D Tree](/assets/images/kd-tree-nodes.drawio)
+
+Figure: Arbre binaire du K-D Tree {#fig:kd-tree-nodes}
 
 On sait qu'un arbre binaire peut être représenté sous forme d'une liste, la représentation ci-dessus peut-être ainsi représentée avec avec :
 
@@ -252,6 +256,8 @@ Lors de la remontée, on compare également la distance entre le plan de sépara
 Prenons un exemple concret. Sur la figure suivante, on prend le point P $(3.2, 2.3)$ comme point cible comme présenté sur la figure suivante :
 
 ![Recherche d'une zone dans un K-D Tree](/assets/images/kd-tree-search.drawio)
+
+Figure: Recherche d'une zone dans un K-D Tree {#fig:kd-tree-search}
 
 Pour trouver le voisin le plus proche voici les opérations :
 

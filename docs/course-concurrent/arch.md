@@ -79,8 +79,12 @@ La figure suivante représente la vue aérienne d'un processeur moderne. Le *die
 
 ![cpu](/assets/images/die.jpeg)
 
+Figure: cpu {#fig:die-2}
+
 On peut voir sur cette figure la mémoire cache de niveau L3 facilement identifiable à son pattern de grille. On peut également voir les différents cœurs qui l'entourent, ils se ressemblent tous et on voit qu'ils sont également composés d'un motif répétitif qui est la mémoire cache de niveau L1 et L2. Souvent ces processeurs intègrent également une partie GPU qui est utilisée pour les calculs graphiques lorsqu'il n'y a pas de carte graphique intégrée.
 
 Si l'on s'intéresse à un cœur en particulier, on peut voir qu'il est composé de plusieurs éléments. Tout d'abord à droite on trouve la mémoire cache L2 qui représente environ 20% de la surface du cœur. Ensuite le prédicteur d'embranchement très proche du cache L1 contenant les prochaines instructions à exécuter. Le décodeur d'instructions est à proximité du I-Cache et du prédicteur d'embranchement. Il est couplé à un ordonnanceur de micro-opérations qui adresse chaque calcul soit sur l'ALU pour de la virgule fixe, soit sur la FPU pour les calculs en virgule flottante. Dans la partie inférieure, on trouve l'ALU 64-bits, le cache de données L1 et le gestionnaire de mémoire permettant de lire/écrire des données en mémoire.
 
 ![core](/assets/images/zen2.png)
+
+Figure: core {#fig:zen2}

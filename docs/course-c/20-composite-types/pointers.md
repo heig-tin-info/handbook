@@ -1,4 +1,4 @@
-[](){#pointers}
+[]{#pointers}
 
 # Pointeurs
 
@@ -447,6 +447,8 @@ static const char* conjonctions[] = {
 
 ![Pointeur sur une chaîne de caractère](/assets/images/ptrstr.drawio)
 
+Figure: Pointeur sur une chaîne de caractère {#fig:ptrstr}
+
 Dans ce cas, les chaînes `"mais"`, `"ou"`... sont des constantes littérales de type `const char*`. Elles sont stockées dans un segment de mémoire en lecture seule. Le tableau `conjonctions` est donc un tableau de pointeurs sur des chaînes de caractères.
 
 Cette structure est très exactement la même que pour les arguments transmis à la fonction `main`: la définition `char *argv[]`.
@@ -544,7 +546,7 @@ void print_date(const Date *date) {
 
 ### Structure récursive
 
-Lorsqu'on utilise des structures de données plus complexes comme les [listes chaînées][linkedlist], on a besoin de créer une structure contenant des données ainsi qu'un pointeur sur l'élémnent suivant. On peut définir une structure récursive de la manière suivante :
+Lorsqu'on utilise des structures de données plus complexes comme les [listes chaînées](#linkedlist), on a besoin de créer une structure contenant des données ainsi qu'un pointeur sur l'élémnent suivant. On peut définir une structure récursive de la manière suivante :
 
 ```c
 typedef struct Element {
@@ -587,7 +589,7 @@ Les structures récursives sont très utilisées en informatique pour représent
 
 ## Arguments de fonctions
 
-Lors de l'introduction aux [fonctions][functions] nous avons vu que ces dernières peuvent recevoir des arguments. Ces arguments peuvent être de n'importe quel type, y compris des pointeurs et dans de nombreux cas de figure le passage par pointeur est préférable. Voici quelques cas de figure où le passage par pointeur est recommandé :
+Lors de l'introduction aux [fonctions](#functions) nous avons vu que ces dernières peuvent recevoir des arguments. Ces arguments peuvent être de n'importe quel type, y compris des pointeurs et dans de nombreux cas de figure le passage par pointeur est préférable. Voici quelques cas de figure où le passage par pointeur est recommandé :
 
 **Modification de la valeur d'une variable dans une fonction**
 
@@ -786,19 +788,19 @@ Vous pouvez jouer avec cet exemple sur le site [godbolt](https://godbolt.org).
 
     Néanmoins sans l'option `-Wpointer-arith` aucune erreur n'est générée. C'est pourquoi il est recommandé de toujours compiler avec les options `-Wall -Wextra -pedantic` pour obtenir un code plus robuste.
 
-!!! exercise "Void*"
+::: exercise {title="#(ex:void) : Void*"}
+Que pensez-vous que `sizeof(void*)` devrait retourner sur une architecture 64-bits ?
 
-    Que pensez-vous que `sizeof(void*)` devrait retourner sur une architecture 64-bits ?
+- [ ] 1
+- [ ] 2
+- [ ] 4
+- [x] 8
+- [ ] 0
 
-    - [ ] 1
-    - [ ] 2
-    - [ ] 4
-    - [x] 8
-    - [ ] 0
+??? solution
 
-    ??? solution
-
-        Un pointeur reste un pointeur, c'est une variable qui contient une adresse mémoire. Sur une architecture 64-bits, un pointeur est codé sur 8 bytes. `sizeof(void*)` retourne donc 8.
+    Un pointeur reste un pointeur, c'est une variable qui contient une adresse mémoire. Sur une architecture 64-bits, un pointeur est codé sur 8 bytes. `sizeof(void*)` retourne donc 8.
+:::
 
 ## Pointeurs de fonctions
 
@@ -945,6 +947,8 @@ Cet algorithme peut être représenté par le diagramme suivant :
 
 ![Diagramme de la règle gauche-droite](/assets/images/left-right.drawio)
 
+Figure: Diagramme de la règle gauche-droite {#fig:left-right}
+
 Voici quelques exemples :
 
 ```c
@@ -1007,8 +1011,7 @@ char (*(*foo[3])())[5]
 
 Pour l'exemple, voici une implémentation très rudimentaire de `cdecl`. Elle n'est pas complète mais elle donne le principe de fonctionnement :
 
-```c
---8<-- "docs/assets/src/cdecl.c"
+```c include="docs/assets/src/cdecl.c"
 ```
 
 Les améliorations sur ce code seraient :
@@ -1134,39 +1137,39 @@ Nous verrons certains de ces cas d'utilisation dans des sections ultérieures.
 
 ## Exercices de révision
 
-!!! exercise "Esperluettes cascadées"
+::: exercise {title="#(ex:esperluettes-cascadees) : Esperluettes cascadées"}
+Quel est le type de :
 
-    Quel est le type de :
+```c
+*&*&*&*&*&*&(int)x;
+```
+:::
 
-    ```c
-    *&*&*&*&*&*&(int)x;
+::: exercise {title="#(ex:passage-par-adresse) : Passage par adresse"}
+Donnez les valeurs affichées par ce programme pour les variables `a` à `e`.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int test(int a, int * b, int * c, int * d) {
+    a = *b;
+    *b = *b + 5;
+    *c = a + 2;
+    d = c;
+    return *d;
+}
+
+int main(void) {
+    int a = 0, b = 100, c = 200, d = 300, e = 400;
+    e = test(a, &b, &c, &d);
+    printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
+}
+```
+
+??? solution
+
+    ```text
+    a:0, b:105, c:102, d:300, e:102
     ```
-
-!!! exercise "Passage par adresse"
-
-    Donnez les valeurs affichées par ce programme pour les variables `a` à `e`.
-
-    ```c
-    #include <stdio.h>
-    #include <stdlib.h>
-
-    int test(int a, int * b, int * c, int * d) {
-        a = *b;
-        *b = *b + 5;
-        *c = a + 2;
-        d = c;
-        return *d;
-    }
-
-    int main(void) {
-        int a = 0, b = 100, c = 200, d = 300, e = 400;
-        e = test(a, &b, &c, &d);
-        printf("a:%d, b:%d, c:%d, d:%d, e:%d\n", a, b, c, d, e);
-    }
-    ```
-
-    ??? solution
-
-        ```text
-        a:0, b:105, c:102, d:300, e:102
-        ```
+:::

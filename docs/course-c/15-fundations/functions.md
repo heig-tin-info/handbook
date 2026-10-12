@@ -1,8 +1,8 @@
-[](){#functions}
+[]{#functions}
 
 # Fonctions
 
-Figure: Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum
+Figure: Margaret Hamilton, directrice projet AGC (1969), photo du MIT Museum {#fig:hamilton}
 
 ![Margaret Hamilton (1969)](/assets/images/hamilton.png){ width=70% }
 
@@ -15,6 +15,8 @@ Néanmoins, dans ce langage assembleur étrange, le code reste **monolithique** 
 Un programme convenablement **structuré** est découpé en éléments fonctionnels qui disposent pour chacun d'entrées et de sorties. De la même manière qu'un [télencéphale hautement développé et son pouce préhenseur](https://fr.wikipedia.org/wiki/L%27%C3%8Ele_aux_fleurs) aime organiser sa maison en pièces dédiées à des occupations particulières et que chaque pièce dispose de rangements assignés les uns à des assiettes, les autres à des couverts, le développeur organisera son code en blocs fonctionnels et cherchera à minimiser les [effets de bord](https://fr.wikipedia.org/wiki/Effet_de_bord_(informatique)).
 
 ![Agencement de fonctions](/assets/images/functions.drawio)
+
+Figure: Agencement de fonctions {#fig:functions}
 
 Une fonction est donc un ensemble de code exécutable délimité du programme principal et disposant :
 
@@ -38,6 +40,8 @@ En revanche, une fonction apporte quelques désavantages qui à l'échelle des o
 Dans le [Voyage de Chihiro](https://fr.wikipedia.org/wiki/Le_Voyage_de_Chihiro) (千と千尋の神隠し) de Hayao Miyazaki, le vieux Kamaji (釜爺) travaille dans la chaudière des bains pour l'alimenter en charbon et préparer les décoctions d'herbes pour parfumer les bains des clients.
 
 ![Le vieux Kamaji et ses bras extensibles.](/assets/images/kamaji.jpg)
+
+Figure: Le vieux Kamaji et ses bras extensibles. {#fig:kamaji}
 
 Je vous propose de bâtir une métaphore du changement de contexte en s'inspirant de cette illustration. Les murs de la chaudière sont emplis de casiers contenant différentes herbes, ces casiers peuvent être apparentés à la mémoire de l'ordinateur, et les différentes herbes, des types de données différents. De son pupitre Kamaji dispose de plusieurs mortiers dans lequel il mélange les herbes ; ils sont à l'instar de l'[ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) d'un ordinateur le siège d'opérations transformant, à l'aide du pilon, plusieurs entrées en une seule sortie: le mélange d'herbes servant à la décoction. Bien qu'il ait six bras et afin de s'éviter des manipulations inutiles, il garde de petites réserves d'herbes à côté de son pupitre dans de petits casiers, similaires aux registres du processeur.
 
@@ -95,7 +99,7 @@ En C, ce mécanisme est parfaitement automatique, le programmeur n'a pas à se s
 
 L'appel de fonction coûte à l'exécution, car avant chaque fonction, le compilateur ajoute automatiquement des instructions de sauvegarde et de restauration des registres utilisés :
 
-Figure: Sauvegarde des registres du processeur et convention d'appel de fonction.
+Figure: Sauvegarde des registres du processeur et convention d'appel de fonction. {#fig:calling-convention}
 
 ![Convention d'appel de fonction](/assets/images/calling-convention.drawio)
 
@@ -119,7 +123,7 @@ La pile d'exécution est, comme son nom l'indique, une pile sur laquelle sont em
 
 ## Prototype
 
-[](){#function-prototype}
+[]{#function-prototype}
 
 Le [prototype](https://en.wikipedia.org/wiki/Function_prototype) d'une fonction est son interface avec le monde extérieur. Il déclare la fonction, son type de retour et ses paramètres d'appel. Le prototype est souvent utilisé dans un fichier d'en-tête pour construire des bibliothèques logicielles. La fonction `printf` que nous ne cessons pas d'utiliser voit son prototype résider dans le fichier `<stdio.h>` et il est déclaré sous la forme :
 
@@ -169,7 +173,7 @@ int make_coffee(void) {
 }
 ```
 
-Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel [](){#calling_conventions} de la fonction.
+Un **prototype** de fonction diffère de son **implémentation** par le fait qu'il ne dispose pas du code, mais simplement sa définition, permettant au compilateur d'établir les conventions d'appel []{#calling-conventions} de la fonction.
 
 ## Syntaxe
 
@@ -190,7 +194,7 @@ La syntaxe d'écriture d'une fonction peut être assez compliquée et la source 
 
 `<function-name>`
 
-: Il s'agit d'un [identificateur][identifier] qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
+: Il s'agit d'un [identificateur](#identifier) qui représente le nom de la fonction. Généralement on préfère choisir un verbe, quelquefois associé à un nom: `compute_norm`, `make_coffee`, ... Néanmoins, lorsqu'il n'y a pas d'ambigüité, on peut choisir des termes plus simples tels que `main`, `display` ou `dot_product`.
 
 `<parameter-type> <parameter-name>`
 
@@ -286,7 +290,7 @@ Retenez simplement que lors d'un passage par référence, on cherche à rendre l
 
 ## Exemples de fonctions
 
-[](){#fib-iterative}
+[]{#fib-iterative}
 ### Suite de Fibonacci
 
 La suite de Fibonacci est une suite d'entiers dans laquelle chaque terme est la somme des deux termes précédents. La suite commence par 0 et 1. La suite commence donc par 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
@@ -334,170 +338,168 @@ Cette syntaxe est toujours valide dans les versions plus récentes du langage, m
 
 ## Exercices de révision
 
-!!! exercise "Dans la moyenne"
+::: exercise {title="#(ex:dans-la-moyenne) : Dans la moyenne"}
+Écrire une fonction `mean` qui reçoit 3 paramètres réels et qui retourne la moyenne.
 
-    Écrire une fonction `mean` qui reçoit 3 paramètres réels et qui retourne la moyenne.
-
-    ??? solution
-
-        ```c
-        double mean(double a, double b, double c) {
-            return (a + b + c) / 3.;
-        }
-        ```
-
-!!! exercise "Le plus petit"
-
-    Écrire une fonction `min` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
-
-    ??? solution
-
-        ```c
-        double min(double a, double b, double c) {
-            double min_value = a;
-            if (b < min_value)
-                min_value = b;
-            if (c < min_value)
-                min_value = c;
-            return min_value;
-        }
-        ```
-
-        Une manière plus compacte, mais moins lisible serait :
-
-        ```c
-        double min(double a, double b, double c) {
-            return (a = (a < b ? a : b)) < c ? a : c;
-        }
-        ```
-
-!!! exercise "Algorithme de retour de monnaie"
-
-    On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
-
-    Dans le code du programme, les trois variables suivantes seront utilisées :
+??? solution
 
     ```c
-    // Available coins in the parking ticket machine
-    unsigned int ncoin_10, ncoin_20;
+    double mean(double a, double b, double c) {
+        return (a + b + c) / 3.;
+    }
+    ```
+:::
 
-    // How much money the user inserted into the machine (in cents)
-    unsigned int amount_payed;
+::: exercise {title="#(ex:le-plus-petit) : Le plus petit"}
+Écrire une fonction `min` qui reçoit 3 paramètres réels et qui retourne la plus petite valeur.
+
+??? solution
+
+    ```c
+    double min(double a, double b, double c) {
+        double min_value = a;
+        if (b < min_value)
+            min_value = b;
+        if (c < min_value)
+            min_value = c;
+        return min_value;
+    }
     ```
 
-    Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
+    Une manière plus compacte, mais moins lisible serait :
 
-    ```bash
-    $ echo "10 10 20 20 20" | ./ptm 30 1
-    ticket
-    20
-    10
+    ```c
+    double min(double a, double b, double c) {
+        return (a = (a < b ? a : b)) < c ? a : c;
+    }
     ```
+:::
 
-    Le programme reçoit sur `stdin` les pièces introduites dans la machine. Les deux arguments passés au programme `ptm` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. `stdout` contient les valeurs rendues à l'utilisateur. La valeur `ticket` correspond au ticket distribué.
+::: exercise {title="#(ex:algorithme-de-retour-de-monnaie) : Algorithme de retour de monnaie"}
+On considère le cas d'une caisse automatique de parking. Cette caisse délivre des tickets au prix unique de CHF 0.50 et dispose d'un certain nombre de pièces de 10 et 20 centimes pour le rendu de monnaie.
 
-    Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
+Dans le code du programme, les trois variables suivantes seront utilisées :
 
-    ??? solution
+```c
+// Available coins in the parking ticket machine
+unsigned int ncoin_10, ncoin_20;
 
-        Voici une solution partielle :
+// How much money the user inserted into the machine (in cents)
+unsigned int amount_payed;
+```
 
-        ```c
-        #define TICKET_PRICE 50
+Écrivez l'algorithme de rendu de la monnaie tenant compte du nombre de pièces de 10 et 20 centimes restants dans l'appareil. Voici un exemple du fonctionnement du programme :
 
-        void give_coin(unsigned int value) { printf("%d\n", value); }
-        void give_ticket(void) { printf("ticket\n"); }
+```bash
+$ echo "10 10 20 20 20" | ./ptm 30 1
+ticket
+20
+10
+```
 
-        bool no_ticket = amount_payed < TICKET_PRICE;
+Le programme reçoit sur `stdin` les pièces introduites dans la machine. Les deux arguments passés au programme `ptm` sont 1. le nombre de pièces de 10 centimes disponibles et 2. le nombre de pièces de 20 centimes disponibles. `stdout` contient les valeurs rendues à l'utilisateur. La valeur `ticket` correspond au ticket distribué.
 
-        int amount_to_return = amount_payed - TICKET_PRICE;
-        do {
-            while (amount_to_return > 0) {
-                if (amount_to_return >= 20 && ncoin_20 > 0) {
-                    give_coin(20);
-                    amount_to_return -= 20;
-                    ncoin_20--;
-                } else if (amount_to_return >= 10 && ncoin_10 > 0) {
-                    give_coin(10);
-                    amount_to_return -= 10;
-                    ncoin_10--;
-                } else {
-                    no_ticket = true;
-                    break;
-                }
+Le cas échéant, s'il n'est possible de rendre la monnaie, aucun ticket n'est distribué et l'argent donné est rendu.
+
+??? solution
+
+    Voici une solution partielle :
+
+    ```c
+    #define TICKET_PRICE 50
+
+    void give_coin(unsigned int value) { printf("%d\n", value); }
+    void give_ticket(void) { printf("ticket\n"); }
+
+    bool no_ticket = amount_payed < TICKET_PRICE;
+
+    int amount_to_return = amount_payed - TICKET_PRICE;
+    do {
+        while (amount_to_return > 0) {
+            if (amount_to_return >= 20 && ncoin_20 > 0) {
+                give_coin(20);
+                amount_to_return -= 20;
+                ncoin_20--;
+            } else if (amount_to_return >= 10 && ncoin_10 > 0) {
+                give_coin(10);
+                amount_to_return -= 10;
+                ncoin_10--;
+            } else {
+                no_ticket = true;
+                break;
             }
-        } while (amount_to_return > 0);
-
-        if (!no_ticket) {
-            give_ticket();
         }
-        ```
+    } while (amount_to_return > 0);
 
-
-!!! exercise "La fonction f"
-
-    Considérons le programme suivant :
-
-    ```c
-    int f(float x) {
-        int i;
-        if (x > 0.0)
-            i = (int)(x + 0.5);
-        else
-            i = (int)(x - 0.5);
-        return i;
+    if (!no_ticket) {
+        give_ticket();
     }
     ```
+:::
 
-    Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
+::: exercise {title="#(ex:la-fonction-f) : La fonction f"}
+Considérons le programme suivant :
 
-    ```c
-    f(1.2)
-    f(-1.2)
-    f(1.6)
-    f(-1.6)
-    ```
+```c
+int f(float x) {
+    int i;
+    if (x > 0.0)
+        i = (int)(x + 0.5);
+    else
+        i = (int)(x - 0.5);
+    return i;
+}
+```
 
-    Quel est votre conclusion sur cette fonction ?
+Quel sont les types et les valeurs retournées par les expressions ci-dessous ?
 
+```c
+f(1.2)
+f(-1.2)
+f(1.6)
+f(-1.6)
+```
 
-!!! exercise "Mauvaise somme"
+Quel est votre conclusion sur cette fonction ?
+:::
 
-    Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
+::: exercise {title="#(ex:mauvaise-somme) : Mauvaise somme"}
+Le programme suivant compile sans erreurs graves, mais ne fonctionne pas correctement.
 
-    ```c
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <math.h>
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-    long get_integer()
+long get_integer()
+{
+    bool ok;
+    long result;
+    do
     {
-        bool ok;
-        long result;
-        do
-        {
-            printf("Enter a integer value: ");
-            fflush(stdin); // Empty input buffer
-            ok = (bool)scanf("%ld", &result);
-            if (!ok)
-                printf("Incorrect value.\n");
-        }
-        while (!ok);
-        return result;
+        printf("Enter a integer value: ");
+        fflush(stdin); // Empty input buffer
+        ok = (bool)scanf("%ld", &result);
+        if (!ok)
+            printf("Incorrect value.\n");
     }
+    while (!ok);
+    return result;
+}
 
-    int main(void)
-    {
-        long a = get_integer;
-        long b = get_integer;
+int main(void)
+{
+    long a = get_integer;
+    long b = get_integer;
 
-        printf("%d\n", a + b);
-    }
-    ```
+    printf("%d\n", a + b);
+}
+```
 
-    Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
+Quel est le problème ? À titre d'information voici ce que le programme donne, notez que l'invité de saisie n'est jamais apparu :
 
-    ```bash
-    $ ./sum
-    8527952
-    ```
+```bash
+$ ./sum
+8527952
+```
+:::

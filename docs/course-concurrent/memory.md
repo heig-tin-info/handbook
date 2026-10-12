@@ -95,8 +95,7 @@ En revanche si on parcourt la matrice par colonne, on ne profite pas de la local
 
 Le code suivant met en évidence la différence de performance entre un parcours par ligne et un parcours par colonne :
 
-```cpp
---8<-- "docs/course-concurrent/src/false-sharing/locality-line.cpp"
+```cpp include="docs/course-concurrent/src/false-sharing/locality-line.cpp"
 ```
 
 Pour le cas d'une matrice de 10'000x10'000 entiers 32-bits, on obtient les résultats suivants:

@@ -2,12 +2,11 @@
 
 Les fiches d'unités sont les documents de référence pour les cours d'info1 et d'info2, ici présentées sous forme de données brutes au format **YAML**.
 
-[](){#info1}
+[]{#info1}
 
 ## Informatique 1
 
-```yaml
---8<-- "docs/assets/units/info1.yaml"
+```yaml include="docs/assets/units/info1.yaml"
 ```
 
 ### Panification du semestre d'hiver
@@ -37,12 +36,11 @@ Les fiches d'unités sont les documents de référence pour les cours d'info1 et
 | 6       | **Examens**             |
 | 7       | Relâches                |
 
-[](){#info2}
+[]{#info2}
 
 ## Informatique 2
 
-```yaml
---8<-- "docs/assets/units/info2.yaml"
+```yaml include="docs/assets/units/info2.yaml"
 ```
 
 ### Panification du semestre de printemps

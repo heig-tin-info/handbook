@@ -11,6 +11,8 @@ Dans les quatre cas, elles décrivent l'accessibilité, c'est-à-dire jusqu'où 
 
 ![Brouillard matinal sur le Golden Gate Bridge, San Francisco](/assets/images/visibility.jpg)
 
+Figure: Brouillard matinal sur le Golden Gate Bridge, San Francisco {#fig:visibility}
+
 ## Espace de nommage
 
 L'espace de nommage ou `namespace` est un concept différent de celui existant dans d'autres langages tel que C++. Le standard **C99** décrit 4 types possibles pour un identifiant :

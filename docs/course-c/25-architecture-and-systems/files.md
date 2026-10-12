@@ -194,27 +194,27 @@ flose(fp);
 
 On peut noter que sous POSIX, écrire sur `stdout` ou `stderr` est exactement la même chose qu'écrire sur un fichier, il n'y a aucune distinction.
 
-!!! exercise "Numéro de ligne"
+::: exercise {title="#(ex:numero-de-ligne) : Numéro de ligne"}
+Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
 
-    Écrire un programme qui saisit le nom d'un fichier texte, ainsi qu'un texte à rechercher. Le programme affiche ensuite le numéro de toutes les lignes du fichier contenant le texte recherché.
+```bash
+$ ./search
+Fichier: foo.txt
+Recherche: bulbe
 
-    ```bash
-    $ ./search
-    Fichier: foo.txt
-    Recherche: bulbe
+4
+5
+19
+132
+981
+```
 
-    4
-    5
-    19
-    132
-    981
-    ```
+Question subsidiaire: que fait le programme suivant :
 
-    Question subsidiaire: que fait le programme suivant :
-
-    ```bash
-    $ grep foo.txt bulbe
-    ```
+```bash
+$ grep foo.txt bulbe
+```
+:::
 
 ## Navigation dans un fichier
 
@@ -562,36 +562,36 @@ En C, on pourra utiliser la bibliothèque logicielle [json-c](https://github.com
 
 ## Exercices de révision
 
-!!! exercise "Variantes"
+::: exercise {title="#(ex:variantes) : Variantes"}
+Considérez les deux programmes ci-dessous très similaires.
 
-    Considérez les deux programmes ci-dessous très similaires.
+```c
+#include <stdio.h>
 
-    ```c
-    #include <stdio.h>
+int main(void)
+{
+    char texte[80];
 
-    int main(void)
-    {
-        char texte[80];
+    printf("Saisir un texte:");
+    gets(texte);
+    printf("Texte: %s\n", texte);
+}
+```
 
-        printf("Saisir un texte:");
-        gets(texte);
-        printf("Texte: %s\n", texte);
-    }
-    ```
+```c
+#include <stdio.h>
 
-    ```c
-    #include <stdio.h>
+int main(void)
+{
+    char texte[80];
 
-    int main(void)
-    {
-        char texte[80];
+    printf("Saisir un texte:");
+    fgets(texte, 80, stdin);
+    printf("Texte: %s\n", texte);
+}
+```
 
-        printf("Saisir un texte:");
-        fgets(texte, 80, stdin);
-        printf("Texte: %s\n", texte);
-    }
-    ```
-
-    1. Quelle est la différence  entre ces 2 programmes ?
-    2. Dans quel cas est-ce que ces programmes auront un comportement différent ?
-    3. Quelle serait la meilleure solution ?
+1. Quelle est la différence  entre ces 2 programmes ?
+2. Dans quel cas est-ce que ces programmes auront un comportement différent ?
+3. Quelle serait la meilleure solution ?
+:::

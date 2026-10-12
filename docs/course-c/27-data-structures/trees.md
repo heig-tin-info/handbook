@@ -2,14 +2,15 @@
 
 ![Arbre binaire IRL](/assets/images/binary-tree.jpg)
 
-Les [[arbres]] sont des structures de données non linéaires composées de nœuds. Chaque nœud possède un ou plusieurs enfants, à l’exception de la racine qui n'a pas de parent. Les arbres servent fréquemment à modéliser des hiérarchies telles que les systèmes de fichiers, les arbres généalogiques ou encore les arbres de décision.
+Figure: Arbre binaire IRL {#fig:binary-tree}
 
-Voici un exemple d'arbre : il représente une structure de documents stockés sur un ordinateur. En haut figure le disque C:, qui contient des dossiers et des fichiers. Chaque dossier peut abriter d'autres dossiers ou des fichiers. Il existe donc une [[hiérarchie]] entre les éléments : chaque dossier accepte plusieurs contenus, mais chaque élément appartient à un seul dossier.
+Les arbres #[arbres] sont des structures de données non linéaires composées de nœuds. Chaque nœud possède un ou plusieurs enfants, à l’exception de la racine qui n'a pas de parent. Les arbres servent fréquemment à modéliser des hiérarchies telles que les systèmes de fichiers, les arbres généalogiques ou encore les arbres de décision.
+
+Voici un exemple d'arbre : il représente une structure de documents stockés sur un ordinateur. En haut figure le disque C:, qui contient des dossiers et des fichiers. Chaque dossier peut abriter d'autres dossiers ou des fichiers. Il existe donc une hiérarchie #[hiérarchie] entre les éléments : chaque dossier accepte plusieurs contenus, mais chaque élément appartient à un seul dossier.
 
 Ce type d'arbre est appelé **arbre n-aire dirigé** : chaque nœud peut avoir plusieurs enfants et les arêtes suivent un sens unique de la racine vers les feuilles. Les flèches indiquent ainsi la direction de la hiérarchie.
 
 ```mermaid
-%% Arbre n-aire dirigé
 graph LR
     C(C:)
 
@@ -55,9 +56,11 @@ graph LR
     Downloads_Alice --> App(App.exe)
 ```
 
+Figure: Arbre n-aire dirigé
+
 ## Arbre binaire
 
-Un [[arbre binaire]] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
+Un arbre binaire #[arbre binaire] est un arbre dans lequel chaque nœud possède au plus deux enfants, généralement appelés fils gauche et fils droit. Les arbres binaires servent couramment à implémenter des structures comme les arbres de recherche, les tas ou les arbres d'expression.
 
 Il s'agit d'une structure de données très répandue en informatique. En pratique, on implémente rarement un arbre binaire nu : on privilégie des structures de plus haut niveau qui s'appuient sur cette représentation.
 
@@ -66,7 +69,6 @@ Le langage C étant très bas niveau, il ne propose pas de structure d'arbre bin
 Voici un exemple d'arbre binaire. Chaque nœud possède deux enfants, sauf les feuilles qui n'en ont aucun. Le nœud `40`, par exemple, ne dispose que d'un enfant à droite.
 
 ```mermaid
-%% Arbre binaire
 graph TD
     classDef ghost display: none;
 
@@ -97,12 +99,13 @@ graph TD
     linkStyle 8 display: none;
 ```
 
+Figure: Arbre binaire
+
 Un arbre peut être **équilibré** ou **déséquilibré**. Il est dit équilibré lorsque la hauteur de ses sous-arbres gauche et droit diffère d'au plus une unité. Cette propriété garantit des opérations de recherche, d'insertion et de suppression plus efficaces.
 
 Voici l'exemple d'un arbre déséquilibré :
 
 ```mermaid
-%% Arbre binaire déséquilibré
 graph LR
     classDef ghost display: none;
 
@@ -128,6 +131,8 @@ graph LR
     23 --> 35((35))
 ```
 
+Figure: Arbre binaire déséquilibré
+
 ### Heap
 
 La structure de données `heap`, ou tas binaire, ne doit pas être confondue avec la zone mémoire du même nom utilisée pour l'allocation dynamique. Il s'agit d'une forme particulière d'arbre binaire dit "presque complet", dans lequel l'écart de niveau entre les feuilles n'excède pas une unité : toutes les feuilles se situent à la même profondeur ou à une profondeur voisine.
@@ -144,18 +149,18 @@ Table: Opérations d'accès aux éléments d'un tas
 
 ![Représentation d'un *heap*](/assets/images/heap.drawio)
 
+Figure: Représentation d'un *heap* {#fig:heap}
+
 ### Min-heap
 
-Un [[tas binaire]] stocke des éléments en conservant un ordre partiel. C'est un arbre binaire complet dans lequel chaque nœud est **plus petit que ses enfants**. Les tas binaires sont fréquemment utilisés pour implémenter des files de priorité.
+Un tas binaire #[tas binaire] stocke des éléments en conservant un ordre partiel. C'est un arbre binaire complet dans lequel chaque nœud est **plus petit que ses enfants**. Les tas binaires sont fréquemment utilisés pour implémenter des files de priorité.
 
 !!! example "Implémentation en C"
 
-    ```c title="min-heap.h"
-    --8<-- "docs/assets/src/min-heap/min-heap.h"
+    ```c title="min-heap.h" include="docs/assets/src/min-heap/min-heap.h"
     ```
 
-    ```c title="min-heap.c"
-    --8<-- "docs/assets/src/min-heap/min-heap.c"
+    ```c title="min-heap.c" include="docs/assets/src/min-heap/min-heap.c"
     ```
 
 Le tas binaire s'appuie sur un tableau dynamique pour stocker les éléments. Chaque nœud voit son enfant gauche à l'indice `2 * k + 1` et son enfant droit à l'indice `2 * k + 2`. Le parent d'un élément se trouve à l'indice `(k - 1) / 2`, quel que soit l'indice `k`.
@@ -246,6 +251,8 @@ L'implémentation d'un arbre binaire est souvent implémentée avec une liste ch
 
 ![Arbre binaire équilibré](/assets/images/binary-tree.drawio)
 
+Figure: Arbre binaire équilibré {#fig:binary-tree-2}
+
 Lorsqu'il est équilibré, un arbre binaire comporte autant d'éléments à gauche qu'à droite et lorsqu'il est correctement rempli, la valeur d'un élément est toujours :
 
 - La valeur de l'enfant de gauche est inférieure à celle de son parent
@@ -330,6 +337,8 @@ Un arbre AVL est un arbre binaire de recherche équilibré. Il est équilibré c
 
 ![AVL Tree](/assets/images/avl-tree.drawio)
 
+Figure: AVL Tree {#fig:avl-tree}
+
 AVL tire son nom de ses inventeurs *Adelson-Velsky and Landis*. C'est une structure de données très utilisée en informatique pour implémenter des dictionnaires, des bases de données, des compilateurs, etc.
 
 Son implémentation complète sort du cadre de ce cours mais il est intéressant de comprendre comment il fonctionne. L'arbre AVL est un arbre binaire de recherche où chaque nœud a un **facteur d'équilibre** qui est la différence entre la hauteur de son sous-arbre gauche et la hauteur de son sous-arbre droit. Si le facteur d'équilibre d'un nœud est supérieur à $1$ ou inférieur à $-1$, l'arbre est déséquilibré et il faut le rééquilibrer. Cela donne un critère de rééquilibrage en fonction du facteur d'équilibre.
@@ -343,6 +352,8 @@ C'est cette opération de rotation qui est la plus complexe dans un arbre AVL. I
 Un arbre rouge-noir est un arbre binaire de recherche équilibré. Il est équilibré car la hauteur de ses sous-arbres gauche et droit diffère d'au plus deux. Cela signifie que la hauteur de l'arbre est en $O(log n)$, ce qui rend les opérations de recherche, d'insertion et de suppression en $O(log n)$.
 
 ![Arbre rouge et noir](/assets/images/red-black-tree.drawio)
+
+Figure: Arbre rouge et noir {#fig:red-black-tree}
 
 Contrairement à l'arbre AVL, l'arbre rouge-noir est plus simple à implémenter. Il utilise un **bit de couleur** pour chaque nœud pour indiquer si le nœud est rouge ou noir. L'arbre rouge-noir a cinq propriétés :
 
@@ -371,6 +382,8 @@ On peut construire le trie suivant :
 
 ![Trie](/assets/images/trie.drawio)
 
+Figure: Trie {#fig:trie}
+
 En vert, les nœuds qui marquent la fin d'un mot. En orange la racine de l'arbre. La structure de données de chaque nœud pourrait être la suivante :
 
 ```c
@@ -380,16 +393,16 @@ typedef struct Node {
 } Node;
 ```
 
-!!! exercise "Implémentation"
+::: exercise {title="#(ex:implementation) : Implémentation"}
+Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
+Comment allez-vous implémenter le trie ?
 
-    Vous avez un texte connu et vous voulez permettre de compter les occurences de chaque mot. Une fois que le trie est construit, il est en lecture seule.
-    Comment allez-vous implémenter le trie ?
-
-    - [ ] Comme une liste chaînée, chaque nœud est alloué dynamiquement sur le *heap*.
-    - [ ] Un tableau statique sur la pile ou chaque élément est un nœud.
-    - [ ] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient un tableau de pointeurs sur ses enfants.
-    - [x] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
-    - [ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le *heap*.
+- [ ] Comme une liste chaînée, chaque nœud est alloué dynamiquement sur le *heap*.
+- [ ] Un tableau statique sur la pile ou chaque élément est un nœud.
+- [ ] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient un tableau de pointeurs sur ses enfants.
+- [x] Un tableau dynamique sur le *heap*, l'allocation est amortie et chaque nœud contient non pas un pointeur des enfants mais l'indice de l'enfant dans le tableau.
+- [ ] Par chunks d'éléments, chaque chunk est alloué dynamiquement sur le *heap*.
+:::
 
 Discutons de plusieurs implémentations possibles d'un nœud d'un trie :
 
@@ -428,21 +441,22 @@ Discutons de plusieurs implémentations possibles d'un nœud d'un trie :
 
 Exemple d'implémentation:
 
-```c
---8<-- "docs/assets/src/trie/trie.c"
+```c include="docs/assets/src/trie/trie.c"
 ```
 
-!!! exercise "Regroupement ?"
+::: exercise {title="#(ex:regroupement) : Regroupement ?"}
+Demandons-nous s'il ne serait pas préférable de regrouper les nœuds communs ensemble comme le montre la figure suivante :
 
-    Demandons-nous s'il ne serait pas préférable de regrouper les nœuds communs ensemble comme le montre la figure suivante :
+![Trie: arbre avec nœuds communs](/assets/images/trie-not.drawio)
 
-    ![Trie: arbre avec nœuds communs](/assets/images/trie-not.drawio)
+Figure: Trie: arbre avec nœuds communs {#fig:trie-not}
 
-    D'après vous est-ce une bonne idée ? Pourquoi ?
+D'après vous est-ce une bonne idée ? Pourquoi ?
 
-    ??? solution
+??? solution
 
-        Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un *radix trie*.
+    Non, ce n'est pas une bonne idée. D'une part la figure n'est plus un arbre mais un graphe. Un graph peut avoir des cycles et donc des boucles infinies. Ensuite, regrouper les éléments communs ne peut être fait qu'à la fin de la construction du trie, lorsqu'elle est déjà allouée en mémoire. La complexité de l'optimisation n'est pas à négliger. Si la contrainte est l'utilisation de la mémoire, il est préférable d'utiliser une autre structure de donnée comme un *radix trie*.
+:::
 
 ## Radix Trie
 

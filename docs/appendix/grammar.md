@@ -6,8 +6,7 @@ Parce que les informaticiens ont de l'humour, Yacc à son pendant GNU [Bison](ht
 
 Voici à titre d'information la définition formelle du langage C99 :
 
-```text
---8<-- "docs/assets/src/c99.y"
+```text include="docs/assets/src/c99.y"
 ```
 
 A partir de cette grammaire, Bison génère un fichier `c99.tab.c` qui contient le code C de l'analyseur syntaxique.
