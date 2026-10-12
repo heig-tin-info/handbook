@@ -37,16 +37,6 @@
   font-size: 0.8em;
 }
 
-/* Adjust the size of view/edit icons (eye/pencil)
-   Default value is too big, it is not elegant
-*/
-.md-content__button svg {
-  width: 18px;
-  padding-top: 9px;
-}
-
-
-
 /* Keys spacing */
 span.keys {
   padding: 0.1em 0.3em;
@@ -156,3 +146,11 @@ article {
 }
 
 
+
+/* The epigraph under a page's title. TeXSmith's `blockquote.ts-epigraph`
+   loses to the theme's `[dir=ltr] .md-typeset blockquote`, which puts a
+   bar and a padding on every quote; the epigraph has neither. */
+[dir] .md-typeset blockquote.ts-epigraph {
+  padding: 0 0 0 30%;
+  border: none;
+}

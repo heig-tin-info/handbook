@@ -180,16 +180,16 @@ Ce CPU n'a pas de pipeline néanmoins différentes étapes sont nécessaires pou
 
 
 
-| Opcode     | Instruction | Exemple     | Description                           |
-| ---------- | ----------- | ----------- | ------------------------------------- |
-| 0b0000xxxx | ADD         |             |                                       |
-| 0b0001xxxx | SUB         |             |                                       |
-| 0b0010xxxx | AND         |             |                                       |
-| 0b0011xxxx | OR          |             |                                       |
-| 0b0100xxxx | XOR         |             |                                       |
-| 0b0101xxxx | JNZ         | 0b0101'xxxx | Saut relatif de B (PC += B) si A != 0 |
-| 0b01100rrr | MOV A, Rx   | 0b0110'0001 | MOV A, R1                             |
-| 0b01101rrr | MOV B, Rx   | 0b0111'0010 | MOV B, R2                             |
-| 0b0111xrrr | MOV Rx, C   | 0b0111'1000 | MOV R0, C                             |
-| 0b10rrrsss | MOV Rx, Ry  | 0b1000'0010 | MOV R0, R2                            |
-| 0b11rrrsss | MOV Rx, @Ry | 0b1100'0010 | MOV R0, @(R2, R3)                     |
+| Opcode     | Instruction   | Exemple     | Description                           |
+| ---------- | ------------- | ----------- | ------------------------------------- |
+| 0b0000xxxx | `ADD`         |             |                                       |
+| 0b0001xxxx | `SUB`         |             |                                       |
+| 0b0010xxxx | `AND`         |             |                                       |
+| 0b0011xxxx | `OR`          |             |                                       |
+| 0b0100xxxx | `XOR`         |             |                                       |
+| 0b0101xxxx | `JNZ`         | 0b0101'xxxx | Saut relatif de B (PC += B) si A != 0 |
+| 0b01100rrr | `MOV A, Rx`   | 0b0110'0001 | `MOV A, R1`                           |
+| 0b01101rrr | `MOV B, Rx`   | 0b0111'0010 | `MOV B, R2`                           |
+| 0b0111xrrr | `MOV Rx, C`   | 0b0111'1000 | `MOV R0, C`                           |
+| 0b10rrrsss | `MOV Rx, Ry`  | 0b1000'0010 | `MOV R0, R2`                          |
+| 0b11rrrsss | `MOV Rx, @Ry` | 0b1100'0010 | `MOV R0, @(R2, R3)`                   |

@@ -1,0 +1,97 @@
+/* Multiple-choice exercises, made interactive by `js/exercises.js`.
+
+   A quiz is an exercise callout whose task list has checked boxes; the
+   script sets `data-quiz` to pending, pass or fail on it. Until the script
+   has run, the checked boxes are the answers, so they are not shown. */
+
+:root {
+  --quiz-good: #2e9d4f;
+  --quiz-bad: #d43c3c;
+  --quiz-icon-cross: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z"/></svg>');
+  --quiz-icon-check: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2m-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>');
+}
+
+/* No answer shows before the script has turned the list into a quiz. */
+.md-typeset .exercise:not([data-quiz]) > .task-list [type=checkbox]:checked + .task-list-indicator::before {
+  background-color: var(--md-default-fg-color--lighter);
+  -webkit-mask-image: var(--md-tasklist-icon);
+  mask-image: var(--md-tasklist-icon);
+}
+
+/* The answers are clickable while the quiz waits for them. */
+.md-typeset .exercise[data-quiz=pending] > .task-list > li {
+  cursor: pointer;
+  border-radius: 0.2rem;
+  transition: background-color 0.15s;
+}
+.md-typeset .exercise[data-quiz=pending] > .task-list > li:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .exercise[data-quiz] > .task-list .task-list-control {
+  cursor: inherit;
+}
+.md-typeset .exercise[data-quiz=pending] > .task-list [type=checkbox]:checked + .task-list-indicator::before {
+  background-color: var(--md-accent-fg-color);
+}
+
+/* Once answered: a ticked right answer, a ticked wrong one, and a right
+   answer the student left out. */
+.md-typeset .exercise[data-quiz] > .task-list > li.quiz-good .task-list-indicator::before {
+  background-color: var(--quiz-good);
+  -webkit-mask-image: var(--quiz-icon-check);
+  mask-image: var(--quiz-icon-check);
+}
+.md-typeset .exercise[data-quiz] > .task-list > li.quiz-bad {
+  color: var(--quiz-bad);
+}
+.md-typeset .exercise[data-quiz] > .task-list > li.quiz-bad .task-list-indicator::before {
+  background-color: var(--quiz-bad);
+  -webkit-mask-image: var(--quiz-icon-cross);
+  mask-image: var(--quiz-icon-cross);
+}
+.md-typeset .exercise[data-quiz] > .task-list > li.quiz-missed .task-list-indicator::before {
+  background-color: var(--quiz-good);
+  -webkit-mask-image: var(--quiz-icon-check);
+  mask-image: var(--quiz-icon-check);
+  opacity: 0.5;
+}
+.md-typeset .exercise[data-quiz] > .task-list > li.quiz-missed {
+  color: var(--quiz-good);
+}
+
+/* The verdict, at the right end of the title. */
+.md-typeset .exercise[data-quiz=pass] > .admonition-title::after,
+.md-typeset .exercise[data-quiz=fail] > .admonition-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  transform: translateY(-50%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.md-typeset .exercise[data-quiz=pass] > .admonition-title::after {
+  background-color: var(--quiz-good);
+  -webkit-mask-image: var(--quiz-icon-check);
+  mask-image: var(--quiz-icon-check);
+}
+.md-typeset .exercise[data-quiz=fail] > .admonition-title::after {
+  background-color: var(--quiz-bad);
+  -webkit-mask-image: var(--quiz-icon-cross);
+  mask-image: var(--quiz-icon-cross);
+}
+
+/* The solution waits for an answer; the retry button follows it. */
+.md-typeset .exercise[data-quiz=pending] > .solution,
+.md-typeset .exercise[data-quiz=pending] > .quiz-reset {
+  display: none;
+}
+.md-typeset .exercise > .quiz-reset {
+  margin: 0.2em 0 0.8em;
+  padding: 0.3em 1em;
+  font-size: 0.7rem;
+}

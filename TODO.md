@@ -11,11 +11,11 @@ What the move to Zensical + TeXSmith leaves open is here; `NOTES-zensical.md`
 
 ### Content
 
-- [ ] Quizzes: the 129 `- [x]` lines of 11 files are plain checkboxes now, nothing checks an answer. TMark has no equivalent of what the `exercises` plugin built — either they become prose (a solution callout with the answer), or something has to render them. (`docs/`)
+- [x] ~~Quizzes: the 129 `- [x]` lines of 11 files are plain checkboxes now, nothing checks an answer.~~ Done: `docs/js/exercises.js` and `docs/css/exercises.css` turn the task list of an exercise callout back into a quiz on the client — the checked boxes are the answers, hidden until the student has answered, the `??? solution` waits for an answer too, and a button starts it over.
 - [x] ~~Fill-in-the-blanks: 13 `{{word}}` markers in 3 files (8 `var-unresolved`), dead markup on both media.~~ Done (§13): each exercise asks its question in full and answers it in a `??? solution`; `var-unresolved` is 8 → 0 and the MkDocs build is at 2 warnings.
 - [ ] Exercise numbering is continuous site-wide (the `ex` counter of `plugins.texsmith.declare.counters`); the `exercises` plugin restarted it on every page. The 194 figures are numbered the same way — the web profile numbers every series and no scope resets it, so a late page opens on *Figure 147* — so the same decision covers both. (`mkdocs.yml`, TeXSmith, tmark)
 - [ ] Four abbreviations never reach the glossary: `EOF`, `FLOPS`, `SVG` and `W3C` are absent from `ts-glossary.sty` and `UTF-8` lands under the key `UTF8`, while the other forty are fine. Cause unknown. (`includes/abbreviations.md`, TeXSmith)
-- [ ] `@Ry` in `docs/course-c/25-architecture-and-systems/cpu-zero.md` — a subscript in a formula the reference resolver reads as a counter reference, and the one warning the Zensical build still has. Either the formula or the resolver. (`docs/`, tmark)
+- [x] ~~`@Ry` in `docs/course-c/25-architecture-and-systems/cpu-zero.md`.~~ Done: an assembly mnemonic in a table cell, now a code span with the rest of its column; the Zensical build has no warning left.
 - [ ] The `pie` mermaid fence of `docs/course-c/05-introduction/me-and-my-computer.md` is `asset-convert-failed` since the baseline. (TeXSmith asset conversion)
 - [ ] `docs/tools/.nav.yml`'s `- "*"` matches nothing and both nav resolvers say so; it is the faithful conversion of the old `.pages` and was never cleaned up.
 
