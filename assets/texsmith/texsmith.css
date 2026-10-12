@@ -1,0 +1,143 @@
+/* TeXSmith on a MkDocs site: the shapes `tmark.lower_web` emits.
+   Tabs, admonitions and details are Material's; this sheet covers what
+   Material has no style for. */
+
+/* Counter definitions: `#(fw:x)` */
+.ts-counter {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  scroll-margin-top: 4rem;
+}
+
+/* Caption label of a figure, table or listing: `Figure 3:` */
+.ts-caption-label {
+  font-weight: 600;
+}
+
+/* Captioned tables and listings keep their block as written. */
+figure.ts-table,
+figure.ts-listing {
+  margin: 1em 0;
+  width: 100%;
+}
+figure.ts-table > figcaption {
+  text-align: left;
+  margin-bottom: 0.4em;
+}
+figure.ts-listing > figcaption {
+  text-align: left;
+  margin-top: 0.4em;
+}
+
+/* `::: figure {cols=n}`: the images on a grid, `(a)`, `(b)` under each */
+figure.ts-subfigures {
+  display: grid;
+  grid-template-columns: repeat(var(--ts-cols, 2), minmax(0, 1fr));
+  gap: 0.4em 1em;
+  align-items: end;
+  justify-items: center;
+}
+figure.ts-subfigures > img {
+  max-width: 100%;
+}
+figure.ts-subfigures > .ts-subcaption {
+  font-size: 0.85em;
+  color: var(--md-default-fg-color--light);
+  justify-self: center;
+}
+figure.ts-subfigures > figcaption {
+  grid-column: 1 / -1;
+}
+
+/* Asides: `::: aside` (block) and `{aside}[…]` (inline) */
+aside.ts-aside,
+span.ts-aside {
+  display: block;
+  float: right;
+  clear: right;
+  width: 32%;
+  max-width: 18rem;
+  margin: 0 0 0.8em 1.2em;
+  padding: 0.6em 0.8em;
+  font-size: 0.8em;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+  border-left: 0.2rem solid var(--md-default-fg-color--lightest);
+}
+aside.ts-aside[data-side="left"],
+span.ts-aside[data-side="left"] {
+  float: left;
+  clear: left;
+  margin: 0 1.2em 0.8em 0;
+  border-left: none;
+  border-right: 0.2rem solid var(--md-default-fg-color--lightest);
+}
+aside.ts-aside > :first-child {
+  margin-top: 0;
+}
+aside.ts-aside > :last-child {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 44.9375em) {
+  aside.ts-aside,
+  span.ts-aside,
+  aside.ts-aside[data-side="left"],
+  span.ts-aside[data-side="left"] {
+    float: none;
+    width: auto;
+    max-width: none;
+    margin: 0.8em 0;
+  }
+}
+
+/* Index entries take no space; the search plugin reads their tags. */
+.ts-index {
+  display: none;
+}
+
+.ts-smallcaps {
+  font-variant: small-caps;
+}
+
+/* Numbered display math: `$$ … $$ {#eq:x}` */
+.ts-equation {
+  scroll-margin-top: 4rem;
+}
+
+/* The front matter's `epigraph: {quote, source}`, set under the page's
+   opening heading. Italic, set in from the left and ranged right, with an
+   em dash before the source — the shape `\tsepigraph` gives the book. An
+   epigraph is not a quotation of someone else's page: it carries none of the
+   left bar Material rules on every blockquote, and its indent is its own.
+   Material writes that bar as `[dir=ltr] .md-typeset blockquote`, which a
+   bare `blockquote.ts-epigraph` loses to, so the selector names `.md-typeset`
+   too: it wins on specificity over the undirected rules and ties the
+   directional ones, which the sheet then wins on order, being `extra_css`. */
+.md-typeset blockquote.ts-epigraph {
+  margin: 1.2em 0 1.6em;
+  padding: 0 0 0 30%;
+  border: none;
+  font-style: italic;
+  text-align: right;
+  color: var(--md-default-fg-color--light, inherit);
+}
+blockquote.ts-epigraph > footer {
+  display: block;
+  margin-top: 0.3em;
+  font-style: normal;
+  font-size: 0.85em;
+}
+blockquote.ts-epigraph > footer::before {
+  content: "— ";
+}
+
+/* Citations and the appended `References` list */
+.ts-cite {
+  text-decoration: none;
+}
+.ts-bibliography {
+  font-size: 0.9em;
+}
+.ts-bibliography > li {
+  margin-bottom: 0.4em;
+}

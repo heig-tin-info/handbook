@@ -1,0 +1,58 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+  <diagram id="FTOy3s04ZtGIBpg1ibNA" name="Page-1">
+    <mxGraphModel dx="1420" dy="942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="370" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="10" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="Début" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="342" width="115" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="11" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Prendre deux entiers naturels &lt;i&gt;a&lt;/i&gt; et &lt;i&gt;b&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="332" y="80" width="135" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="oui" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="4" target="5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="non" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="4" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;i&gt;b&lt;/i&gt; égal à 0 ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="337" y="170" width="125" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Le PGCD est &lt;i&gt;a&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="514" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Fin" style="rounded=1;whiteSpace=wrap;html=1;arcSize=50;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="524" y="307" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="13" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="7" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;i&gt;b&lt;/i&gt; reçoit la valeur de &lt;i&gt;r&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="147" y="180" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="8" target="7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="&lt;i&gt;a&lt;/i&gt; reçoit la valeur de &lt;i&gt;b&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="147" y="297" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="9" target="8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="calculer &lt;i&gt;r&lt;/i&gt; le reste de la division euclidienne de &lt;i&gt;a&lt;/i&gt; par &lt;i&gt;b&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=1.5748;" parent="1" vertex="1">
+          <mxGeometry x="329.5" y="297" width="140" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

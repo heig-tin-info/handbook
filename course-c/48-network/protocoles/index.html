@@ -1,0 +1,6833 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cours d'informatique pour les étudiants en ingénierie du département des
+technologies industrielles à la HEIG-VD. Ce cours concerne le langage C et
+les outils associés.
+">
+      
+      
+        <meta name="author" content="Yves Chevallier">
+      
+      
+        <link rel="canonical" href="https://heig-tin-info.github.io/handbook/course-c/48-network/protocoles/">
+      
+      
+        <link rel="prev" href="../osi/">
+      
+      
+        <link rel="next" href="../sockets/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/icons/favicon.ico">
+      <meta name="generator" content="zensical-0.0.69">
+    
+    
+      
+        <title>Protocoles - L'informatique pour ingénieurs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../../assets/stylesheets/modern/main.e15858d4.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/modern/palette.b27955a4.min.css">
+      
+      
+  
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+    
+      
+      
+    
+  
+  
+  <style>:root{--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.5%201.75v11.5c0%20.138.112.25.25.25h3.17a.75.75%200%200%201%200%201.5H2.75A1.75%201.75%200%200%201%201%2013.25V1.75C1%20.784%201.784%200%202.75%200h8.5C12.216%200%2013%20.784%2013%201.75v7.736a.75.75%200%200%201-1.5%200V1.75a.25.25%200%200%200-.25-.25h-8.5a.25.25%200%200%200-.25.25m13.274%209.537zl-4.557%204.45a.75.75%200%200%201-1.055-.008l-1.943-1.95a.75.75%200%200%201%201.062-1.058l1.419%201.425%204.026-3.932a.75.75%200%201%201%201.048%201.074M4.75%204h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M4%207.75A.75.75%200%200%201%204.75%207h2a.75.75%200%200%201%200%201.5h-2A.75.75%200%200%201%204%207.75%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M4.72.22a.75.75%200%200%201%201.06%200l1%20.999a3.5%203.5%200%200%201%202.441%200l.999-1a.748.748%200%200%201%201.265.332.75.75%200%200%201-.205.729l-.775.776c.616.63.995%201.493.995%202.444v.327q0%20.15-.025.292c.408.14.764.392%201.029.722l1.968-.787a.75.75%200%200%201%20.556%201.392L13%207.258V9h2.25a.75.75%200%200%201%200%201.5H13v.5q-.002.615-.141%201.186l2.17.868a.75.75%200%200%201-.557%201.392l-2.184-.873A5%205%200%200%201%208%2016a5%205%200%200%201-4.288-2.427l-2.183.873a.75.75%200%200%201-.558-1.392l2.17-.868A5%205%200%200%201%203%2011v-.5H.75a.75.75%200%200%201%200-1.5H3V7.258L.971%206.446a.75.75%200%200%201%20.558-1.392l1.967.787c.265-.33.62-.583%201.03-.722a1.7%201.7%200%200%201-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72%201.28a.75.75%200%200%201%200-1.06m.53%206.28a.75.75%200%200%200-.75.75V11a3.5%203.5%200%201%200%207%200V7.25a.75.75%200%200%200-.75-.75ZM6.173%205h3.654A.17.17%200%200%200%2010%204.827V4.5a2%202%200%201%200-4%200v.327c0%20.096.077.173.173.173%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M9.504.43a1.516%201.516%200%200%201%202.437%201.713L10.415%205.5h2.123c1.57%200%202.346%201.909%201.22%203.004l-7.34%207.142a1.25%201.25%200%200%201-.871.354h-.302a1.25%201.25%200%200%201-1.157-1.723L5.633%2010.5H3.462c-1.57%200-2.346-1.909-1.22-3.004zm1.047%201.074L3.286%208.571A.25.25%200%200%200%203.462%209H6.75a.75.75%200%200%201%20.694%201.034l-1.713%204.188%206.982-6.793A.25.25%200%200%200%2012.538%207H9.25a.75.75%200%200%201-.683-1.06l2.008-4.418.003-.006-.004-.009-.006-.006-.008-.001q-.005%200-.009.004%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M5%205.782V2.5h-.25a.75.75%200%200%201%200-1.5h6.5a.75.75%200%200%201%200%201.5H11v3.282l3.666%205.76C15.619%2013.04%2014.543%2015%2012.767%2015H3.233c-1.776%200-2.852-1.96-1.899-3.458Zm-2.4%206.565a.75.75%200%200%200%20.633%201.153h9.534a.75.75%200%200%200%20.633-1.153L12.225%2010.5h-8.45ZM9.5%202.5h-3V6c0%20.143-.04.283-.117.403L4.73%209h6.54L9.617%206.403A.75.75%200%200%201%209.5%206Z%22/%3E%3C/svg%3E');--md-admonition-icon--exercise:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M7.693%201.066a.75.75%200%200%201%20.614%200l7.25%203.25a.75.75%200%200%201%200%201.368L13%206.831v2.794c0%201.024-.81%201.749-1.66%202.173-.893.447-2.075.702-3.34.702q-.417%200-.816-.036a.75.75%200%200%201%20.133-1.494Q7.649%2011%208%2011c1.082%200%202.025-.221%202.67-.543.69-.345.83-.682.83-.832V7.503L8.307%208.934a.75.75%200%200%201-.614%200L4%207.28v1.663c.296.105.575.275.812.512.438.438.688%201.059.688%201.796v3a.75.75%200%200%201-.75.75h-3a.75.75%200%200%201-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443%205.684a.75.75%200%200%201%200-1.368ZM2.583%205%208%207.428%2013.416%205%208%202.572ZM2.5%2011.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.7.7%200%200%200-.5-.203.7.7%200%200%200-.5.203c-.125.124-.25.347-.25.735%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M2.344%202.343za8%208%200%200%201%2011.314%2011.314A8.002%208.002%200%200%201%20.234%2010.089a8%208%200%200%201%202.11-7.746m1.06%2010.253a6.5%206.5%200%201%200%209.108-9.275%206.5%206.5%200%200%200-9.108%209.275M6.03%204.97%208%206.94l1.97-1.97a.749.749%200%200%201%201.275.326.75.75%200%200%201-.215.734L9.06%208l1.97%201.97a.749.749%200%200%201-.326%201.275.75.75%200%200%201-.734-.215L8%209.06l-1.97%201.97a.749.749%200%200%201-1.275-.326.75.75%200%200%201%20.215-.734L6.94%208%204.97%206.03a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018%22/%3E%3C/svg%3E');--md-admonition-icon--foobar:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m1.5%200a6.5%206.5%200%201%200%2013%200%206.5%206.5%200%200%200-13%200m10.28-1.72-4.5%204.5a.75.75%200%200%201-1.06%200l-2-2a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018l1.47%201.47%203.97-3.97a.75.75%200%200%201%201.042.018.75.75%200%200%201%20.018%201.042%22/%3E%3C/svg%3E');--md-admonition-icon--hint:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%201.5c-2.363%200-4%201.69-4%203.75%200%20.984.424%201.625.984%202.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621%201.49a.75.75%200%200%201-1.484.211c-.04-.282-.163-.547-.37-.847a9%209%200%200%200-.542-.68q-.126-.149-.268-.32C3.201%207.75%202.5%206.766%202.5%205.25%202.5%202.31%204.863%200%208%200s5.5%202.31%205.5%205.25c0%201.516-.701%202.5-1.328%203.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751%200%200%201-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304%200-2.06-1.637-3.75-4-3.75M5.75%2012h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M6%2015.25a.75.75%200%200%201%20.75-.75h2.5a.75.75%200%200%201%200%201.5h-2.5a.75.75%200%200%201-.75-.75%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.637%202.363zl1.676.335c.09.018.164.084.19.173a.25.25%200%200%201-.062.249l-1.373%201.374a.88.88%200%200%201-.619.256H12.31L9.45%207.611A1.5%201.5%200%201%201%206.5%208a1.5%201.5%200%200%201%201.889-1.449l2.861-2.862V2.552c0-.232.092-.455.256-.619L12.88.559a.25.25%200%200%201%20.249-.062c.089.026.155.1.173.19Z%22/%3E%3Cpath%20d%3D%22M2%208a6%206%200%201%200%2011.769-1.656.751.751%200%201%201%201.442-.413%207.502%207.502%200%200%201-12.513%207.371A7.501%207.501%200%200%201%2010.069.789a.75.75%200%200%201-.413%201.442A6%206%200%200%200%202%208%22/%3E%3Cpath%20d%3D%22M5%208a3.002%203.002%200%200%200%204.699%202.476%203%203%200%200%200%201.28-2.827.748.748%200%200%201%201.045-.782.75.75%200%200%201%20.445.61A4.5%204.5%200%201%201%208.516%203.53a.75.75%200%201%201-.17%201.49A3%203%200%200%200%205%208%22/%3E%3C/svg%3E');--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1%207.775V2.75C1%201.784%201.784%201%202.75%201h5.025c.464%200%20.91.184%201.238.513l6.25%206.25a1.75%201.75%200%200%201%200%202.474l-5.026%205.026a1.75%201.75%200%200%201-2.474%200l-6.25-6.25A1.75%201.75%200%200%201%201%207.775m1.5%200c0%20.066.026.13.073.177l6.25%206.25a.25.25%200%200%200%20.354%200l5.025-5.025a.25.25%200%200%200%200-.354l-6.25-6.25a.25.25%200%200%200-.177-.073H2.75a.25.25%200%200%200-.25.25ZM6%205a1%201%200%201%201%200%202%201%201%200%200%201%200-2%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M0%208a8%208%200%201%201%2016%200A8%208%200%200%201%200%208m8-6.5a6.5%206.5%200%201%200%200%2013%206.5%206.5%200%200%200%200-13M6.92%206.085h.001a.749.749%200%201%201-1.342-.67c.169-.339.436-.701.849-.977C6.845%204.16%207.369%204%208%204a2.76%202.76%200%200%201%201.637.525c.503.377.863.965.863%201.725%200%20.448-.115.83-.329%201.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6%206%200%200%200-.26.16%201%201%200%200%200-.276.245.75.75%200%200%201-1.248-.832c.184-.264.42-.489.692-.661q.154-.1.313-.195l.007-.004c.1-.061.182-.11.258-.161a1%201%200%200%200%20.277-.245C8.96%206.514%209%206.427%209%206.25a.61.61%200%200%200-.262-.525A1.27%201.27%200%200%200%208%205.5c-.369%200-.595.09-.74.187a1%201%200%200%200-.34.398M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.75%202.5h10.5a.75.75%200%200%201%200%201.5H1.75a.75.75%200%200%201%200-1.5m4%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5m0%205h8.5a.75.75%200%200%201%200%201.5h-8.5a.75.75%200%200%201%200-1.5M2.5%207.75v6a.75.75%200%200%201-1.5%200v-6a.75.75%200%200%201%201.5%200%22/%3E%3C/svg%3E');--md-admonition-icon--reload:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M1.705%208.005a.75.75%200%200%201%20.834.656%205.5%205.5%200%200%200%209.592%202.97l-1.204-1.204a.25.25%200%200%201%20.177-.427h3.646a.25.25%200%200%201%20.25.25v3.646a.25.25%200%200%201-.427.177l-1.38-1.38A7.002%207.002%200%200%201%201.05%208.84a.75.75%200%200%201%20.656-.834ZM8%202.5a5.49%205.49%200%200%200-4.131%201.869l1.204%201.204A.25.25%200%200%201%204.896%206H1.25A.25.25%200%200%201%201%205.75V2.104a.25.25%200%200%201%20.427-.177l1.38%201.38A7.002%207.002%200%200%201%2014.95%207.16a.75.75%200%200%201-1.49.178A5.5%205.5%200%200%200%208%202.5%22/%3E%3C/svg%3E');--md-admonition-icon--solution:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M3.217%206.962A3.75%203.75%200%200%201%200%203.25v-.5C0%201.784.784%201%201.75%201h1.356c.228-.585.796-1%201.462-1h6.864c.647%200%201.227.397%201.462%201h1.356c.966%200%201.75.784%201.75%201.75v.5a3.75%203.75%200%200%201-3.217%203.712%205.01%205.01%200%200%201-2.771%203.117l.144%201.446c.005.05.03.12.114.204.086.087.217.17.373.227.283.103.618.274.89.568.285.31.467.723.467%201.226v.75h1.25a.75.75%200%200%201%200%201.5H2.75a.75.75%200%200%201%200-1.5H4v-.75c0-.503.182-.916.468-1.226.27-.294.606-.465.889-.568q.21-.074.373-.227c.084-.085.109-.153.114-.204l.144-1.446a5.01%205.01%200%200%201-2.77-3.117ZM4.5%201.568V5.5a3.5%203.5%200%201%200%207%200V1.568a.07.07%200%200%200-.068-.068H4.568a.07.07%200%200%200-.068.068m2.957%208.902-.12%201.204c-.093.925-.858%201.47-1.467%201.691a.8.8%200%200%200-.3.176c-.037.04-.07.093-.07.21v.75h5v-.75c0-.117-.033-.17-.07-.21a.8.8%200%200%200-.3-.176c-.609-.221-1.374-.766-1.466-1.69l-.12-1.204a5%205%200%200%201-1.087%200ZM13%202.5v2.872a2.25%202.25%200%200%200%201.5-2.122v-.5a.25.25%200%200%200-.25-.25zm-10%200H1.75a.25.25%200%200%200-.25.25v.5c0%20.98.626%201.813%201.5%202.122Z%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M13.78%204.22a.75.75%200%200%201%200%201.06l-7.25%207.25a.75.75%200%200%201-1.06%200L2.22%209.28a.75.75%200%200%201%20.018-1.042.75.75%200%200%201%201.042-.018L6%2010.94l6.72-6.72a.75.75%200%200%201%201.06%200%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M8%201.5c-2.363%200-4%201.69-4%203.75%200%20.984.424%201.625.984%202.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621%201.49a.75.75%200%200%201-1.484.211c-.04-.282-.163-.547-.37-.847a9%209%200%200%200-.542-.68q-.126-.149-.268-.32C3.201%207.75%202.5%206.766%202.5%205.25%202.5%202.31%204.863%200%208%200s5.5%202.31%205.5%205.25c0%201.516-.701%202.5-1.328%203.259q-.142.172-.268.319c-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751%200%200%201-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848q.113-.133.213-.253c.561-.679.985-1.32.985-2.304%200-2.06-1.637-3.75-4-3.75M5.75%2012h4.5a.75.75%200%200%201%200%201.5h-4.5a.75.75%200%200%201%200-1.5M6%2015.25a.75.75%200%200%201%20.75-.75h2.5a.75.75%200%200%201%200%201.5h-2.5a.75.75%200%200%201-.75-.75%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6.457%201.047c.659-1.234%202.427-1.234%203.086%200l6.082%2011.378A1.75%201.75%200%200%201%2014.082%2015H1.918a1.75%201.75%200%200%201-1.543-2.575Zm1.763.707a.25.25%200%200%200-.44%200L1.698%2013.132a.25.25%200%200%200%20.22.368h12.164a.25.25%200%200%200%20.22-.368Zm.53%203.996v2.5a.75.75%200%200%201-1.5%200v-2.5a.75.75%200%200%201%201.5%200M9%2011a1%201%200%201%201-2%200%201%201%200%200%201%202%200%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Nunito";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/texsmith/texsmith.css">
+    
+      <link rel="stylesheet" href="../../../css/french.css">
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/tables.css">
+    
+      <link rel="stylesheet" href="../../../css/drawio.css">
+    
+      <link rel="stylesheet" href="../../../css/pills.css">
+    
+      <link rel="stylesheet" href="../../../css/exercises.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-FVF0WYPMYM"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-FVF0WYPMYM",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-FVF0WYPMYM",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="https://heig-tin-info.github.io/handbook" title="L&#x27;informatique pour ingénieurs" class="md-header__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg" alt="L'informatique pour ingénieurs">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            L'informatique pour ingénieurs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Protocoles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Recherche">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../00-preface/" class="md-tabs__link">
+          
+  
+  Cours C
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../course-cpp/cpp/" class="md-tabs__link">
+          
+  
+  Cours C++
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../course-concurrent/os/" class="md-tabs__link">
+          
+  
+  Concurrence
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/dev/bash/" class="md-tabs__link">
+          
+  
+  Outils
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../appendix/bibliography/" class="md-tabs__link">
+          
+  
+  Annexes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://heig-tin-info.github.io/handbook" title="L&#x27;informatique pour ingénieurs" class="md-nav__button md-logo" aria-label="L'informatique pour ingénieurs" data-md-component="logo">
+      
+  <img src="https://raw.githubusercontent.com/heig-vd/logos/main/heig-vd/svg/heig-vd-white.svg" alt="L'informatique pour ingénieurs">
+
+    </a>
+    L'informatique pour ingénieurs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/heig-tin-info/handbook" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+  </div>
+  <div class="md-source__repository">
+    heig-tin-info/handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cours C
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Cours C
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../00-preface/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Préface
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Introduction
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programmation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Développement logiciel
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/me-and-my-computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mon ordinateur et moi
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-introduction/c-lang/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Le langage C
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../10-numeration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Numération
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Numération
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  L'information
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bases
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../10-numeration/numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Nombres
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Éléments du langage
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Éléments du langage
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Syntaxe
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/datatype/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Types de données
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Opérateurs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/stdio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Entrées Sorties
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/control-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Structures de contrôle
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/preprocessor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Préprocesseur
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fonctions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Portée et visibilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-fundations/grammar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  La grammaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../20-composite-types/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Types composites
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Types composites
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tableaux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chaînes de caractères
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Structures
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/unions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Pointeurs
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20-composite-types/generic-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programmation générique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture et Systèmes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Architecture et Systèmes
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/computer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  L'ordinateur personnel
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Processeur
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/mcu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Microcontrôleur
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/memory-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gestion de la Mémoire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/programs-and-processes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programmes et Processus
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fichiers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../25-architecture-and-systems/abi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  ABI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../27-data-structures/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conteneurs de données
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Conteneurs de données
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/dynamic-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tableau dynamique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Listes chaînées
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Arbres
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/maps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tableaux de hachage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/graphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Graphes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../27-data-structures/performances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Performances
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../30-modular-programming/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programmation Modulaire
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Programmation Modulaire
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30-modular-programming/translation-units/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compilation séparée
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../30-modular-programming/libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bibliothèques
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bibliothèques
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Bibliothèques
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bibliothèques
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/standard-library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bibliothèques standard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../35-libraries/third-party-libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Autres bibliothèques
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../40-algorithms/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithmes et Conception
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Algorithmes et Conception
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithmes sur chaînes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/recursion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Récursivité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/automata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Automates finis
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Recherche
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10_7" id="__nav_2_10_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithmes de tris
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_10_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_10_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Algorithmes de tris
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/count-sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Counting Sort
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/heap-sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Heap Sort
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/sorting/quick-sort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Quick Sort
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_10_8" id="__nav_2_10_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Quelques algorithmes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_10_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_10_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Quelques algorithmes
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/a-star/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  A-Star
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/conway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Jeu de la vie de Conway
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-exp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exponentiation rapide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-inverse-square-root/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Racine carrée inverse rapide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/fast-sin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sinus rapide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/huffman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Codage de Huffman
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/infography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithmes d'infographie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/lindenmayer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  L-Système (Lindenmayer System)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/rabin-karp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithme de Rabin-Karp
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/random/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Générateur congruentiel linéaire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40-algorithms/popular-algorithms/shunting-yard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Algorithme de Shunting Yard
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../45-software-design/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conception Logicielle
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Conception Logicielle
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/teamwork/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Travail en équipe
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/software-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Organisation d'un projet
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Gestion des dépendances
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Projet open-source
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/licenses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Les Licences
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/release/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Deployement
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../45-software-design/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Qualité et Testabilité
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../47-gui/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces graphiques
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Interfaces graphiques
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/window/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenêtre graphique
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/opengl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  OpenGL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/sdl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SDL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../47-gui/gtk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  GTK
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Réseau
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_2_13">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Réseau
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modèle OSI
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Protocoles
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Protocoles
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MAC
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nat-pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAT / PAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DHCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ARP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ICMP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DNS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        HTTP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MQTT
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sockets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sockets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sécurité et Qualité
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_14">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Sécurité et Qualité
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../60-safety/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Philosophe et attitude
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_2_15">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Philosophe et attitude
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../70-philosophy/philosophy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Philosophie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../70-philosophy/funny/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Humour d'informaticien
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../90-exercises/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exercices
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cours C++
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Cours C++
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-cpp/cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  C++
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-cpp/garbage-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Collecteur de déchets (garbage collector)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-cpp/shared-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shared memory
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Concurrence
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Concurrence
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Système d'exploitation (POSIX)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture processeur
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/threads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Threads
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/mutex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exclusion Mutuelle
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/semaphores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sémaphores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Mémoire cache
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Programmation Asynchrone
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/thread-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Pool de threads
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../course-concurrent/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Résumé
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Outils
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Outils
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Environnement de développement
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_1">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Environnement de développement
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bash (Ligne de commande)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fichiers de configuration
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Docker
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  L'environnement de travail
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Git
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Windows
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/dev/wsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Windows Subsystem for Linux
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Architecture
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_2">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Architecture
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/arch/filesystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Système de fichier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  C/C++
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  C/C++
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/c-cpp/gcc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Compilateur C/C++
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/c-cpp/gdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  GDB (GNU Debugger)
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/c-cpp/conan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Conan
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/c-cpp/vcpkg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  VcPKG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Build System
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Build System
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/build-system/make/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Make
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/build-system/cmake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CMake
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/build-system/ninja/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ninja
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/build-system/meson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Meson
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Editeurs
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Editeurs
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/editor/vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Vim
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/editor/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Visual Studio Code
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Python
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Python
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/python/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Python
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Profilage et Analyse
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Profilage et Analyse
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/analysis/analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Diagnostics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/analysis/binutils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Binutils
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Annexes
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Annexes
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/bibliography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Bibliographie
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/grammar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Grammaire C
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/laboratories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Laboratoires
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fiches d'unités de cours
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/index-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Index
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/demos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Demos
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/refcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cartes de référence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MAC
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        IP
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nat-pat" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAT / PAT
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DHCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ARP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ICMP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        UDP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TCP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DNS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        HTTP
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MQTT
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+    <a href="https://github.com/heig-tin-info/handbook/edit/master/docs/course-c/48-network/protocoles.md" title="Editer cette page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/heig-tin-info/handbook/raw/master/docs/course-c/48-network/protocoles.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="protocoles">Protocoles<a class="headerlink" href="#protocoles" title="Lien permanent">¤</a></h1>
+<p>Cet ouvrage n'étant pas un cours consacré au réseau, il n'est pas raisonnable d'y consacrer plus d'un chapitre. Néanmoins, l'ingénieur développeur en C devra tout de même comprendre, du moins conceptuellement les différences entre les différents protocoles de communication, comment ils sont imbriqués et à quoi ils servent. <em>in fine</em> en programmation vous aurez probablement simplement besoin de savoir comment ouvrir une connexion <abbr title="Transmission Control Protocol">TCP</abbr> ou <abbr title="User Datagram Protocol">UDP</abbr>, comment envoyer des données et comment les recevoir.</p>
+<h2 id="mac">MAC<a class="headerlink" href="#mac" title="Lien permanent">¤</a></h2>
+<p>Chaque carte réseau installée dans un ordinateur, un téléphone portable ou une tablette possède une adresse physique unique appelée adresse MAC (<em>Media Access Control</em>). Cette adresse est codée sur 48 bits (6 octets) et est attribuée par le fabricant de la carte. Ce dernier obtient un OUI (<em>Organizationally Unique Identifier</em>) qui est un préfixe de 24 bits attribué par l'IEEE (<em>Institute of Electrical and Electronics Engineers</em>) à une organisation. Avec un OUI, le fabricant peut gérer jusqu'à 16 millions d'adresses MAC. Les 24 bits restants sont attribués par le fabricant lui-même. Obtenir un OUI coûte environ 2 700 dollars. Ceci explique pourquoi les Raspberry PI ont des adresses MAC qui commencent par <code>b8:27:eb</code> qui est l'OUI de la fondation Raspberry PI.</p>
+<p>À moins de vouloir communiquer directement avec une carte réseau, l'adresse MAC n'est pas très utile pour un développeur. En effet, c'est le système d'exploitation qui se charge de gérer les communications réseau et qui va utiliser l'adresse IP pour identifier les machines. L'adresse MAC c'est un peu comme la coordonnée GPS d'une maison. Elle est utile au cadastraliste pour identifier un terrain et y attribuer une adresse postale, mais pour le facteur, c'est l'adresse postale qui est utile.</p>
+<h2 id="ip">IP<a class="headerlink" href="#ip" title="Lien permanent">¤</a></h2>
+<p>Un réseau informatique c'est un groupement de machines qui communiquent entre elles. Mettez 8 milliards de personnes dans la même salle, donnez-leur un porte-voix assez puissant et vous aurez un réseau. Vous admettrez néanmoins qu'arbitrer les échanges pour que chacun puisse parler à son tour est irréalisable. En outre, cela ne vous intéresse probablement guère de savoir que Madame Michu a gagné 5 francs au Tribolo. C'est pourquoi les réseaux informatiques sont organisés en sous-réseau.</p>
+<p>Les ingénieurs système utilisent le protocole IP pour associer à une adresse MAC donnée une adresse IP. L'adresse IP est une adresse logique attribuée à chaque machine sur un réseau. Elle est historiquement codée sur 32-bits et permettant ainsi d'identifier environ 4 milliards de machines. Avec l'explosion de l'Internet, cette taille est devenue très largement insuffisante. C'est pourquoi un nouveau protocole, IPv6 (version 6) a été créé. Ce protocole utilise des adresses codées sur 128 bits et permet d'identifier 340 sextillions de machines. C'est largement suffisant pour attribuer une adresse IP à chaque grain de sable sur Terre. Néanmoins les adresses IPv6 sont moins facilement mémorisables que les adresses IPv4. C'est pourquoi ces dernières sont encore largement utilisées dans des réseaux privés ou d'entreprise.</p>
+<p>Un périphérique IP peut être cloisonné facilement en plusieurs sous-réseaux grâce à un masque de sous-réseau. Par exemple, le périphérique à l'adresse IP 192.168.1.42 avec un masque de sous-réseau 255.255.255.0 ne va s'intéresser qu'aux périphériques de la plage 192.168.1.0 à 192.168.1.255. Cela permet à la carte réseau de filtrer les paquets qui lui sont destinés et de ne pas s'intéresser aux autres. Pour reprendre notre analogie, c'est comme si vous aviez sur vos oreilles un casque antibruit qui ne laisse passer que certaines voix.</p>
+<p>Il y a deux types d'adresses IP, celles dites publiques et routables sur Internet et celles dites privées qui sont utilisées dans les réseaux locaux. Les adresses privées sont définies par la <a href="https://tools.ietf.org/html/rfc1918">RFC 1918</a> et sont les suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Plage d'adresses</th>
+<th>Masque de sous-réseau</th>
+<th>Classe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.0.0.0</td>
+<td>10.255.255.255  (10/8)</td>
+<td>A</td>
+</tr>
+<tr>
+<td>172.16.0.0</td>
+<td>172.31.255.255   (172.16/12)</td>
+<td>B</td>
+</tr>
+<tr>
+<td>192.168.0.0</td>
+<td>192.168.255.255  (192.168/16)</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<p>Il est très probable que l'adresse IP de votre ordinateur ou de votre téléphone sur le réseau de votre domicile ou celui de votre travail soit l'une de ces adresses. Elles ne sont pas routables c'est-à-dire qu'elles ne peuvent pas être transportées en dehors du réseau local.</p>
+<p>Pour communiquer publiquement, il faut utiliser une adresse IP publique. Ces adresses sont attribuées par les fournisseurs d'accès à Internet (FAI) et sont gérées par l'IANA (<em>Internet Assigned Numbers Authority</em>). Chez vous, vous avez probablement une adresse IP publique attribuée par votre FAI (Salt, Swisscom, Sunrise, Orange...) c'est l'adresse attribuée à votre routeur ou box.</p>
+<p>À votre travail ou dans votre école, c'est pareil. Une école n'a pas les moyens ni l'intérêt d'avoir une adresse IP publique pour chaque ordinateur. Elle dispose d'une certaine quantité d'adresses IP publiques utilisées pour communiquer vers l'extérieur. Si par exemple vous allez sur le site <a href="https://www.showmyip.com/">showmyip.com</a>, vous pouvez voir l'adresse IP publique utilisée pour communiquer sur internet.</p>
+<h3 id="nat-pat">NAT / PAT<a class="headerlink" href="#nat-pat" title="Lien permanent">¤</a></h3>
+<p>On peut se demander comment les données en provenance d'internet peuvent arriver jusqu'à votre ordinateur si tout le monde dans une même institution à la même adresse. C'est là qu'intervient le NAT (<em>Network Address Translation</em>), plus précisément dans notre cas le PAT (<em>Port Address Translation</em>). Il s'agit d'un dispositif qui va traduire les adresses IP privées en adresses IP publiques. Admettons que j'aimerais envoyer un message à Monsieur Google à l'adresse 1600 Amphi-theatre Parkway, Mountain View, CA 94043, USA. Pour simplifier disons simplement que son adresse est : <code>142.250.203.110:80443</code>. Le <code>80443</code> est le numéro du port utilisé. C'est un peu comme le numéro de l'appartement dans un immeuble. Comme je crois dur comme fer à l'encapsulation, je vais indiquer sur l'enveloppe au dos de l'enveloppe l'adresse de l'expéditeur, c'est-à-dire mon adresse. Je vais donc écrire quelque chose comme : <code>192.168.1.42:7878</code>. Or, vous l'aurez compris, cette adresse n'est pas routable sur internet et Monsieur Google ne saura pas où me répondre. C'est pareil que dire que le trésor se cache sous la troisième pierre à droite du vieux chêne. Sans savoir dans quelle forêt, dans quelle contrée et dans quel pays chercher, vous ne deviendrez pas riche.</p>
+<p>Néanmoins, rappelez-vous du NAT. Vous avez un gentil facteur qui, avant que votre lettre ne soit postée en direction des Amériques, va réécrire l'adresse de l'expéditeur. Il va mettre par exemple : <code>193.134.219.72:57898</code>. Il s'agit de l'adresse IP publique de votre institution. Quant au port, il a été choisit aléatoirement par le facteur. C'est un peu comme si le facteur avait mis un numéro de boîte postale disponible. Bien entendu il notera dans un cahier que cette boîte postale (ce port) est réservée à la réponse de Monsieur Google et qu'il vous est destiné.</p>
+<p>Vous l'aurez compris, il n'existe pas de facteur. C'est un dispositif informatique nommé <strong>routeur</strong> qui se charge de faire cette traduction. C'est le routeur qui se charge de cette tâche. Il va traduire l'adresse IP privée en adresse IP publique et va conserver dans une table de traduction l'adresse IP privée et le port utilisé. Lorsque la réponse de Monsieur Google arrivera, le routeur va regarder dans sa table de traduction et va savoir à qui renvoyer la réponse. C'est un peu comme si le facteur avait un cahier avec les noms des destinataires et les numéros de boîtes postales.</p>
+<p>Sur votre machine Linux, vous pouvez voir les connexions en cours avec <code>conntrack</code>, on y voir le type de socket (<abbr title="Transmission Control Protocol">TCP</abbr>, <abbr title="User Datagram Protocol">UDP</abbr>), l'adresse IP source et destination, le port source et destination, et la traduction. Pour la première connexion, on voit une adresse source privée, mais une adresse de destination publique. C'est une connexion sortante. Le port de destination <code>34230</code> est probablement attribué par le mécanisme de PAT du routeur du destinataire.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>➜<span class="w"> </span>sudo<span class="w"> </span>conntrack<span class="w"> </span>-L
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>tcp<span class="w">      </span><span class="m">6</span><span class="w"> </span><span class="m">95</span><span class="w"> </span>SYN_SENT<span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">172</span>.24.167.101<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">169</span>.254.169.254<span class="w"> </span><span class="nv">sport</span><span class="o">=</span><span class="m">34230</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">         </span><span class="nv">dport</span><span class="o">=</span><span class="m">80</span><span class="w"> </span><span class="o">[</span>UNREPLIED<span class="o">]</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">169</span>.254.169.254<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">172</span>.24.167.101
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">         </span><span class="nv">sport</span><span class="o">=</span><span class="m">80</span><span class="w"> </span><span class="nv">dport</span><span class="o">=</span><span class="m">34230</span><span class="w"> </span><span class="nv">mark</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">use</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>udp<span class="w">      </span><span class="m">17</span><span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">10</span>.255.255.254<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">10</span>.255.255.254<span class="w"> </span><span class="nv">sport</span><span class="o">=</span><span class="m">41319</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">         </span><span class="nv">dport</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">10</span>.255.255.254<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">10</span>.255.255.254
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">         </span><span class="nv">sport</span><span class="o">=</span><span class="m">53</span><span class="w"> </span><span class="nv">dport</span><span class="o">=</span><span class="m">41319</span><span class="w"> </span><span class="nv">mark</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">use</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>tcp<span class="w">      </span><span class="m">6</span><span class="w"> </span><span class="m">99</span><span class="w"> </span>SYN_SENT<span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">172</span>.24.167.101<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">169</span>.254.169.254<span class="w"> </span><span class="nv">sport</span><span class="o">=</span><span class="m">57376</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">         </span><span class="nv">dport</span><span class="o">=</span><span class="m">80</span><span class="w"> </span><span class="o">[</span>UNREPLIED<span class="o">]</span><span class="w"> </span><span class="nv">src</span><span class="o">=</span><span class="m">169</span>.254.169.254<span class="w"> </span><span class="nv">dst</span><span class="o">=</span><span class="m">172</span>.24.167.101
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">         </span><span class="nv">sport</span><span class="o">=</span><span class="m">80</span><span class="w"> </span><span class="nv">dport</span><span class="o">=</span><span class="m">57376</span><span class="w"> </span><span class="nv">mark</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">use</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>...
+</span></code></pre></div>
+<p>Ce mécanisme de NAT/PAT intervient à de multiples strates. Tout d'abord au niveau d'un programme complexe comme Docker qui va créer des réseaux virtuels pour isoler les conteneurs. Ensuite au niveau de votre système d'exploitation pour gérer les connexions entre les différents programmes. En effet votre PC ou votre Mac à une seule carte réseau partagée par tous les programmes. Enfin, au niveau de votre routeur qui va gérer les connexions entre votre réseau local et internet. La situation se répète de l'autre côté de l'atlantique chez Monsieur Google (du routeur à la machine, de la machine au programme...).</p>
+<h3 id="dhcp"><abbr title="Dynamic Host Configuration Protocol">DHCP</abbr><a class="headerlink" href="#dhcp" title="Lien permanent">¤</a></h3>
+<p>Lorsque vous connectez un périphérique à un réseau local, il a besoin d'une adresse IP. Dans de rares cas, c'est de votre responsabilité de choisir une adresse, mais comme vous ne connaissez probablement pas la configuration du réseau, vous ne saurez pas choisir une adresse valide qui n'est pas utilisée par quelqu'un d'autre. C'est le rôle du protocole <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> (<em>Dynamic Host Configuration Protocol</em>) qui permet à un périphérique de demander une adresse IP. Le serveur <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> va attribuer une adresse IP à ce périphérique pour une durée déterminée. Une fois allouée, vous pouvez communiquer sur le réseau.</p>
+<p>Le serveur <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> va stocker dans une table la correspondance entre l'adresse MAC du périphérique et l'adresse IP attribuée. Ces informations sont complétées par un bail <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> (<em><abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> Lease</em>) qui est la durée pendant laquelle l'adresse IP est attribuée. Une fois le bail expiré, le périphérique doit renouveler son bail pour continuer à communiquer. Selon la configuration du serveur <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr>, il peut attribuer la même adresse IP ou une nouvelle adresse. C'est pour cette raison que parfois votre adresse IP change toute seule.</p>
+<p>Ce que vous devez savoir en tant que développeur, c'est que vous pouvez soit disposer d'une adresse IP statique, c'est-à-dire que votre adresse est stockée en dur dans la configuration de votre machine, soit d'une adresse IP dynamique, c'est-à-dire que votre adresse est attribuée par un serveur <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr>. Dans la très grande majorité des cas, c'est la deuxième option qui est utilisée.</p>
+<p>La plupart du temps un serveur <abbr title="Dynamic Host Configuration Protocol">DHCP</abbr> récupère également le nom de l'hôte (<em>hostname</em>), c'est-à-dire le nom de la machine.</p>
+<h3 id="arp"><abbr title="Address Resolution Protocol">ARP</abbr><a class="headerlink" href="#arp" title="Lien permanent">¤</a></h3>
+<p>Nous avons vu qu'une fois dans un réseau local et que chacun a une adresse IP, il est possible de communiquer. On profite de l'encapsulation des protocoles pour faire transiter les données d'une machine à une autre sans se soucier des couches inférieures. Néanmoins, il reste un problème à résoudre.</p>
+<p>IP est basé sur le protocole Ethernet. Chaque paquet IP est encapsulé dans un paquet Ethernet lequel contient l'adresse MAC source et destination. Vous devez donc connaître l'adresse MAC de la machine à qui vous souhaitez envoyer des données.</p>
+<p>C'est le protocole <abbr title="Address Resolution Protocol">ARP</abbr> (<em>Address Resolution Protocol</em>) qui permet de faire la correspondance entre une adresse IP et une adresse MAC. Lorsque vous souhaitez communiquer avec une machine, vous envoyez un message <abbr title="Address Resolution Protocol">ARP</abbr> en broadcast sur le réseau (à tout le monde). Toutes les machines du réseau reçoivent ce message et celle qui possède l'adresse IP demandée répond avec son adresse MAC.</p>
+<p>Évidemment si dix-mille ordinateurs sont dans le même sous réseau, ils ne vont pas envoyer un message <em>broadcast</em> avant chaque transmission. Chaque ordinateur conserve sa propre table <abbr title="Address Resolution Protocol">ARP</abbr> qui contient les correspondances entre les adresses IP et les adresses MAC qu'il connaît. C'est seulement lorsque l'adresse MAC n'est pas dans la table ou lorsque l'adresse IP change qu'une requête <abbr title="Address Resolution Protocol">ARP</abbr> sera envoyée.</p>
+<div class="admonition info">
+<p class="admonition-title"><abbr title="Address Resolution Protocol">ARP</abbr> Flood</p>
+<p>Il existe une attaque informatique nommée <em><abbr title="Address Resolution Protocol">ARP</abbr> Flood</em> qui consiste à envoyer un grand nombre de requêtes <abbr title="Address Resolution Protocol">ARP</abbr> sur un réseau pour saturer les tables <abbr title="Address Resolution Protocol">ARP</abbr> des machines. Cela peut être utilisé pour empêcher les machines de communiquer entre elles.</p>
+<p>Puisque les requêtes <abbr title="Address Resolution Protocol">ARP</abbr> sont diffusées en <em>broadcast</em>, tous les appareils du réseau les reçoivent.</p>
+<p>Heureusement les routeurs et les switchs modernes sont capables de détecter et de bloquer ce type d'attaque en limitant le nombre de requêtes <abbr title="Address Resolution Protocol">ARP</abbr> par seconde ou en blocant les adresses MAC suspectes.</p>
+</div>
+<p>Sous Linux vous pouvez consulter la table <abbr title="Address Resolution Protocol">ARP</abbr> avec la commande <code>ip neigh show</code> et sous Windows vous pouvez utiliser <code>arp -a</code>.</p>
+<h3 id="icmp">ICMP<a class="headerlink" href="#icmp" title="Lien permanent">¤</a></h3>
+<p>Le protocole ICMP (<em>Internet Control Message Protocol</em>) est un protocole qui permet de communiquer des messages de contrôle et d'erreur entre les machines. Par exemple, si vous essayez de communiquer avec une machine qui n'existe pas, vous allez recevoir un message ICMP de type <em>Destination Unreachable</em>.</p>
+<p>C'est ce protocole qui permet de faire des pings pour tester la connectivité entre deux machines. Le <em>ping</em> est un message ICMP de type <em>Echo Request</em> qui est envoyé à une machine. Si la machine est connectée et qu'elle est configurée pour répondre aux pings, elle va renvoyer un message ICMP de type <em>Echo Reply</em>.</p>
+<p>Dans la majorité des cas en ingénierie et durant le développement, les machines sont configurées pour répondre aux pings. Si vous connectez un Raspberry PI sur votre réseau local, vous pourrez le <em>pinger</em> avec la commande <code>ping 192.168.1.142</code> (où l'adresse IP est celle de votre Raspberry PI).</p>
+<p>Vous pouvez également envoyer une requête ICMP sur un serveur public comme Google. On voit ci-dessous que le serveur répond aux pings et que le temps de réponse est d'environ 3 ms. On découvre également que l'adresse IP est 142.250.203.110</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">➜</span><span class="w"> </span><span class="n">ping</span><span class="w"> </span><span class="n">google</span><span class="p">.</span><span class="n">com</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">PING</span><span class="w"> </span><span class="n">google</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="p">(</span><span class="mf">142.250.203.110</span><span class="p">)</span><span class="w"> </span><span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="p">.</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">zrh04s16</span><span class="p">.</span><span class="n">net</span><span class="w"> </span><span class="p">(</span><span class="mf">142.250.203.110</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">111</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">3.38</span><span class="w"> </span><span class="n">ms</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">zrh04s16</span><span class="p">.</span><span class="n">net</span><span class="w"> </span><span class="p">(</span><span class="mf">142.250.203.110</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">111</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">3.35</span><span class="w"> </span><span class="n">ms</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">^</span><span class="n">C</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">---</span><span class="w"> </span><span class="n">google</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="n">ping</span><span class="w"> </span><span class="n">statistics</span><span class="w"> </span><span class="o">---</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="mi">2</span><span class="w"> </span><span class="n">packets</span><span class="w"> </span><span class="n">transmitted</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">received</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">%</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">loss</span><span class="p">,</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="mi">2203</span><span class="n">ms</span>
+</span></code></pre></div>
+<p>Des services de localisation permettent de savoir où se trouve une adresse IP. Par exemple, l'adresse IP <code>142.250.203.110</code> est attribuée à Google et est située à Zurich en Suisse. Il s'agit de l'adresse d'un <em>datacenter</em>.</p>
+<p>Lorsque vous mettez un serveur privé sur internet. Vous voulez probablement qu'il ne réponde pas aux pings. En effet, un attaquant pourrait envoyer des pings à des adresses IP aléatoires pour découvrir les serveurs actifs. Une fois qu'il sait que votre machine répond, il peut essayer de le pirater. Désactiver le ping sous Linux se fait en modifiant le fichier <code>/etc/sysctl.conf</code> et en ajoutant la ligne <code>net.ipv4.icmp_echo_ignore_all = 1</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Traceroute</p>
+<p>Le protocole ICMP est également utilisé par la commande <code>traceroute</code> qui permet de suivre le chemin emprunté par un paquet entre deux machines. La commande envoie des paquets ICMP avec un TTL (<em>Time To Live</em>) de 1, 2, 3, ... jusqu'à ce que le paquet atteigne sa destination. Chaque routeur sur le chemin va décrémenter le TTL et lorsqu'il atteint 0, il va renvoyer un message ICMP de type <em>Time Exceeded</em> à l'expéditeur. C'est ainsi que l'on peut voir le chemin emprunté par un paquet entre deux machines.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>traceroute<span class="w"> </span>to<span class="w"> </span><span class="m">142</span>.250.203.110,<span class="w"> </span><span class="m">30</span><span class="w"> </span>hops<span class="w"> </span>max,<span class="w"> </span><span class="m">60</span><span class="w"> </span>byte<span class="w"> </span>packets
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="m">1</span><span class="w">  </span><span class="m">172</span>.24.160.1<span class="w">  </span><span class="m">0</span>.246<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.216<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.207<span class="w"> </span>ms
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="m">2</span><span class="w">  </span><span class="m">10</span>.192.77.1<span class="w">  </span><span class="m">0</span>.444<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.535<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.425<span class="w"> </span>ms
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="m">3</span><span class="w">  </span><span class="m">10</span>.193.255.34<span class="w">  </span><span class="m">0</span>.815<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.806<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.799<span class="w"> </span>ms
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="m">4</span><span class="w">  </span><span class="m">10</span>.193.255.102<span class="w"> </span><span class="m">0</span>.989<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.977<span class="w"> </span>ms<span class="w">  </span><span class="m">0</span>.966<span class="w"> </span>ms
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">5</span><span class="w">  </span><span class="m">185</span>.144.39.4<span class="w">  </span><span class="m">1</span>.176<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.164<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.155<span class="w"> </span>ms
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="m">6</span><span class="w">  </span>rchon01-te-0-0-2_81.as203130.ch<span class="w">  </span><span class="m">1</span>.046<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.253<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.224<span class="w"> </span>ms
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="m">7</span><span class="w">  </span>swiyv2-ge-0-0-0-0.hessoadm.ch<span class="w">  </span><span class="m">2</span>.078<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.937<span class="w"> </span>ms<span class="w">  </span><span class="m">1</span>.822<span class="w"> </span>ms
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="m">8</span><span class="w">  </span>swiNE1-10GE-0-0-2-3.switch.ch<span class="w">  </span><span class="m">2</span>.401<span class="w"> </span>ms<span class="w">  </span><span class="m">2</span>.179<span class="w"> </span>ms<span class="w">  </span><span class="m">2</span>.285<span class="w"> </span>ms
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="m">9</span><span class="w">  </span>swiNE2-10GE-0-0-1-1.switch.ch<span class="w">  </span><span class="m">4</span>.419<span class="w"> </span>ms<span class="w">  </span><span class="m">4</span>.409<span class="w"> </span>ms<span class="w">  </span><span class="m">4</span>.403<span class="w"> </span>ms
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="m">10</span><span class="w">  </span>swiBI1-10GE-0-0-0-18.switch.ch<span class="w">  </span><span class="m">3</span>.170<span class="w"> </span>ms<span class="w">  </span><span class="m">2</span>.996<span class="w"> </span>ms<span class="w">  </span><span class="m">3</span>.333<span class="w"> </span>ms
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="m">11</span><span class="w">  </span>swiZH3-100GE-0-0-0-1.switch.ch<span class="w">  </span><span class="m">3</span>.776<span class="w"> </span>ms<span class="w">  </span><span class="m">3</span>.660<span class="w"> </span>ms<span class="w">  </span><span class="m">3</span>.626<span class="w"> </span>ms
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="m">12</span><span class="w">  </span><span class="m">72</span>.14.242.82<span class="w">  </span><span class="m">3</span>.825<span class="w"> </span>ms<span class="w">  </span><span class="m">3</span>.817<span class="w"> </span>ms<span class="w">  </span><span class="m">3</span>.814<span class="w"> </span>ms
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="m">13</span><span class="w">  </span>*<span class="w"> </span>*<span class="w"> </span>*
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="m">14</span><span class="w">  </span><span class="m">172</span>.253.50.20<span class="w">  </span><span class="m">4</span>.565<span class="w"> </span>ms<span class="w"> </span><span class="m">172</span>.253.50.22<span class="w"> </span><span class="m">5</span>.579<span class="w"> </span>ms
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span>zrh04s16-in-f14.1e100.net<span class="w"> </span><span class="o">(</span><span class="m">142</span>.250.203.110<span class="o">)</span><span class="w">  </span><span class="m">3</span>.852<span class="w"> </span>ms
+</span></code></pre></div>
+<p>Le <code>* * *</code> indique que le routeur ne répond pas aux requêtes ICMP. C'est une configuration courante pour les routeurs de gros fournisseurs de services internet. Ci-dessus on voit que de 1 à 4, les routeurs sont dans le réseau local. <code>185.144.39.4</code> appartient à la HEIG-VD puis elle transite par la HES-SO en 7 pour arriver chez Switch à Zurich en 8. En 12 on voit que le paquet est transmis à Google.</p>
+</div>
+<h2 id="udp"><abbr title="User Datagram Protocol">UDP</abbr><a class="headerlink" href="#udp" title="Lien permanent">¤</a></h2>
+<p>Le protocole <abbr title="User Datagram Protocol">UDP</abbr> (<em>User Datagram Protocol</em>) est un protocole de transport qui permet de transmettre des données sans garantie de livraison. C'est un protocole simple qui ne gère pas la retransmission des paquets perdus. Il est utilisé pour les applications qui n'ont pas besoin d'une communication fiable. Par exemple, le protocole <abbr title="Domain Name System">DNS</abbr> utilise <abbr title="User Datagram Protocol">UDP</abbr> pour transmettre les requêtes de résolution de noms de domaines. Les flux vidéos (streaming) utilisent également <abbr title="User Datagram Protocol">UDP</abbr> pour transmettre les données, car il n'est pas grave de perdre quelques images si cela permet de réduire la latence et le trafic réseau.</p>
+<p>Le protocole est relativement simple. Il est défini par la RFC 768 son en-tête est très simple :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>                  0      7 8     15 16    23 24    31
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                 |          source address           |
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                 |        destination address        |
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                 |  zero  |   17   |   UDP length    |
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                               Trame IP
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                  0      7 8     15 16    23 24    31
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                 |   Source Port   |   Dest. Port    |
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                 |     Length      |    Checksum     |
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>                 +--------+--------+--------+--------+
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>                 |                                   |
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                 |          Data (payload)           |
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                 |                                   |
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>                 +-----------------------------------+
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>                              Trame UDP
+</span></code></pre></div>
+<p>On y trouve l'adresse IP source et destination, un champ réservé à zéro, le protocole utilisé (17 pour <abbr title="User Datagram Protocol">UDP</abbr>), et la longueur du paquet sur 16 bits. Un paquet <abbr title="User Datagram Protocol">UDP</abbr> à donc une taille maximale de 65'535 octets (ou 65 Kio). Avec un en-tête de 8 octets, cela laisse 65'527 octets pour les données. En pratique le MTU (<em>Maximum Transmission Unit</em>) des réseaux Ethernet est de 1500 octets, c'est-à-dire qu'un paquet <abbr title="User Datagram Protocol">UDP</abbr> plus grand sera fragmenté au niveau de la couche IP. Comme <abbr title="User Datagram Protocol">UDP</abbr> n'a pas de mécanisme pour garantir la livraison des paquets, dans le cas où un fragment est perdu, l'intégralité du paquet l'est également.</p>
+<p>L'en-tête <abbr title="User Datagram Protocol">UDP</abbr> contient le port de source et le port de destination. On peut noter également que le paquet <abbr title="User Datagram Protocol">UDP</abbr> contient un champ <code>length</code> correspondant à la taille des données et de l'en-tête. Néanmoins, on constate qu'il y a déjà cette information dans la trame IP. Cette redondance est le résultat de l'encapsulation des protocoles et de la séparation des responsabilités. Cela crée de <em>l'overhead</em>, c'est-à-dire que la quantité d'information utile doit être augmentée pour contenir les informations de routage et de contrôle. Au final c'est la même chose avec les lettres papier. Le poids de l'encre par rapport au support (le papier, l'enveloppe, le timbre) et au camion du postier est très faible.</p>
+<h2 id="tcp"><abbr title="Transmission Control Protocol">TCP</abbr><a class="headerlink" href="#tcp" title="Lien permanent">¤</a></h2>
+<p>Le protocole <abbr title="Transmission Control Protocol">TCP</abbr> (<em>Transmission Control Protocol</em>) est un protocole de transport qui permet de transmettre des données de manière fiable. On dit que le protocole est connecté (<em>connection-oriented</em>), car il établit une connexion entre les deux machines avant de transmettre les données. C'est un protocole complexe qui gère la retransmission des paquets perdus, le contrôle de flux, le contrôle de congestion, etc.</p>
+<p>L'établissement d'une connexion <abbr title="Transmission Control Protocol">TCP</abbr> se fait avec un <em>3-way handshake</em> (une poignée de main à trois). Le client envoie un paquet SYN (<em>synchronize</em>) à la machine distante. La machine distante répond avec un paquet SYN-ACK (<em>synchronize-acknowledge</em>). Enfin, le client répond avec un paquet ACK (<em>acknowledge</em>) et la connexion est établie. Une fois la connexion établie, du point de vue d'un programme c'est comme si un tuyau avait été posé entre les deux machines. Pour envoyer des données, il suffit de les écrire dans le tuyau et elles sortiront de l'autre côté. Bien entendu les données pourraient être perdues, fragmentées en plusieurs paquets, émises par câble sous-marin ou par satellite, mais pour le programme c'est transparent. Lui, il a la garantie que les données arriveront dans l'ordre et sans erreur.</p>
+<p>C'est pourquoi le protocole <abbr title="Transmission Control Protocol">TCP</abbr> est le plus utilisé. De nombreux protocoles l'utilisent :</p>
+<ul>
+<li><abbr title="HyperText Transfer Protocol">HTTP</abbr> (port 80) pour les pages web ;</li>
+<li><abbr title="HyperText Transfer Protocol Secure">HTTPS</abbr> (port 443) pour les pages web sécurisées ;</li>
+<li><abbr title="File Transfer Protocol">FTP</abbr> (port 21) pour le transfert de fichiers ;</li>
+<li><abbr title="Secure Shell">SSH</abbr> (port 22) pour les connexions sécurisée à distance ;</li>
+<li>SMTP (port 25) pour l'envoi de courriels ;</li>
+<li>MQTT (port 1883) pour l'IoT, etc.</li>
+</ul>
+<h2 id="dns"><abbr title="Domain Name System">DNS</abbr><a class="headerlink" href="#dns" title="Lien permanent">¤</a></h2>
+<p>Le protocole <abbr title="Domain Name System">DNS</abbr> (<em>Domain Name System</em>) est un protocole basé sur <abbr title="User Datagram Protocol">UDP</abbr> qui permet de faire la correspondance entre un nom de domaine et une adresse IP. Par exemple, lorsque vous tapez <code>google.com</code> dans votre navigateur, votre ordinateur va envoyer une requête <abbr title="Domain Name System">DNS</abbr> pour obtenir l'adresse IP de Google. Une fois l'adresse IP obtenue, votre ordinateur va pouvoir communiquer avec le serveur de Google pour obtenir la page d'accueil.</p>
+<p>Les noms de domaines sont arbitrés par l'ICANN (<em>Internet Corporation for Assigned Names and Numbers</em>) qui attribue les noms de domaines de premier niveau (TLD) comme <code>.com</code>, <code>.org</code>, <code>.net</code>, etc. Les noms de domaines de deuxième niveau (SLD) sont attribués par des registres de noms de domaines. Par exemple, le registre de noms de domaines pour la Suisse est SWITCH qui attribue les noms de domaines en <code>.ch</code>.</p>
+<p>Le protocole <abbr title="Domain Name System">DNS</abbr> est basé sur le protocole <abbr title="User Datagram Protocol">UDP</abbr> et utilise le port 53. Lorsque vous voulez disposer de votre propre serveur, vous allez déposer une requête auprès votre NIC (<em>Network Information Center</em>) pour obtenir un nom de domaine. Vous allez ensuite configurer votre serveur <abbr title="Domain Name System">DNS</abbr> pour faire la correspondance entre votre nom de domaine et une adresse IP.</p>
+<p>On parle de résolution de nom lorsque l'on veut obtenir l'adresse IP d'un nom de domaine et de résolution inverse lorsque l'on veut obtenir le nom de domaine à partir d'une adresse IP. Chaque institution dispose de son propre serveur <abbr title="Domain Name System">DNS</abbr> qui va gérer les requêtes pour les noms de domaines qu'il connaît. Depuis votre ordinateur assis à votre bureau, vous pouvez envoyer une requête <abbr title="Domain Name System">DNS</abbr> à votre serveur <abbr title="Domain Name System">DNS</abbr> local, lequel va se charger de faire la résolution pour vous. Il pourrait répondre directement ou bien il pourrait envoyer une requête à un serveur <abbr title="Domain Name System">DNS</abbr> de niveau supérieur. Il y a donc une hiérarchie de serveurs <abbr title="Domain Name System">DNS</abbr> qui permet de résoudre les noms de domaines. Le problème c'est combien de temps est-ce qu'une entrée <abbr title="Domain Name System">DNS</abbr> est conservée en cache. Si vous changez l'adresse IP de votre serveur, vous allez mettre à jour les informations du domaine, mais il faudra attendre que les caches <abbr title="Domain Name System">DNS</abbr> soient invalidés pour que tout le monde puisse accéder à votre site. Ce paramètre est appelé le TTL (<em>Time To Live</em>) et est configuré par le propriétaire du domaine. Il est souvent de 24 heures pour les sites web, mais il peut être plus court pour les services critiques.</p>
+<p>Une entrée <abbr title="Domain Name System">DNS</abbr> peut être de la forme suivante ou le nom de domaine HEIG-VD est associé à l'adresse IP <code>193.134.219.72</code> avec un temps de vie de 86400 secondes (24 heures) :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>www.heig-vd.ch.  86400  IN  A  193.134.219.72
+</span></code></pre></div>
+<p>Un serveur <abbr title="Domain Name System">DNS</abbr> peut également fonctionner au sein d'une institution pour gérer les noms des serveurs internes. Par exemple, si vous avez un serveur de base de données nommé <code>eistore0</code> dans votre entreprise, vous pouvez configurer votre serveur <abbr title="Domain Name System">DNS</abbr> pour que ce nom soit associé à l'adresse IP de votre serveur.</p>
+<h2 id="http"><abbr title="HyperText Transfer Protocol">HTTP</abbr><a class="headerlink" href="#http" title="Lien permanent">¤</a></h2>
+<p>Le protocole <abbr title="HyperText Transfer Protocol">HTTP</abbr> (<em>HyperText Transfer Protocol</em>) est un protocole de la couche application qui permet de transférer des données sur le web. Il est basé sur le protocole <abbr title="Transmission Control Protocol">TCP</abbr> et utilise le port 80. Le protocole est défini par la RFC 2616 et est un protocole texte. C'est-à-dire que les données sont transmises en clair et que les en-têtes sont des chaînes de caractères.</p>
+<p>Lorsque vous demandez la page d'accueil de Google, votre navigateur va envoyer une requête <abbr title="HyperText Transfer Protocol">HTTP</abbr> de type GET à l'adresse <code>http://www.google.com/</code>. Cette requête aura possiblement la forme suivante :</p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nf">GET</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">Host</span><span class="o">:</span> <span class="l">www.google.com</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0 (X11; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="na">Accept-Language</span><span class="o">:</span> <span class="l">fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="na">Upgrade-Insecure-Requests</span><span class="o">:</span> <span class="l">1</span>
+</span></code></pre></div>
+<p>La réponse du serveur sera un message <abbr title="HyperText Transfer Protocol">HTTP</abbr> de type 200 OK avec le contenu de la page d'accueil.</p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">Date</span><span class="o">:</span> <span class="l">Tue, 15 Jun 2021 08:00:00 GMT</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">Server</span><span class="o">:</span> <span class="l">Apache/2.4.46 (Unix)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">Last-Modified</span><span class="o">:</span> <span class="l">Tue, 15 Jun 2021 07:00:00 GMT</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">Content-Length</span><span class="o">:</span> <span class="l">1234</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>...
+</span></code></pre></div>
+<p>Le code de retour <code>200</code> indique que la requête a été traitée avec succès. Il existe de nombreux autres codes organisés en cinq catégories :</p>
+<ul>
+<li>1xx : Information</li>
+<li>2xx : Succès</li>
+<li>3xx : Redirection</li>
+<li>4xx : Erreur client</li>
+<li>5xx : Erreur serveur</li>
+</ul>
+<p>On retrouve l'erreur <code>404</code> pour indiquer que la page n'a pas été trouvée, <code>403</code> pour indiquer que l'accès est interdit, <code>500</code> pour indiquer une erreur interne du serveur, etc. Plus amusant, on trouve le code <code>418</code> pour indiquer que le serveur est une théière. C'est un code d'erreur qui n'est pas vraiment utilisé, mais qui est défini par la RFC 2324 (Hyper Text Coffee Pot Control Protocol).</p>
+<h2 id="mqtt">MQTT<a class="headerlink" href="#mqtt" title="Lien permanent">¤</a></h2>
+<p>Le protocole MQTT (<em>Message Queuing Telemetry Transport</em>) est un protocole de messagerie basé sur le protocole <abbr title="Transmission Control Protocol">TCP</abbr>. Il est utilisé pour les applications IoT (<em>Internet of Things</em>) pour transmettre des messages entre les capteurs et les serveurs. Le protocole est basé sur le principe de publication/abonnement. Un client peut publier un message sur un <em>topic</em> et un autre client peut s'abonner à ce <em>topic</em> pour recevoir les messages. Le protocole est très léger et est utilisé pour les applications qui nécessitent une faible consommation d'énergie et une faible bande passante. La spécification du protocole est définie par la norme OASIS MQTT et le protocole utilise le port 1883.</p>
+<p>Par exemple un capteur de température peut publier un message sur le <em>topic</em> :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/switzerland/vaud/weather/temperature/42
+</span></code></pre></div>
+<p>avec la valeur <code>25.5</code> et un client peut s'abonner à ce <em>topic</em> pour recevoir les valeurs de température en temps réel. MQTT est beaucoup utilisé pour les applications de l'internet des objets, car il permet de transmettre des messages de manière asynchrone et de manière fiable via un serveur intermédiaire nommé <em>broker</em> (courtier).</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Cette page m'a été utile" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="Cette page pourrait être améliorée" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+              
+                
+                
+              
+              Merci pour votre retour !
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../osi/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Modèle OSI">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Modèle OSI
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../sockets/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Sockets">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Sockets
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2024 HEIG-VD Yves Chevallier - <a href="#__consent">Paramètres des cookies</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/heig-tin-info/handbook" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>Nous utilisons des cookies pour reconnaître vos visites répétées et vos préférences, ainsi que pour mesurer l'efficacité de notre documentation et savoir si les utilisateurs trouvent ce qu'ils recherchent. Avec votre consentement, vous nous aidez à améliorer notre documentation.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="github" checked>
+      <span class="task-list-indicator"></span>
+      GitHub
+    </label>
+  </li>
+
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepter</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Paramétrer vos choix</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../../..","features":["content.action.edit","content.action.view","content.code.annotate","content.code.copy","content.tooltips","header.autohide","navigation.footer","navigation.instant","navigation.indexes","navigation.tabs","navigation.top","navigation.tracking","search.highlight","search.share","search.suggest","toc.follow"],"redirect":null,"search":"../../../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.8b1c90bd.min.js"></script>
+      
+        <script src="../../../js/feedback.js"></script>
+      
+        <script src="../../../js/exercises.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="../../../js/navcolor.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+      
+    
+  </body>
+</html>
