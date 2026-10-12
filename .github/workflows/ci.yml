@@ -30,17 +30,17 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout the handbook
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.x"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v10
         with:
           enable-cache: true
 
@@ -75,7 +75,7 @@ jobs:
 
       - name: Upload the books
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: PDF
           path: |
@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download the books
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: PDF
           path: ./build
@@ -101,7 +101,7 @@ jobs:
           mv ./build/tools/tools-print.pdf ./build/devtools.pdf
 
       - name: Create release & upload assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Release ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
