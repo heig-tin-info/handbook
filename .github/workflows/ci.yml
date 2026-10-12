@@ -1,5 +1,11 @@
 name: ci
 
+# The site is built with Zensical and the two books with TeXSmith, in one job
+# (`make all`). A push to the main branch publishes the site on `gh-pages`,
+# replacing whatever was there: the latest publication is the only one, there
+# are no versions to go back to. A tag also attaches the two books, compressed
+# for print, to a GitHub release. A pull request builds without publishing.
+
 on:
   push:
     branches:
@@ -7,20 +13,23 @@ on:
       - main
     tags:
       - "*"
+  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: mkdocs-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build MkDocs Documentation
+    name: Build the site and the two books
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
-      - name: Checkout Repository
+      - name: Checkout the handbook
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -41,102 +50,61 @@ jobs:
           sudo apt-get install -y pngquant ghostscript
 
       - name: Install Python deps with uv
-        run: uv sync --extra dev
+        run: uv sync
 
-      - name: Cache MkDocs build directory
-        uses: actions/cache@v4
+      # `texsmith site assets` exports the draw.io diagrams of the corpus to
+      # SVG, and its first backend is Playwright. Without the exports the
+      # pages point at `.drawio` files no browser renders.
+      - name: Install Chromium for Playwright
+        run: uv run playwright install --with-deps chromium
+
+      - name: Build the site and the two books
+        run: make all
+
+      - name: Compress the books for print
+        run: make optimize
+
+      - name: Publish the site on gh-pages
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./build
-          key: ${{ runner.os }}-mkdocs-build-${{ hashFiles('docs/**/*.md', 'mkdocs.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-mkdocs-build-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true
 
-      - name: Build & Deploy Documentation with MkDocs
-        env:
-          MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
-          GH_TOKEN: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
-        run: CI=true uv run mkdocs gh-deploy --force
-
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: latex
-          path: ./build
-
-  book:
-    name: Build LaTeX Book
-    needs:
-      - build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: latex
-          path: ./build
-
-      - name: Cache Docker layers
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          install: true
-          driver: docker-container
-          buildkitd-flags: --oci-worker=true --oci-worker-gc=false
-
-      - name: Build Docker image
-        run: |
-          docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache \
-                              --cache-to=type=local,dest=/tmp/.buildx-cache \
-                              --load \
-                              -t latex-ycr:latest .
-
-      - name: Build LaTeX Book (using Docker)
-        run: make ci
-
-      - name: Upload PDF Artifact
+      - name: Upload the books
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: build/*/output-print.pdf
-          if-no-files-found: ignore
+          path: |
+            build/book/book-print.pdf
+            build/tools/tools-print.pdf
+          if-no-files-found: warn
 
   release:
     name: Create GitHub Release
     if: startsWith(github.ref, 'refs/tags/')
-    needs: book
+    needs: build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Download PDF Artifact
+      - name: Download the books
         uses: actions/download-artifact@v4
         with:
           name: PDF
           path: ./build
 
-      - name: Rename PDF files
+      - name: Rename the books
         run: |
-          mv ./build/book/output-print.pdf ./build/handbook.pdf
-          mv ./build/tools/output-print.pdf ./build/devtools.pdf
+          mv ./build/book/book-print.pdf ./build/handbook.pdf
+          mv ./build/tools/tools-print.pdf ./build/devtools.pdf
 
       - name: Create release & upload assets
         uses: softprops/action-gh-release@v2
         with:
-          name: Release ${{ github.ref }}
-          tag_name: ${{ github.ref }}
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
           files: |
             ./build/handbook.pdf
             ./build/devtools.pdf
