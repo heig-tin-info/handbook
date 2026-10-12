@@ -154,3 +154,36 @@ article {
   padding: 0 0 0 30%;
   border: none;
 }
+
+/* The header and the tabs in the primary colour, as under Material: the
+   modern variant of Zensical paints them in the page background, where the
+   white HEIG-VD logo disappears. The dark scheme keeps its dark header. */
+[data-md-color-scheme=default] .md-header,
+[data-md-color-scheme=default] .md-tabs {
+  color: var(--md-primary-bg-color);
+  background-color: var(--md-primary-fg-color);
+}
+[data-md-color-scheme=default] .md-header {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+[data-md-color-scheme=default] .md-tabs {
+  box-shadow: none;
+}
+[data-md-color-scheme=default] .md-tabs__item--active {
+  border-bottom-color: var(--md-primary-bg-color);
+}
+[data-md-color-scheme=default] .md-header .md-search__button {
+  color: var(--md-primary-bg-color);
+  background-color: var(--md-primary-fg-color--dark);
+}
+[data-md-color-scheme=default] .md-header .md-search__button:is(:hover, :focus) {
+  background-color: #0000001a;
+}
+[data-md-color-scheme=default] .md-header .md-search__button::before {
+  background-color: var(--md-primary-bg-color);
+}
+[data-md-color-scheme=default] .md-header .md-search__button::after {
+  color: var(--md-primary-bg-color);
+  background-color: #ffffff26;
+}
