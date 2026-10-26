@@ -609,3 +609,150 @@ inline int16_t q12_mul(int16_t a, int16_t b)
     return q_mul(a, b, 12);
 }
 ```
+
+### Division
+
+L'addition et la multiplication se traduisent chacune par une instruction que même le plus modeste des processeurs exécute en un ou deux cycles. La division est une tout autre affaire. Un cœur [ARM Cortex-M0](https://fr.wikipedia.org/wiki/ARM_Cortex-M) ou un [AVR](https://fr.wikipedia.org/wiki/Atmel_AVR) ne possède tout simplement pas d'instruction de division : le compilateur appelle à la place une routine logicielle qui calcule le quotient bit après bit, soit plusieurs centaines de cycles pour un nombre 32 bits. Même lorsque l'instruction existe, comme sur un Cortex-M3 ou un Cortex-M4, elle est bien plus lente qu'une multiplication, laquelle est câblée et s'exécute en un cycle. #[division]
+
+Voici à quoi ressemble une telle routine. C'est la division posée que l'on apprend à l'école, mais en base deux : à chaque étape, on fait descendre un bit du dividende dans le reste, et si le reste dépasse le diviseur, on le soustrait et l'on pose un $1$ dans le quotient. La version signée se ramène à la version non signée en travaillant sur les valeurs absolues, puis en rétablissant les signes.
+
+```c
+/* Division non signée : renvoie n / d, écrit n % d dans *rem si non NULL.
+   Division par zéro : renvoie UINT32_MAX et rem = n (convention RISC-V). */
+uint32_t udiv32(uint32_t n, uint32_t d, uint32_t *rem)
+{
+    if (d == 0) {
+        if (rem) *rem = n;
+        return UINT32_MAX;
+    }
+
+    uint32_t q = 0, r = 0;
+
+    for (int i = 31; i >= 0; i--) {
+        uint32_t carry = r >> 31;            /* bit perdu par le décalage */
+        r = (r << 1) | ((n >> i) & 1u);
+        if (carry || r >= d) {               /* reste réel >= d */
+            r -= d;                          /* arithmétique modulo 2^32 : exact */
+            q |= 1u << i;
+        }
+    }
+
+    if (rem) *rem = r;
+    return q;
+}
+
+/* Division signée, troncature vers zéro comme l'opérateur / du C. */
+int32_t sdiv32(int32_t n, int32_t d, int32_t *rem)
+{
+    uint32_t un = n < 0 ? 0u - (uint32_t)n : (uint32_t)n;
+    uint32_t ud = d < 0 ? 0u - (uint32_t)d : (uint32_t)d;
+    uint32_t ur;
+    uint32_t uq = udiv32(un, ud, &ur);
+
+    if (rem) *rem = n < 0 ? -(int32_t)ur : (int32_t)ur;
+    return (int32_t)(((n < 0) != (d < 0)) ? 0u - uq : uq);
+}
+```
+
+Trente-deux tours de boucle, chacun composé d'un décalage, d'une comparaison, d'une soustraction conditionnelle et d'un saut : la facture dépasse vite la centaine de cycles, là où une multiplication en coûte un seul.
+
+Or, dans un programme embarqué, le diviseur est très souvent une constante : un capteur renvoie une tension en millivolts à convertir en degrés, une période de 1000 ms à découper en pas, une moyenne glissante sur 10 échantillons... Diviser par une constante revient à multiplier par son inverse, et c'est exactement ce que fait la **multiplication par la réciproque** #[multiplication par la réciproque] :
+
+$$
+\frac{x}{d} = x \times \frac{1}{d}
+$$
+
+Il reste une difficulté : $1/d$ est un nombre réel plus petit que $1$, que le processeur ne sait pas manipuler sans unité de calcul flottante. C'est là que le format Q entre en scène. On encode la réciproque en virgule fixe, en la multipliant par une puissance de deux, puis on corrige le résultat par un décalage à droite, une opération qui ne coûte qu'un seul cycle :
+
+$$
+\frac{x}{d} \approx \frac{x \times m}{2^k} \quad \text{avec} \quad m = \left\lceil \frac{2^k}{d} \right\rceil
+$$
+
+Prenons la division par 10 d'un entier non signé sur 16 bits. Avec $k = 16$, la réciproque vaut $65536 / 10 = 6553.6$ que l'on arrondit vers le haut à $m = 6554$. Il s'agit en somme du nombre $0.1$ encodé en **Q0.16**. Diviser $12345$ par $10$ revient alors à calculer :
+
+```text
+12345 * 6554 = 80909130
+
+┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│0│0│1│0│0││1│1│0│1│0│0│1│0││1│0│0│1│0│0│1│1││0│1│0│0│1│0│1│0│ Q16.16
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+
+┌─┬─┬─┬─┬─┬─┬─┬─┦┌─┬─┬─┬─┬─┬─┬─┬─┦
+│0│0│0│0│0│1│0│0││1│1│0│1│0│0│1│0│ = 1234
+└─┴─┴─┴─┴─┴─┴─┴─┘└─┴─┴─┴─┴─┴─┴─┴─┘
+```
+
+Le produit occupe 32 bits, interprété comme un nombre **Q16.16** puisque l'on a multiplié un entier (**Q16.0**) par une réciproque en **Q0.16**. Les 16 bits de poids faible sont la partie fractionnaire du quotient, ici $0.5$ environ, et les 16 bits de poids fort portent le quotient entier : $1234$. En C :
+
+```c
+uint16_t div10(uint16_t x) {
+    return ((uint32_t)x * 6554u) >> 16;
+}
+```
+
+Une multiplication et un décalage remplacent ainsi une routine de plusieurs centaines de cycles. Mais pourquoi arrondir la réciproque vers le haut ? Parce que $6553.6$ n'est pas représentable, et que sa troncature, $6553$, encoderait un nombre légèrement inférieur à $0.1$. Le produit serait alors trop petit, et pour $x = 10$ on obtiendrait $65530 / 65536$ soit $0$ au lieu de $1$. En arrondissant par excès, l'erreur devient positive, mais elle reste inférieure au bit de poids faible tant que $x$ ne dépasse pas une certaine borne, que l'on peut calculer. L'erreur sur la réciproque vaut $\epsilon = m - 2^k / d = 0.4$. L'erreur sur le produit vaut donc $x \times \epsilon / 2^k$, et elle n'affecte pas le quotient entier tant qu'elle reste inférieure à $1/d$, c'est-à-dire tant que $x < 2^k / (d \times \epsilon) = 16384$. Au-delà, le résultat peut être faux d'une unité. Pour couvrir tout l'intervalle des 16 bits, il suffit d'augmenter la précision de la réciproque, avec $k = 19$ et $m = 52429$ : l'erreur tombe à $\epsilon = 0.2$ et la borne passe à $262144$, bien au-dessus de $65535$. Le produit $65535 \times 52429$ tient toujours sur 32 bits, la fonction reste donc aussi économe.
+
+!!! info "Le compilateur le fait pour vous"
+
+    Dès que le diviseur est une constante connue à la compilation, GCC et Clang appliquent eux-mêmes cette transformation, même sans optimisation agressive. L'expression `x / 10` est compilée en une multiplication par une constante *magique* suivie d'un décalage, et le compilateur choisit `k` et `m` de manière à garantir un résultat exact sur tout l'intervalle du type. Vous pouvez le constater avec [Compiler Explorer](https://godbolt.org/) : aucune instruction de division n'apparaît dans l'assembleur.
+
+    L'écrire à la main reste utile lorsque le diviseur n'est connu qu'à l'exécution, mais qu'il change rarement : la période d'un échantillonnage configurée au démarrage, le nombre de dents d'un codeur, le gain d'un capteur lu dans une mémoire de calibration... On calcule la réciproque une seule fois à l'initialisation, et chaque division suivante ne coûte plus qu'une multiplication.
+
+Voici un exemple complet dans lequel la réciproque est calculée une fois au démarrage. Un codeur incrémental fournit $n$ impulsions par tour et l'on souhaite convertir un compteur d'impulsions en un angle exprimé en degrés :
+
+```c
+#include <stdint.h>
+
+static uint32_t deg_per_pulse; // 360 / n en Q0.32, pour n >= 360
+
+void encoder_init(uint32_t pulses_per_turn) {
+    deg_per_pulse = (((uint64_t)360 << 32) + pulses_per_turn - 1)
+        / pulses_per_turn; // Une seule vraie division
+}
+
+uint32_t encoder_angle(uint32_t pulses) {
+    return ((uint64_t)pulses * deg_per_pulse) >> 32;
+}
+```
+
+Avec $n = 1024$, la réciproque vaut $\lceil 360 \times 2^{32} / 1024 \rceil = 1509949440$, et un compteur à $512$ impulsions donne bien $180$ degrés. Si le programme calcule l'angle à chaque interruption du codeur, soit plusieurs milliers de fois par seconde, le gain devient appréciable.
+
+Le même raisonnement s'applique en virgule fixe. Diviser deux nombres **Q4.12** entre eux est rarement nécessaire, en revanche diviser une grandeur par une constante physique, comme une résistance ou une constante de temps, l'est fréquemment. Il suffit alors d'encoder la réciproque de cette constante dans un format **Q** adapté et la division disparaît du programme.
+
+!!! warning "Les pièges"
+
+    La multiplication par la réciproque n'est pas une division exacte, et trois pièges guettent le programmeur distrait :
+
+    1. Le produit intermédiaire doit être calculé sur le double de la largeur des opérandes. Oublier le transtypage en `uint32_t` dans `div10` fait déborder la multiplication sur 16 bits, et le résultat est faux sans que le compilateur ne s'en plaigne.
+    2. La réciproque doit être arrondie par excès et sa précision `k` choisie en fonction de l'intervalle de `x`. Une réciproque tronquée donne des quotients trop petits.
+    3. Avec des nombres signés, le décalage à droite arrondit vers moins l'infini alors que la division entière du C arrondit vers zéro. Les deux résultats diffèrent pour les valeurs négatives, et il faut corriger le résultat d'une unité lorsque le dividende est négatif.
+
+::: exercise {title="#(ex:multiplication-par-la-reciproque) : Multiplication par la réciproque"}
+Un thermomètre numérique fournit une température en centièmes de degré sur 16 bits non signés, et l'on souhaite afficher la température en degrés entiers, soit diviser la mesure par 100.
+
+1. Calculez la réciproque de 100 encodée en **Q0.16**, arrondie par excès.
+2. Écrivez la fonction `uint16_t div100(uint16_t x)` qui n'utilise ni division ni nombre flottant.
+3. Jusqu'à quelle valeur de `x` le résultat est-il garanti exact ? Que proposez-vous pour couvrir tout l'intervalle des 16 bits ?
+
+??? solution
+
+    1. $2^{16} / 100 = 655.36$, arrondi par excès à $m = 656$.
+
+    2. Le produit doit être calculé sur 32 bits :
+
+        ```c
+        uint16_t div100(uint16_t x) {
+            return ((uint32_t)x * 656u) >> 16;
+        }
+        ```
+
+    3. L'erreur sur la réciproque vaut $\epsilon = 656 - 655.36 = 0.64$. Le résultat est exact tant que $x < 2^{16} / (100 \times 0.64) = 1024$, ce qui correspond à $10.24$ degrés seulement. Pour aller plus loin, on augmente la précision de la réciproque, mais le produit doit continuer à tenir sur 32 bits, ce qui impose $m < 2^{16}$ et donc $k \le 22$. Avec $k = 22$, $m = \lceil 4194304 / 100 \rceil = 41944$ et $\epsilon = 0.96$, la borne vaut $2^{22} / (100 \times 0.96) = 43690$, soit $436.9$ degrés : c'est bien au-delà de ce qu'un thermomètre mesure, et c'est suffisant en pratique.
+
+        ```c
+        uint16_t div100(uint16_t x) {
+            return ((uint32_t)x * 41944u) >> 22;
+        }
+        ```
+
+        Pour garantir un résultat exact sur tout l'intervalle des 16 bits, il faudrait $k = 23$ et $m = 83887$, dont la borne vaut $91180$. Mais ce multiplicateur occupe 17 bits et le produit déborde de 32 bits : il faudrait alors le calculer sur 64 bits, ce qui coûte plusieurs multiplications sur un petit processeur. C'est le compromis habituel de cette technique : la précision de la réciproque se paie en largeur de produit, et l'on choisit $k$ en fonction de l'intervalle réellement utile de $x$.
+:::
