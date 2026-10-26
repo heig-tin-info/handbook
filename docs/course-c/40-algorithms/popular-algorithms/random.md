@@ -1,3 +1,5 @@
+[]{#lcg}
+
 # Générateur congruentiel linéaire
 
 Le générateur congruentiel linéaire (GCL ou LCG) est un algorithme simple pour générer des nombres pseudo-aléatoires. Il est défini par la relation de récurrence suivante :
